@@ -1,7 +1,3 @@
-class AuthController {
-    index(req, res) {
-      res.send("auth page")
-    }
-  }
-  
-  module.exports = new AuthController();
+class AuthController {}
+
+module.exports = new AuthController();

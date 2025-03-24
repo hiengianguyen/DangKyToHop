@@ -1,5 +1,5 @@
 const homeRouter = require("./homeRoute");
-const welcomeRouter = require("./welcomeRoute");
+const welcomeRouter = require("./wellcomeRoute");
 const authRouter = require("./authRoute");
 const combinationRouter = require("./combinationRoute");
 const recommedRouter = require("./recommedRoute");
