@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hiengianguyen/Dang_Ky_To_Hop.git"
+    "url": "git+https://github.com/hiengianguyen/DangKyToHop.git"
   },
   "keywords": [
     "DKTH",
@@ -16,12 +16,13 @@
   "author": "Mason",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hiengianguyen/Dang_Ky_To_Hop/issues"
+    "url": "https://github.com/hiengianguyen/DangKyToHop/issues"
   },
-  "homepage": "https://github.com/hiengianguyen/Dang_Ky_To_Hop#readme",
+  "homepage": "https://github.com/hiengianguyen/DangKyToHop#readme",
   "description": "",
   "dependencies": {
     "express": "^4.21.2",
-    "firebase-admin": "^13.2.0"
+    "firebase-admin": "^13.2.0",
+    "prettier": "^3.5.3"
   }
 }
