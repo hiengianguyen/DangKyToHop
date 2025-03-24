@@ -1,0 +1,27 @@
+{
+  "name": "dangkytohop",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiengianguyen/Dang_Ky_To_Hop.git"
+  },
+  "keywords": [
+    "DKTH",
+    "DangKyToHop"
+  ],
+  "author": "Mason",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hiengianguyen/Dang_Ky_To_Hop/issues"
+  },
+  "homepage": "https://github.com/hiengianguyen/Dang_Ky_To_Hop#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "firebase-admin": "^13.2.0"
+  }
+}
