@@ -1,5 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const WelcomeController = require("../apps/controllers/WellcomController");
+const RecommendController = require("../apps/controllers/RecommendController");
 
 module.exports = router;
