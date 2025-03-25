@@ -12,7 +12,6 @@ module.exports = {
   SecondarySchoolModel,
   SubjectModel,
   SubmittedCombinationModel,
-  SubjectModel,
   TrendingCombinationModel,
   UserModel
 };

@@ -1,12 +1,12 @@
 const express = require("express");
-const admin = require("firebase-admin");
+const firebaseAdmin = require("firebase-admin");
 const app = express();
 const port = 3000;
 const route = require("./routes");
-const serviceAccount = require("../storageAccount.json");
+const serviceAccount = require("../src/config/database/storageAccount.json");
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+firebaseAdmin.initializeApp({
+  credential: firebaseAdmin.credential.cert(serviceAccount)
 });
 
 route(app);
