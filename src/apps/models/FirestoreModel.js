@@ -7,11 +7,11 @@ class FirestoreModel {
   }
 
   async getAllItems() {}
-  async getItemById(ids) {}
-  async getItemByFilter(ids) {}
-  async getItemsByFilter(ids) {}
+  async getItemById(id) {}
+  async getItemByFilter(query) {}
+  async getItemsByFilter(query) {}
   async updateItem(id, object) {}
-  async updateItems(ids, object) {}
+  async updateItems(query, object) {}
   async softDeleteItem(id) {}
   async hardDeleteItem(id) {}
   async softDeleteItems(ids) {}
