@@ -7,15 +7,15 @@ class FirestoreModel {
   }
 
   async getAllItems() {}
-  async getItemById(id) {}
-  async getItemByFilter(query) {}
-  async getItemsByFilter(query) {}
+  async getItemById(ids) {}
+  async getItemByFilter(ids) {}
+  async getItemsByFilter(ids) {}
   async updateItem(id, object) {}
-  async updateItems(query, object) {}
+  async updateItems(ids, object) {}
   async softDeleteItem(id) {}
   async hardDeleteItem(id) {}
-  async softDeleteItems(query) {}
-  async hardDeleteItems(query) {}
+  async softDeleteItems(ids) {}
+  async hardDeleteItems(ids) {}
 }
 
 module.exports = FirestoreModel;
