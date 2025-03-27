@@ -14,7 +14,6 @@ class CombinationModel {
     this.classCount = classCount;
     this.compulsorySubjects = compulsorySubjects;
     this.optionalSubjects = optionalSubjects;
-
     this.isDeleted = isDeleted;
   }
 }

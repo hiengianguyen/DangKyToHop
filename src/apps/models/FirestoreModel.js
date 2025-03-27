@@ -1,9 +1,9 @@
-const db = require("../../config/database/index");
+const database = require("../../config/database/index");
 
 class FirestoreModel {
   constructor(collectionName) {
     this.collectionName = collectionName;
-    this.collectionRef = db.collection(collectionName);
+    this.collectionRef = database.collection(collectionName);
   }
 
   async getAllItems() {
@@ -75,7 +75,30 @@ class FirestoreModel {
     }
   }
 
-  async updateItems(query, object) {}
+  async updateItems(query, object) {
+    let snapshot = this.collectionRef;
+    const queryKeys = Object.keys(query);
+    const queryValues = Object.values(query);
+
+    for (var i = 0; i < queryKeys.length; i++) {
+      snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
+    }
+
+    const docs = await snapshot.get();
+    const updatedDocs = [];
+
+    for (var doc of docs) {
+      const docRef = await this.collectionRef.doc(id).add(doc);
+      const updatedDoc = docRef.get();
+      updatedDocs.push(updatedDoc);
+    }
+
+    if (docs.length === updatedDocs.length) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   async softDeleteItem(id) {
     const docRef = await this.collectionRef.doc(id).add({ isDeleted: true });
