@@ -23,6 +23,7 @@
   "homepage": "https://github.com/hiengianguyen/DangKyToHop#readme",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "firebase-admin": "^13.2.0",
     "node-sass": "^9.0.0",

@@ -7,105 +7,146 @@ class FirestoreModel {
   }
 
   async getAllItems() {
-    const allDocs = await this.collectionRef.get();
-    return allDocs;
+    try {
+      const result = await this.collectionRef.get();
+      const allDocs = Array.from(result.docs);
+      return allDocs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
+    } catch (error) {
+      console.log("error:", error);
+      return [];
+    }
   }
 
   async getItemById(id) {
-    const doc = await this.collectionRef.doc(id).get();
-    return doc;
+    try {
+      const doc = await this.collectionRef.doc(id).get();
+      return doc.data();
+    } catch (error) {
+      console.log("error:", error);
+      return undefined;
+    }
   }
 
   async getItemByFilter(query) {
-    let snapshot = this.collectionRef;
-    const queryKeys = Object.keys(query);
-    const queryValues = Object.values(query);
+    try {
+      let snapshot = this.collectionRef;
+      const queryKeys = Object.keys(query);
+      const queryValues = Object.values(query);
 
-    for (var i = 0; i < queryKeys.length; i++) {
-      snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
+      for (var i = 0; i < queryKeys.length; i++) {
+        snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
+      }
+
+      const result = await snapshot.get();
+      const docs = Array.from(result.docs).map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
+      return docs[0];
+    } catch (error) {
+      console.log("error:", error);
+      return undefined;
     }
-
-    const docs = await snapshot.get();
-    return docs[0];
   }
 
   async getItemsByFilter(query) {
-    let snapshot = this.collectionRef;
-    const queryKeys = Object.keys(query);
-    const queryValues = Object.values(query);
+    try {
+      let snapshot = this.collectionRef;
+      const queryKeys = Object.keys(query);
+      const queryValues = Object.values(query);
 
-    for (var i = 0; i < queryKeys.length; i++) {
-      snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
+      for (var i = 0; i < queryKeys.length; i++) {
+        snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
+      }
+
+      const result = await snapshot.get();
+      const docs = Array.from(result.docs).map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
+      return docs;
+    } catch (error) {
+      console.log("error:", error);
+      return [];
     }
-
-    const docs = await snapshot.get();
-    return docs;
   }
 
   async addItem(object) {
-    const addedDoc = await this.collectionRef.add(object);
-    if (addedDoc) {
-      return true;
-    } else {
+    try {
+      const addedDoc = await this.collectionRef.add(object);
+      if (addedDoc) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.log("error:", error);
       return false;
     }
   }
 
   async addItems(objects) {
-    const addedDocs = [];
-    for (var object of objects) {
-      const addedDoc = await this.collectionRef.add(object);
-      addedDocs.push(addedDoc);
-    }
-
-    if (objects.length === addedDocs.length) {
+    try {
+      for (var object of objects) {
+        await this.collectionRef.add(object);
+      }
       return true;
-    } else {
+    } catch (error) {
+      console.log("error:", error);
       return false;
     }
   }
 
   async updateItem(id, object) {
-    const docRef = await this.collectionRef.doc(id).add(object);
-    const updatedDoc = docRef.get();
-    if (updatedDoc) {
-      return true;
-    } else {
+    try {
+      const updatedDoc = await this.collectionRef.doc(id).update(object);
+      if (updatedDoc && updatedDoc.writeTime) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.log("error:", error);
       return false;
     }
   }
 
   async updateItems(query, object) {
-    let snapshot = this.collectionRef;
-    const queryKeys = Object.keys(query);
-    const queryValues = Object.values(query);
+    try {
+      let snapshot = this.collectionRef;
+      const queryKeys = Object.keys(query);
+      const queryValues = Object.values(query);
 
-    for (var i = 0; i < queryKeys.length; i++) {
-      snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
-    }
+      for (var i = 0; i < queryKeys.length; i++) {
+        snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
+      }
 
-    const docs = await snapshot.get();
-    const updatedDocs = [];
+      const result = await snapshot.get();
+      const docs = Array.from(result.docs);
 
-    for (var doc of docs) {
-      const docRef = await this.collectionRef.doc(id).add(doc);
-      const updatedDoc = docRef.get();
-      updatedDocs.push(updatedDoc);
-    }
+      for (var doc of docs) {
+        await this.collectionRef.doc(doc.id).update(object);
+      }
 
-    if (docs.length === updatedDocs.length) {
       return true;
-    } else {
+    } catch (error) {
+      console.log("error:", error);
       return false;
     }
   }
 
   async softDeleteItem(id) {
-    const docRef = await this.collectionRef.doc(id).add({ isDeleted: true });
-    const deletedDoc = docRef.get();
-    if (deletedDoc) {
-      return true;
-    } else {
+    try {
+      const deletedDoc = await this.collectionRef
+        .doc(id)
+        .update({ isDeleted: true });
+      if (deletedDoc && deletedDoc.writeTime) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.log("error:", error);
       return false;
     }
   }
@@ -119,21 +160,19 @@ class FirestoreModel {
         return false;
       }
     } catch (error) {
+      console.log("error:", error);
       return false;
     }
   }
 
   async softDeleteItems(ids) {
-    const deletedDocs = [];
-    for (var id of ids) {
-      const docRef = await this.collectionRef.doc(id).add({ isDeleted: true });
-      const deletedDoc = docRef.get();
-      deletedDocs.push(deletedDoc);
-    }
-
-    if (ids.length === deletedDocs.length) {
+    try {
+      for (var id of ids) {
+        await this.collectionRef.doc(id).update({ isDeleted: true });
+      }
       return true;
-    } else {
+    } catch (error) {
+      console.log("error:", error);
       return false;
     }
   }
@@ -145,6 +184,7 @@ class FirestoreModel {
       }
       return true;
     } catch (error) {
+      console.log("error:", error);
       return false;
     }
   }
