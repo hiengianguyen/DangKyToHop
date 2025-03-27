@@ -1,4 +1,6 @@
+# folders
 node_modules/
 
+# files
 storageAccount.json
 .env
