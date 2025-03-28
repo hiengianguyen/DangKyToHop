@@ -4,7 +4,7 @@ class TrendingCombinationModel {
     this.year = year;
     this.combinationId = combinationId;
     this.registeredCount = registeredCount;
-    this.isDeleted = isDeleted;
+    this.isDeleted = isDeleted || false;
   }
 }
 

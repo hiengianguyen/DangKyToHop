@@ -3,7 +3,7 @@ class SubmittedCombinationModel {
     this.id = id;
     this.combinationId = combinationId;
     this.userId = userId;
-    this.isDeleted = isDeleted;
+    this.isDeleted = isDeleted || false;
   }
 }
 
