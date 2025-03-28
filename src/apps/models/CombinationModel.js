@@ -1,9 +1,9 @@
 class CombinationModel {
-  constructor(id, name, description, classCount, classesCapacity, compulsorySubjects, optionalSubjects, isDeleted) {
+  constructor(id, name, description, classesCount, classesCapacity, compulsorySubjects, optionalSubjects, isDeleted) {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.classCount = classCount;
+    this.classesCount = classesCount;
     this.classesCapacity = classesCapacity;
     this.compulsorySubjects = compulsorySubjects;
     this.optionalSubjects = optionalSubjects;
