@@ -1,14 +1,5 @@
 class HighSchoolModel {
-  constructor(
-    id,
-    name,
-    address,
-    establishedDate,
-    phone,
-    teachers,
-    description,
-    isDeleted
-  ) {
+  constructor(id, name, address, establishedDate, phone, teachers, description, isDeleted) {
     this.id = id;
     this.name = name;
     this.address = address;
