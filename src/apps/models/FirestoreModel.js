@@ -137,9 +137,7 @@ class FirestoreModel {
 
   async softDeleteItem(id) {
     try {
-      const deletedDoc = await this.collectionRef
-        .doc(id)
-        .update({ isDeleted: true });
+      const deletedDoc = await this.collectionRef.doc(id).update({ isDeleted: true });
       if (deletedDoc && deletedDoc.writeTime) {
         return true;
       } else {

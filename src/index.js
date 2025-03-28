@@ -7,6 +7,4 @@ const port = process.env.PORT || 3000;
 
 route(app);
 
-app.listen(port, () =>
-  console.log(`App listening at http://localhost:${port}`)
-);
+app.listen(port, () => console.log(`App listening at http://localhost:${port}`));
