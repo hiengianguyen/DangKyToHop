@@ -10,7 +10,7 @@ class UserModel {
     this.dateOfBirth = dateOfBirth;
     this.avatar = avatar;
     this.role = role;
-    this.isDeleted = isDeleted;
+    this.isDeleted = isDeleted || false;
   }
 }
 

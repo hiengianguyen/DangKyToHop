@@ -7,7 +7,7 @@ class CombinationModel {
     this.classesCapacity = classesCapacity;
     this.compulsorySubjects = compulsorySubjects;
     this.optionalSubjects = optionalSubjects;
-    this.isDeleted = isDeleted;
+    this.isDeleted = isDeleted || false;
   }
 }
 

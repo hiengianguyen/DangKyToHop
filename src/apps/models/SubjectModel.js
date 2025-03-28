@@ -4,7 +4,7 @@ class SubjectModel {
     this.name = name;
     this.description = description;
     this.group = group;
-    this.isDeleted = isDeleted;
+    this.isDeleted = isDeleted || false;
   }
 }
 

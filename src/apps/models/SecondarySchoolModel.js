@@ -4,7 +4,7 @@ class SecondarySchoolModel {
     this.districtId = districtId;
     this.districtName = districtName;
     this.schools = schools;
-    this.isDeleted = isDeleted;
+    this.isDeleted = isDeleted || false;
   }
 }
 

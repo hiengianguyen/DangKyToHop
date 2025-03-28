@@ -9,8 +9,7 @@ class WelcomeController {
 
   // For Testing
   async index(req, res) {
-    const users = await this.firestoreModel.getAllItems();
-    return res.json(users[0]);
+    return res.send("Welcome to my project!");
   }
 }
 

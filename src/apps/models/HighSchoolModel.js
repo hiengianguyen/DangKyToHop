@@ -7,7 +7,7 @@ class HighSchoolModel {
     this.phone = phone;
     this.teachers = teachers;
     this.description = description;
-    this.isDeleted = isDeleted;
+    this.isDeleted = isDeleted || false;
   }
 }
 
