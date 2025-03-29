@@ -1,9 +1,9 @@
-const FirestoreModel = require("../models/FirestoreModel");
+const { FirestoreModel, UserModel } = require("../models");
 const { UsersCollectionName } = require("../../constants");
 
 class WelcomeController {
   constructor() {
-    this.userDbRef = new FirestoreModel(UsersCollectionName);
+    this.userDbRef = new FirestoreModel(UsersCollectionName, UserModel);
     this.index = this.index.bind(this);
   }
 

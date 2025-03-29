@@ -1,9 +1,10 @@
 const database = require("../../config/database/index");
 
 class FirestoreModel {
-  constructor(collectionName) {
+  constructor(collectionName, modelClass) {
     this.collectionName = collectionName;
     this.collectionRef = database.collection(collectionName);
+    this.model = new modelClass();
   }
 
   async getAllItems() {
@@ -11,7 +12,7 @@ class FirestoreModel {
       const result = await this.collectionRef.where("isDeleted", "==", false).get();
       const allDocs = Array.from(result.docs);
       return allDocs.map((doc) => {
-        return { id: doc.id, ...doc.data() };
+        return this.model.fromFirestore(doc);
       });
     } catch (error) {
       console.log("error:", error);
@@ -22,10 +23,8 @@ class FirestoreModel {
   async getItemById(id) {
     try {
       const doc = await this.collectionRef.doc(id).get();
-      const docId = doc.id;
-      const data = doc.data();
-      if (data.isDeleted === false) {
-        return { id: docId, ...data };
+      if (doc.data().isDeleted === false) {
+        return this.model.fromFirestore(doc);
       } else {
         return undefined;
       }
@@ -44,10 +43,11 @@ class FirestoreModel {
       for (var i = 0; i < queryKeys.length; i++) {
         snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
       }
+      snapshot = snapshot.where("isDeleted", "==", false);
 
       const result = await snapshot.get();
       const docs = Array.from(result.docs).map((doc) => {
-        return { id: doc.id, ...doc.data() };
+        return this.model.fromFirestore(doc);
       });
       return docs[0];
     } catch (error) {
@@ -56,7 +56,7 @@ class FirestoreModel {
     }
   }
 
-  async getItemsByFilter(query) {
+  async getItemsByFilter(query, onlyDeletedDocs = false) {
     try {
       let snapshot = this.collectionRef;
       const queryKeys = Object.keys(query);
@@ -66,9 +66,15 @@ class FirestoreModel {
         snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
       }
 
+      if (onlyDeletedDocs == true) {
+        snapshot = snapshot.where("isDeleted", "==", true);
+      } else {
+        snapshot = snapshot.where("isDeleted", "==", false);
+      }
+
       const result = await snapshot.get();
       const docs = Array.from(result.docs).map((doc) => {
-        return { id: doc.id, ...doc.data() };
+        return this.model.fromFirestore(doc);
       });
       return docs;
     } catch (error) {
@@ -77,9 +83,10 @@ class FirestoreModel {
     }
   }
 
-  async addItem(object) {
+  async addItem(modelObject) {
     try {
-      const addedDoc = await this.collectionRef.add(object);
+      const data = modelObject.toFirestore();
+      const addedDoc = await this.collectionRef.add(data);
       if (addedDoc) {
         return true;
       } else {
@@ -91,10 +98,11 @@ class FirestoreModel {
     }
   }
 
-  async addItems(objects) {
+  async addItems(modelObjects) {
     try {
-      for (var object of objects) {
-        await this.collectionRef.add(object);
+      for (var modelObject of modelObjects) {
+        const data = modelObject.toFirestore();
+        await this.collectionRef.add(data);
       }
       return true;
     } catch (error) {
