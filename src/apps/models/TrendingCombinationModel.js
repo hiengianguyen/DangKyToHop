@@ -6,6 +6,21 @@ class TrendingCombinationModel {
     this.registeredCount = registeredCount;
     this.isDeleted = isDeleted || false;
   }
+
+  fromFirestore(doc) {
+    if (!doc.exists) return undefined;
+    const data = doc.data();
+    return new TrendingCombinationModel(doc.id, data.year, data.combinationId, data.registeredCount, data.isDeleted);
+  }
+
+  toFirestore() {
+    return {
+      year: this.year,
+      combinationId: this.combinationId,
+      registeredCount: this.registeredCount,
+      isDeleted: this.isDeleted
+    };
+  }
 }
 
 module.exports = TrendingCombinationModel;
