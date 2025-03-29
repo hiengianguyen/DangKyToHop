@@ -8,7 +8,7 @@ class FirestoreModel {
 
   async getAllItems() {
     try {
-      const result = await this.collectionRef.get();
+      const result = await this.collectionRef.where("isDeleted", "==", false).get();
       const allDocs = Array.from(result.docs);
       return allDocs.map((doc) => {
         return { id: doc.id, ...doc.data() };
@@ -22,7 +22,13 @@ class FirestoreModel {
   async getItemById(id) {
     try {
       const doc = await this.collectionRef.doc(id).get();
-      return doc.data();
+      const docId = doc.id;
+      const data = doc.data();
+      if (data.isDeleted === false) {
+        return { id: docId, ...data };
+      } else {
+        return undefined;
+      }
     } catch (error) {
       console.log("error:", error);
       return undefined;
