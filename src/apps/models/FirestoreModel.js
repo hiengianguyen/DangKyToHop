@@ -11,9 +11,7 @@ class FirestoreModel {
     try {
       const result = await this.collectionRef.where("isDeleted", "==", false).get();
       const allDocs = Array.from(result.docs);
-      return allDocs.map((doc) => {
-        return this.model.fromFirestore(doc);
-      });
+      return allDocs.map((doc) => this.model.fromFirestore(doc));
     } catch (error) {
       console.log("error:", error);
       return [];
@@ -46,9 +44,7 @@ class FirestoreModel {
       snapshot = snapshot.where("isDeleted", "==", false);
 
       const result = await snapshot.get();
-      const docs = Array.from(result.docs).map((doc) => {
-        return this.model.fromFirestore(doc);
-      });
+      const docs = Array.from(result.docs).map((doc) => this.model.fromFirestore(doc));
       return docs[0];
     } catch (error) {
       console.log("error:", error);
@@ -73,9 +69,7 @@ class FirestoreModel {
       }
 
       const result = await snapshot.get();
-      const docs = Array.from(result.docs).map((doc) => {
-        return this.model.fromFirestore(doc);
-      });
+      const docs = Array.from(result.docs).map((doc) => this.model.fromFirestore(doc));
       return docs;
     } catch (error) {
       console.log("error:", error);
