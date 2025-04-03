@@ -1,0 +1,82 @@
+<head>
+    <link rel="stylesheet" href="/css/welcome.css">
+</head>
+
+<div class="container flex">
+      <div class="welcome-page flex">
+        <div class="text">
+          <h1>DANGKYTOHOP</h1>
+          <p>Nơi tạo điều kiện giúp bạn vào trường Duy Tân</p>
+          <p> cùng bắt đầu.</p>
+        </div>
+        <form action="#">
+          
+  <div class="tabs">
+      <div class="tab active" onclick="switchTab('login')">Đăng nhập</div>
+      <div class="tab" onclick="switchTab('register')">Đăng ký</div>
+  </div>
+  <div id="login" class="form-container active">
+      <div>
+          <input type="text" placeholder="Email hoặc số điện thoại">
+          <input type="password" placeholder="Mật khẩu">
+      </div>
+      <button>Đăng nhập</button>
+  </div>
+  <div id="register" class="form-container">
+      <div class="register-form">
+         <div class="form-group">
+            <label for="disabledSelect" class="form-label">Select menu</label>
+            <select class="form-select form-select-school" aria-label="Default select example">
+                <option selected>-- Chọn huyện của bạn --</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="disabledSelect" class="form-label">Select menu</label>
+            <select class="form-select form-select-school" aria-label="Default select example">
+                <option selected>-- Chọn trường cấp 2 của bạn --</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Lớp của bạn">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Họ và Tên của bạn">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Lớp của bạn">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Số điện thoại của bạn">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Mật khẩu">
+            </div>
+      </div>
+      <button>Đăng ký</button>
+  </div>
+        </form>
+      </div>
+    </div>
+
+<script>
+    function switchTab(tab) {
+        document.querySelectorAll('.form-container').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+        
+        let selectedTab = document.getElementById(tab);
+        if (selectedTab) {
+            selectedTab.classList.add('active');
+        }
+        
+        let selectedTabButton = document.querySelector(`.tab[onclick="switchTab('${tab}')"]`);
+        if (selectedTabButton) {
+            selectedTabButton.classList.add('active');
+        }
+    }
+</script>

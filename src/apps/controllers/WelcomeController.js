@@ -9,7 +9,7 @@ class WelcomeController {
 
   // For Testing
   async index(req, res) {
-    return res.send("Hellooooooooo World!");
+    return res.render("index");
   }
 }
 
