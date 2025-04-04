@@ -16,7 +16,7 @@ body {
   align-items: center;
 }
 
-.container {
+.containers {
   padding: 0 15px;
   min-height: 100vh;
   justify-content: center;
@@ -38,6 +38,7 @@ body {
 }
 
 .welcome-page p {
+  margin: 0;
   font-size: 1.75rem;
   white-space: nowrap;
 }
@@ -135,6 +136,10 @@ hr {
 
 .form-group {
   margin: 10px 0;
+}
+
+.form-select.form-select-school {
+  margin: 20px 0 10px 0;
 }
 
 .register-form {
