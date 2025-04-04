@@ -34,7 +34,7 @@ body {
   font-size: 1.75rem;
   white-space: nowrap; }
 
-form {
+.login-form {
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -70,7 +70,7 @@ form {
 .link .login:hover {
   background: #0d65d9; }
 
-form a {
+.login-form a {
   text-decoration: none; }
 
 .link .forgot {

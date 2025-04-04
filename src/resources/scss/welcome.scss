@@ -43,7 +43,7 @@ body {
   white-space: nowrap;
 }
 
-form {
+.login-form {
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -86,7 +86,7 @@ form {
   background: #0d65d9;
 }
 
-form a {
+.login-form a {
   text-decoration: none;
 }
 
