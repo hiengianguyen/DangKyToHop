@@ -8,10 +8,9 @@ class WelcomeController {
     this.index = this.index.bind(this);
   }
 
-  // For Testing
   async index(req, res) {
     const secondarySchools = await this.secondarySchoolDbRef.getAllItems();
-    const districts = secondarySchools.map((doc) => doc.district);
+    const districts = secondarySchools.map((doc) => doc.districtName);
 
     return res.render("index", {
       districts: districts,

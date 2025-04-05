@@ -79,13 +79,13 @@
 
     const selectDistrict = document.querySelector(".form-select-district")
     const selectSchool = document.querySelector(".form-select-school")
-
+    
     selectDistrict.onchange = (e) => {
         selectSchool.innerHTML = ""
         const district = e.target.value
         const data = {{{secondarySchools}}}
         const result = data.filter((doc) => {
-            return doc.district === district;
+            return doc.districtName === district;
         })[0]
         if(result) {
             selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>"
@@ -98,11 +98,6 @@
             })
         } else {
             selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>"
-        }
-        
+        }   
     }
-
-    
-        
-
 </script>
