@@ -17,16 +17,20 @@
                 <div class="tab" onclick="switchTab('register')">Đăng ký</div>
             </div>
             <div id="login" class="form-container active">
-                <form action="/auth/signin" method="OPST">
-                    <div class="inputs-login">
-                        <input type="text" name="phone" placeholder="Số điện thoại">
-                        <input type="password" class="my-3" name="password" placeholder="Mật khẩu">
+                <form class="form-sign-in" action="/auth/signin" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="phone" class="login__input" rules="required|number|length:10" placeholder="Số điện thoại">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="password" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu">
+                        <span class="form-message"></span>
                     </div>
                     <button type="submit">Đăng nhập</button>
                 </form>
             </div>
             <div id="register" class="form-container">
-                <form action="/auth/signup" method="POST">
+                <form class="form-sign-up" action="/auth/signup" method="POST">
                     <div class="register-form">
                         <div class="form-group">
                             <select class="form-select form-select-district" name="district" aria-label="Default select example" required>
@@ -37,25 +41,29 @@
                             </select>
                         </div>
                         <div class="form-group">
-                        <select class="form-select form-select-school" name="secondarySchool" aria-label="Default select example" required>
-                            <option selected value="">-- Trường học cấp 2 của bạn là --</option>
-                        </select>
+                            <select class="form-select form-select-school" name="secondarySchool" aria-label="Default select example" required disabled>
+                                <option selected value="">-- Trường học cấp 2 của bạn là --</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="fullName" placeholder="Họ và tên">
+                            <input type="text" class="login__input" name="fullName" rules="required" placeholder="Họ và tên">
+                            <span class="form-message"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="datepicker" name="dateOfBirth" class="form-control" placeholder="Ngày tháng năm sinh">
+                            <input type="text" id="datepicker" class="login__input" name="dateOfBirth" rules="required" class="form-control" placeholder="Ngày tháng năm sinh">
+                            <span class="form-message"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="phone" placeholder="Số điện thoại liên hệ">
+                            <input type="text" class="login__input" name="phone" rules="required|number|length:10" placeholder="Số điện thoại liên hệ">
+                            <span class="form-message"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="password" placeholder="Mật khẩu">
+                            <input type="text" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu">
+                            <span class="form-message"></span>
                         </div>
                     </div>
                         <button type="submit">Đăng ký</button>
-                    </form>
+                </form>
             </div>
         </div>
       
@@ -65,6 +73,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<script src="/validationForm.js" onload="varidator('.form-sign-in')"></script>
+<script src="/validationForm.js" onload="varidator('.form-sign-up')"></script>
 
 <script>
     $.fn.datepicker.dates['vi'] = {
@@ -106,6 +117,7 @@
     const selectSchool = document.querySelector(".form-select-school")
     
     selectDistrict.onchange = (e) => {
+        selectSchool.disabled = false
         selectSchool.innerHTML = ""
         const district = e.target.value
         const data = {{{secondarySchools}}}
@@ -123,6 +135,7 @@
             })
         } else {
             selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>"
+            selectSchool.disabled = true
         }   
     }
 </script>

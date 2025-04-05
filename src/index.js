@@ -17,6 +17,7 @@ app.use(express.json());
 
 //Static file
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "utils")));
 
 //template engine
 app.engine(
