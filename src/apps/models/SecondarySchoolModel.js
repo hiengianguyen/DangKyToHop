@@ -1,8 +1,8 @@
 class SecondarySchoolModel {
-  constructor(id, districtId, district, schools, isDeleted) {
+  constructor(id, districtId, districtName, schools, isDeleted) {
     this.id = id;
     this.districtId = districtId;
-    this.district = district;
+    this.districtName = districtName;
     this.schools = schools;
     this.isDeleted = isDeleted || false;
   }
@@ -10,13 +10,13 @@ class SecondarySchoolModel {
   fromFirestore(doc) {
     if (!doc.exists) return undefined;
     const data = doc.data();
-    return new SecondarySchoolModel(doc.id, data.districtId, data.district, data.schools, data.isDeleted);
+    return new SecondarySchoolModel(doc.id, data.districtId, data.districtName, data.schools, data.isDeleted);
   }
 
   toFirestore() {
     return {
       districtId: this.districtId,
-      district: this.district,
+      districtName: this.districtName,
       schools: this.schools,
       isDeleted: this.isDeleted
     };
