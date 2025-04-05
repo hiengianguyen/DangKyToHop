@@ -1,0 +1,5 @@
+.ivalid span {
+  color: red; }
+
+.ivalid .login__input {
+  border: 1px solid red; }
