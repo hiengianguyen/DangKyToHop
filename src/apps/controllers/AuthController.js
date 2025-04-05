@@ -17,24 +17,18 @@ class AuthController {
     });
 
     if (existedUser) {
-      console.log("Login success!!!");
-      return res.redirect("/");
+      return res.redirect("/home");
     } else {
-      console.log("Login faill!!!");
-      return res.redirect("/");
+      return res.redirect("/?signinError=incorrect-phone-password");
     }
   }
 
   async signUp(req, res, next) {
     const { fullName, password, secondarySchoolName, districtId, phone, dateOfBirth } = req.body;
-
-    const existedPhone = await this.userDbRef.getItemByFilter({
-      phone: phone
-    });
+    const existedPhone = await this.userDbRef.getItemByFilter({ phone: phone });
 
     if (existedPhone) {
-      console.log("The phone is exited!");
-      return res.redirect("/");
+      return res.redirect("/?signupError=existed-phone");
     } else {
       const userModel = new UserModel(
         undefined,

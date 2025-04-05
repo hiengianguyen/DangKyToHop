@@ -57,7 +57,6 @@ function varidator(selector, option = {}) {
   //lấy form element trong dom
   var formElement = document.querySelector(selector);
 
-  console.log(formElement);
   // chỉ xữ lí khi có form element
   if (formElement) {
     var inputs = formElement.querySelectorAll("[name][rules]");
