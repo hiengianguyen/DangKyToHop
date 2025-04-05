@@ -10,7 +10,12 @@ class WelcomeController {
 
   async index(req, res) {
     const secondarySchools = await this.secondarySchoolDbRef.getAllItems();
-    const districts = secondarySchools.map((doc) => doc.districtName);
+    const districts = secondarySchools.map((doc) => {
+      return {
+        districtId: doc.districtId,
+        districtName: doc.districtName
+      };
+    });
 
     return res.render("index", {
       districts: districts,
