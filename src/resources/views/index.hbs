@@ -33,15 +33,15 @@
                 <form class="form-sign-up" action="/auth/signup" method="POST">
                     <div class="register-form">
                         <div class="form-group">
-                            <select class="form-select form-select-district" name="district" aria-label="Default select example" required>
+                            <select class="form-select form-select-district" name="districtId" aria-label="Default select example" required>
                                 <option selected value="">-- Bạn ở đâu trên địa bàn tỉnh Quảng Nam --</option>
                                 {{#each districts}}
-                                    <option value="{{this}}">{{this}}</option>
+                                    <option value="{{this.districtId}}">{{this.districtName}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="form-group">
-                            <select class="form-select form-select-school" name="secondarySchool" aria-label="Default select example" required disabled>
+                            <select class="form-select form-select-school" name="secondarySchoolName" aria-label="Default select example" required disabled>
                                 <option selected value="">-- Trường học cấp 2 của bạn là --</option>
                             </select>
                         </div>
@@ -113,19 +113,19 @@
 
     }
 
-    const selectDistrict = document.querySelector(".form-select-district")
-    const selectSchool = document.querySelector(".form-select-school")
+    const selectDistrict = document.querySelector(".form-select-district");
+    const selectSchool = document.querySelector(".form-select-school");
     
     selectDistrict.onchange = (e) => {
-        selectSchool.disabled = false
-        selectSchool.innerHTML = ""
-        const district = e.target.value
-        const data = {{{secondarySchools}}}
+        selectSchool.disabled = false;
+        selectSchool.innerHTML = "";
+        const districtId = e.target.value;
+        const data = {{{secondarySchools}}};
         const result = data.filter((doc) => {
-            return doc.districtName === district;
-        })[0]
+            return doc.districtId === districtId;
+        })[0];
         if(result) {
-            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>"
+            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
             const secondarySchools = result.schools;
             secondarySchools.forEach((school) => {
                 const option = document.createElement('option');
@@ -134,8 +134,8 @@
                 selectSchool.appendChild(option);
             })
         } else {
-            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>"
-            selectSchool.disabled = true
+            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
+            selectSchool.disabled = true;
         }   
     }
 </script>
