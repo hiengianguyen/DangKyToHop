@@ -1,0 +1,42 @@
+<head>
+    <title>Đăng Ký Tổ Hợp | Trang Chủ</title>
+     <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<div class="school-info">
+    <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743921040/school_banner_ox2umc.png">
+      <div class="school-info-detail">
+        <p><b>Tên Trường:</b> {{schoolInfo.name}}</p>
+        <p><b>Ngày Thành Lập:</b> {{schoolInfo.establishedDate}}</p>
+        <p><b>Địa Chỉ:</b> {{schoolInfo.address}}</p>
+        <p><b>Mô Tả:</b> {{schoolInfo.description}}</p>
+      </div>
+</div>
+
+<div class="combination-list">
+  {{#if (eq role "manager")}}
+    <a class="d-flex justify-content-end mb-2" href="/combination/submited-list">Xem danh sách tổ hợp đã được đăng ký</a>
+  {{/if}}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Tổ hợp</th>
+        <th scope="col">Môn lựa chọn (04 môn)</th>
+        <th scope="col">Cụm chuyên đề (03 môn)</th>
+        <th scope="col">Số lớp</th>
+        <th scope="col">Số lượng học sinh</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each combinations}}
+        <tr>
+          <td scope="row">{{this.name}}</td>
+          <td>{{this.optionalSubjects}}</td>
+          <td>{{this.compulsorySubjects}}</td>
+          <td>{{this.classesCount}}</td>
+          <td>{{this.classesCapacity}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
