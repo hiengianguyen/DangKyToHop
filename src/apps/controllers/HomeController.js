@@ -1,3 +1,28 @@
-class HomeController {}
+const { FirestoreModel, HighSchoolModel, CombinationModel } = require("../models");
+const { HighSchoolsCollectionName, CombinationsCollectionName } = require("../../constants");
+
+class HomeController {
+  constructor() {
+    this.highSchoolDbRef = new FirestoreModel(HighSchoolsCollectionName, HighSchoolModel);
+    this.combinationDbRef = new FirestoreModel(CombinationsCollectionName, CombinationModel);
+    this.homePage = this.homePage.bind(this);
+  }
+
+  async homePage(req, res, next) {
+    const schoolInfo = await this.highSchoolDbRef.getItemByFilter({
+      name: "Trường THPT Duy Tân"
+    });
+
+    const combinations = await this.combinationDbRef.getAllItems();
+    //sort by name (asc)
+    combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+
+    return res.render("home", {
+      role: req.query.role,
+      schoolInfo: schoolInfo,
+      combinations: combinations
+    });
+  }
+}
 
 module.exports = new HomeController();

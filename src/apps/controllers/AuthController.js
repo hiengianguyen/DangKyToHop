@@ -17,7 +17,7 @@ class AuthController {
     });
 
     if (existedUser) {
-      return res.redirect("/home");
+      return res.redirect(`/home?role=${existedUser.role}`);
     } else {
       return res.redirect("/?signinError=incorrect-phone-password");
     }

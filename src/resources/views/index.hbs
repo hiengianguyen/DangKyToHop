@@ -1,4 +1,11 @@
 <head>
+    <title id="tittle">
+        {{#if (eq currentTab "signin")}}
+            Đăng Ký Tổ Hợp | Đăng Nhập
+        {{else}}
+            Đăng Ký Tổ Hợp | Đăng Ký
+        {{/if}}
+    </title>
     <link rel="stylesheet" href="/css/welcome.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
@@ -13,10 +20,10 @@
         </div>
         <div class="login-form">
             <div class="tabs">
-                <div class="tab {{#if (eq currentTab "signin")}}active{{/if}}" onclick="switchTab('login')">Đăng nhập</div>
-                <div class="tab {{#if (eq currentTab "signup")}}active{{/if}}" onclick="switchTab('register')">Đăng ký</div>
+                <div class="tab {{#if (eq currentTab "signin")}}active{{/if}}" onclick="switchTab('signin')">Đăng nhập</div>
+                <div class="tab {{#if (eq currentTab "signup")}}active{{/if}}" onclick="switchTab('signup')">Đăng ký</div>
             </div>
-            <div id="login" class="form-container {{#if (eq currentTab "signin")}}active{{/if}}">
+            <div id="signin" class="form-container {{#if (eq currentTab "signin")}}active{{/if}}">
                 <form class="form-sign-in" action="/auth/signin" method="POST">
                     <div class="form-group">
                         <input type="text" name="phone" class="login__input" rules="required|number|length:10" placeholder="Số điện thoại">
@@ -29,7 +36,7 @@
                     <button type="submit">Đăng nhập</button>
                 </form>
             </div>
-            <div id="register" class="form-container {{#if (eq currentTab "signup")}}active{{/if}}">
+            <div id="signup" class="form-container {{#if (eq currentTab "signup")}}active{{/if}}">
                 <form class="form-sign-up" action="/auth/signup" method="POST">
                     <div class="register-form">
                         <div class="form-group">
@@ -62,11 +69,10 @@
                             <span class="form-message"></span>
                         </div>
                     </div>
-                        <button type="submit">Đăng ký</button>
+                    <button type="submit">Đăng ký</button>
                 </form>
             </div>
         </div>
-      
     </div>
 </div>
 
@@ -116,9 +122,17 @@
         signinPasswordMessage.style.color = "red";
     }
 
+    const titleTag = document.getElementById("tittle");
+
     function switchTab(tab) {
         document.querySelectorAll('.form-container').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+
+        if(tab === "signin") {
+            titleTag.innerText = "Đăng Ký Tổ Hợp | Đăng Nhập"
+        } else {
+            titleTag.innerText = "Đăng Ký Tổ Hợp | Đăng Ký"
+        }
         
         let selectedTab = document.getElementById(tab);
         if (selectedTab) {
@@ -129,7 +143,6 @@
         if (selectedTabButton) {
             selectedTabButton.classList.add('active');
         }
-
     }
 
     const selectDistrict = document.querySelector(".form-select-district");
