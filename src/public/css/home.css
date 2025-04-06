@@ -5,9 +5,9 @@
 
 .school-info-detail {
   position: absolute;
-  top: 20px;
+  top: 70px;
   bottom: 10px;
-  right: 0;
+  left: 980px;
   width: 667px;
   height: 293px; }
 
@@ -16,3 +16,7 @@
 
 .combination-list {
   padding: 10px 30px; }
+
+.nav-item img {
+  width: 2.4pc;
+  height: 2.4pc; }

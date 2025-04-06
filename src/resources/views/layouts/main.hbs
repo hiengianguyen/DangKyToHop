@@ -20,6 +20,53 @@
     ></script>
 </head>
 <body>
+   <nav
+      class="navbar navbar-expand navbar-dark bg-dark d-flex"
+      aria-label="Second navbar example"
+    >
+      <div class="container-fluid containers-navbar pe-1">
+        <a class="navbar-brand" href="/home">Đăng Ký Tổ Hợp</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarsExample02"
+          aria-controls="navbarsExample02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        {{#if (eq isLogin true)}}
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarsExample02"
+          >
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <li class="nav-item">
+                  <a
+                    class="nav-link text-white mx-2 d-flex align-items-center"
+                    href="/me/profile"
+                  >
+                    <img
+                      class="rounded-circle me-2"
+                      src="{{avatar}}"
+                    />
+                    <p class="m-0">{{fullName}}</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="/auth/signout"
+                    class="btn btn-outline-success my-2 my-sm-0"
+                  >Đăng Xuất</a>
+                </li>
+            </ul>
+          </div>
+        {{/if}}
+      </div>
+    </nav>
     {{{body}}}
 </body>
 </html>
