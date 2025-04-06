@@ -8,7 +8,7 @@ class SubjectModel {
   }
 
   fromFirestore(doc) {
-    if (!doc.exists) return undefined;
+    if (!doc.exists) return null;
     const data = doc.data();
     return new SubjectModel(doc.id, data.name, data.description, data.group, data.isDeleted);
   }

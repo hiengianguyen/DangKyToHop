@@ -13,7 +13,7 @@ class UserModel {
   }
 
   fromFirestore(doc) {
-    if (!doc.exists) return undefined;
+    if (!doc.exists) return null;
     const data = doc.data();
     return new UserModel(
       doc.id,

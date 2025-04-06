@@ -24,11 +24,11 @@ class FirestoreModel {
       if (doc.data().isDeleted === false) {
         return this.model.fromFirestore(doc);
       } else {
-        return undefined;
+        return null;
       }
     } catch (error) {
       console.log("error:", error);
-      return undefined;
+      return null;
     }
   }
 
@@ -48,7 +48,7 @@ class FirestoreModel {
       return docs[0];
     } catch (error) {
       console.log("error:", error);
-      return undefined;
+      return null;
     }
   }
 
