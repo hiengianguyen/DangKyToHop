@@ -7,7 +7,7 @@ class SubmittedCombinationModel {
   }
 
   fromFirestore(doc) {
-    if (!doc.exists) return undefined;
+    if (!doc.exists) return null;
     const data = doc.data();
     return new SubmittedCombinationModel(doc.id, data.combinationId, data.userId, data.isDeleted);
   }

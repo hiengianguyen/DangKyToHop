@@ -8,7 +8,7 @@ class SecondarySchoolModel {
   }
 
   fromFirestore(doc) {
-    if (!doc.exists) return undefined;
+    if (!doc.exists) return null;
     const data = doc.data();
     return new SecondarySchoolModel(doc.id, data.districtId, data.districtName, data.schools, data.isDeleted);
   }

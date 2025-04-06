@@ -15,11 +15,6 @@ function varidator(selector, option = {}) {
       return value ? undefined : "Vui lòng nhập giá trị!";
     },
 
-    email: function (value) {
-      var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-      return regex.test(value) ? undefined : "Vui lòng nhập Email đúng định dạng!";
-    },
-
     min: function (min) {
       return function (value) {
         return value.length >= Number(min) ? undefined : `Vui lòng nhập tối thiểu ${min} kí tự!`;
@@ -40,17 +35,6 @@ function varidator(selector, option = {}) {
       return function (value) {
         return value.length === Number(length) ? undefined : `Vui lòng nhập đúng ${length} kí tự!`;
       };
-    },
-
-    urlYoutube: function (value) {
-      return value.includes("youtube.com/watch?v=")
-        ? undefined
-        : "Vui lòng nhập đúng đường dẫn Youtube video với định dạng: https://www.youtube.com/watch?v=...!";
-    },
-
-    url: function (value) {
-      var regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-      return regex.test(value) ? undefined : "Vui lòng nhập đúng đường dẫn!";
     }
   };
 
@@ -103,7 +87,7 @@ function varidator(selector, option = {}) {
         var formGroupElement = getParent(event.target, ".form-group");
 
         if (formGroupElement) {
-          formGroupElement.classList.add("ivalid");
+          formGroupElement.classList.add("invalid");
           var formMessage = formGroupElement.querySelector(".form-message");
 
           if (formMessage) {
@@ -117,8 +101,8 @@ function varidator(selector, option = {}) {
     function handleClearError() {
       var formGroupElement = getParent(event.target, ".form-group");
 
-      if (formGroupElement.classList.contains("ivalid")) {
-        formGroupElement.classList.remove("ivalid");
+      if (formGroupElement.classList.contains("invalid")) {
+        formGroupElement.classList.remove("invalid");
         var formMessage = formGroupElement.querySelector(".form-message");
 
         if (formMessage) {

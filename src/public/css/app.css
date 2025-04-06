@@ -1,5 +1,5 @@
-.ivalid span {
+.invalid span {
   color: red; }
 
-.ivalid .login__input {
+.invalid .login__input {
   border: 1px solid red; }
