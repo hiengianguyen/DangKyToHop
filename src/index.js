@@ -2,6 +2,7 @@ const path = require("path");
 const route = require("./routes");
 const express = require("express");
 const handlebars = require("express-handlebars");
+const cookieParser = require("cookie-parser");
 const app = express();
 
 require("dotenv").config();
@@ -14,10 +15,18 @@ app.use(
 );
 
 app.use(express.json());
+app.use(cookieParser());
 
 //Static file
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "utils")));
+
+app.use((req, res, next) => {
+  res.locals.isLogin = req.cookies.isLogin === "true";
+  res.locals.fullName = req.cookies.fullName;
+  res.locals.avatar = req.cookies.avatar;
+  next();
+});
 
 //template engine
 app.engine(

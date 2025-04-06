@@ -9,19 +9,23 @@ class HomeController {
   }
 
   async homePage(req, res, next) {
-    const schoolInfo = await this.highSchoolDbRef.getItemByFilter({
-      name: "Trường THPT Duy Tân"
-    });
+    if (req.cookies.isLogin === "true") {
+      const schoolInfo = await this.highSchoolDbRef.getItemByFilter({
+        name: "Trường THPT Duy Tân"
+      });
 
-    const combinations = await this.combinationDbRef.getAllItems();
-    //sort by name (asc)
-    combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+      const combinations = await this.combinationDbRef.getAllItems();
+      //sort by name (asc)
+      combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
 
-    return res.render("home", {
-      role: req.query.role,
-      schoolInfo: schoolInfo,
-      combinations: combinations
-    });
+      return res.render("home", {
+        role: req.query.role,
+        schoolInfo: schoolInfo,
+        combinations: combinations
+      });
+    } else {
+      return res.redirect("/");
+    }
   }
 }
 
