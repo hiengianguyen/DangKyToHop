@@ -1,16 +1,29 @@
+.school-info {
+  position: relative;
+}
+
+.banner-container,
 .school-banner {
+  width: 50%;
+  height: 200px;
+}
+
+.banner-container {
+  position: relative;
+}
+
+.school-banner-second {
   width: 100%;
   height: 200px;
-  position: relative;
 }
 
 .school-info-detail {
   position: absolute;
-  top: 70px;
-  bottom: 10px;
-  left: 980px;
-  width: 667px;
-  height: 293px;
+  top: 15px;
+  left: 25px;
+  height: 180px;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .school-info-detail p {
