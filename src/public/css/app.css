@@ -3,3 +3,67 @@
 
 .invalid .login__input {
   border: 1px solid red; }
+
+.ms-auto.me img {
+  width: 2.4pc;
+  height: 2.4pc; }
+
+#header {
+  display: flex;
+  align-items: stretch;
+  position: fixed;
+  background-color: #000;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 0 10px black; }
+
+#header .search-btn:hover {
+  background-color: #f44336;
+  padding: 0 23px;
+  margin-left: 16px; }
+
+#nav {
+  display: inline-block; }
+
+#nav li {
+  display: inline-block;
+  position: relative; }
+
+#nav > li > a {
+  color: #fff;
+  padding: 0 24px; }
+
+#nav li:hover .sudnav {
+  display: block; }
+
+#nav li a {
+  color: #fff;
+  line-height: 64px;
+  text-decoration: none;
+  display: inline-block; }
+
+#nav .nav-arrow-down {
+  font-size: 12px; }
+
+#nav .sudnav {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
+
+#nav > li:hover > a,
+#nav .sudnav li:hover {
+  color: #000;
+  background-color: #ccc; }
+
+#nav .sudnav li a {
+  color: #000; }
+
+#nav .sudnav li {
+  color: #fff;
+  padding: 0 24px;
+  text-decoration: none;
+  line-height: 46px;
+  display: block; }

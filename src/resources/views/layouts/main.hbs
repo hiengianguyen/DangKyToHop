@@ -15,36 +15,35 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/fontawesome-free-6.7.2-web/css/all.min.css">
     <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     ></script>
 </head>
 <body>
-   <nav
-      class="navbar navbar-expand navbar-dark bg-dark d-flex"
-      aria-label="Second navbar example"
-    >
-      <div class="container-fluid containers-navbar pe-1">
-        <a class="navbar-brand" href="/home">Đăng Ký Tổ Hợp</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarsExample02"
-          aria-controls="navbarsExample02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+    <div id="header" class="text-uppercase d-flex align-items-center">
+        <a class="navbar-brand ps-4 text-white" href="">Đăng Ký Tổ Hợp</a>
+        
+         <!-- Begin: Nav -->
+          <ul id="nav" class="m-0">
+            <li><a href="#band">TỔ HỢP</a></li>
+            <li><a href="#tour">TRƯỜNG HỌC</a></li>
+            <li><a href="#contact">LIÊN HỆ</a></li>
+            <li>
+              <a href="#">
+                KHÁC
+                <i class="fa-brands fa-buffer"></i>
+              </a>
+              <ul class="sudnav p-0">
+                <li><a href="#">Merchandise</a></li>
+                <li><a href="#">Extras</a></li>
+                <li><a href="#">Media</a></li>
+              </ul>
+            </li>
+          </ul>
+         <!-- End: Nav -->
         {{#if (eq isLogin true)}}
-          <div
-            class="collapse navbar-collapse justify-content-end"
-            id="navbarsExample02"
-          >
-            <ul class="navbar-nav ml-auto d-flex align-items-center">
-                <li class="nav-item">
+            <div class="ms-auto d-flex me me-4">
                   <a
                     class="nav-link text-white mx-2 d-flex align-items-center"
                     href="/me/profile"
@@ -61,12 +60,13 @@
                     href="/auth/signout"
                     class="btn btn-outline-success my-2 my-sm-0"
                   >Đăng Xuất</a>
-                </li>
-            </ul>
-          </div>
+            </div>
         {{/if}}
       </div>
-    </nav>
     {{{body}}}
 </body>
+
+<script>
+  $("#header .navbar-brand").get(0).href = `${window.location.pathname}${window.location.search}`;
+</script>
 </html>
