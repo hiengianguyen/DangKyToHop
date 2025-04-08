@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/app.css">
     <link
       rel="icon"
-      href="https://res.cloudinary.com/dwoymvppw/image/upload/v1743848084/duytan_logo_ymgsak.jpg"
+      href="https://res.cloudinary.com/dwoymvppw/image/upload/v1744112829/duytan_logo_circle_jeyx7a.png"
       type="image/x-icon"
     />
     <link
@@ -21,29 +21,36 @@
     ></script>
 </head>
 <body>
-    <div id="header" class="text-uppercase d-flex align-items-center">
-        <a class="navbar-brand ps-4 text-white" href="">Đăng Ký Tổ Hợp</a>
+    <div id="header" class="text-uppercase d-flex justify-content-between align-items-center">
+        <div class="home-page-logo">
+          <a class="navbar-brands ps-4 text-white" href=""><img 
+          src="https://res.cloudinary.com/dwoymvppw/image/upload/v1744111257/logo_web_o18jf4.png" 
+          alt="Home Page" 
+          ></a>
+        </div>
         
-         <!-- Begin: Nav -->
-          <ul id="nav" class="m-0">
-            <li><a href="#band">TỔ HỢP</a></li>
-            <li><a href="#tour">TRƯỜNG HỌC</a></li>
-            <li><a href="#contact">LIÊN HỆ</a></li>
-            <li>
-              <a href="#">
-                KHÁC
-                <i class="fa-brands fa-buffer"></i>
-              </a>
-              <ul class="sudnav p-0">
-                <li><a href="#">Merchandise</a></li>
-                <li><a href="#">Extras</a></li>
-                <li><a href="#">Media</a></li>
-              </ul>
-            </li>
-          </ul>
-         <!-- End: Nav -->
         {{#if (eq isLogin true)}}
-            <div class="ms-auto d-flex me me-4">
+         <!-- Begin: Nav -->
+          <div class="nav-bar">
+            <ul id="nav" class="p-0 m-0">
+              <li><a href="#band">TỔ HỢP</a></li>
+              <li><a href="#tour">TRƯỜNG HỌC</a></li>
+              <li><a href="#contact">LIÊN HỆ</a></li>
+              <li>
+                <a href="#">
+                  KHÁC
+                  <i class="fa-brands fa-buffer"></i>
+                </a>
+                <ul class="sudnav p-0">
+                  <li><a href="#">Merchandise</a></li>
+                  <li><a href="#">Extras</a></li>
+                  <li><a href="#">Media</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+         <!-- End: Nav -->
+            <div class="d-flex me me-4">
                   <a
                     class="nav-link text-white mx-2 d-flex align-items-center"
                     href="/me/profile"
@@ -52,7 +59,7 @@
                       class="rounded-circle me-2"
                       src="{{avatar}}"
                     />
-                    <p class="m-0">{{fullName}}</p>
+                    <p class="m-0 text-black">{{fullName}}</p>
                   </a>
                 </li>
                 <li class="nav-item">
