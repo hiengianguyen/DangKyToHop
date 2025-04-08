@@ -4,25 +4,27 @@
 .invalid .login__input {
   border: 1px solid red; }
 
-.ms-auto.me img {
+.d-flex.me img {
   width: 2.4pc;
   height: 2.4pc; }
 
 #header {
+  font-family: Lato;
   display: flex;
   align-items: stretch;
   position: fixed;
-  background-color: #000;
+  background-color: #fff;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1;
-  box-shadow: 0 0 10px black; }
+  z-index: 1; }
 
-#header .search-btn:hover {
-  background-color: #f44336;
-  padding: 0 23px;
-  margin-left: 16px; }
+.navbar-brands img {
+  width: 45%; }
+
+.navbar-brands img:hover {
+  opacity: 0.8;
+  cursor: pointer; }
 
 #nav {
   display: inline-block; }
@@ -32,14 +34,14 @@
   position: relative; }
 
 #nav > li > a {
-  color: #fff;
+  color: #677381;
   padding: 0 24px; }
 
 #nav li:hover .sudnav {
   display: block; }
 
 #nav li a {
-  color: #fff;
+  color: #797979;
   line-height: 64px;
   text-decoration: none;
   display: inline-block; }
@@ -53,7 +55,9 @@
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
 
-#nav > li:hover > a,
+#nav > li:hover > a {
+  color: #29a9ef; }
+
 #nav .sudnav li:hover {
   color: #000;
   background-color: #ccc; }
