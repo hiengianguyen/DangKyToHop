@@ -1,10 +1,10 @@
 .school-info {
-  position: relative; }
+  position: relative;
+  height: 20pc; }
 
 .banner-container,
 .school-banner {
-  width: 50%;
-  height: 90%; }
+  width: 50%; }
 
 .banner-container {
   position: relative; }
@@ -26,6 +26,3 @@
 
 .combination-list {
   padding: 10px 30px; }
-
-.home-container {
-  margin-top: 70px; }

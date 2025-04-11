@@ -9,7 +9,6 @@ class WelcomeController {
   }
 
   async index(req, res, next) {
-    console.log(req.cookies.isLogin);
     if (req.cookies.isLogin === "false") {
       const secondarySchools = await this.secondarySchoolDbRef.getAllItems();
       const districts = secondarySchools.map((doc) => {

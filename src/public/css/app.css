@@ -4,6 +4,9 @@
 .invalid .login__input {
   border: 1px solid red; }
 
+.mt-70 {
+  margin-top: 70px; }
+
 .d-flex.me img {
   width: 2.4pc;
   height: 2.4pc; }
@@ -38,7 +41,8 @@
   padding: 0 24px; }
 
 #nav li:hover .sudnav {
-  display: block; }
+  display: block;
+  border-radius: 10px; }
 
 #nav li a {
   color: #797979;
@@ -53,6 +57,7 @@
   display: none;
   position: absolute;
   background-color: #fff;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
 
 #nav > li:hover > a {
