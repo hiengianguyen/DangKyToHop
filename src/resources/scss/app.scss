@@ -6,6 +6,12 @@
   border: 1px solid red;
 }
 
+.mt-70 {
+  margin-top: 70px;
+}
+
+// COMMON
+
 .d-flex.me img {
   width: 2.4pc;
   height: 2.4pc;
@@ -48,14 +54,10 @@
 
 #nav li:hover .sudnav {
   display: block;
+  border-radius: 10px;
 }
 
 #nav li a {
-  // color: rgba(255, 255, 255, 0.3);
-  // text-shadow:
-  //   0 0 15px rgba(255, 255, 255, 0.5),
-  //   0 0 10px rgba(255, 255, 255, 0.5);
-
   color: rgb(121, 121, 121);
   line-height: 64px;
   text-decoration: none;
@@ -70,6 +72,7 @@
   display: none;
   position: absolute;
   background-color: #fff;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 

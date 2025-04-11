@@ -1,0 +1,16 @@
+#master {
+  padding-top: 140px;
+  background: url("http://thptduytan.edu.vn/templates/jv-framework/themes/jv-english/images/body1.jpg") repeat-x top left; }
+
+.school-info-detail {
+  position: absolute;
+  top: 25px;
+  left: 16px;
+  width: 97%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto; }
+
+.school-info-detail img {
+  width: 100%;
+  height: 89%; }
