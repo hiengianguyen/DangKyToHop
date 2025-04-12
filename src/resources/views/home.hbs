@@ -35,14 +35,20 @@
       <tbody>
         {{#each combinations}}
           <tr>
-            <td scope="row"><a href="/combination/{{this.id}}">{{this.name}}</a></td>
-            <td>{{this.optionalSubjects}}</td>
-            <td>{{this.compulsorySubjects}}</td>
-            <td>{{this.classesCount}}</td>
-            <td>{{this.classesCapacity}}</td>
+            <td scope="row" onclick="redirect('{{this.id}}')" style="cursor:pointer;">{{this.name}}</td>
+            <td onclick="redirect('{{this.id}}')" style="cursor:pointer;">{{this.optionalSubjects}}</td>
+            <td onclick="redirect('{{this.id}}')" style="cursor:pointer;">{{this.compulsorySubjects}}</td>
+            <td onclick="redirect('{{this.id}}')" style="cursor:pointer;">{{this.classesCount}}</td>
+            <td onclick="redirect('{{this.id}}')" style="cursor:pointer;">{{this.classesCapacity}}</td>
           </tr>
         {{/each}}
       </tbody>
     </table>
   </div>
 </div>
+
+<script>
+  function redirect(href) {
+    window.location.href=`${window.location.origin}/combination/${href}`
+  }
+</script>
