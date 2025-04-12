@@ -1,13 +1,12 @@
 class HighSchoolModel {
-  constructor(id, name, address, establishedDate, phone, teachers, description, longDescription, isDeleted) {
+  constructor(id, name, address, establishedDate, phone, teachers, shortDescription, isDeleted) {
     this.id = id;
     this.name = name;
     this.address = address;
     this.establishedDate = establishedDate;
     this.phone = phone;
     this.teachers = teachers;
-    this.description = description;
-    this.longDescription = longDescription;
+    this.shortDescription = shortDescription;
     this.isDeleted = isDeleted || false;
   }
 
@@ -21,8 +20,7 @@ class HighSchoolModel {
       data.establishedDate,
       data.phone,
       data.teachers,
-      data.description,
-      data.longDescription,
+      data.shortDescription,
       data.isDeleted
     );
   }
@@ -34,8 +32,7 @@ class HighSchoolModel {
       establishedDate: this.establishedDate,
       phone: this.phone,
       teachers: this.teachers,
-      shortDescription: this.description,
-      longDescription: this.longDescription,
+      shortDescription: this.shortDescription,
       isDeleted: this.isDeleted
     };
   }
