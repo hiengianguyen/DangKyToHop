@@ -18,8 +18,9 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{combination.name}}</h5>
-                <p>{{combination.description}}</p>
+                <p class="mb-4">{{combination.description}}</p>
 
+                <h5>Môn Chuyên Đề:</h5>
                 <div class="accordion mb-4" id="accordionExample">
                     {{#each compulsorySubjects}}
                         <div class="accordion-item">
@@ -37,6 +38,7 @@
                     {{/each}}
                 </div>
 
+                <h5>Môn Lựa Chọn:</h5>
                 <div class="accordion" id="accordionExample">
                     {{#each optionalSubjects}}
                         <div class="accordion-item">
@@ -62,16 +64,23 @@
     const btnSubjects = document.querySelectorAll(".accordion-button");
     for(var btnSubject of btnSubjects) {
         btnSubject.onclick = (e) => {
-            if(e.target.getAttribute("aria-expanded") === "true") {
-                btnSubject.setAttribute("aria-expanded", "false");
-                e.target.classList.add("collapsed");
-            } else {
+            for(var btn of btnSubjects) {
+                const content = btn.parentElement.parentElement.querySelector("#collapseOne");
+                btn.setAttribute("aria-expanded", "false");
+                btn.classList.add("collapsed");
+                content.classList.remove("show");
+            }
+            const content = e.target.parentElement.parentElement.querySelector("#collapseOne");
+            if(e.target.getAttribute("aria-expanded") === "false") {
                 e.target.setAttribute("aria-expanded", "true");
                 e.target.classList.remove("collapsed");
+                content.classList.add("show");
+            } else {
+                e.target.setAttribute("aria-expanded", "false");
+                e.target.classList.add("collapsed");
+                content.classList.remove("show");
             }
             
-            const content = e.target.parentElement.parentElement.querySelector("#collapseOne");
-            content.classList.toggle("show");
         }
     }
 </script>

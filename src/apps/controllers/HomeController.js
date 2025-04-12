@@ -10,19 +10,23 @@ class HomeController {
 
   async homePage(req, res, next) {
     if (req.cookies.isLogin === "true") {
-      const schoolInfo = await this.highSchoolDbRef.getItemByFilter({
-        name: "Trường THPT Duy Tân"
-      });
+      if (req.query.role) {
+        const schoolInfo = await this.highSchoolDbRef.getItemByFilter({
+          name: "Trường THPT Duy Tân"
+        });
 
-      const combinations = await this.combinationDbRef.getAllItems();
-      //sort by name (asc)
-      combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+        const combinations = await this.combinationDbRef.getAllItems();
+        //sort by name (asc)
+        combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
 
-      return res.render("home", {
-        role: req.query.role,
-        schoolInfo: schoolInfo,
-        combinations: combinations
-      });
+        return res.render("home", {
+          role: req.query.role,
+          schoolInfo: schoolInfo,
+          combinations: combinations
+        });
+      } else {
+        res.redirect(`/home?role=${req.cookies.role}`);
+      }
     } else {
       return res.redirect("/");
     }
