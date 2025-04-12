@@ -1,0 +1,77 @@
+<head>
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/combination.css">
+</head>
+
+<div id="master">
+    <div class="container">
+        <div class="card mb-3">
+            <div class="school-info d-flex">
+                <img class="school-banner rounded-start" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+                
+                <div class="banner-container rounded-end">
+                    <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+                    <div class="school-info-detail fs-5">
+                        <img src="http://thptduytan.edu.vn/images/stories/hinhhethong/bannertrencung.gif" alt="">
+                    </div>
+                    </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{combination.name}}</h5>
+                <p>{{combination.description}}</p>
+
+                <div class="accordion mb-4" id="accordionExample">
+                    {{#each compulsorySubjects}}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="flase" aria-controls="collapseOne">
+                                {{this.name}}
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{this.description}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+
+                <div class="accordion" id="accordionExample">
+                    {{#each optionalSubjects}}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="flase" aria-controls="collapseOne">
+                                    {{this.name}}
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{this.description}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+
+<script>
+    const btnSubjects = document.querySelectorAll(".accordion-button");
+    for(var btnSubject of btnSubjects) {
+        btnSubject.onclick = (e) => {
+            if(e.target.getAttribute("aria-expanded") === "true") {
+                btnSubject.setAttribute("aria-expanded", "false");
+                e.target.classList.add("collapsed");
+            } else {
+                e.target.setAttribute("aria-expanded", "true");
+                e.target.classList.remove("collapsed");
+            }
+            
+            const content = e.target.parentElement.parentElement.querySelector("#collapseOne");
+            content.classList.toggle("show");
+        }
+    }
+</script>

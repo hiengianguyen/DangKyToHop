@@ -13,7 +13,7 @@
             <p><b>Tên Trường:</b> {{schoolInfo.name}}</p>
             <p><b>Ngày Thành Lập:</b> {{schoolInfo.establishedDate}}</p>
             <p><b>Địa Chỉ:</b> {{schoolInfo.address}}</p>
-            <p><b>Mô Tả:</b> {{schoolInfo.description}}</p>
+            <p><b>Mô Tả:</b> {{schoolInfo.shortDescription}}</p>
           </div>
         </div>
   </div>
@@ -35,7 +35,7 @@
       <tbody>
         {{#each combinations}}
           <tr>
-            <td scope="row">{{this.name}}</td>
+            <td scope="row"><a href="/combination/{{this.id}}">{{this.name}}</a></td>
             <td>{{this.optionalSubjects}}</td>
             <td>{{this.compulsorySubjects}}</td>
             <td>{{this.classesCount}}</td>
