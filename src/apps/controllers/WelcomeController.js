@@ -9,7 +9,7 @@ class WelcomeController {
   }
 
   async index(req, res, next) {
-    if (req.cookies.isLogin === "false") {
+    if (!req.cookies.isLogin || req.cookies.isLogin === "false") {
       const secondarySchools = await this.secondarySchoolDbRef.getAllItems();
       const districts = secondarySchools.map((doc) => {
         return {
@@ -26,7 +26,7 @@ class WelcomeController {
         signupError: req.query.signupError ? "Số điện thoại đã tồn tại" : ""
       });
     } else {
-      res.redirect(`/home?role=${req.cookies.role}`);
+      return res.redirect(`/home?role=${req.cookies.role}`);
     }
   }
 }

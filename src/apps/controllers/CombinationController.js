@@ -20,7 +20,7 @@ class CombinationController {
     compulsorySubjects = subjects.filter((subject) => compulsorySubjects.includes(subject.name));
     optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
 
-    res.render("combination/combination_detail", {
+    return res.render("combination/combination_detail", {
       combination: combination,
       compulsorySubjects: compulsorySubjects,
       optionalSubjects: optionalSubjects
