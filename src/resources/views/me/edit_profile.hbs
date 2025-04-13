@@ -1,0 +1,110 @@
+<head>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+
+<div id="master">
+    <div class="container">
+        <div class="card mb-3 d-flex justify-content-center align-items-center">
+            <div class="card-body-profile mb-4">
+                <form
+                class="profile-user rounded shadow-sm bg-body-tertiary"
+                id="form-edit-profile"
+                method="POST"
+                action="/me/profile/update"
+                >
+
+                <div class="info-top containers mb-3 d-flex justify-content-center">
+                    <img
+                    class="profile-img-user rounded-circle mt-2"
+                    id="profile-img"
+                    src="{{user.avatar}}"
+                    alt="User"
+                    />
+                </div>
+                <div class="container d-flex justify-content-center">
+                    <input class="choose-file-input" type="file" id="formFile" />
+                    <input id="avatar-input" name="avatar" type="text" style="display:none" />
+                </div>
+                <div class="profile-dad-name info mt-8 flex-column-reverse mx-5">
+                    <div class="form-group">
+                    <label for="profile-name-input" class="form-label-profile">Họ và Tên:</label>
+                    <input
+                        type="text"
+                        class="form-control login__input"
+                        name="fullName"
+                        rules="required|min:10"
+                        value="{{user.fullName}}"
+                    />
+                    <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group my-4">
+                        <label for="profile-name-input" class="form-label-profile">Địa Chỉ:</label>
+                        <select class="form-select form-select-district" name="districtId" aria-label="Default select example" required>
+                            <option selected value="">-- Bạn ở đâu trên địa bàn tỉnh Quảng Nam --</option>
+                            {{#each districts}}
+                                <option value="{{this.districtId}}">{{this.districtName}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="profile-phone-input" class="form-label-profile">Số điện thoại:</label>
+                    <input
+                        type="text"
+                        class="form-control login__input"
+                        name="phone"
+                        rules="required|number|length:10"
+                        value="{{user.phone}}"
+                    />
+                    <span class="form-message"></span>
+                    </div>
+
+                    <div class="btn-edit d-flex justify-content-end mt-2">
+                    <button type="submit" class="btn bg-success btn-lg text-white">Cập Nhật</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script
+  src="/validationForm.js"
+  onload="varidator('#form-edit-profile')"
+></script>
+
+{{!-- <script src="/uploadImageToCloudinary.js" defer></script>
+<script src="https://upload-widget.cloudinary.com/global/all.js"></script>
+
+<script>
+  const inputChooseFileImg = document.getElementById("formFile");
+  const imgProfile = document.getElementById("profile-img");
+  const hiddenAvatarInput = document.getElementById("avatar-input");
+
+  inputChooseFileImg.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    // Khi file được load, cập nhật src của ảnh
+    reader.onload = function (e) {
+      imgProfile.src = e.target.result;
+    };
+
+    // Tải ảnh lên Cloudinary và nhận URL trả về
+    uploadImageToCloudinary(file, 'F8_Education/users')
+      .then((imageUrl) => {
+        imgProfile.src = imageUrl; 
+        hiddenAvatarInput.value = imageUrl;
+      })
+      .catch((error) => {
+        console.error('Error uploading image:', error);
+        alert('Có lỗi khi tải ảnh lên Cloudinary');
+      });
+  });
+</script> --}}
