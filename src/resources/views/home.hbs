@@ -9,7 +9,7 @@
       
       <div class="banner-container">
         <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
-          <div class="school-info-detail fs-5">
+          <div class="school-info-detail fs-6">
             <p><b>Tên Trường:</b> {{schoolInfo.name}}</p>
             <p><b>Ngày Thành Lập:</b> {{schoolInfo.establishedDate}}</p>
             <p><b>Địa Chỉ:</b> {{schoolInfo.address}}</p>
@@ -30,25 +30,23 @@
           <th scope="col">Cụm chuyên đề (03 môn)</th>
           <th scope="col">Số lớp</th>
           <th scope="col">Số lượng học sinh</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         {{#each combinations}}
           <tr>
-            <td scope="row" onclick="redirect('{{this.id}}')" style="cursor:pointer;">{{this.name}}</td>
-            <td onclick="redirect('{{this.id}}')" style="cursor:pointer;">{{this.optionalSubjects}}</td>
-            <td onclick="redirect('{{this.id}}')" style="cursor:pointer;">{{this.compulsorySubjects}}</td>
-            <td onclick="redirect('{{this.id}}')" style="cursor:pointer;">{{this.classesCount}}</td>
-            <td onclick="redirect('{{this.id}}')" style="cursor:pointer;">{{this.classesCapacity}}</td>
+            <td scope="row">{{this.name}}</td>
+            <td>{{this.optionalSubjects}}</td>
+            <td>{{this.compulsorySubjects}}</td>
+            <td>{{this.classesCount}}</td>
+            <td>{{this.classesCapacity}}</td>
+            <td>
+              <a href="/combination/{{this.id}}">Xem Chi Tiết</a>
+            </td>
           </tr>
         {{/each}}
       </tbody>
     </table>
   </div>
 </div>
-
-<script>
-  function redirect(href) {
-    window.location.href=`${window.location.origin}/combination/${href}`
-  }
-</script>

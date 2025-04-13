@@ -25,7 +25,7 @@ class HomeController {
           combinations: combinations
         });
       } else {
-        res.redirect(`/home?role=${req.cookies.role}`);
+        return res.redirect(`/home?role=${req.cookies.role}`);
       }
     } else {
       return res.redirect("/");

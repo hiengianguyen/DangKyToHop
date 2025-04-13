@@ -12,7 +12,7 @@ class SchoolController {
       name: "Trường THPT Duy Tân"
     });
 
-    res.render("school/index", {
+    return res.render("school/index", {
       highSchool: highSchool
     });
   }
