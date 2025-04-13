@@ -1,0 +1,44 @@
+<head>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+
+<div id="master">
+    <div class="container">
+        <div class="card mb-3 d-flex justify-content-center align-items-center">
+            <div class="card-body-profile mb-4">
+                <div class="info-top containers mb-3 d-flex justify-content-center align-items-center">
+                    <img
+                    class="profile-img-user rounded-circle mt-2"
+                    src="{{user.avatar}}"
+                    alt="User"
+                    />
+                </div>
+                <div class="info profile-dad-name mx-5">
+                    <div class="info-sub mt-10 containers">
+                    <div class="profile-dad-name mb-2">
+                        <label for="profile-name-input" class="form-label-profile">Họ và Tên:</label>
+                        <h4 class="profile-name-user">
+                        {{user.fullName}}
+                        </h4>
+                    </div>
+                    <div class="info-bt mb-3">
+                        <label
+                        for="profile-email-input"
+                        class="form-label-profile"
+                        >Địa chỉ:</label>
+                        <p class="profile-email-user mb-2">{{districtName}}</p>
+                        <label for="profile-phone-input" class="form-label-profile">Số điện
+                        thoại:</label>
+                        <p class="profile-phone-user mb-2">{{user.phone}}</p>
+                    </div>
+                    </div>
+                    <div class="btn-edit d-flex justify-content-end">
+                    <a href="/me/profile/edit" class="btn btn-secondary btn-lg">Chỉnh Sửa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,7 @@ class AuthController {
     if (existedUser) {
       // save info to cookie in 1 week
       res.cookie("isLogin", true, { maxAge: 604800000, httpOnly: true });
+      res.cookie("userId", existedUser.id, { maxAge: 604800000, httpOnly: true });
       res.cookie("fullName", existedUser.fullName, { maxAge: 604800000, httpOnly: true });
       res.cookie("avatar", existedUser.avatar, { maxAge: 604800000, httpOnly: true });
       res.cookie("role", existedUser.role, { maxAge: 604800000, httpOnly: true });
