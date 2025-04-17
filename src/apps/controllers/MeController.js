@@ -36,14 +36,15 @@ class MeController {
   }
 
   async update(req, res, next) {
-    const { fullName, districtId, phone } = req.body;
-    console.log(fullName, districtId, phone);
+    const { fullName, districtId, phone, avatar } = req.body;
     await this.userDbRef.updateItem(req.cookies.userId, {
       fullName: fullName,
       districtId: districtId,
-      phone: phone
+      phone: phone,
+      avatar: avatar
     });
     await res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true });
+    await res.cookie("avatar", avatar, { maxAge: 604800000, httpOnly: true });
     return res.redirect("/me/profile");
   }
 }

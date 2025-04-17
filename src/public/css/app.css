@@ -29,6 +29,15 @@
   opacity: 0.8;
   cursor: pointer; }
 
+.nav-profile {
+  position: absolute;
+  right: 0; }
+
+.nav-bar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); }
+
 #nav {
   display: inline-block; }
 

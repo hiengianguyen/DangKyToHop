@@ -14,7 +14,7 @@
                     <div class="school-info-detail fs-5">
                         <img src="http://thptduytan.edu.vn/images/stories/hinhhethong/bannertrencung.gif" alt="">
                     </div>
-                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{combination.name}}</h5>
@@ -56,7 +56,7 @@
                     {{/each}}
                 </div>
             </div>
-            </div>
+        </div>
     </div>
 </div>
 
@@ -66,7 +66,6 @@
         btnSubject.onclick = (e) => {
             for(var btn of btnSubjects) {
                 const content = btn.parentElement.parentElement.querySelector("#collapseOne");
-                btn.setAttribute("aria-expanded", "false");
                 btn.classList.add("collapsed");
                 content.classList.remove("show");
             }
@@ -80,7 +79,6 @@
                 e.target.classList.add("collapsed");
                 content.classList.remove("show");
             }
-            
         }
     }
 </script>
