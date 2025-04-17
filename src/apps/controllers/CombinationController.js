@@ -6,6 +6,7 @@ class CombinationController {
     this.subjectDbRef = new FirestoreModel(SubjectsCollectionName, SubjectModel);
     this.combinationDbRef = new FirestoreModel(CombinationsCollectionName, CombinationModel);
     this.index = this.index.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   async index(req, res, next) {
@@ -25,6 +26,10 @@ class CombinationController {
       compulsorySubjects: compulsorySubjects,
       optionalSubjects: optionalSubjects
     });
+  }
+
+  async submit(req, res, next) {
+    return res.render("combination/submit_combination");
   }
 }
 

@@ -79,7 +79,7 @@
   onload="varidator('#form-edit-profile')"
 ></script>
 
-{{!-- <script src="/uploadImageToCloudinary.js" defer></script>
+<script src="/uploadImageToCloudinary.js" defer></script>
 <script src="https://upload-widget.cloudinary.com/global/all.js"></script>
 
 <script>
@@ -97,7 +97,7 @@
     };
 
     // Tải ảnh lên Cloudinary và nhận URL trả về
-    uploadImageToCloudinary(file, 'F8_Education/users')
+    uploadImageToCloudinary(file, 'users')
       .then((imageUrl) => {
         imgProfile.src = imageUrl; 
         hiddenAvatarInput.value = imageUrl;
@@ -107,4 +107,4 @@
         alert('Có lỗi khi tải ảnh lên Cloudinary');
       });
   });
-</script> --}}
+</script>

@@ -1,0 +1,47 @@
+<head>
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/combination.css">
+</head>
+
+<div id="master">
+    <div class="container">
+        <div class="card mb-3">
+            <div class="school-info d-flex">
+                <img class="school-banner rounded-start" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+                
+                <div class="banner-container rounded-end">
+                    <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+                    <div class="school-info-detail fs-5">
+                        <img src="http://thptduytan.edu.vn/images/stories/hinhhethong/bannertrencung.gif" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const btnSubjects = document.querySelectorAll(".accordion-button");
+    for(var btnSubject of btnSubjects) {
+        btnSubject.onclick = (e) => {
+            for(var btn of btnSubjects) {
+                const content = btn.parentElement.parentElement.querySelector("#collapseOne");
+                btn.classList.add("collapsed");
+                content.classList.remove("show");
+            }
+            const content = e.target.parentElement.parentElement.querySelector("#collapseOne");
+            if(e.target.getAttribute("aria-expanded") === "false") {
+                e.target.setAttribute("aria-expanded", "true");
+                e.target.classList.remove("collapsed");
+                content.classList.add("show");
+            } else {
+                e.target.setAttribute("aria-expanded", "false");
+                e.target.classList.add("collapsed");
+                content.classList.remove("show");
+            }
+        }
+    }
+</script>

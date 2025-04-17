@@ -23,42 +23,42 @@
     ></script>
 </head>
 <body>
-    <div id="header" class="text-uppercase d-flex justify-content-between align-items-center">
-        <div class="home-page-logo">
-          <a class="navbar-brands ps-4 text-white" href="/home"><img 
-          alt="Home Page" 
-          src="https://res.cloudinary.com/dwoymvppw/image/upload/t_home_page_logo/v1744130637/home-page-DKTH-removebg-preview_fgnp3d.png" 
-          ></a>
-        </div>
+    <div id="header" class="text-uppercase d-flex align-items-center">
+          <div class="home-page-logo">
+            <a class="navbar-brands ps-4 text-white" href="/home"><img 
+            alt="Home Page" 
+            src="https://res.cloudinary.com/dwoymvppw/image/upload/t_home_page_logo/v1744130637/home-page-DKTH-removebg-preview_fgnp3d.png" 
+            ></a>
+          </div>
         
         {{#if (eq isLogin true)}}
          <!-- Begin: Nav -->
           <div class="nav-bar">
             <ul id="nav" class="p-0 m-0">
-              <li><a href="/combinations">TỔ HỢP</a></li>
+              <li><a href="/combination/submit">Đăng Ký Tổ Hợp</a></li>
               <li><a href="/school">TRƯỜNG HỌC</a></li>
               <li><a href="/contact">LIÊN HỆ</a></li>
             </ul>
           </div>
          <!-- End: Nav -->
-            <div class="d-flex me me-4">
-                  <a
-                    class="nav-link text-white mx-2 d-flex align-items-center"
-                    href="/me/profile"
-                  >
-                    <img
-                      class="rounded-circle me-2"
-                      src="{{avatar}}"
-                    />
-                    <p class="m-0 text-black">{{fullName}}</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    href="/auth/signout"
-                    class="btn btn-outline-success my-2 my-sm-0"
-                  >Đăng Xuất</a>
-            </div>
+          <div class="nav-profile d-flex me me-4">
+                <a
+                  class="nav-link text-white mx-2 d-flex align-items-center"
+                  href="/me/profile"
+                >
+                  <img
+                    class="rounded-circle me-2"
+                    src="{{avatar}}"
+                  />
+                  <p class="m-0 text-black">{{fullName}}</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="/auth/signout"
+                  class="btn btn-outline-success my-2 my-sm-0"
+                >Đăng Xuất</a>
+          </div>
         {{/if}}
       </div>
     {{{body}}}
