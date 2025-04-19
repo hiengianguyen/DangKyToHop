@@ -46,6 +46,7 @@ class MeController {
   }
 
   async update(req, res, next) {
+    const role = req.query.role;
     const { fullName, districtId, phone, avatar, secondarySchoolName, dateOfBirth } = req.body;
     let formData = {
       fullName: fullName,
@@ -70,7 +71,7 @@ class MeController {
 
     await this.userDbRef.updateItem(req.cookies.userId, formData);
     await res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true });
-    return res.redirect("/me/profile");
+    return res.redirect(`/me/profile?role=${role}`);
   }
 }
 
