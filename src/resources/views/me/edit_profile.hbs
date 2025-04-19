@@ -2,6 +2,8 @@
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/profile.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 
 <div id="master">
@@ -40,26 +42,46 @@
                     <span class="form-message"></span>
                     </div>
 
-                    <div class="form-group my-4">
+                    {{#if (eq role "student")}}
+                        <div class="form-group my-4">
                         <label for="profile-name-input" class="form-label-profile">Địa Chỉ:</label>
                         <select class="form-select form-select-district" name="districtId" aria-label="Default select example" required>
-                            <option selected value="">-- Bạn ở đâu trên địa bàn tỉnh Quảng Nam --</option>
-                            {{#each districts}}
-                                <option value="{{this.districtId}}">{{this.districtName}}</option>
-                            {{/each}}
-                        </select>
-                    </div>
+                            <option value="">-- Bạn ở đâu trên địa bàn tỉnh Quảng Nam --</option>
+                                {{#each districts}}
+                                    {{#if (eq this.districtId ../user.districtId)}}
+                                        <option value="{{this.districtId}}" selected>{{this.districtName}}</option>
+                                        {{else}}
+                                        <option value="{{this.districtId}}">{{this.districtName}}</option>
+                                    {{/if}}
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group my-4">
+                            <label for="profile-phone-input" class="form-label-profile">Trường cấp 2:</label>
+                            <select class="form-select form-select-school" name="secondarySchoolName" aria-label="Default select example" required >
+                                <option value="">-- Trường học cấp 2 của bạn là --</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group form-group-datepicker">
+                            <label for="profile-phone-input" class="form-label-profile">Ngày tháng năm sinh:</label>
+                            <input type="text" id="datepicker-edit-profile" class="login__input" name="dateOfBirth" rules="required" class="form-control" value="{{user.dateOfBirth}}" placeholder="Ngày tháng năm sinh">
+                            <span class="form-message"></span>
+                        </div>
+
+                    {{/if}}
 
                     <div class="form-group">
-                    <label for="profile-phone-input" class="form-label-profile">Số điện thoại:</label>
-                    <input
-                        type="text"
-                        class="form-control login__input"
-                        name="phone"
-                        rules="required|number|length:10"
-                        value="{{user.phone}}"
-                    />
-                    <span class="form-message"></span>
+                        <label for="profile-phone-input" class="form-label-profile">Số điện thoại:</label>
+                        <input
+                            type="text"
+                            class="form-control login__input"
+                            name="phone"
+                            rules="required|number|length:10"
+                            value="{{user.phone}}"
+                        />
+                        <span class="form-message"></span>
                     </div>
 
                     <div class="btn-edit d-flex justify-content-end mt-2">
@@ -72,7 +94,9 @@
     </div>
 </div>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
 <script
   src="/validationForm.js"
@@ -83,6 +107,45 @@
 <script src="https://upload-widget.cloudinary.com/global/all.js"></script>
 
 <script>
+
+    $.fn.datepicker.dates['vi'] = {
+        days: ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"],
+        daysShort: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+        daysMin: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+        months: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+        monthsShort: ["Th1", "Th2", "Th3", "Th4", "Th5", "Th6", "Th7", "Th8", "Th9", "Th10", "Th11", "Th12"],
+        today: "Hôm nay",
+        clear: "Xóa",
+        format: "dd/mm/yyyy",
+        titleFormat: "MM yyyy", 
+        weekStart: 1
+    };
+
+    $('#datepicker-edit-profile').datepicker({
+        format: 'dd/mm/yyyy',  
+        language: 'vi',         
+        autoclose: true       
+    });
+
+    $("#datepicker-edit-profile").change((e) => {
+        if(e.target.value === "") {
+            e.target.style.border = "1px solid red";
+        } else {
+            e.target.style.border = "1px solid #dee2e6";
+            $(".form-group-datepicker .form-message").get(0).innerHTML = "";
+        }
+    });
+
+    const phoneMessage = $(".form-group-phone .form-message").get(0);
+    if(phoneMessage && phoneMessage.innerHTML != "") {
+        phoneMessage.style.color = "red";
+    }
+
+    const signinPasswordMessage = $(".form-group-password .form-message").get(0);
+    if(signinPasswordMessage && signinPasswordMessage.innerHTML != "") {
+        signinPasswordMessage.style.color = "red";
+    }
+
   const inputChooseFileImg = document.getElementById("formFile");
   const imgProfile = document.getElementById("profile-img");
   const hiddenAvatarInput = document.getElementById("avatar-input");
@@ -107,4 +170,59 @@
         alert('Có lỗi khi tải ảnh lên Cloudinary');
       });
   });
+
+    const selectDistrict = document.querySelector(".form-select-district");
+    const selectSchool = document.querySelector(".form-select-school");
+
+    const userSecondarySchool = {{{secondarySchool}}}
+
+    const districtId = selectDistrict.value;
+    const data = {{{secondarySchools}}};
+    
+    const result = data.filter((doc) => {
+        return doc.districtId === districtId;
+    })[0];
+    if(result) {
+        selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
+        const secondarySchools = result.schools;
+        secondarySchools.forEach((school) => {
+            const option = document.createElement('option');
+            option.value = school;
+            option.textContent = school;
+            if(school === userSecondarySchool) {
+                option.selected = true;
+            }
+            selectSchool.appendChild(option);
+        })
+    } else {
+        selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
+        selectSchool.disabled = true;
+    }   
+
+    selectDistrict.onchange = (e) => {
+        selectSchool.disabled = false;
+        selectSchool.innerHTML = "";
+        const districtId = e.target.value;
+        const data = {{{secondarySchools}}};
+        
+        const result = data.filter((doc) => {
+            return doc.districtId === districtId;
+        })[0];
+        if(result) {
+            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
+            const secondarySchools = result.schools;
+            secondarySchools.forEach((school) => {
+                const option = document.createElement('option');
+                option.value = school;
+                option.textContent = school;
+                if(school === userSecondarySchool) {
+                    option.selected = true;
+                }
+                selectSchool.appendChild(option);
+            })
+        } else {
+            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
+            selectSchool.disabled = true;
+        }   
+    }
 </script>

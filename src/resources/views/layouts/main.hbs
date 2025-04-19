@@ -44,7 +44,7 @@
           <div class="nav-profile d-flex me me-4">
                 <a
                   class="nav-link text-white mx-2 d-flex align-items-center"
-                  href="/me/profile"
+                  href='/me/profile?role={{role}}'
                 >
                   <img
                     class="rounded-circle me-2"
@@ -53,7 +53,7 @@
                   <p class="m-0 text-black">{{fullName}}</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item d-flex align-items-center ms-2">
                 <a
                   href="/auth/signout"
                   class="btn btn-outline-success my-2 my-sm-0"

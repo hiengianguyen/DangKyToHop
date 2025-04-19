@@ -11,16 +11,19 @@ class MeController {
   }
 
   async index(req, res, next) {
+    const role = req.query.role;
     const user = await this.userDbRef.getItemById(req.cookies.userId);
     const districtDoc = await this.secondarySchoolDbRef.getItemByFilter({ districtId: user.districtId });
     const districtName = districtDoc.districtName;
     return res.render("me/profile", {
+      role: role,
       user: user,
       districtName: districtName
     });
   }
 
   async edit(req, res, next) {
+    const role = req.query.role;
     const user = await this.userDbRef.getItemById(req.cookies.userId);
     const secondarySchools = await this.secondarySchoolDbRef.getAllItems();
     const districts = secondarySchools.map((doc) => {
@@ -29,22 +32,44 @@ class MeController {
         districtName: doc.districtName
       };
     });
+    const districtDoc = await this.secondarySchoolDbRef.getItemByFilter({ districtId: user.districtId });
+    const districtName = districtDoc.districtName;
+    const secondarySchool = user.secondarySchoolName;
     return res.render("me/edit_profile", {
+      role: role,
       user: user,
-      districts: districts
+      secondarySchools: JSON.stringify(secondarySchools),
+      secondarySchool: JSON.stringify(secondarySchool),
+      districts: districts,
+      districtName: districtName
     });
   }
 
   async update(req, res, next) {
-    const { fullName, districtId, phone, avatar } = req.body;
-    await this.userDbRef.updateItem(req.cookies.userId, {
+    const { fullName, districtId, phone, avatar, secondarySchoolName, dateOfBirth } = req.body;
+    let formData = {
       fullName: fullName,
       districtId: districtId,
-      phone: phone,
-      avatar: avatar
-    });
+      dateOfBirth: dateOfBirth,
+      phone: phone
+    };
+
+    if (req.cookies.role === "manager") {
+      formData = {
+        fullName: fullName,
+        phone: phone
+      };
+    }
+
+    if (avatar && avatar != "") {
+      formData.avatar = avatar;
+      await res.cookie("avatar", avatar, { maxAge: 604800000, httpOnly: true });
+    }
+
+    if (secondarySchoolName) formData.secondarySchoolName = secondarySchoolName;
+
+    await this.userDbRef.updateItem(req.cookies.userId, formData);
     await res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true });
-    await res.cookie("avatar", avatar, { maxAge: 604800000, httpOnly: true });
     return res.redirect("/me/profile");
   }
 }
