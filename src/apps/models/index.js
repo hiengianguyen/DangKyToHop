@@ -6,6 +6,7 @@ const SubjectModel = require("../models/SubjectModel");
 const SubmittedCombinationModel = require("../models/SubmittedCombinationModel");
 const TrendingCombinationModel = require("../models/TrendingCombinationModel");
 const UserModel = require("../models/UserModel");
+const NationModel = require("../models/NationModel");
 
 module.exports = {
   FirestoreModel,
@@ -15,5 +16,6 @@ module.exports = {
   SubjectModel,
   SubmittedCombinationModel,
   TrendingCombinationModel,
-  UserModel
+  UserModel,
+  NationModel
 };

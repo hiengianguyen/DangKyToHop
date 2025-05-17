@@ -1,0 +1,9 @@
+.input-group-text {
+  height: 38px;
+  width: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.table-points {
+  width: 100%; }
