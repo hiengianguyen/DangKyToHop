@@ -1,9 +1,10 @@
-const { FirestoreModel, SubjectModel, CombinationModel } = require("../models");
+const { FirestoreModel, SubjectModel, CombinationModel, NationModel } = require("../models");
 const { SubjectsCollectionName, CombinationsCollectionName } = require("../../constants");
 
 class CombinationController {
   constructor() {
     this.subjectDbRef = new FirestoreModel(SubjectsCollectionName, SubjectModel);
+    this.nationDbRef = new FirestoreModel("nations", NationModel);
     this.combinationDbRef = new FirestoreModel(CombinationsCollectionName, CombinationModel);
     this.index = this.index.bind(this);
     this.submit = this.submit.bind(this);
@@ -29,7 +30,11 @@ class CombinationController {
   }
 
   async submit(req, res, next) {
-    return res.render("combination/submit_combination");
+    const nations = await this.nationDbRef.getAllItems();
+    nations.sort((a, b) => a.name.localeCompare(b.name));
+    return res.render("combination/submit_combination", {
+      nations: nations
+    });
   }
 }
 
