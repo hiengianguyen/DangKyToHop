@@ -18,7 +18,7 @@
             </div>
             <div class="card-body">
                 <div class="container">
-                    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+                    <form class="well form-horizontal" action="/combination/submited" method="POST"  id="contact_form">
                     
 
                     <!-- Form Name -->
@@ -27,12 +27,12 @@
                     <!-- Text input-->
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Họ và Tên học sinh" aria-label="Họ và Tên học sinh" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Họ và Tên học sinh" aria-label="Họ và Tên học sinh" name="fullName" aria-describedby="basic-addon1">
                     </div>
 
                     <div class="input-group mb-3 d-flex align-items-center">
                         <span class="me-2" id="basic-addon1"><b>Lớp 9:</b></span>
-                        <input type="text" class="form-control" placeholder="VD: 9A2 => A2, 9/1 => /1" aria-label="lớp 9..." aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="VD: 9A2 => A2, 9/1 => /1" aria-label="lớp 9..." name="class9" aria-describedby="basic-addon1">
                     </div>
                     
                     <div class="input-group form-group-datepicker mb-3">
@@ -43,15 +43,15 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-location-dot"></i></span>
-                        <input type="text" class="form-control" placeholder="Nơi sinh" aria-label="Nơi sinh" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Nơi sinh" name="placeOfBirth" aria-label="Nơi sinh" aria-describedby="basic-addon1">
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-venus-mars"></i></span>
                         <select class="form-select" id="inputGroupSelect01" name="gender" aria-label="Default select example">
                             <option selected value="">--Giới Tính--</option>
-                            <option value="male">Nam</option>
-                            <option value="female">Nữ</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
                         </select>
                     </div>
 
@@ -67,16 +67,16 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-house-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Nơi thường trú" aria-label="Nơi thường trú" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Nơi thường trú" name="ordinaryPlace" aria-label="Nơi thường trú" aria-describedby="basic-addon1">
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-house"></i></span>
-                        <input type="text" class="form-control" placeholder="Nơi ở hiện tại" aria-label="Nơi ở hiện tại" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Nơi ở hiện tại" name="presentPlace" aria-label="Nơi ở hiện tại" aria-describedby="basic-addon1">
                     </div>
 
-                    <caption><strong>14. Kết quả học tập và rèn luyện cấp THCS:</strong></caption>
-                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered">
+                    <caption><strong>Kết quả học tập và rèn luyện cấp THCS:</strong></caption>
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
                     <tr>
                         <th rowspan="1">Lớp</th>
                         <th class="px-4">6</th>
@@ -203,13 +203,40 @@
                         </td>
                     </tr>
                     </table>
+                    <caption><strong>Nguyện vọng 1:</strong></caption>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-book"></i></span>
+                        <select class="form-select" id="inputGroupSelect01" name="combination1" aria-label="Default select example">
+                            <option selected value="">--Chọn tổ hợp--</option>
+                            {{#each combinations}}
+                                <option value="{{this.name}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
 
+                    <caption><strong>Nguyện vọng 2:</strong></caption>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-book"></i></span>
+                        <select class="form-select" id="inputGroupSelect01" name="combination2" aria-label="Default select example">
+                            <option selected value="">--Chọn tổ hợp--</option>
+                            {{#each combinations}}
+                                <option value="{{this.name}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btnSubmitCombination" data-bs-toggle="modal" data-bs-target="#exampleModalLive">
+                        Đăng ký
+                    </button>
 
+                    </form>
                 </div>     
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: none;"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLiveLabel">Thông Báo</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>Bạn có chắn muốn đăng ký nhập họp với thông tin vừa rồi, hảy đảm bảo đúng thông tin!</p></div><div class="modal-footer"><button type="button" id="btnClose" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button><button type="button" id="btnRegister" class="btn btn-primary">Đăng ký</button></div></div></div></div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
@@ -266,4 +293,18 @@
             }
         }
     }
+
+    const form = document.getElementById("contact_form");
+    const btnSubmit = document.getElementById("btnSubmitCombination");
+    const modalLive = document.getElementById("exampleModalLive");
+    const btnRegister = modalLive.querySelector("#btnRegister");
+    const btnClose = modalLive.querySelector("#btnClose");
+    const iconClose = modalLive.querySelector(".btn-close");
+    btnSubmit.onclick = () => {
+        modalLive.style.display = "block";
+        btnClose.onclick = () => modalLive.style.display = "none";
+        iconClose.onclick = () => modalLive.style.display = "none";
+        btnRegister.onclick = () => form.submit();
+    }
+    
 </script>
