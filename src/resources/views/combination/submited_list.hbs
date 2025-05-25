@@ -1,0 +1,72 @@
+<head>
+    <title>Đăng Ký Tổ Hợp | Danh Sách Đã Đăng Ký</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/submitedList.css">
+</head>
+
+<div id="master">
+    <div class="container">
+        <div class="card mb-3 shadow">
+            <div class="school-info d-flex">
+                <img class="school-banner rounded-start" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+                
+                <div class="banner-container rounded-end">
+                    <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+                    <div class="school-info-detail fs-5">
+                        <img src="http://thptduytan.edu.vn/images/stories/hinhhethong/bannertrencung.gif" alt="">
+                    </div>
+                    </div>
+            </div>
+                <div class="card-body">
+                    <h3 class="text-center">Danh Sách Đã Đăng Ký</h3>
+                    <div class="container">
+                        <div class="row">
+                        {{#each submitedList}}
+                            <div class="card mb-3 m-3" style="width: 320px;">
+                                <div class="row g-0" style="position: relative;">
+                                    <div class="col-md-4 p-0 text-center">
+                                        <img src="{{this.avatarLink}}" class="img-fluid rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="position: absolute;left: 5px;top: 2px;">
+                                    </div>
+                                    <div class="col-md-8 ps-0">
+                                        <div class="card-body pe-0">
+                                                
+                                            <h5 class="card-title">{{this.fullName}}</h5>
+                                            <div class="d-flex justify-content-between" style="font-size: 12px;">
+                                                <div class="d-flex align-items-start flex-column">
+                                                    <p class="pe-1 m-0"><b>Giới tính:</b></p>
+                                                    <p class="m-0 pe-0" >{{this.gender}}</p>
+                                                </div>
+                                                <div class="d-flex align-items-start flex-column mx-2">
+                                                    <p class="m-0"><b>Lớp:</b></p>
+                                                    <p class="m-0">9{{this.class9}}</p>
+                                                </div>
+                                                <div class="d-flex align-items-start flex-column">
+                                                    <p class="m-0"><b>Dân tộc:</b></p>
+                                                    <p class="m-0">{{this.nation}}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex align-items-start flex-column">
+                                                <p class="pe-1 m-0"><b>Nguyện vọng 1:</b></p>
+                                                <p class="m-0 pe-0" >{{this.combination1}}</p>
+                                            </div>
+
+                                            <div class="d-flex align-items-start flex-column">
+                                                <p class="pe-1 m-0"><b>Nguyện vọng 2:</b></p>
+                                                <p class="m-0 pe-0" >{{this.combination2}}</p>
+                                            </div>
+                                                
+                                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                        </div>
+                                    </div>
+                                    <a href="" class="btn btn-primary" style="width: 6pc;position: absolute;left: 10px;bottom: 10px;">Xem thông tin</a>
+                                </div>
+                            </div>
+                        {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

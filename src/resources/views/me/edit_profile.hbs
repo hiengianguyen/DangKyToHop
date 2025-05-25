@@ -1,4 +1,5 @@
 <head>
+    <title>Đăng Ký Tổ Hợp | Chỉnh Sửa Trang Cá Nhân</title>
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/profile.css">
@@ -154,12 +155,10 @@
     const file = event.target.files[0];
     const reader = new FileReader();
 
-    // Khi file được load, cập nhật src của ảnh
     reader.onload = function (e) {
       imgProfile.src = e.target.result;
     };
 
-    // Tải ảnh lên Cloudinary và nhận URL trả về
     uploadImageToCloudinary(file, 'users')
       .then((imageUrl) => {
         imgProfile.src = imageUrl; 

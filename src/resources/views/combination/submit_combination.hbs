@@ -1,6 +1,8 @@
 <head>
+    <title>Đăng Ký Tổ Hợp | Đăng Ký Vào Trường THPT Duy Tân</title>
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/combination.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
 </head>
 
 <div id="master">
@@ -25,15 +27,37 @@
                     <legend>Đăng Ký Vào Lớp 10</legend>
 
                     <!-- Text input-->
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Họ và Tên học sinh" aria-label="Họ và Tên học sinh" name="fullName" aria-describedby="basic-addon1">
+                    <div class="row">
+                        <div class="input-group col mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                            <input type="text" class="form-control" placeholder="Họ và Tên học sinh" aria-label="Họ và Tên học sinh" name="fullName" aria-describedby="basic-addon1">
+                        </div>
+
+                        <div class="input-group col mb-3 d-flex align-items-center">
+                            <span class="me-2" id="basic-addon1"><b>Lớp 9:</b></span>
+                            <input type="text" class="form-control" placeholder="VD: 9A2 => A2, 9/1 => /1" aria-label="lớp 9..." name="class9" aria-describedby="basic-addon1">
+                        </div>
+
+                        <div class="input-group col mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-venus-mars"></i></span>
+                            <select class="form-select" id="inputGroupSelect01" name="gender" aria-label="Default select example">
+                                <option selected value="">--Giới Tính--</option>
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="input-group mb-3 d-flex align-items-center">
-                        <span class="me-2" id="basic-addon1"><b>Lớp 9:</b></span>
-                        <input type="text" class="form-control" placeholder="VD: 9A2 => A2, 9/1 => /1" aria-label="lớp 9..." name="class9" aria-describedby="basic-addon1">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="file" id="inputImage" accept="image/*">
+                        </div>
+                        <img id="resultImage" class="col" style="max-width:200px;">
+                        <div class="c"><button id="recropBtn" type="button" style="display:none;">Cắt lại</button></div>
+                        <input id="inputHiddenImg" type="text" name="avatarLink" style="display: none;">
                     </div>
+
+                    
                     
                     <div class="input-group form-group-datepicker mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
@@ -46,14 +70,7 @@
                         <input type="text" class="form-control" placeholder="Nơi sinh" name="placeOfBirth" aria-label="Nơi sinh" aria-describedby="basic-addon1">
                     </div>
 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-venus-mars"></i></span>
-                        <select class="form-select" id="inputGroupSelect01" name="gender" aria-label="Default select example">
-                            <option selected value="">--Giới Tính--</option>
-                            <option value="Nam">Nam</option>
-                            <option value="Nữ">Nữ</option>
-                        </select>
-                    </div>
+                    
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-person"></i></span>
@@ -233,7 +250,15 @@
             </div>
         </div>
     </div>
+    
 </div>
+
+<div id="cropperContainer" style="display:none; position:fixed; inset:0; background:#000a; z-index:9999; justify-content:center; align-items:center;">
+    <img id="preview" style="max-height:90vh;" />
+    <button id="cropBtn" type="button" style="position:absolute; bottom:20px;">Cắt ảnh</button>
+</div>
+
+
 
 <!-- Modal -->
 <div class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: none;"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLiveLabel">Thông Báo</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>Bạn có chắn muốn đăng ký nhập họp với thông tin vừa rồi, hảy đảm bảo đúng thông tin!</p></div><div class="modal-footer"><button type="button" id="btnClose" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button><button type="button" id="btnRegister" class="btn btn-primary">Đăng ký</button></div></div></div></div>
@@ -241,6 +266,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="/uploadImageToCloudinary.js" defer></script>
 
 {{!-- chưa add validat --}}
 
@@ -300,11 +326,79 @@
     const btnRegister = modalLive.querySelector("#btnRegister");
     const btnClose = modalLive.querySelector("#btnClose");
     const iconClose = modalLive.querySelector(".btn-close");
+    const inputHiddenImg = document.getElementById("inputHiddenImg");
     btnSubmit.onclick = () => {
         modalLive.style.display = "block";
         btnClose.onclick = () => modalLive.style.display = "none";
         iconClose.onclick = () => modalLive.style.display = "none";
-        btnRegister.onclick = () => form.submit();
+        btnRegister.onclick = async () => {
+            await uploadImageToCloudinary(inputHiddenImg.value, "avatars").then((imageUrl) => {
+                inputHiddenImg.value = imageUrl;
+            })
+            form.submit();
+        };
     }
     
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+<script>
+    const inputImage = document.getElementById('inputImage');
+    const preview = document.getElementById('preview');
+    const cropBtn = document.getElementById('cropBtn');
+    const resultImage = document.getElementById('resultImage');
+    const cropperContainer = document.getElementById('cropperContainer');
+    
+    let cropper;
+
+    const recropBtn = document.getElementById('recropBtn');
+    let lastImageURL = ''; // để lưu lại ảnh gốc đã chọn
+
+    inputImage.addEventListener('change', function () {
+        const file = this.files[0];
+        if (file) {
+            lastImageURL = URL.createObjectURL(file);
+            showCropper(lastImageURL);
+        }
+    });
+
+    cropBtn.addEventListener('click', function () {
+        const canvas = cropper.getCroppedCanvas({ width: 300, height: 400 });
+        const dataUrl = canvas.toDataURL('image/jpeg');
+        inputHiddenImg.value = dataUrl;
+
+        resultImage.src = dataUrl;
+        resultImage.style.display = 'block';
+        recropBtn.style.display = 'inline-block';
+
+        cropper.destroy();
+        cropper = null;
+        cropperContainer.style.display = 'none';
+    });
+
+    recropBtn.addEventListener('click', function () {
+    showCropper(lastImageURL);
+    });
+
+    function showCropper(imageUrl) {
+        preview.src = imageUrl;
+        cropperContainer.style.display = 'flex';
+
+        preview.onload = function () {
+            if (cropper) cropper.destroy();
+            cropper = new Cropper(preview, {
+                aspectRatio: 3 / 4,
+                viewMode: 1,
+                dragMode: 'move',
+                cropBoxResizable: false,
+                cropBoxMovable: false,
+                movable: true,
+                zoomable: true,
+                ready() {
+                    cropper.setCropBoxData({ width: 300, height: 400 });
+                }
+            });
+        };
+    }
+  </script>
