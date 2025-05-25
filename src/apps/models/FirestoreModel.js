@@ -4,14 +4,19 @@ class FirestoreModel {
   constructor(collectionName, modelClass) {
     this.collectionName = collectionName;
     this.collectionRef = database.collection(collectionName);
-    this.model = modelClass;
+    this.model = new modelClass();
+    this.modelClass = modelClass;
   }
 
-  async getAllItems() {
+  async getAllItems(useStatic) {
     try {
       const result = await this.collectionRef.where("isDeleted", "==", false).get();
       const allDocs = Array.from(result.docs);
-      return allDocs.map((doc) => this.model.fromFirestore(doc));
+      if (useStatic) {
+        return allDocs.map((doc) => this.modelClass.fromFirestore(doc));
+      } else {
+        return allDocs.map((doc) => this.model.fromFirestore(doc));
+      }
     } catch (error) {
       console.log("error:", error);
       return [];

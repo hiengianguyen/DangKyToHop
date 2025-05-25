@@ -16,7 +16,7 @@ class CombinationController {
   async detail(req, res, next) {
     const combinationId = req.params.id;
 
-    const subjects = await this.subjectDbRef.getAllItems();
+    const subjects = await this.subjectDbRef.getAllItems(false);
     const combination = await this.combinationDbRef.getItemById(combinationId);
 
     let compulsorySubjects = combination.compulsorySubjects;
@@ -33,10 +33,10 @@ class CombinationController {
   }
 
   async submit(req, res, next) {
-    const nations = await this.nationDbRef.getAllItems();
+    const nations = await this.nationDbRef.getAllItems(false);
     nations.sort((a, b) => a.name.localeCompare(b.name));
 
-    const combinations = await this.combinationDbRef.getAllItems();
+    const combinations = await this.combinationDbRef.getAllItems(false);
     //sort by name (asc)
     combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
 
@@ -85,7 +85,7 @@ class CombinationController {
   }
 
   async submitedList(req, res, next) {
-    const data = await this.registeredCombinationDbRef.getAllItems();
+    const data = await this.registeredCombinationDbRef.getAllItems(true);
     return res.render("combination/submited_list", {
       submitedList: data
     });
