@@ -2,6 +2,7 @@ class RegisteredCombinationModel {
   constructor(
     id,
     fullName,
+    avatarLink,
     class9,
     dateOfBirth,
     placeOfBirth,
@@ -32,6 +33,7 @@ class RegisteredCombinationModel {
   ) {
     this.id = id;
     this.fullName = fullName;
+    this.avatarLink = avatarLink;
     this.class9 = class9;
     this.dateOfBirth = dateOfBirth;
     this.placeOfBirth = placeOfBirth;
@@ -67,6 +69,7 @@ class RegisteredCombinationModel {
     return new RegisteredCombinationModel(
       doc.id,
       data.fullName,
+      data.avatarLink,
       data.class9,
       data.dateOfBirth,
       data.placeOfBirth,
@@ -100,6 +103,7 @@ class RegisteredCombinationModel {
   toFirestore() {
     return {
       fullName: this.fullName,
+      avatarLink: this.avatarLink,
       class9: this.class9,
       dateOfBirth: this.dateOfBirth,
       placeOfBirth: this.placeOfBirth,

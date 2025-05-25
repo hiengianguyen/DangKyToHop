@@ -7,12 +7,13 @@ class CombinationController {
     this.nationDbRef = new FirestoreModel("nations", NationModel);
     this.registeredCombinationDbRef = new FirestoreModel("registeredCombinations", RegisteredCombinationModel);
     this.combinationDbRef = new FirestoreModel(CombinationsCollectionName, CombinationModel);
-    this.index = this.index.bind(this);
+    this.detail = this.detail.bind(this);
     this.submit = this.submit.bind(this);
     this.submited = this.submited.bind(this);
+    this.submitedList = this.submitedList.bind(this);
   }
 
-  async index(req, res, next) {
+  async detail(req, res, next) {
     const combinationId = req.params.id;
 
     const subjects = await this.subjectDbRef.getAllItems();
@@ -50,6 +51,7 @@ class CombinationController {
     const submitedCombinationModel = new RegisteredCombinationModel(
       undefined,
       data.fullName,
+      data.avatarLink,
       data.class9,
       data.dateOfBirth,
       data.placeOfBirth,
@@ -83,7 +85,10 @@ class CombinationController {
   }
 
   async submitedList(req, res, next) {
-    return;
+    const data = await this.registeredCombinationDbRef.getAllItems();
+    return res.render("combination/submited_list", {
+      submitedList: data
+    });
   }
 }
 

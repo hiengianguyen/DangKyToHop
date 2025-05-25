@@ -4,7 +4,7 @@ class FirestoreModel {
   constructor(collectionName, modelClass) {
     this.collectionName = collectionName;
     this.collectionRef = database.collection(collectionName);
-    this.model = new modelClass();
+    this.model = modelClass;
   }
 
   async getAllItems() {
