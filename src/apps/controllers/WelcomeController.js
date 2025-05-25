@@ -10,7 +10,7 @@ class WelcomeController {
 
   async index(req, res, next) {
     if (!req.cookies.isLogin || req.cookies.isLogin === "false") {
-      const secondarySchools = await this.secondarySchoolDbRef.getAllItems();
+      const secondarySchools = await this.secondarySchoolDbRef.getAllItems(false);
       const districts = secondarySchools.map((doc) => {
         return {
           districtId: doc.districtId,

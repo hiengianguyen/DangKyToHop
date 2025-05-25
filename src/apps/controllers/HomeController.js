@@ -15,7 +15,7 @@ class HomeController {
           name: "Trường THPT Duy Tân"
         });
 
-        const combinations = await this.combinationDbRef.getAllItems();
+        const combinations = await this.combinationDbRef.getAllItems(false);
         //sort by name (asc)
         combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
 

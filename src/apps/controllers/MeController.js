@@ -25,7 +25,7 @@ class MeController {
   async edit(req, res, next) {
     const role = req.query.role;
     const user = await this.userDbRef.getItemById(req.cookies.userId);
-    const secondarySchools = await this.secondarySchoolDbRef.getAllItems();
+    const secondarySchools = await this.secondarySchoolDbRef.getAllItems(false);
     const districts = secondarySchools.map((doc) => {
       return {
         districtId: doc.districtId,
