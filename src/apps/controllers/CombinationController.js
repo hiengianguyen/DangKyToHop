@@ -1,5 +1,7 @@
 const { FirestoreModel, SubjectModel, CombinationModel, NationModel, RegisteredCombinationModel } = require("../models");
 const { SubjectsCollectionName, CombinationsCollectionName } = require("../../constants");
+const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
+const database = require("../../config/database/index");
 
 class CombinationController {
   constructor() {
@@ -7,6 +9,7 @@ class CombinationController {
     this.nationDbRef = new FirestoreModel("nations", NationModel);
     this.registeredCombinationDbRef = new FirestoreModel("registeredCombinations", RegisteredCombinationModel);
     this.combinationDbRef = new FirestoreModel(CombinationsCollectionName, CombinationModel);
+    this.testDBRef = new FirestoreModel("test", NationModel);
     this.detail = this.detail.bind(this);
     this.submit = this.submit.bind(this);
     this.submited = this.submited.bind(this);
@@ -78,17 +81,27 @@ class CombinationController {
       data.avgGeographyScore,
       data.combination1,
       data.combination2,
-      undefined
+      undefined,
+      new Date()
     );
     await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
     return res.redirect("/");
   }
 
   async submitedList(req, res, next) {
-    const data = await this.registeredCombinationDbRef.getAllItems(true);
+    let data = await database.collection("registeredCombinations").orderBy("registeredAt", "asc").get();
+    data = Array.from(data.docs).map((doc) => {
+      var result = RegisteredCombinationModel.fromFirestore(doc);
+      result.registeredAt = convertToVietnameseDateTime(result.registeredAt.toDate());
+      return result;
+    });
     return res.render("combination/submited_list", {
       submitedList: data
     });
+  }
+
+  async submitedDetail(req, res, next) {
+    return res.render("combination/submited_detail");
   }
 }
 

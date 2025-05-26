@@ -29,7 +29,8 @@ class RegisteredCombinationModel {
     avgGeographyScore,
     combination1,
     combination2,
-    isDeleted
+    isDeleted,
+    registeredAt
   ) {
     this.id = id;
     this.fullName = fullName;
@@ -61,6 +62,7 @@ class RegisteredCombinationModel {
     this.combination1 = combination1;
     this.combination2 = combination2;
     this.isDeleted = isDeleted || false;
+    this.registeredAt = registeredAt || new Date();
   }
 
   static fromFirestore(doc) {
@@ -96,7 +98,8 @@ class RegisteredCombinationModel {
       data.avgGeographyScore,
       data.combination1,
       data.combination2,
-      data.isDeleted
+      data.isDeleted,
+      data.registeredAt
     );
   }
 
@@ -130,7 +133,8 @@ class RegisteredCombinationModel {
       avgGeographyScore: this.avgGeographyScore,
       combination1: this.combination1,
       combination2: this.combination2,
-      isDeleted: this.isDeleted
+      isDeleted: this.isDeleted,
+      registeredAt: this.registeredAt
     };
   }
 }
