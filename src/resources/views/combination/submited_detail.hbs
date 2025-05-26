@@ -1,7 +1,7 @@
 <head>
-    <title>Đăng Ký Tổ Hợp | Trường Học</title>
-    <link rel="stylesheet" href="/css/home.css">
+    <title>Đăng Ký Tổ Hợp | Hồ sơ chi tiết</title>
     <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/combination.css">
 </head>
 
 <div id="master">
@@ -18,8 +18,148 @@
                 </div>
             </div>
             <div class="card-body">
-                <h3 class="text-center">Thông tin hồ sơ đã đăng ký</h3>
+                <div class="container">
+                    <!-- Form Name -->
+                    <legend class="text-center mb-4">Hồ sơ đăng ký vào 10 chi tiết</legend>
+
+                    <div class="row">
+                        <div class="col col-md-3 mb-3 d-flex align-items-start flex-column">
+                            <label for=""><b>Ảnh thẻ:</b></label>
+                            <img id="resultImage" src="{{submitedCombinationDetail.avatarLink}}" class="col col-md-2" style="max-width:200px;">
+                        </div>
+
+                        <div class="col row">
+                            <div class="input-group col col-md-5 d-flex align-items-start flex-column">
+                                <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
+                                <h4 class="mb-3"> {{submitedCombinationDetail.fullName}}</h4>
+                                <label for="inputName">Ngày tháng năm sinh: </label>
+                                <b class="mb-3">{{submitedCombinationDetail.dateOfBirth}}</b>
+                                <label for="inputName">Nơi ở thường trú:</label> 
+                                <b class="mb-3">{{submitedCombinationDetail.ordinaryPlace}}</b>
+                                    
+                                
+                            </div>
+
+                            <div class="col d-flex align-items-start flex-column p-0">
+                                <label for="inputName" >Giới tính: </label>
+                                <b class="mb-3">{{submitedCombinationDetail.gender}}</b>
+                                <label for="inputName">Nơi sinh: </label>
+                                <b class="mb-3">{{submitedCombinationDetail.placeOfBirth}}</b>
+                                <label for="inputName">Nơi ở hiện tại:</label> 
+                                <b class="mb-3">{{submitedCombinationDetail.presentPlace}}</b>
+                            </div>
+
+                            <div class="col d-flex align-items-start flex-column">
+                                <label for="inputGroupSelect01">Dân tộc: </label>
+                                <b class="mb-3">{{submitedCombinationDetail.nation}}</b>
+
+                                <div class="d-flex align-items-start flex-column">
+                                    <label for="inputName">Nguyện vọng 1:</label>
+                                    <h5>{{submitedCombinationDetail.combination1}}</h5>                       
+                                </div>
+                                
+
+                                <div class="d-flex align-items-start flex-column">
+                                    <label for="inputName">Nguyện vọng 2:</label>
+                                    <h5>{{submitedCombinationDetail.combination2}}</h5>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
+                    <tr>
+                        <th rowspan="1">Lớp</th>
+                        <th class="px-4">6</th>
+                        <th class="px-4">7</th>
+                        <th class="px-4">8</th>
+                        <th class="px-4">9</th>
+                        <th rowspan="2" class="px-3">Xếp loại tốt nghiệp THCS</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>Hạnh kiểm</td>
+                        <td>
+                            {{submitedCombinationDetail.conduct6}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.conduct7}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.conduct8}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.conduct9}}
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Học lực</td>
+                        <td>
+                            {{submitedCombinationDetail.academicRating6}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.academicRating7}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.academicRating8}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.academicRating9}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.graduationRating}}
+                        </td>
+                    </tr>
+                    </table>
+
+                    <label for="inputName"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
+                        <tr>
+                            <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
+                        </tr>
+                        <tbody>
+                            <td class="px-3"><b>Văn</b></td>
+                            <td class="px-3"><b>Toán</b></td>
+                            <td class="px-3"><b>Ngoại ngữ</b></td>
+                            <td class="px-3"><b>Vật lý</b></td>
+                            <td class="px-3"><b>Hóa học</b></td>
+                            <td class="px-3"><b>Sinh</b></td>
+                            <td class="px-3"><b>Sử</b></td>
+                            <td class="px-3"><b>Địa</b></td>
+                        </tbody>
+                        <tbody>
+                            <td>
+                                {{submitedCombinationDetail.avgLiteratureScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgMathScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgEnglishScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgPhysicsScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgChemistryScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgBiologyScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgHistoryScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgGeographyScore}}
+                            </td>
+                        </tbody>
+                    </table>
+                </div> 
             </div>
         </div>
     </div>
 </div>
+

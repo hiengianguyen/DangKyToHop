@@ -23,11 +23,15 @@ class FirestoreModel {
     }
   }
 
-  async getItemById(id) {
+  async getItemById(id, useStatic) {
     try {
       const doc = await this.collectionRef.doc(id).get();
       if (doc.data().isDeleted === false) {
-        return this.model.fromFirestore(doc);
+        if (useStatic) {
+          return this.modelClass.fromFirestore(doc);
+        } else {
+          return this.model.fromFirestore(doc);
+        }
       } else {
         return null;
       }

@@ -12,7 +12,7 @@ class MeController {
 
   async index(req, res, next) {
     const role = req.query.role;
-    const user = await this.userDbRef.getItemById(req.cookies.userId);
+    const user = await this.userDbRef.getItemById(req.cookies.userId, false);
     const districtDoc = await this.secondarySchoolDbRef.getItemByFilter({ districtId: user.districtId });
     const districtName = districtDoc.districtName;
     return res.render("me/profile", {
@@ -24,7 +24,7 @@ class MeController {
 
   async edit(req, res, next) {
     const role = req.query.role;
-    const user = await this.userDbRef.getItemById(req.cookies.userId);
+    const user = await this.userDbRef.getItemById(req.cookies.userId, false);
     const secondarySchools = await this.secondarySchoolDbRef.getAllItems(false);
     const districts = secondarySchools.map((doc) => {
       return {

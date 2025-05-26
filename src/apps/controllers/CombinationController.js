@@ -14,13 +14,14 @@ class CombinationController {
     this.submit = this.submit.bind(this);
     this.submited = this.submited.bind(this);
     this.submitedList = this.submitedList.bind(this);
+    this.submitedDetail = this.submitedDetail.bind(this);
   }
 
   async detail(req, res, next) {
     const combinationId = req.params.id;
 
     const subjects = await this.subjectDbRef.getAllItems(false);
-    const combination = await this.combinationDbRef.getItemById(combinationId);
+    const combination = await this.combinationDbRef.getItemById(combinationId, false);
 
     let compulsorySubjects = combination.compulsorySubjects;
     let optionalSubjects = combination.optionalSubjects;
@@ -101,7 +102,11 @@ class CombinationController {
   }
 
   async submitedDetail(req, res, next) {
-    return res.render("combination/submited_detail");
+    const submitedCombinationId = req.params.id;
+    const data = await this.registeredCombinationDbRef.getItemById(submitedCombinationId, true);
+    return res.render("combination/submited_detail", {
+      submitedCombinationDetail: data
+    });
   }
 }
 
