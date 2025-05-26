@@ -12,7 +12,7 @@
                 <img class="school-banner rounded-start" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
                 
                 <div class="banner-container rounded-end">
-                    <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+                    <img class="school-banner-second rounded-end" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
                     <div class="school-info-detail fs-5">
                         <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
                     </div>
@@ -56,11 +56,15 @@
                                                 <p class="pe-1 m-0"><b>Nguyện vọng 2:</b></p>
                                                 <p class="m-0 pe-0" >{{this.combination2}}</p>
                                             </div>
-                                                
-                                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                            
+                                            <div class="d-flex align-items-start flex-column">
+                                                <p class="card-text mb-0"><small class="text-body-secondary">Đăng ký lúc:</small></p>
+                                                <p class="card-text"><small class="text-body-secondary"><b>{{this.registeredAt}}</b></small></p>
+                                            </div>
+                                            
                                         </div>
                                     </div>
-                                    <a href="" class="btn btn-primary" style="width: 6pc;position: absolute;left: 10px;bottom: 10px;">Xem thông tin</a>
+                                    <a href="submited-list/{{this.id}}" class="btn btn-primary" style="width: 6pc;position: absolute;left: 10px;bottom: 10px;">Xem thông tin</a>
                                 </div>
                             </div>
                         {{/each}}

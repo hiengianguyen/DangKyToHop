@@ -12,7 +12,7 @@
                 <img class="school-banner rounded-start" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
                 
                 <div class="banner-container rounded-end">
-                    <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+                    <img class="school-banner-second rounded-end" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
                     <div class="school-info-detail fs-5">
                         <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
                     </div>
@@ -24,75 +24,94 @@
                     
 
                     <!-- Form Name -->
-                    <legend>Đăng Ký Vào Lớp 10</legend>
+                    <legend class="text-center mb-4">Phiếu đăng ký thông tin vào lớp 10 - Trường THPT Duy Tân</legend>
 
                     <!-- Text input-->
+
+                    <div class="col col-md-4 mb-3 d-flex align-items-start flex-column">
+                        <label for=""><b>Chọn ảnh thẻ:</b></label>
+                        <div class="row mb-3">
+                            <div class="imgBoderFake"><p>3x4</p></div>
+                            <img id="resultImage" class="col col-md-2" style="max-width:200px; display:none;">
+                            <div class="col col-md-5">
+                                <input type="file" id="inputImage" accept="image/*">
+                                <button id="recropBtn" class="mt-4 btn btn-primary" type="button" style="display:none;">Cắt lại</button>
+                            </div>
+                            
+                            <input id="inputHiddenImg" type="text" name="avatarLink" style="display: none;">
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="input-group col mb-3">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                            <input type="text" class="form-control" placeholder="Họ và Tên học sinh" aria-label="Họ và Tên học sinh" name="fullName" aria-describedby="basic-addon1">
+                            <div class="d-flex align-items-start flex-column">
+                                <label for="inputName"><b>Họ và Tên học sinh:</b></label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                                    <input id="inputName" type="text" class="form-control" placeholder="Họ và Tên học sinh" aria-label="Họ và Tên học sinh" name="fullName" aria-describedby="basic-addon1" style="text-transform: capitalize;">
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="input-group col mb-3 d-flex align-items-center">
-                            <span class="me-2" id="basic-addon1"><b>Lớp 9:</b></span>
+
+
+                        <div class="col mb-3 d-flex align-items-start flex-column">
+                            <label class="me-2" id="basic-addon1"><b>Lớp 9:</b></label>
                             <input type="text" class="form-control" placeholder="VD: 9A2 => A2, 9/1 => /1" aria-label="lớp 9..." name="class9" aria-describedby="basic-addon1">
                         </div>
 
-                        <div class="input-group col mb-3">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-venus-mars"></i></span>
-                            <select class="form-select" id="inputGroupSelect01" name="gender" aria-label="Default select example">
-                                <option selected value="">--Giới Tính--</option>
-                                <option value="Nam">Nam</option>
-                                <option value="Nữ">Nữ</option>
-                            </select>
+                        
+                        <div class="col d-flex align-items-start flex-column">
+                            <label for="inputName"><b>Giới tính:</b></label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-venus-mars"></i></span>
+                                <select class="form-select" id="inputGroupSelect01" name="gender" aria-label="Default select example">
+                                    <option selected value="">--Giới tính--</option>
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex align-items-start flex-column">
+                            <label for="inputGroupSelect01"><b>Dân tộc:</b></label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-person"></i></span>
+                                <select class="form-select" id="inputGroupSelect01" name="nation" aria-label="Default select example">
+                                    <option selected value="">--Dân tộc--</option>
+                                    {{#each nations}}
+                                        <option value="{{this.name}}">{{this.name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input type="file" id="inputImage" accept="image/*">
-                        </div>
-                        <img id="resultImage" class="col" style="max-width:200px;">
-                        <div class="c"><button id="recropBtn" type="button" style="display:none;">Cắt lại</button></div>
-                        <input id="inputHiddenImg" type="text" name="avatarLink" style="display: none;">
-                    </div>
-
-                    
-                    
-                    <div class="input-group form-group-datepicker mb-3">
+                        <label for="inputName"><b>Ngày tháng năm sinh:</b></label>
+                    <div class=" input-group form-group-datepicker mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
                         <input type="text" class="form-control" id="datepicker" class="login__input" name="dateOfBirth" rules="required" aria-describedby="basic-addon1" placeholder="Ngày tháng năm sinh">
                         <span class="form-message"></span>
                     </div>
-
+                        <label for="inputName"><b>Nơi sinh:</b></label>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-location-dot"></i></span>
-                        <input type="text" class="form-control" placeholder="Nơi sinh" name="placeOfBirth" aria-label="Nơi sinh" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Nơi sinh" name="placeOfBirth" aria-label="Nơi sinh" aria-describedby="basic-addon1" style="text-transform: capitalize;">
                     </div>
 
-                    
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-person"></i></span>
-                        <select class="form-select" id="inputGroupSelect01" name="nation" aria-label="Default select example">
-                            <option selected value="">--Dân Tộc--</option>
-                            {{#each nations}}
-                                <option value="{{this.name}}">{{this.name}}</option>
-                            {{/each}}
-                        </select>
-                    </div>
-
+                        <label for="inputName"><b>Nơi ở thường trú:</b></label>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-house-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Nơi thường trú" name="ordinaryPlace" aria-label="Nơi thường trú" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Nơi ở thường trú" name="ordinaryPlace" aria-label="Nơi ở thường trú" aria-describedby="basic-addon1" style="text-transform: capitalize;">
                     </div>
 
+                        <label for="inputName"><b>Nơi ở hiện tại:</b></label>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-house"></i></span>
-                        <input type="text" class="form-control" placeholder="Nơi ở hiện tại" name="presentPlace" aria-label="Nơi ở hiện tại" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Nơi ở hiện tại" name="presentPlace" aria-label="Nơi ở hiện tại" aria-describedby="basic-addon1" style="text-transform: capitalize;">
                     </div>
 
-                    <caption><strong>Kết quả học tập và rèn luyện cấp THCS:</strong></caption>
+                    <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
                     <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
                     <tr>
                         <th rowspan="1">Lớp</th>
@@ -101,7 +120,7 @@
                         <th class="px-4">8</th>
                         <th class="px-4">9</th>
                         <th rowspan="2" class="px-3">Xếp loại tốt nghiệp THCS</th>
-                        <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
+                        
                     </tr>
                     
                     <tr>
@@ -142,14 +161,6 @@
                                 <option value="Chưa Đạt">Chưa Đạt</option>
                             </select>
                         </td>
-                        <td class="px-3"><b>Văn</b></td>
-                        <td class="px-3"><b>Toán</b></td>
-                        <td class="px-3"><b>Ngoại ngữ</b></td>
-                        <td class="px-3"><b>Vật lý</b></td>
-                        <td class="px-3"><b>Hóa học</b></td>
-                        <td class="px-3"><b>Sinh</b></td>
-                        <td class="px-3"><b>Sử</b></td>
-                        <td class="px-3"><b>Địa</b></td>
                     </tr>
                     
                     <tr>
@@ -194,32 +205,53 @@
                                 <option value="Yếu">Trung Bình</option>
                             </select>
                         </td>
-                        <td>
-                            <input type="number" step="0.1" name="avgLiteratureScore" placeholder="Văn">
-                        </td>
-                        <td>
-                            <input type="number" step="0.1" name="avgMathScore" placeholder="Toán">
-                        </td>
-                        <td>
-                            <input type="number" step="0.1" name="avgEnglishScore" placeholder="Ngoại Ngữ">
-                        </td>
-                        <td>
-                            <input type="number" step="0.1" name="avgPhysicsScore" placeholder="Vật Lý">
-                        </td>
-                        <td>
-                            <input type="number" step="0.1" name="avgChemistryScore" placeholder="Hoá Học">
-                        </td>
-                        <td>
-                            <input type="number" step="0.1" name="avgBiologyScore" placeholder="Sinh">
-                        </td>
-                        <td>
-                            <input type="number" step="0.1" name="avgHistoryScore" placeholder="Sử">
-                        </td>
-                        <td>
-                            <input type="number" step="0.1" name="avgGeographyScore" placeholder="Địa">
-                        </td>
                     </tr>
                     </table>
+
+                    <label for="inputName"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
+                        <tr>
+                            <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
+                        </tr>
+                        <tbody>
+                            <td class="px-3"><b>Văn</b></td>
+                            <td class="px-3"><b>Toán</b></td>
+                            <td class="px-3"><b>Ngoại ngữ</b></td>
+                            <td class="px-3"><b>Vật lý</b></td>
+                            <td class="px-3"><b>Hóa học</b></td>
+                            <td class="px-3"><b>Sinh</b></td>
+                            <td class="px-3"><b>Sử</b></td>
+                            <td class="px-3"><b>Địa</b></td>
+                        </tbody>
+                        <tbody>
+                            <td>
+                                <input type="number" step="0.1" min="0" max="10" name="avgLiteratureScore" placeholder="Văn">
+                            </td>
+                            <td>
+                                <input type="number" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Toán">
+                            </td>
+                            <td>
+                                <input type="number" step="0.1" min="0" max="10" name="avgEnglishScore" placeholder="Ngoại Ngữ">
+                            </td>
+                            <td>
+                                <input type="number" step="0.1" min="0" max="10" name="avgPhysicsScore" placeholder="Vật Lý">
+                            </td>
+                            <td>
+                                <input type="number" step="0.1" min="0" max="10" name="avgChemistryScore" placeholder="Hoá Học">
+                            </td>
+                            <td>
+                                <input type="number" step="0.1" min="0" max="10" name="avgBiologyScore" placeholder="Sinh">
+                            </td>
+                            <td>
+                                <input type="number" step="0.1" min="0" max="10" name="avgHistoryScore" placeholder="Sử">
+                            </td>
+                            <td>
+                                <input type="number" step="0.1" min="0" max="10" name="avgGeographyScore" placeholder="Địa">
+                            </td>
+                        </tbody>
+                    </table>
+
+
                     <caption><strong>Nguyện vọng 1:</strong></caption>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-book"></i></span>
@@ -349,6 +381,7 @@
     const cropBtn = document.getElementById('cropBtn');
     const resultImage = document.getElementById('resultImage');
     const cropperContainer = document.getElementById('cropperContainer');
+    const imgBoderFake = document.getElementsByClassName("imgBoderFake")[0];
     
     let cropper;
 
@@ -369,6 +402,7 @@
         inputHiddenImg.value = dataUrl;
 
         resultImage.src = dataUrl;
+        imgBoderFake.style.display = 'none';
         resultImage.style.display = 'block';
         recropBtn.style.display = 'inline-block';
 

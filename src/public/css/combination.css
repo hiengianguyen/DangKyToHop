@@ -7,3 +7,33 @@
 
 .table-points {
   width: 100%; }
+
+.imgBoderFake {
+  width: 120px;
+  height: 160px;
+  border: 2px solid #ccc;
+  margin: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.imgBoderFake > p {
+  color: #ccc;
+  font-size: 30px; }
+
+#inputImage {
+  padding: 0;
+  border: none; }
+
+#inputImage::file-selector-button {
+  font-weight: bold;
+  color: dodgerblue;
+  padding: 0.5em;
+  border: thin solid grey;
+  border-radius: 3px; }
+
+#resultImage {
+  width: 150px;
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0 15px; }
