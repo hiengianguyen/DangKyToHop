@@ -24,20 +24,18 @@
 
                     <div class="row">
                         <div class="col col-md-3 mb-3 d-flex align-items-start flex-column">
-                            <label for=""><b>Ảnh thẻ:</b></label>
+                            <label for="" class="ms-3"><b>Ảnh thẻ:</b></label>
                             <img id="resultImage" src="{{submitedCombinationDetail.avatarLink}}" class="col col-md-2" style="max-width:200px;">
                         </div>
 
-                        <div class="col row">
+                        <div class="col row gy-3 m-0">
                             <div class="input-group col col-md-5 d-flex align-items-start flex-column">
                                 <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
                                 <h4 class="mb-3"> {{submitedCombinationDetail.fullName}}</h4>
                                 <label for="inputName">Ngày tháng năm sinh: </label>
                                 <b class="mb-3">{{submitedCombinationDetail.dateOfBirth}}</b>
-                                <label for="inputName">Nơi ở thường trú:</label> 
-                                <b class="mb-3">{{submitedCombinationDetail.ordinaryPlace}}</b>
-                                    
-                                
+                                <label for="inputName">Trường học cấp 2:</label> 
+                                <b class="mb-3">Trường THCS Lý Thường Kiệt</b>
                             </div>
 
                             <div class="col d-flex align-items-start flex-column p-0">
@@ -64,6 +62,42 @@
                                     <h5>{{submitedCombinationDetail.combination2}}</h5>
                                 </div>
                                 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start flex-column px-4 my-3">
+                        <div class="d-flex justify-content-between text-center contact-of-parent">
+                            <div class="d-flex justify-content-center">
+                                <label for="" class="me-4">Họ và tên cha</label>
+                                <h5>Nguyễn Thành Trung</h5>
+                            </div>
+
+                            <div class="d-flex">
+                                <label for="" class="me-4">Nghề nghiệp:</label>
+                                <b>Cán bộ</b>
+                            </div>
+
+                            <div class="d-flex">
+                                <label for="" class="me-4">Số điện thoại</label>
+                                <b>0362356747</b>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between text-center contact-of-parent">
+                            <div class="d-flex">
+                                <label for="" class="me-4">Họ và tên mẹ:</label>
+                                <h5>Nguyễn Thị Tình</h5>
+                            </div>
+
+                            <div class="d-flex">
+                                <label for="" class="me-4">Nghề nghiệp:</label>
+                                <b>Buôn bán</b>
+                            </div>
+
+                            <div class="d-flex">
+                                <label for="inputGroupSelect01" class="me-4">Số điện thoại</label>
+                                <b>0362356747</b>
                             </div>
                         </div>
                     </div>

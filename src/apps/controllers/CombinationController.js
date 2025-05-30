@@ -1,22 +1,21 @@
-const { FirestoreModel, SubjectModel, CombinationModel, NationModel, RegisteredCombinationModel } = require("../models");
-const { SubjectsCollectionName, CombinationsCollectionName } = require("../../constants");
+const { FirestoreModel, SubjectModel, CombinationModel, NationModel, RegisteredCombinationModel, UserModel } = require("../models");
+const { SubjectsCollectionName, CombinationsCollectionName, UsersCollectionName } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
 const database = require("../../config/database/index");
 const xlsx = require("xlsx");
 
 class CombinationController {
   constructor() {
+    this.userDbRef = new FirestoreModel(UsersCollectionName, UserModel);
     this.subjectDbRef = new FirestoreModel(SubjectsCollectionName, SubjectModel);
     this.nationDbRef = new FirestoreModel("nations", NationModel);
     this.registeredCombinationDbRef = new FirestoreModel("registeredCombinations", RegisteredCombinationModel);
     this.combinationDbRef = new FirestoreModel(CombinationsCollectionName, CombinationModel);
-    this.testDBRef = new FirestoreModel("test", NationModel);
     this.detail = this.detail.bind(this);
-    this.submit = this.submit.bind(this);
     this.submited = this.submited.bind(this);
     this.submitedList = this.submitedList.bind(this);
     this.submitedDetail = this.submitedDetail.bind(this);
-    this.choseCombination = this.choseCombination.bind(this);
+    this.submitCombination = this.submitCombination.bind(this);
   }
 
   async detail(req, res, next) {
@@ -35,20 +34,6 @@ class CombinationController {
       combination: combination,
       compulsorySubjects: compulsorySubjects,
       optionalSubjects: optionalSubjects
-    });
-  }
-
-  async submit(req, res, next) {
-    const nations = await this.nationDbRef.getAllItems(false);
-    nations.sort((a, b) => a.name.localeCompare(b.name));
-
-    const combinations = await this.combinationDbRef.getAllItems(false);
-    //sort by name (asc)
-    combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
-
-    return res.render("combination/submit_combination", {
-      nations: nations,
-      combinations: combinations
     });
   }
 
@@ -111,17 +96,19 @@ class CombinationController {
     });
   }
 
-  async choseCombination(req, res, next) {
+  async submitCombination(req, res, next) {
+    const user = await this.userDbRef.getItemById(req.cookies.userId);
+    const nations = await this.nationDbRef.getAllItems(false);
+    nations.sort((a, b) => (a.name > b.name ? 1 : -1));
+
     const combinations = await this.combinationDbRef.getAllItems(false);
     //sort by name (asc)
     combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
-    return res.render("combination/chose_combination", {
-      combinations: combinations
+    res.render("combination/submit_combination", {
+      combinations: combinations,
+      nations: nations,
+      user: user
     });
-  }
-
-  async infoSubmitCombination(req, res, next) {
-    res.render("combination/info_submit_combination");
   }
 }
 

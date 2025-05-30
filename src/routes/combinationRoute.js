@@ -7,10 +7,8 @@ const upload = multer({ dest: pathh.join(__dirname, "../uploads") });
 const router = express.Router();
 
 router.post("/submited", CombinationController.submited);
-router.get("/submit", CombinationController.submit);
-router.get("/choose-combination", CombinationController.choseCombination);
 router.get("/submited-list", CombinationController.submitedList);
-router.get("/info-submit-combination", CombinationController.infoSubmitCombination);
+router.get("/submit-combination", CombinationController.submitCombination);
 router.get("/submited-list/:id", CombinationController.submitedDetail);
 router.get("/:id", CombinationController.detail);
 

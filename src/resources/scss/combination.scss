@@ -24,12 +24,13 @@
   font-size: 30px;
 }
 
+.inputImage,
 #inputImage {
   padding: 0;
   border: none;
 }
 
-#inputImage::file-selector-button {
+.inputImage::file-selector-button #inputImage::file-selector-button {
   font-weight: bold;
   color: dodgerblue;
   padding: 0.5em;
@@ -37,6 +38,7 @@
   border-radius: 3px;
 }
 
+.resultImage,
 #resultImage {
   width: 150px;
   border: 1px solid #ccc;
@@ -62,4 +64,16 @@
   top: 10pc;
   left: 30px;
   width: 50px;
+}
+
+.box-choose-combination p {
+  min-width: max-content;
+}
+
+.box-choose-combination .box-select-1 {
+  margin-right: 10px;
+}
+
+.contact-of-parent {
+  width: 100%;
 }
