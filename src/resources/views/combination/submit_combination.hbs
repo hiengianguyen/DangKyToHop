@@ -1,9 +1,12 @@
 <head>
-    <title>Đăng Ký Tổ Hợp | Đăng Ký Vào Trường THPT Duy Tân</title>
+    <title>Đăng Ký Tổ Hợp | Chọn tổ hơp lớp 10 Vào Trường THPT Duy Tân</title>
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/combination.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
+    <link rel="stylesheet" href="/css/close.css">
+    <link rel="stylesheet" href="/css/bar_step.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
 </head>
+
 
 <div id="master">
     <div class="container">
@@ -19,7 +22,101 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="container">
+                <div class="step-container">
+                    <div class="progress_bar">
+                        <ul class="progress_bar-steps">
+                            <li class="progress_bar-progress"></li>
+                            <li class="progress_bar-step active">
+                                <span>1</span>
+                                <div class="step-label">
+                                    <p>Đọc thông tin về việc chọn tổ hợp</p>
+                                </div>
+                            </li>
+                            <li class="progress_bar-step">
+                                <span>2</span>
+                                <div class="step-label">
+                                    <p>Nhập thông tin đăng ký</p>
+                                </div>
+                            </li>
+                            <li class="progress_bar-step">
+                                <span>3</span>
+                                <div class="step-label">
+                                    <p>Chọn tổ hợp</p>
+                                </div>
+                            </li>
+                            <li class="progress_bar-step">
+                                <span>4</span>
+                                <div class="step-label">
+                                    <p>Xác nhận</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end my-4">
+                    <button type="button" class="btn btn-primary ms-4" id="btnPrevStep" style="display: none;">
+                        Trở lại
+                    </button>
+                    <button type="button" class="btn btn-primary ms-auto me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive" disabled>
+                        Tiếp tục
+                    </button>
+                    <button type="button" class="btn btn-primary ms-auto me-4" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#exampleModalLive" style="display: none;">
+                        Xác nhận
+                    </button>
+                </div>
+
+                <div class="card border-dark my-3 box-submit-1" style="display: block;" >
+                    <div class="card-header">Thông tin chung về đăng ký nguyện vọng vào lớp 10</div>
+                    <div class="card-body">
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Đối tượng đăng ký</p>
+                            <ul>
+                                <li>Học sinh lớp 9 chuẩn bị lên lớp 10 tại [Tên tỉnh/thành phố]. 🚩</li>
+                                <li>Học sinh đang học tại các trường THCS công lập, ngoài công lập hoặc tương đương. 🏤</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Thời gian đăng ký</p>
+                            <ul>
+                                <li>Thời gian bắt đầu: [Ngày/Tháng/Năm] 📅</li>
+                                <li>Thời gian kết thúc: [Ngày/Tháng/Năm] 📅</li>
+                                <li>Lưu ý: Không đăng ký sau thời gian quy định. ❌</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Cách thức đăng ký</p>
+                            <ul>
+                                <li>Đăng ký trực tuyến trên website này. ✅</li>
+                                <li>Cần có mã định danh cá nhân hoặc thông tin đăng nhập được trường cấp. 🔗</li>
+                                <li>Chọn hai nguyện vọng theo thứ tự ưu tiên. ❗</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Tổ hợp môn xét tuyển</p>
+                            <ul>
+                                <li>Mỗi trường có thể có tổ hợp môn riêng (Toán - Văn - Anh, Toán - Lý - Hóa, v.v...) ✅</li>
+                                <li>Cần tìm hiểu kỹ trước khi chọn nguyện vọng. ✅</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Lưu ý khi đăng ký</p>
+                            <ul>
+                                <li>Không thể chọn 2 nguyện vọng giống nhau. ❌</li>
+                                <li>Ưu tiên nguyện vọng 1 nếu có điểm chuẩn bằng nhau. ❗</li>
+                                <li>Có thể chỉnh sửa trong thời gian đăng ký, nhưng nên kiểm tra kỹ trước khi lưu. ✅</li>
+                            </ul>
+                        </div>
+                        <div class="my-2 d-flex justify-content-center">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="checkReaded">
+                                <label class="form-check-label" for="exampleCheck1"><i>Tôi đã đọc và đồng ý với các lưu ý trên</i></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container box-submit-2" style="display: none;">
                     <form class="well form-horizontal" action="/combination/submited" method="POST"  id="contact_form">
                     
 
@@ -47,10 +144,7 @@
                         <div class="col mb-3">
                             <div class="d-flex align-items-start flex-column">
                                 <label for="inputName"><b>Họ và tên học sinh:</b></label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                                    <input id="inputName" type="text" class="form-control" placeholder="Họ và tên học sinh" aria-label="Họ và tên học sinh" name="fullName" aria-describedby="basic-addon1" style="text-transform: capitalize;">
-                                </div>
+                                <h5>{{user.fullName}}</h5>
                             </div>
                         </div>
 
@@ -97,18 +191,19 @@
                                     <input type="text" class="form-control" placeholder="Nơi sinh" name="placeOfBirth" aria-label="Nơi sinh" aria-describedby="basic-addon1" style="text-transform: capitalize;">
                                 </div>
                             </div>
-                    </div>
-
                         
                         <div class="row">
-                            
-
                             <div class="col">
                                     <label for="inputName"><b>Nơi ở hiện tại:</b></label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-house"></i></span>
                                     <input type="text" class="form-control" placeholder="Nơi ở hiện tại" name="presentPlace" aria-label="Nơi ở hiện tại" aria-describedby="basic-addon1" style="text-transform: capitalize;">
                                 </div>
+                            </div>
+
+                            <div class="col">
+                                    <label for="inputName"><b>Trường học cấp 2:</b></label>
+                                <h5>{{user.secondarySchoolName}}</h5>
                             </div>
                         </div>
 
@@ -164,6 +259,33 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
                                     <input id="inputName" type="text" class="form-control" placeholder="Số điện thoại" aria-label="Họ và Tên học sinh" name="phoneNumberMom" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row gap-0 column-gap-4">
+                            <p class="d-flex justify-content-center mt-3">Đã trúng tuyển vào lớp 10 Trường THPT Duy Tân năm học 2025 – 2026 với số điểm (ghi đúng theo kết quả thi tuyển sinh):</p>
+                            <div class="col mb-3">
+                                <div class="d-flex align-items-center">
+                                    <label for="inputName"><b>Toán:</b></label>
+                                    <input type="number" class="mx-2" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Toán">
+                                    <label for="inputName"><b>điểm</b></label>
+                                </div>
+                            </div>
+
+                            <div class="col mb-3">
+                                <div class="d-flex align-items-center">
+                                    <label for="inputName"><b>Văn:</b></label>
+                                    <input type="number" class="mx-2" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Văn">
+                                    <label for="inputName"><b>điểm</b></label>
+                                </div>
+                            </div>
+
+                            <div class="col mb-3">
+                                <div class="d-flex align-items-center">
+                                    <label for="inputName"><b>Anh:</b></label>
+                                    <input type="number" class="mx-2" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Anh">
+                                    <label for="inputName"><b>điểm</b></label>
                                 </div>
                             </div>
                         </div>
@@ -311,11 +433,251 @@
                     </table>
 
                     </form>
-                </div>     
+                </div>  
+
+                <div class="box-submit-3" style="display: none;">
+                    <p class="fs-5">Sau khi nghiên cứu các tổ hợp của nhà trường:</p>
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th scope="col">Tổ hợp</th>
+                        <th scope="col" colspan="4">Môn lựa chọn (04 môn)</th>
+                        <th scope="col" colspan="3">Cụm chuyên đề (03 môn)</th>
+                        <th scope="col">Số lớp</th>
+                        <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each combinations}}
+                        <tr>
+                            <td scope="row">{{this.name}}</td>
+                            {{#each this.optionalSubjects}}
+                            <td>{{this}}</td>
+                            {{/each}}
+                            {{#each this.compulsorySubjects}}
+                            <td>{{this}}</td>
+                            {{/each}}
+                            <td>{{this.classesCount}}</td>
+                            <td>
+                            <a href="/combination/{{this.id}}">Xem Chi Tiết</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    </table>
+                    <p class="fs-5 d-flex justify-content-center">Đăng ký tổ hợp theo nguyện vọng:</p>
+                    <div class="d-flex justify-content-center align-items-center box-choose-combination">
+                        <div class="box-select-1 d-flex align-items-center">
+                            <p class="me-2 fw-bold">Nguyện vọng 1:</p>
+                            <div class="input-group mb-3 me-4">
+                                <select class="form-select" id="select-combination1" name="combination1" aria-label="Default select example">
+                                    <option selected value="">--Chọn tổ hợp--</option>
+                                    {{#each combinations}}
+                                        <option value="{{this.name}}">{{this.name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="box-select-2 d-flex align-items-center">
+                            <p class="me-2 fw-bold">Nguyện vọng 2:</p>
+                            <div class="input-group mb-3 me-4">
+                                <select class="form-select" id="select-combination2" name="combination2" aria-label="Default select example" disabled>
+                                    <option selected value="">--Chọn tổ hợp--</option>
+                                    {{#each combinations}}
+                                        <option value="{{this.name}}">{{this.name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-submit-4 container" style="display:none;">
+                    <legend class="text-center mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
+                    <div class="row">
+                        <div class="col col-md-4 mb-3 mx-3 d-flex align-items-start flex-column ps-0">
+                            <label for=""><b>Chọn ảnh thẻ:</b></label>
+                            <div class="row mb-3">
+                                <div class="d-flex align-items-start flex-column">
+                                    <div class="imgBoderFake"><p>3x4</p></div>
+                                    <img class="col col-md-2 ps-0 resultImage" style="max-width:200px; display:none;">
+                                        <input type="file" class="mt-3 inputImage" accept="image/*">
+                                        <button  class="mt-4 btn btn-primary recropBtn" type="button" style="display:none;">Cắt lại</button>
+                                </div>
+                                <input class="inputHiddenImg" type="text" name="avatarLink" style="display: none;">
+                            </div>
+                        </div>
+
+                        <div class="col row gy-3 m-0">
+                            <div class="input-group col col-md-5 d-flex align-items-start flex-column">
+                                <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
+                                <h4 class="mb-3"> {{submitedCombinationDetail.fullName}}</h4>
+                                <label for="inputName">Ngày tháng năm sinh: </label>
+                                <b class="mb-3">{{submitedCombinationDetail.dateOfBirth}}</b>
+                                <label for="inputName">Trường học cấp 2:</label> 
+                                <b class="mb-3">Trường THCS Lý Thường Kiệt</b>
+                            </div>
+
+                            <div class="col d-flex align-items-start flex-column p-0">
+                                <label for="inputName" >Giới tính: </label>
+                                <b class="mb-3">{{submitedCombinationDetail.gender}}</b>
+                                <label for="inputName">Nơi sinh: </label>
+                                <b class="mb-3">{{submitedCombinationDetail.placeOfBirth}}</b>
+                                <label for="inputName">Nơi ở hiện tại:</label> 
+                                <b class="mb-3">{{submitedCombinationDetail.presentPlace}}</b>
+                            </div>
+
+                            <div class="col d-flex align-items-start flex-column">
+                                <label for="inputGroupSelect01">Dân tộc: </label>
+                                <b class="mb-3">{{submitedCombinationDetail.nation}}</b>
+
+                                <div class="d-flex align-items-start flex-column">
+                                    <label for="inputName">Nguyện vọng 1:</label>
+                                    <h5>{{submitedCombinationDetail.combination1}}</h5>                       
+                                </div>
+                                
+
+                                <div class="d-flex align-items-start flex-column">
+                                    <label for="inputName">Nguyện vọng 2:</label>
+                                    <h5>{{submitedCombinationDetail.combination2}}</h5>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start flex-column px-4 my-3">
+                        <div class="d-flex justify-content-between text-center contact-of-parent">
+                            <div class="d-flex justify-content-center">
+                                <label for="" class="me-4">Họ và tên cha</label>
+                                <h5>Nguyễn Thành Trung</h5>
+                            </div>
+
+                            <div class="d-flex">
+                                <label for="" class="me-4">Nghề nghiệp:</label>
+                                <b>Cán bộ</b>
+                            </div>
+
+                            <div class="d-flex">
+                                <label for="" class="me-4">Số điện thoại</label>
+                                <b>0362356747</b>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between text-center contact-of-parent">
+                            <div class="d-flex">
+                                <label for="" class="me-4">Họ và tên mẹ:</label>
+                                <h5>Nguyễn Thị Tình</h5>
+                            </div>
+
+                            <div class="d-flex">
+                                <label for="" class="me-4">Nghề nghiệp:</label>
+                                <b>Buôn bán</b>
+                            </div>
+
+                            <div class="d-flex">
+                                <label for="inputGroupSelect01" class="me-4">Số điện thoại</label>
+                                <b>0362356747</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
+                    <tr>
+                        <th rowspan="1">Lớp</th>
+                        <th class="px-4">6</th>
+                        <th class="px-4">7</th>
+                        <th class="px-4">8</th>
+                        <th class="px-4">9</th>
+                        <th rowspan="2" class="px-3">Xếp loại tốt nghiệp THCS</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>Hạnh kiểm</td>
+                        <td>
+                            {{submitedCombinationDetail.conduct6}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.conduct7}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.conduct8}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.conduct9}}
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Học lực</td>
+                        <td>
+                            {{submitedCombinationDetail.academicRating6}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.academicRating7}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.academicRating8}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.academicRating9}}
+                        </td>
+                        <td>
+                            {{submitedCombinationDetail.graduationRating}}
+                        </td>
+                    </tr>
+                    </table>
+
+                    <label for="inputName"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
+                        <tr>
+                            <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
+                        </tr>
+                        <tbody>
+                            <td class="px-3"><b>Văn</b></td>
+                            <td class="px-3"><b>Toán</b></td>
+                            <td class="px-3"><b>Ngoại ngữ</b></td>
+                            <td class="px-3"><b>Vật lý</b></td>
+                            <td class="px-3"><b>Hóa học</b></td>
+                            <td class="px-3"><b>Sinh</b></td>
+                            <td class="px-3"><b>Sử</b></td>
+                            <td class="px-3"><b>Địa</b></td>
+                        </tbody>
+                        <tbody>
+                            <td>
+                                {{submitedCombinationDetail.avgLiteratureScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgMathScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgEnglishScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgPhysicsScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgChemistryScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgBiologyScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgHistoryScore}}
+                            </td>
+                            <td>
+                                {{submitedCombinationDetail.avgGeographyScore}}
+                            </td>
+                        </tbody>
+                    </table>
+                 
+                </div>
+      
             </div>
         </div>
     </div>
-    
 </div>
 
 <div id="cropperContainer" style="display:none; position:fixed; inset:0; background:#000a; z-index:9999; justify-content:center; align-items:center;">
@@ -323,20 +685,38 @@
     <button id="cropBtn" type="button" style="position:absolute; bottom:20px;">Cắt ảnh</button>
 </div>
 
+<script>
+    
 
 
-<!-- Modal -->
-<div class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: none;"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLiveLabel">Thông Báo</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>Bạn có chắn muốn đăng ký nhập họp với thông tin vừa rồi, hảy đảm bảo đúng thông tin!</p></div><div class="modal-footer"><button type="button" id="btnClose" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button><button type="button" id="btnRegister" class="btn btn-primary">Đăng ký</button></div></div></div></div>
+    {{!-- arrBarStep.forEach(step => {
+      step.onclick = (e) => {
+        const valueStep = step.querySelector("span").innerHTML;
+        for(var i = valueStep; i <= barStep_length;i++) {
+          barSteps[i].classList.remove("active")
+        }
+        for(var i = valueStep-1; i > 0;i--) {
+          barSteps[i].classList.add("active")
+        }
+        const fillWidth = step.offsetLeft + step.offsetWidth;
+        steps_progress.style.width = `${fillWidth}px`
+      }
+    }); --}}
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script src="/uploadImageToCloudinary.js" defer></script>
+    // check box
+    const checkReaded = document.querySelector('#checkReaded');
+    let checked = false;
+    
+    checkReaded.onchange = () => {
+        checked = !checked;
+        const btnNextStep = document.querySelector('#btnNextStep');
+        btnNextStep.disabled = !checked;
 
-{{!-- chưa add validat --}}
+    }
+</script>
 
 <script>
-    $.fn.datepicker.dates['vi'] = {
+    {{!-- $.fn.datepicker.dates['vi'] = {
         days: ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"],
         daysShort: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
         daysMin: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
@@ -362,7 +742,7 @@
             e.target.style.border = "1px solid #dee2e6";
             $(".form-group-datepicker .form-message").get(0).innerHTML = "";
         }
-    });
+    }); --}}
 
     const btnSubjects = document.querySelectorAll(".accordion-button");
     for(var btnSubject of btnSubjects) {
@@ -385,7 +765,7 @@
         }
     }
 
-    const form = document.getElementById("contact_form");
+    {{!-- const form = document.getElementById("contact_form");
     const btnSubmit = document.getElementById("btnSubmitCombination");
     const modalLive = document.getElementById("exampleModalLive");
     const btnRegister = modalLive.querySelector("#btnRegister");
@@ -402,70 +782,172 @@
             })
             form.submit();
         };
-    }
+    } --}}
     
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+<script src="/uploadImageToCloudinary.js" defer></script>
+
 
 <script>
-    const inputImage = document.getElementById('inputImage');
-    const preview = document.getElementById('preview');
-    const cropBtn = document.getElementById('cropBtn');
-    const resultImage = document.getElementById('resultImage');
-    const cropperContainer = document.getElementById('cropperContainer');
-    const imgBoderFake = document.getElementsByClassName("imgBoderFake")[0];
-    
-    let cropper;
+    function setActiveForSteps(page) {
+        const barStepContainer = document.querySelector(".progress_bar-steps");
+        const barSteps = document.querySelectorAll(".progress_bar-step");
+        const steps_progress = document.querySelector(".progress_bar-progress");
+        const barStep_length = barSteps.length - 1;
+        const arrBarStep = Array.from(barSteps);
+        arrBarStep[page-1].classList.add('active');
+        let pageXStep1;
 
-    const recropBtn = document.getElementById('recropBtn');
-    let lastImageURL = ''; // để lưu lại ảnh gốc đã chọn
+        const liActiveElements = document.querySelectorAll('li.active');
 
-    inputImage.addEventListener('change', function () {
-        const file = this.files[0];
-        if (file) {
-            lastImageURL = URL.createObjectURL(file);
-            showCropper(lastImageURL);
+        if(liActiveElements.length > page) {
+            for(var i = page; i < liActiveElements.length; i++) {
+                console.log(liActiveElements[i])
+                liActiveElements[i].classList.remove('active');
+            }
+            const liActiveElementsResult = document.querySelectorAll('li.active');
+            steps_progress.style.width = `${liActiveElementsResult[page - 1].offsetLeft + liActiveElementsResult[page - 1].offsetWidth}px`
+            console.log(liActiveElementsResult)
+        } else {
+            steps_progress.style.width = `${liActiveElements[liActiveElements.length - 1].offsetLeft + liActiveElements[liActiveElements.length - 1].offsetWidth}px`
         }
-    });
 
-    cropBtn.addEventListener('click', function () {
-        const canvas = cropper.getCroppedCanvas({ width: 300, height: 400 });
-        const dataUrl = canvas.toDataURL('image/jpeg');
-        inputHiddenImg.value = dataUrl;
-
-        resultImage.src = dataUrl;
-        imgBoderFake.style.display = 'none';
-        resultImage.style.display = 'block';
-        recropBtn.style.display = 'inline-block';
-
-        cropper.destroy();
-        cropper = null;
-        cropperContainer.style.display = 'none';
-    });
-
-    recropBtn.addEventListener('click', function () {
-    showCropper(lastImageURL);
-    });
-
-    function showCropper(imageUrl) {
-        preview.src = imageUrl;
-        cropperContainer.style.display = 'flex';
-
-        preview.onload = function () {
-            if (cropper) cropper.destroy();
-            cropper = new Cropper(preview, {
-                aspectRatio: 3 / 4,
-                viewMode: 1,
-                dragMode: 'move',
-                cropBoxResizable: false,
-                cropBoxMovable: false,
-                movable: true,
-                zoomable: true,
-                ready() {
-                    cropper.setCropBoxData({ width: 300, height: 400 });
-                }
-            });
-        };
+        
     }
-  </script>
+    function checkPageReturnScript(page) {
+        switch(page) {
+            case 1:
+                setActiveForSteps(page)
+
+                break;
+            case 2:
+            case 4:
+                setActiveForSteps(page)
+                const inputImage = document.getElementById('inputImage');
+                const preview = document.getElementById('preview');
+                const cropBtn = document.getElementById('cropBtn');
+                const resultImage = document.getElementById('resultImage');
+                const cropperContainer = document.getElementById('cropperContainer');
+                const imgBoderFake = document.getElementsByClassName("imgBoderFake")[0];
+                
+                let cropper;
+
+                const recropBtn = document.getElementById('recropBtn');
+                let lastImageURL = ''; // để lưu lại ảnh gốc đã chọn
+
+                inputImage.addEventListener('change', function () {
+                    const file = this.files[0];
+                    if (file) {
+                        lastImageURL = URL.createObjectURL(file);
+                        showCropper(lastImageURL);
+                    }
+                });
+
+                cropBtn.addEventListener('click', function () {
+                    const canvas = cropper.getCroppedCanvas({ width: 300, height: 400 });
+                    const dataUrl = canvas.toDataURL('image/jpeg');
+                    inputHiddenImg.value = dataUrl;
+
+                    resultImage.src = dataUrl;
+                    imgBoderFake.style.display = 'none';
+                    resultImage.style.display = 'block';
+                    recropBtn.style.display = 'inline-block';
+
+                    cropper.destroy();
+                    cropper = null;
+                    cropperContainer.style.display = 'none';
+                });
+
+                recropBtn.addEventListener('click', function () {
+                showCropper(lastImageURL);
+                });
+
+                function showCropper(imageUrl) {
+                    preview.src = imageUrl;
+                    cropperContainer.style.display = 'flex';
+
+                    preview.onload = function () {
+                        if (cropper) cropper.destroy();
+                        cropper = new Cropper(preview, {
+                            aspectRatio: 3 / 4,
+                            viewMode: 1,
+                            dragMode: 'move',
+                            cropBoxResizable: false,
+                            cropBoxMovable: false,
+                            movable: true,
+                            zoomable: true,
+                            ready() {
+                                cropper.setCropBoxData({ width: 300, height: 400 });
+                            }
+                        });
+                    };
+                }
+                break;
+            case 3:
+                setActiveForSteps(page);
+                const selectCombination1 = document.querySelector('#select-combination1');
+                const selectCombination2 = document.querySelector('#select-combination2'); 
+
+                selectCombination1.onchange = () => {
+                const valueSelect1 = selectCombination1.value;
+
+                const optionsSelect1 = Array.from(selectCombination1.querySelectorAll('option'));
+                optionsSelect1.shift();
+                selectCombination2.innerHTML = '<option selected value="">--Chọn tổ hợp--</option>';
+
+                optionsSelect1.forEach((option) => {
+                    if(option.text !== valueSelect1) {
+                        const tmp = document.createElement('option');
+                        tmp.value = option.value;
+                        tmp.text = option.value;
+
+                        selectCombination2.appendChild(tmp);
+                    }
+                })
+                if (valueSelect1) {
+                    selectCombination2.disabled = false;
+                } else selectCombination2.disabled = true;
+                }   
+                break;
+        }
+    }
+    // const boxBody = [document.querySelector('.box-submit-1'), document.querySelector('.box-submit-2'), document.querySelector('.box-submit-3')];
+    const btnNext = document.querySelector('#btnNextStep');
+    const btnPrev = document.querySelector('#btnPrevStep');
+    const btnSubmitCombination = document.querySelector('#btnSubmit');
+    let page = 1;
+    btnNext.onclick = () => {
+        btnPrev.style.display = 'block';
+        const currentBox = document.querySelector(`.box-submit-${page}`);
+        currentBox.style.display = 'none';
+        if(page+1 <= 4) page++;
+        const nextBox = document.querySelector(`.box-submit-${page}`);
+        nextBox.style.display = 'block';
+        if(page == 4) {
+            btnNext.style.display = 'none';
+            btnSubmitCombination.style.display = 'block';
+        }
+        checkPageReturnScript(page);
+    }
+
+    btnPrev.onclick = () => {
+        btnNext.style.display = 'block';
+        btnSubmitCombination.style.display = 'none';
+        const currentBox = document.querySelector(`.box-submit-${page}`);
+        currentBox.style.display = 'none';
+        if(page-1 >= 1) {
+            page--;
+        }
+        const nextBox = document.querySelector(`.box-submit-${page}`);
+        nextBox.style.display = 'block';
+        if(page == 1) {
+            btnPrev.style.display = 'none';
+        }
+        checkPageReturnScript(page);
+    }
+    
+    
+    
+</script>
