@@ -2,6 +2,7 @@ const { FirestoreModel, SubjectModel, CombinationModel, NationModel, RegisteredC
 const { SubjectsCollectionName, CombinationsCollectionName } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
 const database = require("../../config/database/index");
+const xlsx = require("xlsx");
 
 class CombinationController {
   constructor() {
@@ -15,6 +16,7 @@ class CombinationController {
     this.submited = this.submited.bind(this);
     this.submitedList = this.submitedList.bind(this);
     this.submitedDetail = this.submitedDetail.bind(this);
+    this.choseCombination = this.choseCombination.bind(this);
   }
 
   async detail(req, res, next) {
@@ -56,7 +58,7 @@ class CombinationController {
       undefined,
       data.fullName,
       data.avatarLink,
-      data.class9,
+      req.cookies.secondarySchool,
       data.dateOfBirth,
       data.placeOfBirth,
       data.gender,
@@ -107,6 +109,19 @@ class CombinationController {
     return res.render("combination/submited_detail", {
       submitedCombinationDetail: data
     });
+  }
+
+  async choseCombination(req, res, next) {
+    const combinations = await this.combinationDbRef.getAllItems(false);
+    //sort by name (asc)
+    combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+    return res.render("combination/chose_combination", {
+      combinations: combinations
+    });
+  }
+
+  async infoSubmitCombination(req, res, next) {
+    res.render("combination/info_submit_combination");
   }
 }
 

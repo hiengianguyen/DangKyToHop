@@ -1,0 +1,170 @@
+<head>
+    <title>Đăng Ký Tổ Hợp | Chọn tổ hơp lớp 10 Vào Trường THPT Duy Tân</title>
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/combination.css">
+    <link rel="stylesheet" href="/css/bar_step.css">
+</head>
+
+
+<div id="master">
+    <div class="container">
+        <div class="card mb-3 shadow">
+            <div class="school-info d-flex">
+                <img class="school-banner rounded-start" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+                
+                <div class="banner-container rounded-end">
+                    <img class="school-banner-second rounded-end" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+                    <div class="school-info-detail fs-5">
+                        <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="step-container">
+                    <div class="progress_bar">
+                        <ul class="progress_bar-steps">
+                            <li class="progress_bar-progress"></li>
+                            <li class="progress_bar-step active">
+                                <span>1</span>
+                                <div class="step-label">
+                                    <p>Đọc thông tin về việc chọn tổ hợp</p>
+                                </div>
+                            </li>
+                            <li class="progress_bar-step">
+                                <span>2</span>
+                                <div class="step-label">
+                                    <p>Nhập thông tin đăng ký</p>
+                                </div>
+                            </li>
+                            <li class="progress_bar-step">
+                                <span>3</span>
+                                <div class="step-label">
+                                    <p>Chọn tổ hợp</p>
+                                </div>
+                            </li>
+                            <li class="progress_bar-step">
+                                <span>4</span>
+                                <div class="step-label">
+                                    <p>Xác nhận</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive" disabled>
+                        Tiếp tục
+                    </button>
+                </div>
+                <div class="card border-dark my-3" >
+                    <div class="card-header">Thông tin chung về đăng ký nguyện vọng vào lớp 10</div>
+                    <div class="card-body">
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Đối tượng đăng ký</p>
+                            <ul>
+                                <li>Học sinh lớp 9 chuẩn bị lên lớp 10 tại [Tên tỉnh/thành phố]. 🚩</li>
+                                <li>Học sinh đang học tại các trường THCS công lập, ngoài công lập hoặc tương đương. 🏤</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Thời gian đăng ký</p>
+                            <ul>
+                                <li>Thời gian bắt đầu: [Ngày/Tháng/Năm] 📅</li>
+                                <li>Thời gian kết thúc: [Ngày/Tháng/Năm] 📅</li>
+                                <li>Lưu ý: Không đăng ký sau thời gian quy định. ❌</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Cách thức đăng ký</p>
+                            <ul>
+                                <li>Đăng ký trực tuyến trên website này. ✅</li>
+                                <li>Cần có mã định danh cá nhân hoặc thông tin đăng nhập được trường cấp. 🔗</li>
+                                <li>Chọn hai nguyện vọng theo thứ tự ưu tiên. ❗</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Tổ hợp môn xét tuyển</p>
+                            <ul>
+                                <li>Mỗi trường có thể có tổ hợp môn riêng (Toán - Văn - Anh, Toán - Lý - Hóa, v.v...) ✅</li>
+                                <li>Cần tìm hiểu kỹ trước khi chọn nguyện vọng. ✅</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Lưu ý khi đăng ký</p>
+                            <ul>
+                                <li>Không thể chọn 2 nguyện vọng giống nhau. ❌</li>
+                                <li>Ưu tiên nguyện vọng 1 nếu có điểm chuẩn bằng nhau. ❗</li>
+                                <li>Có thể chỉnh sửa trong thời gian đăng ký, nhưng nên kiểm tra kỹ trước khi lưu. ✅</li>
+                            </ul>
+                        </div>
+                        <div class="my-2 d-flex justify-content-center">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="checkReaded">
+                                <label class="form-check-label" for="exampleCheck1"><i>Tôi đã đọc và đồng ý với các lưu ý trên</i></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    const formSelect1 = document.querySelector('.form-select-1');
+    const formSelect2 = document.querySelector('.form-select-2');
+    const childFormSelect2 = Array.from(formSelect2.querySelectorAll("option")); 
+    childFormSelect2.shift();  // eliminate option have value -> ""
+
+    formSelect1.onchange = () => {
+        const value = formSelect1.value;
+        childFormSelect2.forEach((option) => {
+            if(option.value == value) {
+                formSelect2.removeChild(option);
+            }
+        })
+        formSelect2.disabled = false;
+    }
+</script>
+
+<script>
+    const barStepContainer = document.querySelector(".progress_bar-steps");
+    const barSteps = document.querySelectorAll(".progress_bar-step");
+    const steps_progress = document.querySelector(".progress_bar-progress");
+    const barStep_length = barSteps.length - 1;
+    const arrBarStep = Array.from(barSteps);
+    let pageXStep1;
+
+    const liActiveElements = document.querySelectorAll('li.active');
+
+    steps_progress.style.width = `${liActiveElements[liActiveElements.length - 1].offsetLeft + liActiveElements[liActiveElements.length - 1].offsetWidth}px`
+
+
+    arrBarStep.forEach(step => {
+      step.onclick = (e) => {
+        const valueStep = step.querySelector("span").innerHTML;
+        for(var i = valueStep; i <= barStep_length;i++) {
+          barSteps[i].classList.remove("active")
+        }
+        for(var i = valueStep-1; i > 0;i--) {
+          barSteps[i].classList.add("active")
+        }
+        const fillWidth = step.offsetLeft + step.offsetWidth;
+        steps_progress.style.width = `${fillWidth}px`
+      }
+    });
+
+    // check box
+    const checkReaded = document.querySelector('#checkReaded');
+    let checked = false;
+    
+    checkReaded.onchange = () => {
+        checked = !checked;
+        const btnNextStep = document.querySelector('#btnNextStep');
+        btnNextStep.disabled = !checked;
+
+    }
+</script>

@@ -24,6 +24,7 @@ class AuthController {
       res.cookie("avatar", existedUser.avatar, { maxAge: 604800000, httpOnly: true });
       res.cookie("role", existedUser.role, { maxAge: 604800000, httpOnly: true });
       res.cookie("districtName", existedUser.districtName, { maxAge: 604800000, httpOnly: true });
+      res.cookie("secondarySchool", existedUser.secondarySchoolName, { maxAge: 604800000, httpOnly: true });
 
       return res.redirect(`/home?role=${existedUser.role}`);
     } else {

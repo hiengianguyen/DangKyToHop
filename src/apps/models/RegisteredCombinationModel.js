@@ -3,7 +3,7 @@ class RegisteredCombinationModel {
     id,
     fullName,
     avatarLink,
-    class9,
+    secondarySchool,
     dateOfBirth,
     placeOfBirth,
     gender,
@@ -35,7 +35,7 @@ class RegisteredCombinationModel {
     this.id = id;
     this.fullName = fullName;
     this.avatarLink = avatarLink;
-    this.class9 = class9;
+    this.secondarySchool = secondarySchool;
     this.dateOfBirth = dateOfBirth;
     this.placeOfBirth = placeOfBirth;
     this.gender = gender;
@@ -72,7 +72,7 @@ class RegisteredCombinationModel {
       doc.id,
       data.fullName,
       data.avatarLink,
-      data.class9,
+      data.secondarySchool,
       data.dateOfBirth,
       data.placeOfBirth,
       data.gender,
@@ -107,7 +107,7 @@ class RegisteredCombinationModel {
     return {
       fullName: this.fullName,
       avatarLink: this.avatarLink,
-      class9: this.class9,
+      secondarySchool: this.secondarySchool,
       dateOfBirth: this.dateOfBirth,
       placeOfBirth: this.placeOfBirth,
       gender: this.gender,
