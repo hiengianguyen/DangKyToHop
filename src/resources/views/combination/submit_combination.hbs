@@ -201,9 +201,9 @@
                                 </div>
                             </div>
 
-                            <div class="col">
+                            <div class="col d-flex align-items-start flex-column">
                                     <label for="inputName"><b>Trường học cấp 2:</b></label>
-                                <h5>{{user.secondarySchoolName}}</h5>
+                                <b>{{user.secondarySchoolName}}</b>
                             </div>
                         </div>
 
@@ -264,12 +264,11 @@
                         </div>
 
                         <div class="row gap-0 column-gap-4">
-                            <p class="d-flex justify-content-center mt-3">Đã trúng tuyển vào lớp 10 Trường THPT Duy Tân năm học 2025 – 2026 với số điểm (ghi đúng theo kết quả thi tuyển sinh):</p>
+                            <label for="inputName"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
                             <div class="col mb-3">
                                 <div class="d-flex align-items-center">
                                     <label for="inputName"><b>Toán:</b></label>
                                     <input type="number" class="mx-2" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Toán">
-                                    <label for="inputName"><b>điểm</b></label>
                                 </div>
                             </div>
 
@@ -277,7 +276,6 @@
                                 <div class="d-flex align-items-center">
                                     <label for="inputName"><b>Văn:</b></label>
                                     <input type="number" class="mx-2" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Văn">
-                                    <label for="inputName"><b>điểm</b></label>
                                 </div>
                             </div>
 
@@ -285,7 +283,6 @@
                                 <div class="d-flex align-items-center">
                                     <label for="inputName"><b>Anh:</b></label>
                                     <input type="number" class="mx-2" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Anh">
-                                    <label for="inputName"><b>điểm</b></label>
                                 </div>
                             </div>
                         </div>
@@ -449,19 +446,19 @@
                     </thead>
                     <tbody>
                         {{#each combinations}}
-                        <tr>
-                            <td scope="row">{{this.name}}</td>
-                            {{#each this.optionalSubjects}}
-                            <td>{{this}}</td>
-                            {{/each}}
-                            {{#each this.compulsorySubjects}}
-                            <td>{{this}}</td>
-                            {{/each}}
-                            <td>{{this.classesCount}}</td>
-                            <td>
-                            <a href="/combination/{{this.id}}">Xem Chi Tiết</a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td scope="row">{{this.name}}</td>
+                                {{#each optionalSubjects}}
+                                    <td>{{this.name}}</td>
+                                {{/each}}
+                                {{#each compulsorySubjects}}
+                                    <td>{{this.name}}</td>
+                                {{/each}}
+                                <td>{{this.classesCount}}</td>
+                                <td>
+                                    <div id-modal="{{this.id}}" class="btn btn-primary btn-show-modal">Xem Chi Tiết</div>
+                                </td>
+                            </tr>
                         {{/each}}
                     </tbody>
                     </table>
@@ -550,8 +547,8 @@
                     <div class="d-flex align-items-start flex-column px-4 my-3">
                         <div class="d-flex justify-content-between text-center contact-of-parent">
                             <div class="d-flex justify-content-center">
-                                <label for="" class="me-4">Họ và tên cha</label>
-                                <h5>Nguyễn Thành Trung</h5>
+                                <label for="" class="me-4">Họ và tên cha:</label>
+                                <b>Nguyễn Thành Trung</b>
                             </div>
 
                             <div class="d-flex">
@@ -560,7 +557,7 @@
                             </div>
 
                             <div class="d-flex">
-                                <label for="" class="me-4">Số điện thoại</label>
+                                <label for="" class="me-4">Số điện thoại:</label>
                                 <b>0362356747</b>
                             </div>
                         </div>
@@ -568,7 +565,7 @@
                         <div class="d-flex justify-content-between text-center contact-of-parent">
                             <div class="d-flex">
                                 <label for="" class="me-4">Họ và tên mẹ:</label>
-                                <h5>Nguyễn Thị Tình</h5>
+                                <b>Nguyễn Thị Tình</b>
                             </div>
 
                             <div class="d-flex">
@@ -577,7 +574,7 @@
                             </div>
 
                             <div class="d-flex">
-                                <label for="inputGroupSelect01" class="me-4">Số điện thoại</label>
+                                <label for="inputGroupSelect01" class="me-4">Số điện thoại:</label>
                                 <b>0362356747</b>
                             </div>
                         </div>
@@ -685,6 +682,62 @@
     <button id="cropBtn" type="button" style="position:absolute; bottom:20px;">Cắt ảnh</button>
 </div>
 
+<div class="glass-overlay"></div>
+{{#each combinations}}
+<div id="{{this.id}}" class="modal" style="display: none;">
+<div class="modal-container container mx-auto">
+<div class="shadow-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body mb-4">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="mb-4">{{this.description}}</p>
+
+            <h5>Môn Chuyên Đề:</h5>
+            <div class="accordion mb-4" id="accordionExample">
+                {{#each compulsorySubjects}}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="flase" aria-controls="collapseOne">
+                                {{this.name}}
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                {{this.description}}
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+
+            <h5>Môn Lựa Chọn:</h5>
+            <div class="accordion" id="accordionExample">
+                {{#each optionalSubjects}}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="flase" aria-controls="collapseOne">
+                                    {{this.name}}
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{this.description}}
+                                </div>
+                            </div>
+                        </div>
+                {{/each}}
+            </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+{{/each}}
+
 <script>
     
 
@@ -791,6 +844,9 @@
 
 
 <script>
+    const combinationDetailModal = document.querySelector('#combinationDetailModal');
+    
+
     function setActiveForSteps(page) {
         const barStepContainer = document.querySelector(".progress_bar-steps");
         const barSteps = document.querySelectorAll(".progress_bar-step");
@@ -819,7 +875,7 @@
     function checkPageReturnScript(page) {
         switch(page) {
             case 1:
-                setActiveForSteps(page)
+                setActiveForSteps(page);
 
                 break;
             case 2:
@@ -910,10 +966,63 @@
                     selectCombination2.disabled = false;
                 } else selectCombination2.disabled = true;
                 }   
+
+                const glassOverlay = document.querySelector('.glass-overlay');
+
+                const btnShows = document.querySelectorAll('.btn-show-modal');
+
+                btnShows.forEach((btnShow) => {
+                    btnShow.onclick = () => {
+                        const modalId = btnShow.getAttribute('id-modal');
+                        const modalCombinationDetail = document.getElementById(modalId);
+                        const modalChild = modalCombinationDetail.querySelector('.modal-container');
+                        console.log(modalCombinationDetail)
+                        const btnClose = modalCombinationDetail.querySelector('.btn-close');
+                        const body = document.getElementsByTagName('body')[0];
+
+                        body.style.overflowY = 'hidden';
+                        glassOverlay.classList.add('active');
+                        modalCombinationDetail.style.display = 'block';
+                        btnClose.onclick = () => {
+                            modalCombinationDetail.style.display = 'none';
+                            glassOverlay.classList.remove('active');
+                        }
+
+                        modalCombinationDetail.onclick = () => {
+                            modalCombinationDetail.style.display = 'none';
+                            glassOverlay.classList.remove('active');
+                        }
+
+                        modalChild.onclick = (e) => {
+                            e.stopPropagation();
+                        }
+                    }
+                })
+                
+                const btnSubjects = document.querySelectorAll(".accordion-button");
+                for(var btnSubject of btnSubjects) {
+                    btnSubject.onclick = (e) => {
+                        for(var btn of btnSubjects) {
+                            const content = btn.parentElement.parentElement.querySelector("#collapseOne");
+                            btn.classList.add("collapsed");
+                            content.classList.remove("show");
+                        }
+                        const content = e.target.parentElement.parentElement.querySelector("#collapseOne");
+                        if(e.target.getAttribute("aria-expanded") === "false") {
+                            e.target.setAttribute("aria-expanded", "true");
+                            e.target.classList.remove("collapsed");
+                            content.classList.add("show");
+                        } else {
+                            e.target.setAttribute("aria-expanded", "false");
+                            e.target.classList.add("collapsed");
+                            content.classList.remove("show");
+                        }
+                    }
+                }
+
                 break;
         }
     }
-    // const boxBody = [document.querySelector('.box-submit-1'), document.querySelector('.box-submit-2'), document.querySelector('.box-submit-3')];
     const btnNext = document.querySelector('#btnNextStep');
     const btnPrev = document.querySelector('#btnPrevStep');
     const btnSubmitCombination = document.querySelector('#btnSubmit');
@@ -947,7 +1056,4 @@
         }
         checkPageReturnScript(page);
     }
-    
-    
-    
 </script>

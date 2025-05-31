@@ -26,3 +26,9 @@
 
 .combination-list {
   padding: 10px 30px; }
+
+.modal-body {
+  height: 70pc; }
+
+.modal-body::-webkit-scrollbar {
+  display: none; }

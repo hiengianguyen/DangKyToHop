@@ -16,5 +16,12 @@ module.exports = {
     const formattedDateTime = `${time} ${period} ${date}`;
 
     return formattedDateTime;
+  },
+  includes: (arr, b) => arr.includes(b),
+  returnDes: (obj, b) => {
+    console.log(obj, b);
+    if (obj.name == b) {
+      return true;
+    } else return false;
   }
 };

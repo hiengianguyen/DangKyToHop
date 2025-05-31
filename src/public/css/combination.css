@@ -64,3 +64,33 @@
 
 .contact-of-parent {
   width: 100%; }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+  display: none;
+  z-index: 1000; }
+
+.glass-overlay.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 999; }
+
+.modal-container {
+  margin: 10px auto;
+  padding: 4pc;
+  margin-top: 0; }
+
+.modal-content {
+  height: 50pc; }

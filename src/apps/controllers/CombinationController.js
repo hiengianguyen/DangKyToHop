@@ -101,13 +101,27 @@ class CombinationController {
     const nations = await this.nationDbRef.getAllItems(false);
     nations.sort((a, b) => (a.name > b.name ? 1 : -1));
 
+    const subjects = await this.subjectDbRef.getAllItems(false);
+    subjects.map((subject) => {
+      return subject.docs;
+    });
     const combinations = await this.combinationDbRef.getAllItems(false);
     //sort by name (asc)
     combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+
+    combinations.forEach((combination) => {
+      const compulsorySubjects = combination.compulsorySubjects;
+      const optionalSubjects = combination.optionalSubjects;
+
+      combination.compulsorySubjects = subjects.filter((subject) => compulsorySubjects.includes(subject.name));
+      combination.optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
+    });
+
     res.render("combination/submit_combination", {
       combinations: combinations,
       nations: nations,
-      user: user
+      user: user,
+      subjects: subjects
     });
   }
 }
