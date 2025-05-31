@@ -31,7 +31,7 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 0;
-  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
 .progress_bar-step {
   width: 30px;
@@ -56,7 +56,7 @@
   background-color: blue;
   border: 5px solid blue;
   color: #fff;
-  transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  transition: all 4s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
 .progress_bar-step.active > span {
   color: #fff; }
