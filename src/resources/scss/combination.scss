@@ -84,7 +84,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
   align-items: center;
   justify-content: center;
   display: none;
@@ -106,8 +105,33 @@
   margin: 10px auto;
   padding: 4pc;
   margin-top: 0;
+  animation: modalFadeIn 1s;
 }
 
 .modal-content {
   height: 50pc;
+}
+
+.btn-show-modal p {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.btn-show-modal p:hover {
+  color: #7b03a7;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0.6;
+    transform: translateY(-300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }

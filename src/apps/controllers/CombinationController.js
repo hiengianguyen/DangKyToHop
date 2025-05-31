@@ -11,68 +11,49 @@ class CombinationController {
     this.nationDbRef = new FirestoreModel("nations", NationModel);
     this.registeredCombinationDbRef = new FirestoreModel("registeredCombinations", RegisteredCombinationModel);
     this.combinationDbRef = new FirestoreModel(CombinationsCollectionName, CombinationModel);
-    this.detail = this.detail.bind(this);
     this.submited = this.submited.bind(this);
     this.submitedList = this.submitedList.bind(this);
     this.submitedDetail = this.submitedDetail.bind(this);
     this.submitCombination = this.submitCombination.bind(this);
   }
 
-  async detail(req, res, next) {
-    const combinationId = req.params.id;
-
-    const subjects = await this.subjectDbRef.getAllItems(false);
-    const combination = await this.combinationDbRef.getItemById(combinationId, false);
-
-    let compulsorySubjects = combination.compulsorySubjects;
-    let optionalSubjects = combination.optionalSubjects;
-
-    compulsorySubjects = subjects.filter((subject) => compulsorySubjects.includes(subject.name));
-    optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
-
-    return res.render("combination/combination_detail", {
-      combination: combination,
-      compulsorySubjects: compulsorySubjects,
-      optionalSubjects: optionalSubjects
-    });
-  }
-
   async submited(req, res, next) {
     const data = req.body;
-    const submitedCombinationModel = new RegisteredCombinationModel(
-      undefined,
-      data.fullName,
-      data.avatarLink,
-      req.cookies.secondarySchool,
-      data.dateOfBirth,
-      data.placeOfBirth,
-      data.gender,
-      data.nation,
-      data.ordinaryPlace,
-      data.presentPlace,
-      data.conduct6,
-      data.conduct7,
-      data.conduct8,
-      data.conduct9,
-      data.academicRating6,
-      data.academicRating7,
-      data.academicRating8,
-      data.academicRating9,
-      data.graduationRating,
-      data.avgLiteratureScore,
-      data.avgMathScore,
-      data.avgEnglishScore,
-      data.avgPhysicsScore,
-      data.avgChemistryScore,
-      data.avgBiologyScore,
-      data.avgHistoryScore,
-      data.avgGeographyScore,
-      data.combination1,
-      data.combination2,
-      undefined,
-      new Date()
-    );
-    await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
+    console.log(data);
+    // const submitedCombinationModel = new RegisteredCombinationModel(
+    //   undefined,
+    //   data.fullName,
+    //   data.avatarLink,
+    //   req.cookies.secondarySchool,
+    //   data.dateOfBirth,
+    //   data.placeOfBirth,
+    //   data.gender,
+    //   data.nation,
+    //   data.ordinaryPlace,
+    //   data.presentPlace,
+    //   data.conduct6,
+    //   data.conduct7,
+    //   data.conduct8,
+    //   data.conduct9,
+    //   data.academicRating6,
+    //   data.academicRating7,
+    //   data.academicRating8,
+    //   data.academicRating9,
+    //   data.graduationRating,
+    //   data.avgLiteratureScore,
+    //   data.avgMathScore,
+    //   data.avgEnglishScore,
+    //   data.avgPhysicsScore,
+    //   data.avgChemistryScore,
+    //   data.avgBiologyScore,
+    //   data.avgHistoryScore,
+    //   data.avgGeographyScore,
+    //   data.combination1,
+    //   data.combination2,
+    //   undefined,
+    //   new Date()
+    // );
+    // await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
     return res.redirect("/");
   }
 
