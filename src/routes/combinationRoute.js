@@ -10,6 +10,5 @@ router.post("/submited", CombinationController.submited);
 router.get("/submited-list", CombinationController.submitedList);
 router.get("/submit-combination", CombinationController.submitCombination);
 router.get("/submited-list/:id", CombinationController.submitedDetail);
-router.get("/:id", CombinationController.detail);
 
 module.exports = router;
