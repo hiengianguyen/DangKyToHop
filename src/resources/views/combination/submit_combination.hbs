@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/css/close.css">
     <link rel="stylesheet" href="/css/bar_step.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 
@@ -21,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body position-relative">
                 <div class="step-container">
                     <div class="progress_bar">
                         <ul class="progress_bar-steps">
@@ -110,7 +111,7 @@
                         <div class="my-2 d-flex justify-content-center">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="checkReaded">
-                                <label class="form-check-label" for="exampleCheck1"><i>Tôi đã đọc và đồng ý với các lưu ý trên</i></label>
+                                <label class="form-check-label" for="checkReaded" style="cursor:pointer;"><i>Tôi đã đọc và đồng ý với các lưu ý trên</i></label>
                             </div>
                         </div>
                     </div>
@@ -180,7 +181,7 @@
                         </div>
 
                         <div class="col">
-                                    <label for="inputName"><b>Nơi sinh:</b></label>
+                                <label for="inputName"><b>Nơi sinh:</b></label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-location-dot"></i></span>
                                     <input type="text" class="form-control" placeholder="Nơi sinh" name="placeOfBirth" aria-label="Nơi sinh" aria-describedby="basic-addon1" style="text-transform: capitalize;">
@@ -189,16 +190,24 @@
                         
                         <div class="row">
                             <div class="col">
-                                    <label for="inputName"><b>Nơi ở hiện tại:</b></label>
+                                <label for="inputName"><b>Nơi ở hiện tại:</b></label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-house"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nơi ở hiện tại" name="presentPlace" aria-label="Nơi ở hiện tại" aria-describedby="basic-addon1" style="text-transform: capitalize;">
+                                    <input type="text" class="form-control" placeholder="Nơi ở hiện tại" name="currentPlace" aria-label="Nơi ở hiện tại" aria-describedby="basic-addon1" style="text-transform: capitalize;">
                                 </div>
                             </div>
 
                             <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName"><b>Trường học cấp 2:</b></label>
-                                <b>{{user.secondarySchoolName}}</b>
+                                <label for="inputName"><b>Trường học cấp 2:</b></label>
+                                <div class="d-flex align-items-center">
+                                    <b class="secondary-school-choosen me-4" style="display: none;"></b>
+                                    <button type="button" class="btn btn-primary btn-show-modal-school">
+                                    Chọn trường cấp 2
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-reShow-modal-school" style="display: none;">
+                                        Chọn lại
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -225,7 +234,7 @@
                                 <label for="inputGroupSelect01"><b>Số điện thoại:</b></label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
-                                    <input id="inputName" type="text" class="form-control" placeholder="Số điện thoại" aria-label="Họ và Tên học sinh" name="phoneNumberDad" aria-describedby="basic-addon1">
+                                    <input id="inputName" type="text" class="form-control" placeholder="Số điện thoại" aria-label="Họ và Tên học sinh" name="phoneOfDad" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -236,7 +245,7 @@
                                     <label for="inputName"><b>Họ và tên mẹ:</b></label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                                        <input id="inputName" type="text" class="form-control" placeholder="Họ và tên mẹ" aria-label="Họ và tên học sinh" name="fullNameDad" aria-describedby="basic-addon1" style="text-transform: capitalize;">
+                                        <input id="inputName" type="text" class="form-control" placeholder="Họ và tên mẹ" aria-label="Họ và tên học sinh" name="fullNameMom" aria-describedby="basic-addon1" style="text-transform: capitalize;">
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +262,7 @@
                                 <label for="inputGroupSelect01"><b>Số điện thoại:</b></label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
-                                    <input id="inputName" type="text" class="form-control" placeholder="Số điện thoại" aria-label="Họ và Tên học sinh" name="phoneNumberMom" aria-describedby="basic-addon1">
+                                    <input id="inputName" type="text" class="form-control" placeholder="Số điện thoại" aria-label="Họ và Tên học sinh" name="phoneOfMom" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -493,90 +502,89 @@
                                     <div class="d-flex align-items-start flex-column">
                                         <img class="col col-md-2 ps-0 resultImage" style="max-width:200px;">
                                     </div>
-                                    <input class="input-get-data" type="text" name="avatarLink" style="display: none;">
+                                    <input class="input-get-data-avatar" type="text" name="avatarLink" style="display: none;">
                                 </div>
                             </div>
 
                             <div class="col row gy-3 m-0">
                                 <div class="input-group col col-md-5 d-flex align-items-start flex-column">
                                     <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
-                                    <h4 class="mb-3"><b class="get-data" style="text-transform: capitalize;"></b></h4>
+                                    <h4 class="mb-3"><b class="get-data" name="fullName" style="text-transform: capitalize;"></b></h4>
                                     <input type="text" class="input-get-data" name="fullName" style="display:none;">
                                     <label for="inputName">Ngày tháng năm sinh: </label>
-                                    <b class="mb-3 get-data" style="text-transform: capitalize;"></b>
-                                    <input type="text" class="input-get-data" name="dayOfBirth" style="display:none;">
+                                    <b class="mb-3 get-data" name="dateOfBirth" style="text-transform: capitalize;"></b>
+                                    <input type="text" class="input-get-data" name="dateOfBirth" style="display:none;">
                                     <label for="inputName">Trường học cấp 2:</label> 
-                                    <b class="mb-3">Trường THCS Lý Thường Kiệt</b>
+                                    <b class="mb-3 get-data-school" name="secondarySchool"></b>
+                                    <input type="text" class="input-get-data-shool" name="secondarySchool" style="display:none;">
                                 </div>
 
                                 <div class="col d-flex align-items-start flex-column p-0">
                                     <label for="inputName" >Giới tính: </label>
-                                    <b class="mb-3 get-data-select"></b>
+                                    <b class="mb-3 get-data-select" name="gender"></b>
                                     <input type="text" class="input-get-data-select" name="gender" style="display:none;">
                                     <label for="inputName">Nơi sinh: </label>
-                                    <b class="mb-3 get-data" style="text-transform: capitalize;"></b>
+                                    <b class="mb-3 get-data" name="placeOfBirth" style="text-transform: capitalize;"></b>
                                     <input type="text" class="input-get-data" name="placeOfBirth" style="display:none;">
                                     <label for="inputName">Nơi ở hiện tại:</label> 
-                                    <b class="mb-3 get-data" style="text-transform: capitalize;"></b>
+                                    <b class="mb-3 get-data" name="currentPlace" style="text-transform: capitalize;"></b>
                                     <input type="text" class="input-get-data" name="currentPlace" style="display:none;">
                                 </div>
 
                                 <div class="col d-flex align-items-start flex-column">
                                     <label for="inputGroupSelect01">Dân tộc: </label>
-                                    <b class="mb-3 get-data-select"></b>
+                                    <b class="mb-3 get-data-select" name="nation"></b>
                                     <input type="text" class="input-get-data-select" name="nation" style="display:none;">
 
                                     <div class="d-flex align-items-start flex-column">
                                         <label for="inputName">Nguyện vọng 1:</label>
-                                        <h5><b class="get-data-combination"></b></h5>                       
+                                        <h5><b class="get-data-combination" name="combination1"></b></h5>
+                                        <input type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
                                     </div>
 
                                     <div class="d-flex align-items-start flex-column">
                                         <label for="inputName">Nguyện vọng 2:</label>
-                                        <h5><b class="get-data-combination"></b></h5>
+                                        <h5><b class="get-data-combination" name="combination2"></b></h5>
+                                        <input type="text" class="input-get-data-combination" name="combination2" style="display:none;">
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
 
-                        <div class="d-flex align-items-start flex-column px-4 my-3">
-                            <div class="d-flex justify-content-between text-center contact-of-parent">
+                        <div class="d-flex justify-content-around">
+                            <div class="d-flex  align-items-start flex-column">
                                 <div class="d-flex justify-content-center">
                                     <label for="" class="me-4">Họ và tên cha:</label>
-                                    <b class="get-data" style="text-transform: capitalize;"></b>
+                                    <b class="get-data" name="fullNameDad" style="text-transform: capitalize;"></b>
                                     <input type="text" class="input-get-data" name="fullNameDad" style="display:none;">
                                 </div>
-
-                                <div class="d-flex">
-                                    <label for="" class="me-4">Nghề nghiệp:</label>
-                                    <b class="get-data" style="text-transform: capitalize;"></b>
-                                    <input type="text" class="input-get-data" name="jobOfDad" style="display:none;">
-                                </div>
-
-                                <div class="d-flex">
-                                    <label for="" class="me-4">Số điện thoại:</label>
-                                    <b class="get-data" style="text-transform: capitalize;"></b>
-                                    <input type="text" class="input-get-data" name="phoneOfDad" style="display:none;">
-                                </div>
-                            </div>
-
-                            <div class="d-flex justify-content-between text-center contact-of-parent">
                                 <div class="d-flex">
                                     <label for="" class="me-4">Họ và tên mẹ:</label>
-                                    <b class="get-data" style="text-transform: capitalize;"></b>
+                                    <b class="get-data" name="fullNameMom" style="text-transform: capitalize;"></b>
                                     <input type="text" class="input-get-data" name="fullNameMom" style="display:none;">
                                 </div>
-
+                            </div>
+                            <div class="d-flex align-items-start flex-column">
                                 <div class="d-flex">
                                     <label for="" class="me-4">Nghề nghiệp:</label>
-                                    <b class="get-data" style="text-transform: capitalize;"></b>
+                                    <b class="get-data" name="jobOfDad" style="text-transform: capitalize;"></b>
+                                    <input type="text" class="input-get-data" name="jobOfDad" style="display:none;">
+                                </div>
+                                <div class="d-flex">
+                                    <label for="" class="me-4">Nghề nghiệp:</label>
+                                    <b class="get-data" name="jobOfMom" style="text-transform: capitalize;"></b>
                                     <input type="text" class="input-get-data" name="jobOfMom" style="display:none;">
                                 </div>
-
+                            </div>
+                            <div class="d-flex align-items-start flex-column">
+                                <div class="d-flex">
+                                    <label for="" class="me-4">Số điện thoại:</label>
+                                    <b class="get-data" name="phoneOfDad" style="text-transform: capitalize;"></b>
+                                    <input type="text" class="input-get-data" name="phoneOfDad" style="display:none;">
+                                </div>
                                 <div class="d-flex">
                                     <label for="inputGroupSelect01" class="me-4">Số điện thoại:</label>
-                                    <b class="get-data" style="text-transform: capitalize;"></b>
+                                    <b class="get-data" name="phoneOfMon" style="text-transform: capitalize;"></b>
                                     <input type="text" class="input-get-data" name="phoneOfMon" style="display:none;">
                                 </div>
                             </div>
@@ -585,17 +593,17 @@
                         <div class="row gap-0 column-gap-4">
                                 <label for="inputName"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
                                 <div class="col mb-3">
-                                    <label for="inputName"><b>Toán: <b class="get-data"></b> điểm</b></label>
+                                    <label for="inputName"><b>Toán: <b class="get-data" name="mathScore"></b> điểm</b></label>
                                     <input type="text" class="input-get-data" name="mathScore" style="display:none;">
                                 </div>
 
                                 <div class="col mb-3">
-                                    <label for="inputName"><b>Văn: <b class="get-data"></b> điểm</b></label>
+                                    <label for="inputName"><b>Văn: <b class="get-data" name="literatureScore"></b> điểm</b></label>
                                     <input type="text" class="input-get-data" name="literatureScore" style="display:none;">
                                 </div>
 
                                 <div class="col mb-3">
-                                    <label for="inputName"><b>Anh: <b class="get-data"></b> điểm</b></label>
+                                    <label for="inputName"><b>Anh: <b class="get-data" name="englishScore"></b> điểm</b></label>
                                     <input type="text" class="input-get-data" name="englishScore" style="display:none;">
                                 </div>
                             </div>
@@ -614,19 +622,19 @@
                         <tr>
                             <td>Hạnh kiểm</td>
                             <td>
-                                <b class="get-data-select"></b>
+                                <b class="get-data-select" name="conduct6"></b>
                                 <input type="text" class="input-get-data-select" name="conduct6" style="display:none;">
                             </td>
                             <td>
-                                <b class="get-data-select"></b>
+                                <b class="get-data-select" name="conduct7"></b>
                                 <input type="text" class="input-get-data-select" name="conduct7" style="display:none;">
                             </td>
                             <td>
-                                <b class="get-data-select"></b>
+                                <b class="get-data-select" name="conduct8"></b>
                                 <input type="text" class="input-get-data-select" name="conduct8" style="display:none;">
                             </td>
                             <td>
-                                <b class="get-data-select"></b>
+                                <b class="get-data-select" name="conduct9"></b>
                                 <input type="text" class="input-get-data-select" name="conduct9" style="display:none;">
                             </td>
                         </tr>
@@ -634,23 +642,23 @@
                         <tr>
                             <td>Học lực</td>
                             <td>
-                                <b class="get-data-select"></b>
+                                <b class="get-data-select" name="academicRating6"></b>
                                 <input type="text" class="input-get-data-select" name="academicRating6" style="display:none;">
                             </td>
                             <td>
-                                <b class="get-data-select"></b>
+                                <b class="get-data-select" name="academicRating7"></b>
                                 <input type="text" class="input-get-data-select" name="academicRating7" style="display:none;">
                             </td>
                             <td>
-                                <b class="get-data-select"></b>
+                                <b class="get-data-select" name="academicRating8"></b>
                                 <input type="text" class="input-get-data-select" name="academicRating8" style="display:none;">
                             </td>
                             <td>
-                                <b class="get-data-select"></b>
+                                <b class="get-data-select" name="academicRating9"></b>
                                 <input type="text" class="input-get-data-select" name="academicRating9" style="display:none;">
                             </td>
                             <td>
-                                <b class="get-data-select"></b>
+                                <b class="get-data-select" name="graduationRating"></b>
                                 <input type="text" class="input-get-data-select" name="graduationRating" style="display:none;">
                             </td>
                         </tr>
@@ -673,42 +681,50 @@
                             </tbody>
                             <tbody>
                                 <td>
-                                    <b class="get-data"></b>
+                                    <b class="get-data" name="avgLiteratureScore"></b>
                                     <input type="text" class="input-get-data" name="avgLiteratureScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data"></b>
+                                    <b class="get-data" name="avgMathScore"></b>
                                     <input type="text" class="input-get-data" name="avgMathScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data"></b>
+                                    <b class="get-data" name="avgEnglishScore"></b>
                                     <input type="text" class="input-get-data" name="avgEnglishScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data"></b>
+                                    <b class="get-data" name="avgPhysicsScore"></b>
                                     <input type="text" class="input-get-data" name="avgPhysicsScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data"></b>
+                                    <b class="get-data" name="avgChemistryScore"></b>
                                     <input type="text" class="input-get-data" name="avgChemistryScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data"></b>
+                                    <b class="get-data" name="avgBiologyScore"></b>
                                     <input type="text" class="input-get-data" name="avgBiologyScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data"></b>
+                                    <b class="get-data" name="avgHistoryScore"></b>
                                     <input type="text" class="input-get-data" name="avgHistoryScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data"></b>
+                                    <b class="get-data" name="avgGeographyScore"></b>
                                     <input type="text" class="input-get-data" name="avgGeographyScore" style="display:none;">
                                 </td>
                             </tbody>
                         </table>
                     </form>
                 </div>
-      
+
+                <div id="loading" class="position-absolute">
+                    <div class="d-flex align-items-center flex-column">
+                        <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang gữi dữ liệu...</h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="150" height="150" style="shape-rendering: auto; display: block; background: rgba(255, 255, 255, 0);" xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle stroke-dasharray="122.52211349000194 42.840704496667314" r="26" stroke-width="5" stroke="#00a0e2" fill="none" cy="50" cx="50">
+                            <animateTransform keyTimes="0;1" values="0 50 50;360 50 50" dur="0.7692307692307692s" repeatCount="indefinite" type="rotate" attributeName="transform"></animateTransform>
+                        </circle><g></g></g><!-- [ldio] generated by https://loading.io --></svg>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -719,9 +735,50 @@
     <button id="cropBtn" type="button" style="position:absolute; bottom:20px;">Cắt ảnh</button>
 </div>
 
+<!-- Button trigger modal -->
+
+
+
+
 <div class="glass-overlay"></div>
+<!-- Modal -->
+<div class="modal" id="modal-choose-school" style="display: none;">
+  <div class="modal-container container choose-school mx-auto">
+    <div class="modal-content choose-school">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Chọn trường cấp 2 cảu bạn!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+            <div class="form-group">
+                <label for="inputName"><b>Địa bàn trên tỉnh Quảng Nam:</b></label>
+                <select class="form-select form-select-district" name="districtId" aria-label="Default select example" required>
+                    <option selected value="">-- Bạn ở đâu trên địa bàn tỉnh Quảng Nam --</option>
+                    {{#each districts}}
+                        <option value="{{this.districtId}}">{{this.districtName}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="inputName"><b>Trường học cấp 2:</b></label>
+                <select class="form-select form-select-school" name="secondarySchoolName" aria-label="Default select example" required disabled>
+                    <option selected value="">-- Trường học cấp 2 của bạn là --</option>
+                </select>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary confirm">Xác nhận</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {{#each combinations}}
-<div id="{{this.id}}" class="modal" style="display: none;">
+<div id="{{this.id}}" class="modal show-combination" style="display: none;">
     <div class="modal-container container mx-auto">
         <div class="shadow-lg">
             <div class="modal-content">
@@ -840,6 +897,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" defer></script>
 <script src="/uploadImageToCloudinary.js" defer></script>
+<script src="/showToastMessage.js" defer></script>
 
 <script>
     const combinationDetailModal = document.querySelector('#combinationDetailModal');
@@ -871,20 +929,23 @@
                 setActiveForSteps(page);
                 break;
             case 2:
-                setActiveForSteps(page)
+                setActiveForSteps(page);
                 const inputPage2HaveAttNames = document.querySelectorAll('div.box-submit-2 input[name]');
                 const selectPage2HaveAttNames = document.querySelectorAll('div.box-submit-2 select[name]');
                 const inputPage4HaveAttNames = document.querySelectorAll('div.box-submit-4 b.get-data');
                 const selectPage4HaveAttNames = document.querySelectorAll('div.box-submit-4 b.get-data-select');
                 const inputAddDatasPage4 = document.querySelectorAll('div.box-submit-4 input.input-get-data');
                 const selectAddDatasPage4 = document.querySelectorAll('div.box-submit-4 input.input-get-data-select');
-                const inputHiddenImgPage4 = document.querySelector('div.box-submit-4 input.input-get-data');
 
                 const allTagPage2HaveAttName = [...inputPage2HaveAttNames, ...selectPage2HaveAttNames];
                 const allTagPage4HaveAttName = [...inputPage4HaveAttNames, ...selectPage4HaveAttNames];
                 const allTagAddDatasPage4 = [...inputAddDatasPage4, ...selectAddDatasPage4];
 
                 allTagPage2HaveAttName.shift();
+
+                allTagPage2HaveAttName.sort((a, b) => (a.name > b.name ? 1 : -1));
+                allTagAddDatasPage4.sort((a, b) => (a.name > b.name ? 1 : -1));
+                allTagPage4HaveAttName.sort((a, b) => (a.getAttribute('name') > b.getAttribute('name') ? 1 : -1));
                 
                 allTagPage2HaveAttName.forEach((tag, index) => {
                     tag.onchange = () => {
@@ -892,7 +953,84 @@
                     }
                 })
 
-                 
+                if(page == 2) {
+                    const btnShowModalSchool = document.querySelector('div.box-submit-2 button.btn-show-modal-school');
+                    const btnReShowModalSchool = document.querySelector('div.box-submit-2 button.btn-reShow-modal-school');
+                    const tagShowSchool = document.querySelector('div.box-submit-4 .get-data-school');
+                    const inputGetDataShool = document.querySelector('div.box-submit-4 input.input-get-data-shool');
+                    const selectDistrict = document.querySelector(".form-select-district");
+                    const selectSchool = document.querySelector(".form-select-school");
+
+                    btnShowModalSchool.onclick = () => showModalChooseSchool();
+                    btnReShowModalSchool.onclick = () => showModalChooseSchool();
+                    
+                    selectDistrict.onchange = (e) => {
+                        selectSchool.disabled = false;
+                        selectSchool.innerHTML = "";
+                        const districtId = e.target.value;
+                        const data = {{{secondarySchools}}};
+                        const result = data.filter((doc) => {
+                            return doc.districtId === districtId;
+                        })[0];
+                        if(result) {
+                            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
+                            const secondarySchools = result.schools;
+                            secondarySchools.forEach((school) => {
+                                const option = document.createElement('option');
+                                option.value = school;
+                                option.textContent = school;
+                                selectSchool.appendChild(option);
+                            })
+                        } else {
+                            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
+                            selectSchool.disabled = true;
+                        }   
+                    }
+
+                    function showModalChooseSchool() {
+                        const modalChooseSchool = document.querySelector('#modal-choose-school');
+                        var glassOverlay = document.querySelector('.glass-overlay');
+                        var body = document.getElementsByTagName('body')[0];
+                        const textShowSchool = document.querySelector('div.box-submit-2 .secondary-school-choosen');
+                        const selectSchool = modalChooseSchool.querySelector('.form-select-school');
+                        const btnConfirm = modalChooseSchool.querySelector('.confirm');
+                        const btnClose = modalChooseSchool.querySelector('.close');
+
+                        glassOverlay.classList.add('active');
+                        body.style.overflowY = 'hidden';
+                        modalChooseSchool.style.display = 'flex';
+                        btnShowModalSchool.style.display = 'none';
+                        btnReShowModalSchool.style.display = 'block';
+
+                        btnClose.onclick = () => {
+                            body.style.overflowY = 'auto';
+                            btnShowModalSchool.style.display = 'block';
+                            btnReShowModalSchool.style.display = 'none';
+                            modalChooseSchool.style.display = 'none';
+                            glassOverlay.classList.remove('active');
+                        }
+
+                        btnConfirm.onclick = () => {
+                            if(selectSchool.value != '') {
+                                body.style.overflowY = 'auto';
+                                textShowSchool.textContent = selectSchool.value;
+                                modalChooseSchool.style.display = 'none';
+                                textShowSchool.style.display = 'block';
+                                glassOverlay.classList.remove('active');
+                                tagShowSchool.textContent = inputGetDataShool.value = selectSchool.value;
+                            } else {
+                                toastMessage({
+                                    tittle: "lỗi ❗",
+                                    message: "Hãy chọn giá trị theo thứ tự và đầy đủ trước khi bấm \"Xác nhận\" ❗.",
+                                    type: "error",
+                                    duration: 6000,
+                                    icon: "fa-circle-xmark",
+                                    fideOut: 1000
+                                })
+                            }
+                        }
+                    }
+                }
             case 4:
                 setActiveForSteps(page)
                 const inputImage = document.getElementById('inputImage');
@@ -971,7 +1109,7 @@
                     const formSubmit = document.querySelector('#form-submit-combination')
                     const btnSubmitForm = document.querySelector('#btnSubmit');
                     btnSubmitForm.onclick = async () => {
-                        loading.style.display = 'block';
+                        loading.style.display = 'flex';
                         await uploadImageToCloudinary(inputAvatarStep4.value, "avatars").then((imageUrl) => {
                             inputAvatarStep4.value = imageUrl;
                         })
@@ -989,6 +1127,15 @@
 
                         const result = await response.json();
                         loading.style.display = 'none';
+                        toastMessage({
+                            tittle: "Thành công ✅",
+                            message: "Thành công, Bạn đã gữi đi bản thông tin đăng ký vào 10 của mình ❗.",
+                            type: "success",
+                            duration: 6000,
+                            icon: "fa-circle-check",
+                            fideOut: 1000,
+                            width: "280px"
+                        })
                     }
                 }
                 
@@ -998,26 +1145,37 @@
                 const selectCombination1 = document.querySelector('#select-combination1');
                 const selectCombination2 = document.querySelector('#select-combination2'); 
 
+                const allTagSelectData = document.querySelectorAll('div.box-submit-4 .get-data-combination')
+                const allTagAddData = document.querySelectorAll('div.box-submit-4 input.input-get-data-combination')
+
                 selectCombination1.onchange = () => {
-                const valueSelect1 = selectCombination1.value;
+                    const valueSelect1 = selectCombination1.value;
 
-                const optionsSelect1 = Array.from(selectCombination1.querySelectorAll('option'));
-                optionsSelect1.shift();
-                selectCombination2.innerHTML = '<option selected value="">--Chọn tổ hợp--</option>';
+                    allTagSelectData[0].textContent = allTagAddData[0].value = valueSelect1;
 
-                optionsSelect1.forEach((option) => {
-                    if(option.text !== valueSelect1) {
-                        const tmp = document.createElement('option');
-                        tmp.value = option.value;
-                        tmp.text = option.value;
+                    const optionsSelect1 = Array.from(selectCombination1.querySelectorAll('option'));
+                    optionsSelect1.shift();
+                    selectCombination2.innerHTML = '<option selected value="">--Chọn tổ hợp--</option>';
 
-                        selectCombination2.appendChild(tmp);
-                    }
-                })
-                if (valueSelect1) {
-                    selectCombination2.disabled = false;
-                } else selectCombination2.disabled = true;
+                    optionsSelect1.forEach((option) => {
+                        if(option.text !== valueSelect1) {
+                            const tmp = document.createElement('option');
+                            tmp.value = option.value;
+                            tmp.text = option.value;
+
+                            selectCombination2.appendChild(tmp);
+                        }
+                    })
+                    if (valueSelect1) {
+                        selectCombination2.disabled = false;
+                    } else selectCombination2.disabled = true;
                 }   
+
+                selectCombination2.onchange = () => {
+                    const valueSelect2 = selectCombination2.value;
+
+                    allTagSelectData[1].textContent = allTagAddData[1].value= valueSelect2;
+                }
 
                 const glassOverlay = document.querySelector('.glass-overlay');
 
@@ -1027,7 +1185,7 @@
                     btnShow.onclick = () => {
                         const modalId = btnShow.getAttribute('id-modal');
                         const modalCombinationDetail = document.getElementById(modalId);
-                        modalCombinationDetail.style.display = 'block';
+                        modalCombinationDetail.style.display = 'flex';
                         const modalChild = modalCombinationDetail.querySelector('.modal-container');
                         const btnClose = modalCombinationDetail.querySelector('.btn-close');
                         const body = document.getElementsByTagName('body')[0];
