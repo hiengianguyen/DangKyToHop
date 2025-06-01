@@ -65,17 +65,6 @@
 .contact-of-parent {
   width: 100%; }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  align-items: center;
-  justify-content: center;
-  display: none;
-  z-index: 1000; }
-
 .glass-overlay.active {
   position: fixed;
   top: 0;
@@ -84,6 +73,7 @@
   height: 100vh;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.1);
+  animation: brul 0.5s;
   z-index: 999; }
 
 .modal-container {
@@ -94,6 +84,12 @@
 
 .modal-content {
   height: 50pc; }
+
+.modal-container.choose-school {
+  padding: 15pc; }
+
+.modal-content.choose-school {
+  height: 22pc; }
 
 .btn-show-modal p {
   color: #007bff;
@@ -106,6 +102,13 @@
   background-color: transparent;
   cursor: pointer; }
 
+.modal-contents {
+  background-color: #fff; }
+
+.modal {
+  justify-content: center;
+  align-items: center; }
+
 @keyframes modalFadeIn {
   from {
     opacity: 0.6;
@@ -113,3 +116,9 @@
   to {
     opacity: 1;
     transform: translateY(0px); } }
+
+@keyframes brul {
+  from {
+    backdrop-filter: blur(0); }
+  to {
+    backdrop-filter: blur(5px); } }

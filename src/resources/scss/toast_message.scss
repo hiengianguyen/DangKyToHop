@@ -1,0 +1,96 @@
+#toast {
+  position: fixed;
+  right: 25px;
+  top: 100px;
+  z-index: 9999;
+}
+
+.toasts {
+  display: flex;
+  text-align: center;
+  background-color: #fff;
+  min-width: 250px;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  border-left: 5px solid;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+  text-align: start;
+  transition: all linear 0.4s;
+}
+
+@keyframes sideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + 25px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+.toast__icon {
+  font-size: 22px;
+  display: flex;
+  padding: 0 16px;
+  align-items: center;
+}
+
+.toast__close,
+.toast__icon {
+  padding: 0 16px;
+}
+.toast__icon .fa-circle-check {
+  color: #27b945;
+}
+
+.toast__icon .fa-circle-xmark {
+  color: #d42244;
+}
+
+.toast__icon .fa-circle-info {
+  color: #2372ce;
+}
+
+.toast-success {
+  border-color: #27b945;
+}
+
+.toast-error {
+  border-color: #d42244;
+}
+
+.toast-info {
+  border-color: #2372ce;
+}
+
+.toast__body {
+  flex-grow: 1;
+}
+.toast__tittle {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+.toast__message {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 15px;
+  color: #888;
+}
+.toast__close {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.fa-xmark {
+  cursor: pointer;
+}

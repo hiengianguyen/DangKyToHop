@@ -1,5 +1,18 @@
-const { FirestoreModel, SubjectModel, CombinationModel, NationModel, RegisteredCombinationModel, UserModel } = require("../models");
-const { SubjectsCollectionName, CombinationsCollectionName, UsersCollectionName } = require("../../constants");
+const {
+  FirestoreModel,
+  SubjectModel,
+  CombinationModel,
+  NationModel,
+  RegisteredCombinationModel,
+  UserModel,
+  SecondarySchoolModel
+} = require("../models");
+const {
+  SubjectsCollectionName,
+  CombinationsCollectionName,
+  UsersCollectionName,
+  SecondarySchoolsCollectionName
+} = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
 const database = require("../../config/database/index");
 const xlsx = require("xlsx");
@@ -9,6 +22,7 @@ class CombinationController {
     this.userDbRef = new FirestoreModel(UsersCollectionName, UserModel);
     this.subjectDbRef = new FirestoreModel(SubjectsCollectionName, SubjectModel);
     this.nationDbRef = new FirestoreModel("nations", NationModel);
+    this.secondarySchoolDbRef = new FirestoreModel(SecondarySchoolsCollectionName, SecondarySchoolModel);
     this.registeredCombinationDbRef = new FirestoreModel("registeredCombinations", RegisteredCombinationModel);
     this.combinationDbRef = new FirestoreModel(CombinationsCollectionName, CombinationModel);
     this.submited = this.submited.bind(this);
@@ -82,6 +96,15 @@ class CombinationController {
 
   async submitCombination(req, res, next) {
     const user = await this.userDbRef.getItemById(req.cookies.userId);
+
+    const secondarySchools = await this.secondarySchoolDbRef.getAllItems(false);
+    const districts = secondarySchools.map((doc) => {
+      return {
+        districtId: doc.districtId,
+        districtName: doc.districtName
+      };
+    });
+
     const nations = await this.nationDbRef.getAllItems(false);
     nations.sort((a, b) => (a.name > b.name ? 1 : -1));
 
@@ -105,7 +128,9 @@ class CombinationController {
       combinations: combinations,
       nations: nations,
       user: user,
-      subjects: subjects
+      subjects: subjects,
+      districts: districts,
+      secondarySchools: JSON.stringify(secondarySchools)
     });
   }
 }
