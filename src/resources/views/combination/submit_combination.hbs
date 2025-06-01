@@ -484,7 +484,7 @@
                 </div>
 
                 <div class="box-submit-4 container" style="display:none;">
-                    <form id="form-submit-combination" action="/combination/submited" method="POST">
+                    <form id="form-submit-combination">
                         <legend class="text-center mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
                         <div class="row">
                             <div class="col col-md-4 mb-3 mx-3 d-flex align-items-start flex-column ps-0">
@@ -958,6 +958,7 @@
                     };
                 }
                 if(page == 4) {
+                    const loading = document.querySelector('#loading');
                     const inputAvatarStep4 = document.querySelector('div.box-submit-4 input[name="avatarLink"]');
                     if(inputHiddenImg && inputAvatarStep4) {
                         inputAvatarStep4.value = inputHiddenImg.value;
@@ -970,10 +971,24 @@
                     const formSubmit = document.querySelector('#form-submit-combination')
                     const btnSubmitForm = document.querySelector('#btnSubmit');
                     btnSubmitForm.onclick = async () => {
+                        loading.style.display = 'block';
                         await uploadImageToCloudinary(inputAvatarStep4.value, "avatars").then((imageUrl) => {
                             inputAvatarStep4.value = imageUrl;
                         })
-                        formSubmit.submit();
+
+                        const formData = new FormData(formSubmit);
+                        const data = Object.fromEntries(formData.entries());
+
+                        const response = await fetch('/combination/submited', {
+                            method: 'POST',
+                            headers: {
+                            'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data)
+                        });
+
+                        const result = await response.json();
+                        loading.style.display = 'none';
                     }
                 }
                 

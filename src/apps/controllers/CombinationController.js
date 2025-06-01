@@ -54,7 +54,10 @@ class CombinationController {
     //   new Date()
     // );
     // await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
-    return res.redirect("/");
+    return res.json({
+      message: "Dữ liệu đã được nhận!",
+      data: data
+    });
   }
 
   async submitedList(req, res, next) {
