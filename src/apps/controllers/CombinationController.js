@@ -33,41 +33,48 @@ class CombinationController {
 
   async submited(req, res, next) {
     const data = req.body;
-    console.log(data);
-    // const submitedCombinationModel = new RegisteredCombinationModel(
-    //   undefined,
-    //   data.fullName,
-    //   data.avatarLink,
-    //   req.cookies.secondarySchool,
-    //   data.dateOfBirth,
-    //   data.placeOfBirth,
-    //   data.gender,
-    //   data.nation,
-    //   data.ordinaryPlace,
-    //   data.presentPlace,
-    //   data.conduct6,
-    //   data.conduct7,
-    //   data.conduct8,
-    //   data.conduct9,
-    //   data.academicRating6,
-    //   data.academicRating7,
-    //   data.academicRating8,
-    //   data.academicRating9,
-    //   data.graduationRating,
-    //   data.avgLiteratureScore,
-    //   data.avgMathScore,
-    //   data.avgEnglishScore,
-    //   data.avgPhysicsScore,
-    //   data.avgChemistryScore,
-    //   data.avgBiologyScore,
-    //   data.avgHistoryScore,
-    //   data.avgGeographyScore,
-    //   data.combination1,
-    //   data.combination2,
-    //   undefined,
-    //   new Date()
-    // );
-    // await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
+    const submitedCombinationModel = new RegisteredCombinationModel(
+      undefined, // id
+      data.fullName,
+      data.dateOfBirth,
+      data.secondarySchool,
+      data.gender,
+      data.placeOfBirth,
+      data.currentPlace,
+      data.nation,
+      data.avatarLink,
+      data.combination1,
+      data.combination2,
+      data.fullNameDad,
+      data.fullNameMom,
+      data.jobOfDad,
+      data.jobOfMom,
+      data.phoneOfDad,
+      data.phoneOfMom,
+      data.mathScore,
+      data.literatureScore,
+      data.englishScore,
+      data.conduct6,
+      data.conduct7,
+      data.conduct8,
+      data.conduct9,
+      data.academicRating6,
+      data.academicRating7,
+      data.academicRating8,
+      data.academicRating9,
+      data.graduationRating,
+      data.avgLiteratureScore,
+      data.avgMathScore,
+      data.avgEnglishScore,
+      data.avgPhysicsScore,
+      data.avgChemistryScore,
+      data.avgBiologyScore,
+      data.avgHistoryScore,
+      data.avgGeographyScore,
+      undefined, // isDeleted
+      new Date() // registeredAt
+    );
+    await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
     return res.json({
       message: "Dữ liệu đã được nhận!",
       data: data
@@ -78,6 +85,7 @@ class CombinationController {
     let data = await database.collection("registeredCombinations").orderBy("registeredAt", "asc").get();
     data = Array.from(data.docs).map((doc) => {
       var result = RegisteredCombinationModel.fromFirestore(doc);
+      console.log(result);
       result.registeredAt = convertToVietnameseDateTime(result.registeredAt.toDate());
       return result;
     });

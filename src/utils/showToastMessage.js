@@ -29,11 +29,11 @@ function toastMessage({ tittle = "", message = "", type = "", duration = 3000, i
     toast.classList.add("toasts", `toast-${type}`);
     toast.innerHTML = `
             <div class="toast__icon">
-                <i class="fa-solid ${icon}"></i>
+                <i style="font-style: normal;">${icon === "✅" ? "✅" : "❌"}</i>
             </div>
             <div class="toast__body">
               <h3 class="toast__tittle">${tittle}</h3>
-              <p class="toast__message">${message}</p>
+              <p class="toast__message fw-bold m-0">${message}</p>
             </div>
             <div class="toast__close">
                 <i class="fa-solid fa-xmark"></i>

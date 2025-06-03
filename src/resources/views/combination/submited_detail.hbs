@@ -28,77 +28,108 @@
                             <img id="resultImage" src="{{submitedCombinationDetail.avatarLink}}" class="col col-md-2" style="max-width:200px;">
                         </div>
 
-                        <div class="col row gy-3 m-0">
-                            <div class="input-group col col-md-5 d-flex align-items-start flex-column">
-                                <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
-                                <h4 class="mb-3"> {{submitedCombinationDetail.fullName}}</h4>
-                                <label for="inputName">Ngày tháng năm sinh: </label>
-                                <b class="mb-3">{{submitedCombinationDetail.dateOfBirth}}</b>
-                                <label for="inputName">Trường học cấp 2:</label> 
-                                <b class="mb-3">Trường THCS Lý Thường Kiệt</b>
+                        <div class="col gy-3 m-0">
+                            <div class="row">
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
+                                    <h4 class="mb-3" style="width: max-content;"> {{submitedCombinationDetail.fullName}}</h4>
+                                </div>
+                                <div class="col d-flex align-items-center flex-column">
+                                    <label for="inputName" >Giới tính: </label>
+                                    <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.gender}}</b>
+                                </div>
+                                <div class="col d-flex align-items-center flex-column">
+                                    <label for="inputGroupSelect01">Dân tộc: </label>
+                                    <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.nation}}</b>
+                                </div>
                             </div>
 
-                            <div class="col d-flex align-items-start flex-column p-0">
-                                <label for="inputName" >Giới tính: </label>
-                                <b class="mb-3">{{submitedCombinationDetail.gender}}</b>
-                                <label for="inputName">Nơi sinh: </label>
-                                <b class="mb-3">{{submitedCombinationDetail.placeOfBirth}}</b>
-                                <label for="inputName">Nơi ở hiện tại:</label> 
-                                <b class="mb-3">{{submitedCombinationDetail.presentPlace}}</b>
+                            <div class="row">
+                                <div class="col d-flex align-items-start flex-column">
+                                     <label for="inputName">Ngày tháng năm sinh: </label>
+                                    <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.dateOfBirth}}</b>
+                                </div>
+
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputName">Nơi sinh: </label>
+                                    <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.placeOfBirth}}</b>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-start flex-column">
+                                        <label for="inputName">Nguyện vọng 1:</label>
+                                        <h5 style="text-transform: capitalize;">{{submitedCombinationDetail.combination1}}</h5>                       
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="col d-flex align-items-start flex-column">
-                                <label for="inputGroupSelect01">Dân tộc: </label>
-                                <b class="mb-3">{{submitedCombinationDetail.nation}}</b>
-
-                                <div class="d-flex align-items-start flex-column">
-                                    <label for="inputName">Nguyện vọng 1:</label>
-                                    <h5>{{submitedCombinationDetail.combination1}}</h5>                       
+                            <div class="row">
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputName">Trường học cấp 2:</label> 
+                                    <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.secondarySchool}}</b>
                                 </div>
-                                
 
-                                <div class="d-flex align-items-start flex-column">
-                                    <label for="inputName">Nguyện vọng 2:</label>
-                                    <h5>{{submitedCombinationDetail.combination2}}</h5>
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputName">Nơi ở hiện tại:</label> 
+                                    <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.currentPlace}}</b>
                                 </div>
-                                
+
+                                <div class="col">
+                                    <div class="d-flex align-items-start flex-column">
+                                        <label for="inputName">Nguyện vọng 2:</label>
+                                        <h5 style="text-transform: capitalize;">{{submitedCombinationDetail.combination2}}</h5>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
 
-                    <div class="d-flex align-items-start flex-column px-4 my-3">
-                        <div class="d-flex justify-content-between text-center contact-of-parent">
+                    <div class="d-flex justify-content-around">
+                        <div class="d-flex  align-items-start flex-column">
                             <div class="d-flex justify-content-center">
                                 <label for="" class="me-4">Họ và tên cha</label>
-                                <h5>Nguyễn Thành Trung</h5>
+                                <h5 style="text-transform: capitalize;">{{submitedCombinationDetail.fullNameDad}}</h5>
                             </div>
-
-                            <div class="d-flex">
-                                <label for="" class="me-4">Nghề nghiệp:</label>
-                                <b>Cán bộ</b>
-                            </div>
-
-                            <div class="d-flex">
-                                <label for="" class="me-4">Số điện thoại</label>
-                                <b>0362356747</b>
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-between text-center contact-of-parent">
                             <div class="d-flex">
                                 <label for="" class="me-4">Họ và tên mẹ:</label>
-                                <h5>Nguyễn Thị Tình</h5>
+                                <h5 style="text-transform: capitalize;">{{submitedCombinationDetail.fullNameMom}}</h5>
                             </div>
-
+                        </div>
+                        <div class="d-flex align-items-start flex-column">
                             <div class="d-flex">
                                 <label for="" class="me-4">Nghề nghiệp:</label>
-                                <b>Buôn bán</b>
+                                <b style="text-transform: capitalize;">{{submitedCombinationDetail.jobOfDad}}</b>
                             </div>
-
+                            <div class="d-flex">
+                                <label for="" class="me-4">Nghề nghiệp:</label>
+                                <b style="text-transform: capitalize;">{{submitedCombinationDetail.jobOfMom}}</b>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start flex-column">
+                            <div class="d-flex">
+                                <label for="" class="me-4">Số điện thoại</label>
+                                <b style="text-transform: capitalize;">{{submitedCombinationDetail.phoneOfDad}}</b>
+                            </div>
                             <div class="d-flex">
                                 <label for="inputGroupSelect01" class="me-4">Số điện thoại</label>
-                                <b>0362356747</b>
+                                <b style="text-transform: capitalize;">{{submitedCombinationDetail.phoneOfMom}}</b>
                             </div>
+                        </div>
+                    </div>
+
+                    <label for="inputName" class="mt-4"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
+                    <div class="d-flex justify-content-around text-center">
+                        <div class="my-2">
+                            <label for="inputName"><b>Toán: <b class="fs-5">{{submitedCombinationDetail.mathScore}}</b> điểm</b></label>
+                        </div>
+
+                        <div class="my-2">
+                            <label for="inputName"><b>Văn: <b class="fs-5">{{submitedCombinationDetail.literatureScore}}</b> điểm</b></label>
+                        </div>
+
+                        <div class="my-2">
+                            <label for="inputName"><b>Anh: <b class="fs-5">{{submitedCombinationDetail.englishScore}}</b> điểm</b></label>
                         </div>
                     </div>
 
@@ -115,36 +146,36 @@
                     
                     <tr>
                         <td>Hạnh kiểm</td>
-                        <td>
-                            {{submitedCombinationDetail.conduct6}}
+                        <td style="text-transform: capitalize;">
+                            <b>{{submitedCombinationDetail.conduct6}}</b> 
                         </td>
-                        <td>
-                            {{submitedCombinationDetail.conduct7}}
+                        <td style="text-transform: capitalize;">
+                            <b>{{submitedCombinationDetail.conduct7}}</b> 
                         </td>
-                        <td>
-                            {{submitedCombinationDetail.conduct8}}
+                        <td style="text-transform: capitalize;">
+                            <b>{{submitedCombinationDetail.conduct8}}</b> 
                         </td>
-                        <td>
-                            {{submitedCombinationDetail.conduct9}}
+                        <td style="text-transform: capitalize;">
+                            <b>{{submitedCombinationDetail.conduct9}}</b> 
                         </td>
                     </tr>
                     
                     <tr>
                         <td>Học lực</td>
-                        <td>
-                            {{submitedCombinationDetail.academicRating6}}
+                        <td style="text-transform: capitalize;">
+                            <b>{{submitedCombinationDetail.academicRating6}}</b> 
                         </td>
-                        <td>
-                            {{submitedCombinationDetail.academicRating7}}
+                        <td style="text-transform: capitalize;">
+                            <b>{{submitedCombinationDetail.academicRating7}}</b> 
                         </td>
-                        <td>
-                            {{submitedCombinationDetail.academicRating8}}
+                        <td style="text-transform: capitalize;">
+                            <b>{{submitedCombinationDetail.academicRating8}}</b> 
                         </td>
-                        <td>
-                            {{submitedCombinationDetail.academicRating9}}
+                        <td style="text-transform: capitalize;">
+                            <b>{{submitedCombinationDetail.academicRating9}}</b> 
                         </td>
-                        <td>
-                            {{submitedCombinationDetail.graduationRating}}
+                        <td style="text-transform: capitalize;">
+                            <b>{{submitedCombinationDetail.graduationRating}}</b> 
                         </td>
                     </tr>
                     </table>
@@ -165,29 +196,29 @@
                             <td class="px-3"><b>Địa</b></td>
                         </tbody>
                         <tbody>
-                            <td>
-                                {{submitedCombinationDetail.avgLiteratureScore}}
+                            <td style="text-transform: capitalize;">
+                                <b>{{submitedCombinationDetail.avgLiteratureScore}}</b> 
                             </td>
-                            <td>
-                                {{submitedCombinationDetail.avgMathScore}}
+                            <td style="text-transform: capitalize;">
+                                <b>{{submitedCombinationDetail.avgMathScore}}</b> 
                             </td>
-                            <td>
-                                {{submitedCombinationDetail.avgEnglishScore}}
+                            <td style="text-transform: capitalize;">
+                                <b>{{submitedCombinationDetail.avgEnglishScore}}</b> 
                             </td>
-                            <td>
-                                {{submitedCombinationDetail.avgPhysicsScore}}
+                            <td style="text-transform: capitalize;">
+                                <b>{{submitedCombinationDetail.avgPhysicsScore}}</b> 
                             </td>
-                            <td>
-                                {{submitedCombinationDetail.avgChemistryScore}}
+                            <td style="text-transform: capitalize;">
+                                <b>{{submitedCombinationDetail.avgChemistryScore}}</b> 
                             </td>
-                            <td>
-                                {{submitedCombinationDetail.avgBiologyScore}}
+                            <td style="text-transform: capitalize;">
+                                <b>{{submitedCombinationDetail.avgBiologyScore}}</b> 
                             </td>
-                            <td>
-                                {{submitedCombinationDetail.avgHistoryScore}}
+                            <td style="text-transform: capitalize;">
+                                <b>{{submitedCombinationDetail.avgHistoryScore}}</b> 
                             </td>
-                            <td>
-                                {{submitedCombinationDetail.avgGeographyScore}}
+                            <td style="text-transform: capitalize;">
+                                <b>{{submitedCombinationDetail.avgGeographyScore}}</b> 
                             </td>
                         </tbody>
                     </table>

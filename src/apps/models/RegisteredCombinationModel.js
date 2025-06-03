@@ -2,14 +2,24 @@ class RegisteredCombinationModel {
   constructor(
     id,
     fullName,
-    avatarLink,
-    secondarySchool,
     dateOfBirth,
-    placeOfBirth,
+    secondarySchool,
     gender,
+    placeOfBirth,
+    currentPlace,
     nation,
-    ordinaryPlace,
-    presentPlace,
+    avatarLink,
+    combination1,
+    combination2,
+    fullNameDad,
+    fullNameMom,
+    jobOfDad,
+    jobOfMom,
+    phoneOfDad,
+    phoneOfMom,
+    mathScore,
+    literatureScore,
+    englishScore,
     conduct6,
     conduct7,
     conduct8,
@@ -27,21 +37,29 @@ class RegisteredCombinationModel {
     avgBiologyScore,
     avgHistoryScore,
     avgGeographyScore,
-    combination1,
-    combination2,
     isDeleted,
     registeredAt
   ) {
     this.id = id;
     this.fullName = fullName;
-    this.avatarLink = avatarLink;
-    this.secondarySchool = secondarySchool;
     this.dateOfBirth = dateOfBirth;
-    this.placeOfBirth = placeOfBirth;
+    this.secondarySchool = secondarySchool;
     this.gender = gender;
+    this.placeOfBirth = placeOfBirth;
+    this.currentPlace = currentPlace;
     this.nation = nation;
-    this.ordinaryPlace = ordinaryPlace;
-    this.presentPlace = presentPlace;
+    this.avatarLink = avatarLink;
+    this.combination1 = combination1;
+    this.combination2 = combination2;
+    this.fullNameDad = fullNameDad;
+    this.fullNameMom = fullNameMom;
+    this.jobOfDad = jobOfDad;
+    this.jobOfMom = jobOfMom;
+    this.phoneOfDad = phoneOfDad;
+    this.phoneOfMom = phoneOfMom;
+    this.mathScore = mathScore;
+    this.literatureScore = literatureScore;
+    this.englishScore = englishScore;
     this.conduct6 = conduct6;
     this.conduct7 = conduct7;
     this.conduct8 = conduct8;
@@ -59,8 +77,6 @@ class RegisteredCombinationModel {
     this.avgBiologyScore = avgBiologyScore;
     this.avgHistoryScore = avgHistoryScore;
     this.avgGeographyScore = avgGeographyScore;
-    this.combination1 = combination1;
-    this.combination2 = combination2;
     this.isDeleted = isDeleted || false;
     this.registeredAt = registeredAt || new Date();
   }
@@ -71,14 +87,24 @@ class RegisteredCombinationModel {
     return new RegisteredCombinationModel(
       doc.id,
       data.fullName,
-      data.avatarLink,
-      data.secondarySchool,
       data.dateOfBirth,
-      data.placeOfBirth,
+      data.secondarySchool,
       data.gender,
+      data.placeOfBirth,
+      data.currentPlace,
       data.nation,
-      data.ordinaryPlace,
-      data.presentPlace,
+      data.avatarLink,
+      data.combination1,
+      data.combination2,
+      data.fullNameDad,
+      data.fullNameMom,
+      data.jobOfDad,
+      data.jobOfMom,
+      data.phoneOfDad,
+      data.phoneOfMom,
+      data.mathScore,
+      data.literatureScore,
+      data.englishScore,
       data.conduct6,
       data.conduct7,
       data.conduct8,
@@ -96,8 +122,6 @@ class RegisteredCombinationModel {
       data.avgBiologyScore,
       data.avgHistoryScore,
       data.avgGeographyScore,
-      data.combination1,
-      data.combination2,
       data.isDeleted,
       data.registeredAt
     );
@@ -106,14 +130,24 @@ class RegisteredCombinationModel {
   toFirestore() {
     return {
       fullName: this.fullName,
-      avatarLink: this.avatarLink,
-      secondarySchool: this.secondarySchool,
       dateOfBirth: this.dateOfBirth,
-      placeOfBirth: this.placeOfBirth,
+      secondarySchool: this.secondarySchool,
       gender: this.gender,
+      placeOfBirth: this.placeOfBirth,
+      currentPlace: this.currentPlace,
       nation: this.nation,
-      ordinaryPlace: this.ordinaryPlace,
-      presentPlace: this.presentPlace,
+      avatarLink: this.avatarLink,
+      combination1: this.combination1,
+      combination2: this.combination2,
+      fullNameDad: this.fullNameDad,
+      fullNameMom: this.fullNameMom,
+      jobOfDad: this.jobOfDad,
+      jobOfMom: this.jobOfMom,
+      phoneOfDad: this.phoneOfDad,
+      phoneOfMom: this.phoneOfMom,
+      mathScore: this.mathScore,
+      literatureScore: this.literatureScore,
+      englishScore: this.englishScore,
       conduct6: this.conduct6,
       conduct7: this.conduct7,
       conduct8: this.conduct8,
@@ -131,8 +165,6 @@ class RegisteredCombinationModel {
       avgBiologyScore: this.avgBiologyScore,
       avgHistoryScore: this.avgHistoryScore,
       avgGeographyScore: this.avgGeographyScore,
-      combination1: this.combination1,
-      combination2: this.combination2,
       isDeleted: this.isDeleted,
       registeredAt: this.registeredAt
     };
