@@ -23,8 +23,6 @@ class AuthController {
       res.cookie("fullName", existedUser.fullName, { maxAge: 604800000, httpOnly: true });
       res.cookie("avatar", existedUser.avatar, { maxAge: 604800000, httpOnly: true });
       res.cookie("role", existedUser.role, { maxAge: 604800000, httpOnly: true });
-      res.cookie("districtName", existedUser.districtName, { maxAge: 604800000, httpOnly: true });
-      res.cookie("secondarySchool", existedUser.secondarySchoolName, { maxAge: 604800000, httpOnly: true });
 
       return res.redirect(`/home?role=${existedUser.role}`);
     } else {
@@ -33,24 +31,13 @@ class AuthController {
   }
 
   async signUp(req, res, next) {
-    const { fullName, password, secondarySchoolName, districtId, phone, dateOfBirth } = req.body;
+    const { fullName, password, phone } = req.body;
     const existedPhone = await this.userDbRef.getItemByFilter({ phone: phone });
 
     if (existedPhone) {
       return res.redirect("/?signupError=existed-phone");
     } else {
-      const userModel = new UserModel(
-        undefined,
-        fullName,
-        password,
-        secondarySchoolName,
-        districtId,
-        phone,
-        dateOfBirth,
-        undefined,
-        undefined,
-        undefined
-      );
+      const userModel = new UserModel(undefined, fullName, password, phone, undefined, undefined, undefined);
       await this.userDbRef.addItem(userModel);
       return res.redirect("/");
     }

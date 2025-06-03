@@ -1,5 +1,5 @@
 class UserModel {
-  constructor(id, fullName, password, secondarySchoolName, districtId, phone, dateOfBirth, avatar, role, isDeleted) {
+  constructor(id, fullName, password, phone, avatar, role, isDeleted) {
     this.id = id;
     this.fullName = fullName;
     this.password = password;
