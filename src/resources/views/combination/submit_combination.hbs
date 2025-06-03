@@ -495,7 +495,7 @@
                         <form id="form-submit-combination">
                             <legend class="text-center mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
                             <div class="row">
-                                <div class="col col-md-4 mb-3 mx-3 d-flex align-items-start flex-column ps-0">
+                                <div class="col col-md-3 mb-3 mx-3 d-flex align-items-start flex-column ps-0">
                                     <label for=""><b>Ảnh thẻ:</b></label>
                                     <div class="row mb-3">
                                         <div class="d-flex align-items-start flex-column">
@@ -505,47 +505,68 @@
                                     </div>
                                 </div>
 
-                                <div class="col row gy-3 m-0">
-                                    <div class="input-group col col-md-5 d-flex align-items-start flex-column">
-                                        <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
-                                        <h4 class="mb-3"><b class="get-data" name="fullName" style="text-transform: capitalize;"></b></h4>
-                                        <input type="text" class="input-get-data" name="fullName" style="display:none;">
-                                        <label for="inputName">Ngày tháng năm sinh: </label>
-                                        <b class="mb-3 get-data" name="dateOfBirth" style="text-transform: capitalize;"></b>
-                                        <input type="text" class="input-get-data" name="dateOfBirth" style="display:none;">
-                                        <label for="inputName">Trường học cấp 2:</label> 
-                                        <b class="mb-3 get-data-school" name="secondarySchool"></b>
-                                        <input type="text" class="input-get-data-shool" name="secondarySchool" style="display:none;">
+                                <div class="col gy-3 m-0">
+                                    <div class="row">
+                                        <div class="col d-flex align-items-start flex-column">
+                                            <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
+                                            <h4 class="mb-3"><b class="get-data" name="fullName" style="text-transform: capitalize;"></b></h4>
+                                            <input type="text" class="input-get-data" name="fullName" style="display:none;">
+                                        </div>
+                                        <div class="col d-flex align-items-start flex-column">
+                                            <label for="inputName" >Giới tính: </label>
+                                            <b class="mb-3 get-data-select" name="gender"></b>
+                                            <input type="text" class="input-get-data-select" name="gender" style="display:none;">
+                                        </div>
+                                        <div class="col d-flex align-items-start flex-column">
+                                            <label for="inputGroupSelect01">Dân tộc: </label>
+                                            <b class="mb-3 get-data-select" name="nation"></b>
+                                            <input type="text" class="input-get-data-select" name="nation" style="display:none;">
+                                        </div>
                                     </div>
 
-                                    <div class="col d-flex align-items-start flex-column p-0">
-                                        <label for="inputName" >Giới tính: </label>
-                                        <b class="mb-3 get-data-select" name="gender"></b>
-                                        <input type="text" class="input-get-data-select" name="gender" style="display:none;">
-                                        <label for="inputName">Nơi sinh: </label>
-                                        <b class="mb-3 get-data" name="placeOfBirth" style="text-transform: capitalize;"></b>
-                                        <input type="text" class="input-get-data" name="placeOfBirth" style="display:none;">
-                                        <label for="inputName">Nơi ở hiện tại:</label> 
-                                        <b class="mb-3 get-data" name="currentPlace" style="text-transform: capitalize;"></b>
-                                        <input type="text" class="input-get-data" name="currentPlace" style="display:none;">
+                                    <div class="row">
+                                        <div class="col d-flex align-items-start flex-column">
+                                            <label for="inputName">Ngày tháng năm sinh: </label>
+                                            <b class="mb-3 get-data" name="dateOfBirth" style="text-transform: capitalize;"></b>
+                                            <input type="text" class="input-get-data" name="dateOfBirth" style="display:none;">
+                                        </div>
+
+                                        <div class="col d-flex align-items-start flex-column">
+                                            <label for="inputName">Nơi sinh: </label>
+                                            <b class="mb-3 get-data" name="placeOfBirth" style="text-transform: capitalize;"></b>
+                                            <input type="text" class="input-get-data" name="placeOfBirth" style="display:none;">
+                                        </div>
+
+                                        <div class="col">
+                                            <div class="d-flex align-items-start flex-column">
+                                                <label for="inputName">Nguyện vọng 1:</label>
+                                                <b class="get-data-combination" name="combination1"></b>
+                                                <input type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div class="col d-flex align-items-start flex-column">
-                                        <label for="inputGroupSelect01">Dân tộc: </label>
-                                        <b class="mb-3 get-data-select" name="nation"></b>
-                                        <input type="text" class="input-get-data-select" name="nation" style="display:none;">
-
-                                        <div class="d-flex align-items-start flex-column">
-                                            <label for="inputName">Nguyện vọng 1:</label>
-                                            <b class="get-data-combination" name="combination1"></b>
-                                            <input type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
+                                    <div class="row">
+                                        <div class="col d-flex align-items-start flex-column">
+                                            <label for="inputName">Trường học cấp 2:</label> 
+                                            <b class="mb-3 get-data-school" name="secondarySchool"></b>
+                                            <input type="text" class="input-get-data-shool" name="secondarySchool" style="display:none;">
                                         </div>
 
-                                        <div class="d-flex align-items-start flex-column">
-                                            <label for="inputName">Nguyện vọng 2:</label>
-                                            <b class="get-data-combination" name="combination2"></b>
-                                            <input type="text" class="input-get-data-combination" name="combination2" style="display:none;">
+                                        <div class="col d-flex align-items-start flex-column">
+                                            <label for="inputName">Nơi ở hiện tại:</label> 
+                                            <b class="mb-3 get-data" name="currentPlace" style="text-transform: capitalize;"></b>
+                                            <input type="text" class="input-get-data" name="currentPlace" style="display:none;">
                                         </div>
+
+                                        <div class="col">
+                                            <div class="d-flex align-items-start flex-column">
+                                                <label for="inputName">Nguyện vọng 2:</label>
+                                                <b class="get-data-combination" name="combination2"></b>
+                                                <input type="text" class="input-get-data-combination" name="combination2" style="display:none;">
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -584,28 +605,28 @@
                                     <div class="d-flex">
                                         <label for="inputGroupSelect01" class="me-4">Số điện thoại:</label>
                                         <b class="get-data" name="phoneOfMon" style="text-transform: capitalize;"></b>
-                                        <input type="text" class="input-get-data" name="phoneOfMon" style="display:none;">
+                                        <input type="text" class="input-get-data" name="phoneOfMom" style="display:none;">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row gap-0 column-gap-4">
-                                    <label for="inputName"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
-                                    <div class="col mb-3">
-                                        <label for="inputName"><b>Toán: <b class="get-data" name="mathScore"></b> điểm</b></label>
-                                        <input type="text" class="input-get-data" name="mathScore" style="display:none;">
-                                    </div>
-
-                                    <div class="col mb-3">
-                                        <label for="inputName"><b>Văn: <b class="get-data" name="literatureScore"></b> điểm</b></label>
-                                        <input type="text" class="input-get-data" name="literatureScore" style="display:none;">
-                                    </div>
-
-                                    <div class="col mb-3">
-                                        <label for="inputName"><b>Anh: <b class="get-data" name="englishScore"></b> điểm</b></label>
-                                        <input type="text" class="input-get-data" name="englishScore" style="display:none;">
-                                    </div>
+                            <label for="inputName" class="mt-4"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
+                            <div class="d-flex justify-content-around text-center">
+                                <div class="my-2">
+                                    <label for="inputName"><b>Toán: <b class="get-data fs-5" name="mathScore"></b> điểm</b></label>
+                                    <input type="text" class="input-get-data" name="mathScore" style="display:none;">
                                 </div>
+
+                                <div class="my-2">
+                                    <label for="inputName"><b>Văn: <b class="get-data fs-5" name="literatureScore"></b> điểm</b></label>
+                                    <input type="text" class="input-get-data" name="literatureScore" style="display:none;">
+                                </div>
+
+                                <div class="my-2">
+                                    <label for="inputName"><b>Anh: <b class="get-data fs-5" name="englishScore"></b> điểm</b></label>
+                                    <input type="text" class="input-get-data" name="englishScore" style="display:none;">
+                                </div>
+                            </div>
 
                             <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
                             <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
@@ -836,6 +857,10 @@
 </div>
 {{/each}}
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
 <script>
   window.addEventListener('load', function () {
     const content = document.querySelector('.content');
@@ -997,22 +1022,17 @@
 
                     btnShowModalSchool.onclick = () => showModalChooseSchool();
                     btnReShowModalSchool.onclick = () => showModalChooseSchool();
-                    nextBtn.onclick = async () => {
-                        if(await !checkAllInputHadValue(allTagForCheck)) {
-                            console.log('page:',page)
+                    nextBtn.onclick = () => {
+                        if(!checkAllInputHadValue(allTagForCheck)) {
                             toastMessage({
                                 tittle: "Thông báo ❗",
                                 message: "Hãy nhập thông tin đầy đủ trước khi bấm \"Tiếp tục\" ❗.",
                                 type: "error",
                                 duration: 6000,
-                                icon: "fa-circle-xmark",
+                                icon: "❌",
                                 fideOut: 1000
                             })
-                            console.log("trở lại !!!!")
-                            {{!-- page++; --}}
-                            {{!-- btnPrev.onclick(); --}}
                         } else {
-                            console.log("ok");
                             btnPrev.style.display = 'block';
                             const currentBox = document.querySelector(`.box-submit-${currentPage}`);
                             currentBox.style.display = 'none';
@@ -1084,10 +1104,10 @@
                             } else {
                                 toastMessage({
                                     tittle: "lỗi ❗",
-                                    message: "Hãy chọn giá trị theo thứ tự và đầy đủ trước khi bấm \"Xác nhận\" ❗.",
+                                    message: "Hãy chọn giá trị theo thứ tự và đầy đủ trước khi bấm \"Xác nhận\".",
                                     type: "error",
                                     duration: 6000,
-                                    icon: "fa-circle-xmark",
+                                    icon: "❌",
                                     fideOut: 1000
                                 })
                             }
@@ -1191,10 +1211,10 @@
                                 loading.style.display = 'none';
                                 toastMessage({
                                     tittle: "Thành công ✅",
-                                    message: "Thành công, Bạn đã gữi đi bản thông tin đăng ký vào 10 của mình ❗.",
+                                    message: "Thành công, Bạn đã gữi đi bản thông tin đăng ký vào lớp 10 của mình.",
                                     type: "success",
                                     duration: 6000,
-                                    icon: "fa-circle-check",
+                                    icon: "✅",
                                     fideOut: 1000,
                                     width: "280px"
                                 })
@@ -1206,7 +1226,7 @@
                                     message: err,
                                     type: "error",
                                     duration: 6000,
-                                    icon: "fa-circle-xmark",
+                                    icon: "❌",
                                     fideOut: 1000
                                 })
                             })
@@ -1221,7 +1241,28 @@
                 const selectCombination2 = document.querySelector('#select-combination2'); 
 
                 btnNext.onclick = () => {
-                    if(checkAllSelectInPage3([selectCombination1, selectCombination2]))
+                    if(!checkAllSelectInPage3([selectCombination1, selectCombination2])) {
+                        toastMessage({
+                                tittle: "Thông báo ❗",
+                                message: "Hãy chọn nguyện vọng đầy đủ trước khi bấm \"Tiếp tục\" ❗.",
+                                type: "error",
+                                duration: 6000,
+                                icon: "❌",
+                                fideOut: 1000
+                            })
+                    } else {
+                        btnPrev.style.display = 'block';
+                        const currentBox = document.querySelector(`.box-submit-${currentPage}`);
+                        currentBox.style.display = 'none';
+                        if(currentPage+1 <= 4) currentPage++;
+                        const nextBox = document.querySelector(`.box-submit-${currentPage}`);
+                        nextBox.style.display = 'block';
+                        if(currentPage == 4) {
+                            btnNext.style.display = 'none';
+                            btnSubmitCombination.style.display = 'block';
+                        }
+                        checkPageReturnScript(currentPage);
+                    }
                 }
 
                 function checkAllSelectInPage3(selects) {
