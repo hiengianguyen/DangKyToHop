@@ -26,20 +26,6 @@
                         </h4>
                     </div>
                     <div class="info-bt mb-3">
-                        {{#if (eq role "student")}}
-                        <label
-                        for="profile-email-input"
-                        class="form-label-profile"
-                        >Địa chỉ:</label>
-                        <p class="profile-email-user mb-2">{{districtName}}</p>
-                        <label
-                        for="profile-email-input"
-                        class="form-label-profile"
-                        >Trường cấp 2:</label>
-                        <p class="profile-email-user mb-2">{{user.secondarySchoolName}}</p>
-                        <label for="profile-phone-input" class="form-label-profile">Ngày tháng năm sinh:</label>
-                        <p class="profile-phone-user mb-2">{{user.dateOfBirth}}</p>
-                        {{/if}}
                         <label for="profile-phone-input" class="form-label-profile">Số điện
                         thoại:</label>
                         <p class="profile-phone-user mb-2">{{user.phone}}</p>

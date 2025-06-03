@@ -44,36 +44,6 @@
                     <span class="form-message"></span>
                     </div>
 
-                    {{#if (eq role "student")}}
-                        <div class="form-group my-4">
-                        <label for="profile-name-input" class="form-label-profile">Địa Chỉ:</label>
-                        <select class="form-select form-select-district" name="districtId" aria-label="Default select example" required>
-                            <option value="">-- Bạn ở đâu trên địa bàn tỉnh Quảng Nam --</option>
-                                {{#each districts}}
-                                    {{#if (eq this.districtId ../user.districtId)}}
-                                        <option value="{{this.districtId}}" selected>{{this.districtName}}</option>
-                                        {{else}}
-                                        <option value="{{this.districtId}}">{{this.districtName}}</option>
-                                    {{/if}}
-                                {{/each}}
-                            </select>
-                        </div>
-
-                        <div class="form-group my-4">
-                            <label for="profile-phone-input" class="form-label-profile">Trường cấp 2:</label>
-                            <select class="form-select form-select-school" name="secondarySchoolName" aria-label="Default select example" required >
-                                <option value="">-- Trường học cấp 2 của bạn là --</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group form-group-datepicker">
-                            <label for="profile-phone-input" class="form-label-profile">Ngày tháng năm sinh:</label>
-                            <input type="text" id="datepicker-edit-profile" class="login__input" name="dateOfBirth" rules="required" class="form-control" value="{{user.dateOfBirth}}" placeholder="Ngày tháng năm sinh">
-                            <span class="form-message"></span>
-                        </div>
-
-                    {{/if}}
-
                     <div class="form-group">
                         <label for="profile-phone-input" class="form-label-profile">Số điện thoại:</label>
                         <input
@@ -170,59 +140,4 @@
         alert('Có lỗi khi tải ảnh lên Cloudinary');
       });
   });
-
-    const selectDistrict = document.querySelector(".form-select-district");
-    const selectSchool = document.querySelector(".form-select-school");
-
-    const userSecondarySchool = {{{secondarySchool}}}
-
-    const districtId = selectDistrict.value;
-    const data = {{{secondarySchools}}};
-    
-    const result = data.filter((doc) => {
-        return doc.districtId === districtId;
-    })[0];
-    if(result) {
-        selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
-        const secondarySchools = result.schools;
-        secondarySchools.forEach((school) => {
-            const option = document.createElement('option');
-            option.value = school;
-            option.textContent = school;
-            if(school === userSecondarySchool) {
-                option.selected = true;
-            }
-            selectSchool.appendChild(option);
-        })
-    } else {
-        selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
-        selectSchool.disabled = true;
-    }   
-
-    selectDistrict.onchange = (e) => {
-        selectSchool.disabled = false;
-        selectSchool.innerHTML = "";
-        const districtId = e.target.value;
-        const data = {{{secondarySchools}}};
-        
-        const result = data.filter((doc) => {
-            return doc.districtId === districtId;
-        })[0];
-        if(result) {
-            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
-            const secondarySchools = result.schools;
-            secondarySchools.forEach((school) => {
-                const option = document.createElement('option');
-                option.value = school;
-                option.textContent = school;
-                if(school === userSecondarySchool) {
-                    option.selected = true;
-                }
-                selectSchool.appendChild(option);
-            })
-        } else {
-            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
-            selectSchool.disabled = true;
-        }   
-    }
 </script>

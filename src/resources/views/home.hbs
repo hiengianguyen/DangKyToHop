@@ -23,36 +23,7 @@
     {{#if (eq role "manager")}}
       <a class="d-flex justify-content-end mb-2" href="/combination/submited-list">Xem danh sách tổ hợp đã được đăng ký</a>
     {{/if}}
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">Tổ hợp</th>
-          <th scope="col" colspan="4">Môn lựa chọn (04 môn)</th>
-          <th scope="col" colspan="3">Cụm chuyên đề (03 môn)</th>
-          <th scope="col">Số lớp</th>
-          <th scope="col">Số lượng học sinh</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each combinations}}
-          <tr>
-            <td scope="row">{{this.name}}</td>
-            {{#each this.optionalSubjects}}
-              <td>{{this}}</td>
-            {{/each}}
-            {{#each this.compulsorySubjects}}
-              <td>{{this}}</td>
-            {{/each}}
-            <td>{{this.classesCount}}</td>
-            <td>{{this.classesCapacity}}</td>
-            <td>
-              <a href="/combination/{{this.id}}">Xem Chi Tiết</a>
-            </td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
+    
   </div>
 </div>
 
