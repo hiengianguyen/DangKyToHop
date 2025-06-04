@@ -16,6 +16,10 @@ class SchoolController {
       highSchool: highSchool
     });
   }
+
+  async contact(req, res, next) {
+    return res.render("school/contact");
+  }
 }
 
 module.exports = new SchoolController();
