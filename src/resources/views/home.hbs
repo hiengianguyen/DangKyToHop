@@ -4,26 +4,82 @@
      <link rel="stylesheet" href="/css/close.css">
 </head>
 
-<div class="mt-70">
-  <div class="school-info d-flex">
-      <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
-      
-      <div class="banner-container">
-        <img class="school-banner-second rounded-end" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
-          <div class="school-info-detail fs-6">
-            <p><b>Tên Trường:</b> {{schoolInfo.name}}</p>
-            <p><b>Ngày Thành Lập:</b> {{schoolInfo.establishedDate}}</p>
-            <p><b>Địa Chỉ:</b> {{schoolInfo.address}}</p>
-            <p><b>Mô Tả:</b> {{schoolInfo.shortDescription}}</p>
-          </div>
+<div class="mt-75">
+  <div class="containers">
+    <div class="container-start">
+      <p class="text-center fs-4">Về trang web Đăng ký tổ hợp</p>
+      <div class="d-flex justify-content-center">
+        <div class="content-box">
+            <h2>Giúp học sinh chọn đúng tổ hợp, bước đầu cho hành trình vào lớp 10</h2>
+            <p class="fs-5">Hệ thống trực tuyến hỗ trợ <b>học sinh lớp 9</b> lựa chọn tổ hợp môn phù hợp với năng lực và định hướng tương lai, đồng thời giúp giáo viên <b>theo dõi, tư vấn và tổng hợp nguyện vọng</b> dễ dàng.</p>
         </div>
-  </div>
+        <div class="img-start">
+          <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749121953/img_1_ss5mze.png" alt="">
+        </div>
+      </div>
+    </div>
 
-  <div class="combination-list">
-    {{#if (eq role "manager")}}
-      <a class="d-flex justify-content-end mb-2" href="/combination/submited-list">Xem danh sách tổ hợp đã được đăng ký</a>
-    {{/if}}
-    
+    <div class="container-center my-4">
+      <div class="content-1 d-flex justify-content-center">
+        <div class="content-box pe-0">
+          <h4>Đăng ký nguyện vọng bằng giấy – bất tiện, dễ sai sót</h4>
+          <p>
+            Trước đây, học sinh phải điền tay vào phiếu đăng ký nguyện vọng và nộp lại cho giáo viên. Việc này thường gây ra nhiều khó khăn như: 
+            ghi sai thông tin, gạch xoá nhiều lần, dễ mất phiếu hoặc sai sót trong quá trình tổng hợp. Giáo viên thì mất nhiều thời gian để nhập dữ liệu thủ công, 
+            kiểm tra và lập bảng thống kê.
+          </p>
+        </div>
+        <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749121954/register-3_wxevux.jpg" alt="">
+      </div>
+      <div class="content-2 d-flex justify-content-center">
+        <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749121953/register-2_bw7lez.avif" alt="">
+        <div class="content-box ps-0">
+          <h4>Đăng ký nguyện vọng trực tuyến – nhanh chóng, chính xác</h4>
+          <p>
+            Với hệ thống đăng ký trực tuyến, học sinh có thể dễ dàng chọn tổ hợp môn chỉ với vài thao tác đơn giản. 
+            Thông tin được lưu trữ tự động, hạn chế tối đa sai sót và dễ dàng chỉnh sửa nếu cần. Giáo viên có thể theo dõi tiến độ đăng ký, 
+            thống kê nguyện vọng theo thời gian thực và hỗ trợ học sinh nhanh chóng, hiệu quả hơn.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-school">
+      <h4 class="text-center mt-4 fs-4">Về trường học</h4>
+
+      <div class="container-body d-flex justify-content-center align-items-center">
+        <div class="content-box me-4" style="width: 40pc;">
+          <h5 class="fw-bold text-center">Thành tích nổi bật – Niềm tự hào của nhà trường</h5>
+          <p>
+            Năm học vừa qua, trường chúng tôi đã bồi dưỡng và đưa nhiều học sinh tham gia các kỳ thi học sinh giỏi cấp thành phố. 
+            Kết quả đạt được vô cùng ấn tượng:
+          </p>
+          <ul>
+            <li>Nhiều giải Nhất, Nhì, Ba, kk ở các môn Toán, Văn, Anh, Lý, Hóa, Địa...</li>
+            <li>Học sinh không chỉ giỏi kiến thức mà còn được rèn luyện tư duy và kỹ năng làm bài chuyên sâu.</li>
+            <li>Thành tích này là minh chứng rõ ràng cho chất lượng giảng dạy và sự đầu tư đúng hướng của nhà trường trong suốt thời gian qua.</li>
+          </ul>
+        </div>
+        <div class="image-stack ms-4 d-flex align-items-center">
+            <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong2_hrmmg7.jpg" alt="Ảnh khen thưởng">
+            <div class="ms-2">
+              <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong3_idtl26.jpg" alt="Ảnh khen thưởng">
+              <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong1_kjqr9m.jpg" alt="Ảnh khen thưởng">
+            </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<script>
+  const header = document.getElementById('header');
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
+        header.classList.add('shadow');
+    } else {
+        header.classList.remove('shadow');
+    }
+  });
+</script>
