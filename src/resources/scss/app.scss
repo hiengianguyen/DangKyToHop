@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .invalid span {
   color: red;
 }
@@ -6,8 +12,8 @@
   border: 1px solid red;
 }
 
-.mt-70 {
-  margin-top: 70px;
+.mt-75 {
+  margin-top: 75px;
 }
 
 // COMMON
@@ -127,4 +133,8 @@ input {
   display: none;
   justify-content: center;
   align-items: center;
+}
+
+.shadow {
+  transition: box-shadow 0.3s ease;
 }
