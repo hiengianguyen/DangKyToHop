@@ -15,7 +15,8 @@ class MeController {
     const user = await this.userDbRef.getItemById(req.cookies.userId, false);
     return res.render("me/profile", {
       role: role,
-      user: user
+      user: user,
+      signin: req.cookies.isLogin
     });
   }
 
@@ -25,7 +26,8 @@ class MeController {
 
     return res.render("me/edit_profile", {
       role: role,
-      user: user
+      user: user,
+      signin: req.cookies.isLogin
     });
   }
 

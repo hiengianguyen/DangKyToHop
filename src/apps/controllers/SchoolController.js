@@ -13,12 +13,15 @@ class SchoolController {
     });
 
     return res.render("school/school_detail", {
-      highSchool: highSchool
+      highSchool: highSchool,
+      signin: req.cookies.isLogin
     });
   }
 
   async contact(req, res, next) {
-    return res.render("school/contact");
+    return res.render("school/contact", {
+      signin: req.cookies.isLogin
+    });
   }
 }
 

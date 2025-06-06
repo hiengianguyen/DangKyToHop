@@ -57,7 +57,7 @@
 
 .container-school {
   padding: 17px;
-  background-color: #f1f8ff; }
+  background-color: #b0d7ff; }
 
 .image-stack {
   width: 530px;
@@ -78,3 +78,143 @@
 
 .image-stack img:hover {
   transform: scale(1.55); }
+
+.container-school .content-box {
+  width: 62pc; }
+
+.container-school .box-2 img {
+  width: 35pc; }
+
+.container-end {
+  background-color: #faf1e2; }
+
+.container-end img {
+  width: 31pc;
+  border-radius: 12px; }
+
+.container-end .content-box {
+  width: 40pc;
+  margin-right: 10pc; }
+
+.container-end img,
+.container-end .content-box {
+  margin-top: 5pc;
+  margin-bottom: 5pc; }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  min-height: 250px; }
+
+::placeholder {
+  color: #777;
+  font-size: 1.063rem; }
+
+.link {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 15px; }
+
+.link .login {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: #1877f2;
+  padding: 15px 0;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: 0.2s ease; }
+
+.link .login:hover {
+  background: #0d65d9; }
+
+.login-form a {
+  text-decoration: none; }
+
+.link .forgot {
+  color: #1877f2;
+  font-size: 0.875rem; }
+
+.link .forgot:hover {
+  text-decoration: underline; }
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: 20px;
+  margin-top: 20px; }
+
+.tabs {
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ccc; }
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  background: #e4e6eb;
+  border-radius: 5px 5px 0 0;
+  text-align: center; }
+
+.tab.active {
+  background: #1877f2;
+  color: white; }
+
+.form-container {
+  display: none;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.form-container.active {
+  display: flex; }
+
+.form-group {
+  margin: 10px 0; }
+
+.form-select.form-select-school {
+  margin: 20px 0 10px 0; }
+
+.register-form {
+  margin-bottom: 10px; }
+
+button.form {
+  width: 100%;
+  padding: 10px;
+  background: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: auto; }
+
+button.form:hover {
+  background: #459cf8; }
+
+.modal-header,
+.modal-bodyy,
+.modal-footer {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2); }
+
+#glass.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.1);
+  animation: brul 0.5s;
+  z-index: 999; }

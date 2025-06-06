@@ -17,7 +17,6 @@
   height: 2.4pc; }
 
 #header {
-  font-family: Lato;
   display: flex;
   align-items: stretch;
   position: fixed;

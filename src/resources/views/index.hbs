@@ -34,7 +34,7 @@
                         <input type="password" id="signin-password" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu">
                         <span class="form-message">{{signinError}}</span>
                     </div>
-                    <button type="submit">Đăng nhập</button>
+                    <button class="btn btn" type="submit">Đăng nhập</button>
                 </form>
             </div>
             <div id="signup" class="form-container {{#if (eq currentTab "signup")}}active{{/if}}">
@@ -53,7 +53,7 @@
                             <span class="form-message"></span>
                         </div>
                     </div>
-                    <button type="submit">Đăng ký</button>
+                    <button class="btn btn" type="submit">Đăng ký</button>
                 </form>
             </div>
         </div>
@@ -127,31 +127,5 @@
         if (selectedTabButton) {
             selectedTabButton.classList.add('active');
         }
-    }
-
-    const selectDistrict = document.querySelector(".form-select-district");
-    const selectSchool = document.querySelector(".form-select-school");
-    
-    selectDistrict.onchange = (e) => {
-        selectSchool.disabled = false;
-        selectSchool.innerHTML = "";
-        const districtId = e.target.value;
-        const data = {{{secondarySchools}}};
-        const result = data.filter((doc) => {
-            return doc.districtId === districtId;
-        })[0];
-        if(result) {
-            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
-            const secondarySchools = result.schools;
-            secondarySchools.forEach((school) => {
-                const option = document.createElement('option');
-                option.value = school;
-                option.textContent = school;
-                selectSchool.appendChild(option);
-            })
-        } else {
-            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
-            selectSchool.disabled = true;
-        }   
     }
 </script>

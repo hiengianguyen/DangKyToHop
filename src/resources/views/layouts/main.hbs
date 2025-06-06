@@ -36,7 +36,7 @@
     ></a>
   </div>
     
-    {{#if (eq isLogin true)}}
+      {{#if (eq signin 'true')}} 
       <!-- Begin: Nav -->
       <div class="nav-bar">
         <ul id="nav" class="p-0 m-0">
@@ -46,7 +46,7 @@
         </ul>
       </div>
       <!-- End: Nav -->
-      <div class="nav-profile d-flex me me-4">
+        <div class="nav-profile d-flex me me-4">
             <a
               class="nav-link text-white mx-2 d-flex align-items-center"
               href='/me/profile?role={{role}}'
