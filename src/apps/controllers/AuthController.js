@@ -24,9 +24,9 @@ class AuthController {
       res.cookie("avatar", existedUser.avatar, { maxAge: 604800000, httpOnly: true });
       res.cookie("role", existedUser.role, { maxAge: 604800000, httpOnly: true });
 
-      return res.redirect(`/home?role=${existedUser.role}`);
+      return res.redirect(`/combination/submit-combination?role=${existedUser.role}`);
     } else {
-      return res.redirect("/?signinError=incorrect-phone-password");
+      return res.redirect("/home?signinError=incorrect-phone-password");
     }
   }
 
@@ -35,11 +35,11 @@ class AuthController {
     const existedPhone = await this.userDbRef.getItemByFilter({ phone: phone });
 
     if (existedPhone) {
-      return res.redirect("/?signupError=existed-phone");
+      return res.redirect("/home?signupError=existed-phone");
     } else {
       const userModel = new UserModel(undefined, fullName, password, phone, undefined, undefined, undefined);
       await this.userDbRef.addItem(userModel);
-      return res.redirect("/");
+      return res.redirect("/home");
     }
   }
 
@@ -47,7 +47,7 @@ class AuthController {
     // save isLogin to cookie in 1 week
     res.cookie("isLogin", false, { maxAge: 604800000, httpOnly: true });
     res.locals.isLogin = false;
-    return res.redirect("/");
+    return res.redirect("/home");
   }
 }
 

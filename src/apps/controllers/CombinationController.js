@@ -138,7 +138,8 @@ class CombinationController {
       user: user,
       subjects: subjects,
       districts: districts,
-      secondarySchools: JSON.stringify(secondarySchools)
+      secondarySchools: JSON.stringify(secondarySchools),
+      signin: req.cookies.isLogin
     });
   }
 }

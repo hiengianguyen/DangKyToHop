@@ -10,14 +10,12 @@ class HomeController {
   }
 
   async homePage(req, res, next) {
-    if (req.cookies.isLogin === "true") {
-      if (req.query.role) {
-        return res.render("home");
-      } else {
-        return res.redirect(`/home?role=${req.cookies.role}`);
-      }
+    if (req.query.role) {
+      return res.render("home", {
+        signin: req.cookies.isLogin
+      });
     } else {
-      return res.redirect("/");
+      return res.redirect(`/home?role=${req.cookies.role}`);
     }
   }
 }
