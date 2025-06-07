@@ -71,7 +71,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.1);
   animation: brul 0.5s;
   z-index: 999; }
@@ -125,4 +125,4 @@
   from {
     backdrop-filter: blur(0); }
   to {
-    backdrop-filter: blur(5px); } }
+    backdrop-filter: blur(10px); } }

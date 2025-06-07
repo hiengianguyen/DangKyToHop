@@ -1024,8 +1024,8 @@
                     nextBtn.onclick = () => {
                         if(!checkAllInputHadValue(allTagForCheck)) {
                             toastMessage({
-                                tittle: "Thông báo ❗",
-                                message: "Hãy nhập thông tin đầy đủ trước khi bấm \"Tiếp tục\" ❗.",
+                                tittle: "Thông báo",
+                                message: "Hãy nhập thông tin đầy đủ trước khi bấm \"Tiếp tục\".",
                                 type: "error",
                                 duration: 6000,
                                 icon: "❌",
@@ -1102,7 +1102,7 @@
                                 tagShowSchool.textContent = inputGetDataShool.value = selectSchool.value;
                             } else {
                                 toastMessage({
-                                    tittle: "lỗi ❗",
+                                    tittle: "Thông báo",
                                     message: "Hãy chọn giá trị theo thứ tự và đầy đủ trước khi bấm \"Xác nhận\".",
                                     type: "error",
                                     duration: 6000,
@@ -1209,7 +1209,7 @@
                                 const result = await response.json();
                                 loading.style.display = 'none';
                                 toastMessage({
-                                    tittle: "Thành công ✅",
+                                    tittle: "Thông báo",
                                     message: "Thành công, Bạn đã gữi đi bản thông tin đăng ký vào lớp 10 của mình.",
                                     type: "success",
                                     duration: 6000,
@@ -1221,7 +1221,7 @@
                             .catch((err) => {
                                 loading.style.display = 'none';
                                 toastMessage({
-                                    tittle: "lỗi ❗",
+                                    tittle: "Thông báo",
                                     message: err,
                                     type: "error",
                                     duration: 6000,
@@ -1242,8 +1242,8 @@
                 btnNext.onclick = () => {
                     if(!checkAllSelectInPage3([selectCombination1, selectCombination2])) {
                         toastMessage({
-                                tittle: "Thông báo ❗",
-                                message: "Hãy chọn nguyện vọng đầy đủ trước khi bấm \"Tiếp tục\" ❗.",
+                                tittle: "Thông báo",
+                                message: "Hãy chọn nguyện vọng đầy đủ trước khi bấm \"Tiếp tục\".",
                                 type: "error",
                                 duration: 6000,
                                 icon: "❌",

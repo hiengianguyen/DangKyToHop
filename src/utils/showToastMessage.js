@@ -33,7 +33,7 @@ function toastMessage({ tittle = "", message = "", type = "", duration = 3000, i
             </div>
             <div class="toast__body">
               <h3 class="toast__tittle">${tittle}</h3>
-              <p class="toast__message fw-bold m-0">${message}</p>
+              <p class="toast__message m-0">${message}</p>
             </div>
             <div class="toast__close">
                 <i class="fa-solid fa-xmark"></i>
