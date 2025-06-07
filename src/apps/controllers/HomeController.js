@@ -10,8 +10,8 @@ class HomeController {
   }
 
   async homePage(req, res, next) {
-    if (req.query.role) {
-      return res.redirect(`/?role=${req.cookies.role}`);
+    if (req.cookies.isLogin === "true") {
+      return res.redirect(`/combination/submit-combination?role=${req.cookies.role}`);
     } else {
       return res.render("home", {
         signin: req.cookies.isLogin
