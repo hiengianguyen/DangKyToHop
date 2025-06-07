@@ -803,55 +803,51 @@
 
 {{#each combinations}}
 <div id="{{this.id}}" class="modal show-combination" style="display: none;">
-    <div class="modal-container container mx-auto">
-        <div class="shadow-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thông tin tổ hợp chi tiết ℹ</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body mb-4">
-                    <h5 class="card-title">{{this.name}}</h5>
-                    <p class="mb-4">{{this.description}} ✅</p>
+    <div class="modal-containers container mx-auto">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Thông tin tổ hợp chi tiết</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-bodyy">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="mb-4">{{this.description}}</p>
 
-                    <h5>Môn Chuyên Đề:</h5>
-                    <div class="accordion mb-4" id="accordionExample">
-                        {{#each compulsorySubjects}}
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="flase" aria-controls="collapseOne">
-                                        {{this.name}}
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        {{this.description}} ✅
-                                    </div>
+            <h5>Môn Chuyên Đề:</h5>
+            <div class="accordion mb-4" id="accordionExample">
+                {{#each compulsorySubjects}}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="flase" aria-controls="collapseOne">
+                                {{this.name}}
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                {{this.description}}
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+
+            <h5>Môn Lựa Chọn:</h5>
+            <div class="accordion" id="accordionExample">
+                {{#each optionalSubjects}}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="flase" aria-controls="collapseOne">
+                                    {{this.name}}
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{this.description}}
                                 </div>
                             </div>
-                        {{/each}}
-                    </div>
-
-                    <h5>Môn Lựa Chọn:</h5>
-                    <div class="accordion" id="accordionExample">
-                        {{#each optionalSubjects}}
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="flase" aria-controls="collapseOne">
-                                            {{this.name}}
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            {{this.description}}
-                                        </div>
-                                    </div>
-                                </div>
-                        {{/each}}
-                    </div>
-                </div>
-            </div>    
-        </div>    
+                        </div>
+                {{/each}}
+            </div>
+        </div>  
     </div>    
 </div>
 {{/each}}
@@ -1315,7 +1311,7 @@
                         const modalId = btnShow.getAttribute('id-modal');
                         const modalCombinationDetail = document.getElementById(modalId);
                         modalCombinationDetail.style.display = 'flex';
-                        const modalChild = modalCombinationDetail.querySelector('.modal-container');
+                        const modalChild = modalCombinationDetail.querySelector('.modal-containers');
                         const btnClose = modalCombinationDetail.querySelector('.btn-close');
                         const body = document.getElementsByTagName('body')[0];
 
