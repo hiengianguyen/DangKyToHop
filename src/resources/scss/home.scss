@@ -266,3 +266,40 @@ button.form:hover {
   animation: brul 0.5s;
   z-index: 999;
 }
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 280px;
+  padding: 16px;
+  background-color: #ffffff;
+  color: #000;
+}
+
+#sidebar .home img {
+  width: 100%;
+}
+
+#sidebar .boxs {
+}
+
+#sidebar a {
+  width: 100%;
+  padding-left: 18px;
+  background-color: #ccc;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-radius: 5px;
+  height: 50px;
+  list-style: none;
+  margin-top: 10px;
+}
+
+#sidebar .end-box {
+  position: absolute;
+  bottom: 20px;
+  width: 89%;
+}
