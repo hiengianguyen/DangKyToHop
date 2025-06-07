@@ -132,7 +132,7 @@ class CombinationController {
       combination.optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
     });
 
-    res.render("combination/submit_combination", {
+    return res.render("combination/submit_combination", {
       combinations: combinations,
       nations: nations,
       user: user,
