@@ -116,7 +116,7 @@
 .modal-containers {
   width: 45pc; }
 
-.modal-bodyy {
+.modal-bodyy.combination {
   padding: 4pc;
   height: 32pc;
   overflow: overlay; }
