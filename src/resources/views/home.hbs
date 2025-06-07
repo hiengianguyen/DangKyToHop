@@ -124,7 +124,7 @@
                           <input type="text" id="signin-phone" name="phone" class="login__input" rules="required|number|length:10" placeholder="Số điện thoại">
                           <span class="form-message"></span>
                       </div>
-                      <div class="form-group my-3 form-group-password">
+                      <div class="form-group my-3 form-group-password mb-4">
                           <label for="signin-password">Mật khẩu:</label>
                           <input type="password" id="signin-password" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu">
                           <span class="form-message">{{signinError}}</span>
@@ -133,27 +133,27 @@
                   </form>
               </div>
               <div id="signup" class="form-container active">
-                  <form class="form-sign-up" action="/auth/signup" method="POST">
-                      <div class="register-form">
-                          <div class="form-group">
-                            <label for="signin-password">Họ và tên:</label>
-                            <input type="text" class="login__input" name="fullName" rules="required" placeholder="Họ và tên">
-                            <span class="form-message"></span>
-                          </div>
-                          <div class="form-group form-group-phone">
-                            <label for="signin-phone">Số điện thoại:</label>
-                            <input type="text" class="login__input" name="phone" rules="required|number|length:10" placeholder="Số điện thoại liên hệ">
-                            <span class="form-message">{{signupError}}</span>
-                          </div>
-                          <div class="form-group">
-                            <label for="signin-password">Mật khẩu:</label>
-                            <input type="text" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu">
-                            <span class="form-message"></span>
-                          </div>
-                      </div>
-                      <button class="btn btn-primary form" type="submit">Đăng ký</button>
-                  </form>
-              </div>
+                <form class="form-sign-up" action="/auth/signup" method="POST">
+                  <div class="register-form mb-4">
+                    <div class="form-group">
+                      <label for="signin-password">Họ và tên:</label>
+                      <input type="text" class="login__input" name="fullName" rules="required" placeholder="Họ và tên">
+                      <span class="form-message"></span>
+                    </div>
+                    <div class="form-group form-group-phone">
+                      <label for="signin-phone">Số điện thoại:</label>
+                      <input type="text" class="login__input" name="phone" rules="required|number|length:10" placeholder="Số điện thoại liên hệ">
+                      <span class="form-message">{{signupError}}</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="signin-password">Mật khẩu:</label>
+                      <input type="text" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu">
+                      <span class="form-message"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary form" type="submit">Đăng ký</button>
+                </form>
+            </div>
           </div>
       </div>
       <div class="modal-footer">
