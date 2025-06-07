@@ -136,6 +136,16 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.modal-containers {
+  width: 45pc;
+}
+
+.modal-bodyy {
+  padding: 4pc;
+  height: 32pc;
+  overflow: overlay;
+}
+
 @keyframes modalFadeIn {
   from {
     opacity: 0.6;
