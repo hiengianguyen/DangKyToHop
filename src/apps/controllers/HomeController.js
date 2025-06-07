@@ -15,7 +15,7 @@ class HomeController {
         signin: req.cookies.isLogin
       });
     } else {
-      return res.redirect(`/home?role=${req.cookies.role}`);
+      return res.redirect(`/?role=${req.cookies.role}`);
     }
   }
 }
