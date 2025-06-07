@@ -160,16 +160,6 @@
 </div>
 
 <script>
-  const header = document.getElementById('header');
-
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 0) {
-        header.classList.add('shadow');
-    } else {
-        header.classList.remove('shadow');
-    }
-  });
-
   function switchTab(tab) {
     document.querySelectorAll('.form-container').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));

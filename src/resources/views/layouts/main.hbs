@@ -74,5 +74,16 @@
   <div id="toast"></div>
     {{{body}}}
 <script src="/redirectBack.js"></script>
+<script>
+  const header = document.getElementById('header');
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
+        header.classList.add('shadow');
+    } else {
+        header.classList.remove('shadow');
+    }
+  });
+</script>
 </body>
 </html>
