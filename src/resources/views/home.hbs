@@ -169,7 +169,7 @@
     
     let selectedTab = document.getElementById(tab);
     if (selectedTab) {
-        selectedTab.classList.add('active');
+      selectedTab.classList.add('active');
     }
     
     let selectedTabButton = document.querySelector(`.tab[onclick="switchTab('${tab}')"]`);
@@ -188,7 +188,6 @@
     modalLogin.style.display = 'flex';
     glass.classList.add('active');
     body.style.overflowY = 'hidden';
-
   }
 
   btnCloseModalLogin.onclick = () => {
