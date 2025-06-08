@@ -179,16 +179,20 @@
   const btnShowModalLogin = document.getElementById('modal-login-btn');
   const btnCloseModalLogin = document.getElementById('modal-login-close');
   const glass = document.getElementById('glass');
+  const body = document.querySelector('body');
 
   console.log(glass)
 
   btnShowModalLogin.onclick = () => {
     modalLogin.style.display = 'flex';
     glass.classList.add('active');
+    body.style.overflowY = 'hidden';
+
   }
 
   btnCloseModalLogin.onclick = () => {
     modalLogin.style.display = 'none';
     glass.classList.remove('active');
+    body.style.overflowY = 'auto';
   }
 </script>
