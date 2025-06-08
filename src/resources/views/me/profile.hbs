@@ -6,36 +6,58 @@
     <link rel="stylesheet" href="/css/combination.css">
 </head>
 
-<div id="master">
-    <div class="container">
-        <div class="card mb-3 shadow d-flex justify-content-center align-items-center">
-            <div class="card-body-profile mb-4">
-                <div class="info-top containers mb-3 d-flex justify-content-center align-items-center">
-                    <img
-                    class="profile-img-user rounded-circle mt-2"
-                    src="{{user.avatar}}"
-                    alt="User"
-                    />
+<div id="master" class="col .col-md-9 p-0">
+    <div class="card mb-3 d-flex justify-content-center align-items-center">
+        <div class="header-box d-flex align-items-center justify-content-start">
+            <h4 class="ms-4 mb-0">Trang cá nhân</h4>
+        </div>
+        <div class="card-body-profile my-4">
+            <div class="info-top containers mb-3 d-flex justify-content-center align-items-center">
+                <img
+                class="profile-img-user rounded-circle mt-2"
+                src="{{user.avatar}}"
+                alt="User"
+                />
+            </div>
+            <div class="info profile-dad-name mx-5">
+                <div class="info-sub mt-10 containers">
+                <div class="profile-dad-name mb-2">
+                    <label for="profile-name-input" class="form-label-profile">Họ và Tên:</label>
+                    <h4 class="profile-name-user">
+                    {{user.fullName}}
+                    </h4>
                 </div>
-                <div class="info profile-dad-name mx-5">
-                    <div class="info-sub mt-10 containers">
-                    <div class="profile-dad-name mb-2">
-                        <label for="profile-name-input" class="form-label-profile">Họ và Tên:</label>
-                        <h4 class="profile-name-user">
-                        {{user.fullName}}
-                        </h4>
-                    </div>
-                    <div class="info-bt mb-3">
-                        <label for="profile-phone-input" class="form-label-profile">Số điện
-                        thoại:</label>
-                        <p class="profile-phone-user mb-2">{{user.phone}}</p>
-                    </div>
-                    </div>
-                    <div class="btn-edit d-flex justify-content-end">
-                    <a href="/me/profile/edit?role={{role}}" class="btn btn-secondary btn-lg">Chỉnh Sửa</a>
-                    </div>
+                <div class="info-bt mb-3">
+                    <label for="profile-phone-input" class="form-label-profile">Số điện
+                    thoại:</label>
+                    <p class="profile-phone-user mb-2">{{user.phone}}</p>
+                </div>
+                </div>
+                <div class="btn-edit d-flex justify-content-end">
+                <a href="/me/profile/edit?role={{role}}" class="btn btn-secondary btn-lg">Chỉnh Sửa</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
+    litSidebars.pop();
+
+    litSidebars.forEach((li) => {
+        if(li.getAttribute('value') === 'profile') {
+            li.parentElement.classList.add('active');
+        } else {
+            li.parentElement.classList.remove('active');
+        }
+        li.parentElement.onclick = () => {
+        li.parentElement.classList.add('active')
+        litSidebars.forEach((liCheckClassActive) => {
+            if(liCheckClassActive !== li) {
+            liCheckClassActive.parentElement.classList.remove('active');
+            }
+        })
+        }
+    })
+</script>

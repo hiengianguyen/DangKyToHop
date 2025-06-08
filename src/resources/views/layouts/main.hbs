@@ -28,7 +28,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 <body style="font-family: 'Lexend', sans-serif;">
-<div id="header" class="text-uppercase d-flex align-items-center">
+<div id="header" class="text-uppercase align-items-center" style="display: none;">
   <div class="home-page-logo">
     <a class="navbar-brands ps-4 text-white" href="/"><img 
     alt="Home Page" 
@@ -46,23 +46,24 @@
         </ul>
       </div>
       <!-- End: Nav -->
-        <div class="nav-profile d-flex me me-4">
-            <a
-              class="nav-link text-white mx-2 d-flex align-items-center"
-              href='/me/profile?role={{role}}'
-            >
-              <img
-                class="rounded-circle me-2"
-                src="{{avatar}}"
-              />
-              <p class="m-0 text-black">{{fullName}}</p>
-            </a>
-          </li>
-          <li class="nav-item d-flex align-items-center ms-2">
-            <a
-              href="/auth/signout"
-              class="btn btn-outline-success my-2 my-sm-0"
-            >Đăng Xuất</a>
+      <div class="nav-profile d-flex me me-4">
+        <li>
+          <a
+            class="nav-link text-white mx-2 d-flex align-items-center"
+            href='/me/profile?role={{role}}'
+          >
+            <img
+              class="rounded-circle me-2"
+              src="{{avatar}}"
+            />
+            <p class="m-0 text-black">{{fullName}}</p>
+          </a>
+        </li>
+        <li class="nav-item d-flex align-items-center ms-2">
+          <a
+            href="/auth/signout"
+            class="btn btn-outline-success my-2 my-sm-0"
+          >Đăng Xuất</a>
       </div>
       <div class="redirect-back-fixed fixed-top">
         <div class="redirect-back d-flex align-items-center rounded-circle shadow">
@@ -72,7 +73,64 @@
     {{/if}}
   </div>
   <div id="toast"></div>
-    {{{body}}}
+<div class="row" style="height: 100%;padding-left: 15px;">
+  <div id="sidebar" class="col-sm-2 .col-md-3">
+    <div class="sidebar-content">
+      <div class="home mb-2">
+        <img src="https://res.cloudinary.com/dwoymvppw/image/upload/t_home_page_logo/v1744130637/home-page-DKTH-removebg-preview_fgnp3d.png" alt="homepage">
+      </div>
+      <div class="menu-bar">
+        <ul class="boxs d-flex align-items-start flex-column p-0">
+          <a href="/">
+            <li class="box my-1" value="Trang chủ">
+                <p class="m-0"><i class="fa-solid fa-house me-3"></i>Trang chủ</p>
+            </li>
+          </a>
+          <a href="/combination/submit-combination">
+            <li class="box my-1" value="Đăng ký tổ hợp">
+                <p class="m-0"><i class="fa-solid fa-user-pen me-3"></i>Đăng ký tổ hợp</p>
+            </li>
+          </a>
+          <a href="/school">
+            <li class="box my-1" value="Trường học">
+                <p class="m-0"><i class="fa-solid fa-school me-3"></i>Trường học</p>
+            </li>
+          </a>
+          <a href="/school/contact">
+            <li class="box my-1" value="Liên hệ">
+                <p class="m-0"><i class="fa-solid fa-address-book me-3"></i>Liên hệ</p>
+            </li>
+          </a>
+          <a href="/combination/submited-list">
+            <li class="box my-1" value="Danh sách đăng ký">
+                <p class="m-0"><i class="fa-solid fa-folder me-3"></i>Danh sách đăng ký</p>
+            </li>
+          </a>
+        </ul>
+      </div>
+      <div class="dash my-3"></div>
+      <div class="end-box">
+        <a
+          class="nav-profile"
+          href='/me/profile?role={{role}}'
+        >
+          <li class="box" value="profile"></li>
+          <img
+            class="rounded-circle me-2"
+            src="{{avatar}}"
+          />
+          <p class="m-0 text-black">{{fullName}}</p>
+        </a>
+        <a href="/auth/signout">
+          <li class="box my-1 mt-2">
+              <p class="m-0"><i class="fa fa-power-off me-3" aria-hidden="true"></i>Đăng xuất</p>
+          </li>
+        </a>
+      </div>
+    </div>
+  </div>
+  {{{body}}}
+</div>
 <script src="/redirectBack.js"></script>
 <script>
   const header = document.getElementById('header');
