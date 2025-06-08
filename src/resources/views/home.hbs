@@ -159,6 +159,9 @@
   </div>
 </div>
 
+<script src="/validationForm.js" onload="varidator('.form-sign-in')"></script>
+<script src="/validationForm.js" onload="varidator('.form-sign-up')"></script>
+
 <script>
   function switchTab(tab) {
     document.querySelectorAll('.form-container').forEach(el => el.classList.remove('active'));
@@ -180,8 +183,6 @@
   const btnCloseModalLogin = document.getElementById('modal-login-close');
   const glass = document.getElementById('glass');
   const body = document.querySelector('body');
-
-  console.log(glass)
 
   btnShowModalLogin.onclick = () => {
     modalLogin.style.display = 'flex';
