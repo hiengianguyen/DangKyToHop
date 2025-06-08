@@ -8,743 +8,742 @@
 </head>
 
 
-<div id="master">
-    <div class="container">
-        <div class="card mb-3 shadow">
-            <div class="school-info d-flex">
-                <img class="school-banner rounded-start" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
-                
-                <div class="banner-container rounded-end">
-                    <img class="school-banner-second rounded-end" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
-                    <div class="school-info-detail fs-5">
-                        <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
+<div id="master" class="col .col-md-9 p-0" style="overflow-y: auto;">
+    <div class="school-info d-flex">
+        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+        
+        <div class="banner-container">
+            <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+            <div class="school-info-detail fs-5">
+                <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="header-box d-flex align-items-center justify-content-start">
+        <h4 class="ms-4 mb-0">Đọc thông tin về việc chọn tổ hợp</h4>
+    </div>
+    <div class="card-body submit pt-4">
+        <div class="content position-relative" style="display:none;">
+            <div class="step-container">
+                <div class="progress_bar">
+                    <ul class="progress_bar-steps">
+                        <li class="progress_bar-progress"></li>
+                        <li class="progress_bar-step active">
+                            <span>1</span>
+                            <div class="step-label">
+                                <p id="tittle-step-1">Đọc thông tin về việc chọn tổ hợp</p>
+                            </div>
+                        </li>
+                        <li class="progress_bar-step">
+                            <span>2</span>
+                            <div class="step-label">
+                                <p id="tittle-step-2">Nhập thông tin đăng ký</p>
+                            </div>
+                        </li>
+                        <li class="progress_bar-step">
+                            <span>3</span>
+                            <div class="step-label">
+                                <p id="tittle-step-3">Chọn tổ hợp</p>
+                            </div>
+                        </li>
+                        <li class="progress_bar-step">
+                            <span>4</span>
+                            <div class="step-label">
+                                <p id="tittle-step-4">Xác nhận thông tin</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end my-4">
+                <button type="button" class="btn btn-primary ms-4" id="btnPrevStep" style="display: none;">
+                    Trở lại
+                </button>
+                <button type="button" class="btn btn-primary ms-auto me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive" disabled>
+                    Tiếp tục
+                </button>
+                <button type="button" class="btn btn-primary ms-auto me-4" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#exampleModalLive" style="display: none;">
+                    Xác nhận
+                </button>
+            </div>
+
+            <div class="card border-dark my-3 box-submit-1" style="display: block;" >
+                <div class="card-header fw-bold">Thông tin chung về đăng ký nguyện vọng vào lớp 10 - Trường THPT Duy Tân</div>
+                <div class="card-body">
+                    <div class="content-box">
+                        <p class="fw-bolder mb-2">Đối tượng đăng ký</p>
+                        <ul>
+                            <li>Học sinh lớp 9 chuẩn bị lên lớp 10 tại <b>TP. Tam Kỳ, tỉnh Quảng Nam</b>.</li>
+                            <li>Học sinh đang học tại các trường THCS công lập, ngoài công lập hoặc tương đương.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <p class="fw-bolder mb-2">Thời gian đăng ký</p>
+                        <ul>
+                            <li>Thời gian bắt đầu: <b>15/08/2025</b>.</li>
+                            <li>Thời gian kết thúc: <b>29/08/2025</b>.</li>
+                            <li>Lưu ý: Không đăng ký sau thời gian quy định.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <p class="fw-bolder mb-2">Cách thức đăng ký</p>
+                        <ul>
+                            <li>Đăng ký trực tuyến trên website này.</li>
+                            <li>Chọn hai nguyện vọng theo thứ tự ưu tiên.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <p class="fw-bolder mb-2">Tổ hợp môn xét tuyển</p>
+                        <ul>
+                            <li>Mỗi trường có thể có tổ hợp môn riêng (Toán - Văn - Anh, Toán - Lý - Hóa, v.v...).</li>
+                            <li>Cần tìm hiểu kỹ trước khi chọn nguyện vọng.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <p class="fw-bolder mb-2">Lưu ý khi đăng ký</p>
+                        <ul>
+                            <li>Không thể chọn 2 nguyện vọng giống nhau.</li>
+                            <li>Ưu tiên nguyện vọng 1 nếu có điểm chuẩn bằng nhau.</li>
+                            <li>Có thể chỉnh sửa trong thời gian đăng ký, nhưng nên kiểm tra kỹ trước khi lưu.</li>
+                        </ul>
+                    </div>
+                    <div class="my-2 d-flex justify-content-center">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="checkReaded">
+                            <label class="form-check-label" for="checkReaded" style="cursor:pointer;"><i>Tôi đã đọc và đồng ý với các lưu ý trên</i></label>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-                <div class="content position-relative" style="display:none;">
-                    <div class="step-container">
-                        <div class="progress_bar">
-                            <ul class="progress_bar-steps">
-                                <li class="progress_bar-progress"></li>
-                                <li class="progress_bar-step active">
-                                    <span>1</span>
-                                    <div class="step-label">
-                                        <p>Đọc thông tin về việc chọn tổ hợp</p>
-                                    </div>
-                                </li>
-                                <li class="progress_bar-step">
-                                    <span>2</span>
-                                    <div class="step-label">
-                                        <p>Nhập thông tin đăng ký</p>
-                                    </div>
-                                </li>
-                                <li class="progress_bar-step">
-                                    <span>3</span>
-                                    <div class="step-label">
-                                        <p>Chọn tổ hợp</p>
-                                    </div>
-                                </li>
-                                <li class="progress_bar-step">
-                                    <span>4</span>
-                                    <div class="step-label">
-                                        <p>Xác nhận</p>
-                                    </div>
-                                </li>
-                            </ul>
+
+            <div class="container box-submit-2" style="display: none;">
+                <legend class="text-center mb-4">Phiếu đăng ký thông tin vào lớp 10 - Trường THPT Duy Tân</legend>
+
+                <div class="col col-md-4 mb-3 d-flex align-items-start flex-column ps-0">
+                    <label for=""><b>Chọn ảnh thẻ:</b></label>
+                    <div class="row mb-3">
+                        <div class="d-flex align-items-start flex-column">
+                            <div class="imgBoderFake"><p>3x4</p></div>
+                            <img id="resultImage" class="col col-md-2 ps-0" style="max-width:200px; display:none;">
+                                <input type="file" class="mt-3" id="inputImage" accept="image/*" required>
+                                <button id="recropBtn" class="mt-4 btn btn-primary" type="button" style="display:none;">Cắt lại</button>
                         </div>
+                        <input id="input-get-data" type="text" name="avatarLink" style="display: none;">
                     </div>
+                </div>
 
-                    <div class="d-flex justify-content-end my-4">
-                        <button type="button" class="btn btn-primary ms-4" id="btnPrevStep" style="display: none;">
-                            Trở lại
-                        </button>
-                        <button type="button" class="btn btn-primary ms-auto me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive" disabled>
-                            Tiếp tục
-                        </button>
-                        <button type="button" class="btn btn-primary ms-auto me-4" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#exampleModalLive" style="display: none;">
-                            Xác nhận
-                        </button>
-                    </div>
-
-                    <div class="card border-dark my-3 box-submit-1" style="display: block;" >
-                        <div class="card-header fw-bold">Thông tin chung về đăng ký nguyện vọng vào lớp 10 - Trường THPT Duy Tân</div>
-                        <div class="card-body">
-                            <div class="content-box">
-                                <p class="fw-bolder mb-2">Đối tượng đăng ký</p>
-                                <ul>
-                                    <li>Học sinh lớp 9 chuẩn bị lên lớp 10 tại <b>TP. Tam Kỳ, tỉnh Quảng Nam</b>.</li>
-                                    <li>Học sinh đang học tại các trường THCS công lập, ngoài công lập hoặc tương đương.</li>
-                                </ul>
-                            </div>
-                            <div class="content-box">
-                                <p class="fw-bolder mb-2">Thời gian đăng ký</p>
-                                <ul>
-                                    <li>Thời gian bắt đầu: <b>15/08/2025</b>.</li>
-                                    <li>Thời gian kết thúc: <b>29/08/2025</b>.</li>
-                                    <li>Lưu ý: Không đăng ký sau thời gian quy định.</li>
-                                </ul>
-                            </div>
-                            <div class="content-box">
-                                <p class="fw-bolder mb-2">Cách thức đăng ký</p>
-                                <ul>
-                                    <li>Đăng ký trực tuyến trên website này.</li>
-                                    <li>Chọn hai nguyện vọng theo thứ tự ưu tiên.</li>
-                                </ul>
-                            </div>
-                            <div class="content-box">
-                                <p class="fw-bolder mb-2">Tổ hợp môn xét tuyển</p>
-                                <ul>
-                                    <li>Mỗi trường có thể có tổ hợp môn riêng (Toán - Văn - Anh, Toán - Lý - Hóa, v.v...).</li>
-                                    <li>Cần tìm hiểu kỹ trước khi chọn nguyện vọng.</li>
-                                </ul>
-                            </div>
-                            <div class="content-box">
-                                <p class="fw-bolder mb-2">Lưu ý khi đăng ký</p>
-                                <ul>
-                                    <li>Không thể chọn 2 nguyện vọng giống nhau.</li>
-                                    <li>Ưu tiên nguyện vọng 1 nếu có điểm chuẩn bằng nhau.</li>
-                                    <li>Có thể chỉnh sửa trong thời gian đăng ký, nhưng nên kiểm tra kỹ trước khi lưu.</li>
-                                </ul>
-                            </div>
-                            <div class="my-2 d-flex justify-content-center">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="checkReaded">
-                                    <label class="form-check-label" for="checkReaded" style="cursor:pointer;"><i>Tôi đã đọc và đồng ý với các lưu ý trên</i></label>
-                                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="d-flex align-items-start flex-column">
+                            <label for="inputName"><b>Họ và tên học sinh:</b></label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                                <input id="inputName" type="text" class="form-control" placeholder="Họ và tên học sinh" aria-label="Họ và tên học sinh" name="fullName" aria-describedby="basic-addon1" style="text-transform: capitalize;">
                             </div>
                         </div>
                     </div>
 
-                    <div class="container box-submit-2" style="display: none;">
-                        <legend class="text-center mb-4">Phiếu đăng ký thông tin vào lớp 10 - Trường THPT Duy Tân</legend>
+                    <div class="col d-flex align-items-start flex-column">
+                        <label for="inputName"><b>Giới tính:</b></label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-venus-mars"></i></span>
+                            <select class="form-select" id="inputGroupSelect01" name="gender" aria-label="Default select example" required>
+                                <option selected value="">--Giới tính--</option>
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                            </select>
+                        </div>
+                    </div>
 
-                        <div class="col col-md-4 mb-3 d-flex align-items-start flex-column ps-0">
-                            <label for=""><b>Chọn ảnh thẻ:</b></label>
+                    <div class="col d-flex align-items-start flex-column">
+                        <label for="inputGroupSelect01"><b>Dân tộc:</b></label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-person"></i></span>
+                            <select class="form-select" id="inputGroupSelect01" name="nation" aria-label="Default select example" required>
+                                <option selected value="">--Dân tộc--</option>
+                                {{#each nations}}
+                                    <option value="{{this.name}}">{{this.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col d-flex align-items-start flex-column">
+                        <label for="inputName"><b>Ngày tháng năm sinh:</b></label>
+                        <div class=" input-group form-group-datepicker mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+                            <input type="text" class="form-control" id="datepicker" class="login__input" name="dateOfBirth" rules="required" aria-describedby="basic-addon1" placeholder="Ngày tháng năm sinh">
+                            <span class="form-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                            <label for="inputName"><b>Nơi sinh:</b></label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-location-dot"></i></span>
+                                <input type="text" class="form-control" placeholder="Nơi sinh" name="placeOfBirth" aria-label="Nơi sinh" aria-describedby="basic-addon1" style="text-transform: capitalize;">
+                            </div>
+                        </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="inputName"><b>Nơi ở hiện tại:</b></label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-house"></i></span>
+                            <input type="text" class="form-control" placeholder="Nơi ở hiện tại" name="currentPlace" aria-label="Nơi ở hiện tại" aria-describedby="basic-addon1" style="text-transform: capitalize;">
+                        </div>
+                    </div>
+
+                    <div class="col d-flex align-items-start flex-column">
+                        <label for="inputName"><b>Trường học cấp 2:</b></label>
+                        <div class="d-flex align-items-center">
+                            <b class="secondary-school-choosen me-4" style="display: none;"></b>
+                            <button type="button" class="btn btn-primary btn-show-modal-school">
+                            Chọn trường cấp 2
+                            </button>
+                            <button type="button" class="btn btn-primary btn-reShow-modal-school" style="display: none;">
+                                Chọn lại
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="d-flex align-items-start flex-column">
+                            <label for="inputName"><b>Họ và tên cha:</b></label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                                <input id="inputName" type="text" class="form-control" placeholder="Họ và tên cha" aria-label="Họ và tên học sinh" name="fullNameDad" aria-describedby="basic-addon1" style="text-transform: capitalize;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col d-flex align-items-start flex-column">
+                        <label for="inputName"><b>Nghề nghiệp:</b></label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-suitcase"></i></span>
+                            <input id="inputName" type="text" class="form-control" placeholder="Nghề nghiệp" aria-label="Họ và tên học sinh" name="jobOfDad" aria-describedby="basic-addon1" style="text-transform: capitalize;">
+                        </div>
+                    </div>
+
+                    <div class="col d-flex align-items-start flex-column">
+                        <label for="inputGroupSelect01"><b>Số điện thoại:</b></label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
+                            <input id="inputName" type="text" class="form-control" placeholder="Số điện thoại" aria-label="Họ và Tên học sinh" name="phoneOfDad" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="d-flex align-items-start flex-column">
+                            <label for="inputName"><b>Họ và tên mẹ:</b></label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                                <input id="inputName" type="text" class="form-control" placeholder="Họ và tên mẹ" aria-label="Họ và tên học sinh" name="fullNameMom" aria-describedby="basic-addon1" style="text-transform: capitalize;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col d-flex align-items-start flex-column">
+                        <label for="inputName"><b>Nghề nghiệp:</b></label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-suitcase"></i></span>
+                            <input id="inputName" type="text" class="form-control" placeholder="Nghề nghiệp" aria-label="Họ và Tên học sinh" name="jobOfMon" aria-describedby="basic-addon1" style="text-transform: capitalize;">
+                        </div>
+                    </div>
+
+                    <div class="col d-flex align-items-start flex-column">
+                        <label for="inputGroupSelect01"><b>Số điện thoại:</b></label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
+                            <input id="inputName" type="text" class="form-control" placeholder="Số điện thoại" aria-label="Họ và Tên học sinh" name="phoneOfMom" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row gap-0 column-gap-4">
+                    <label for="inputName"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
+                    <div class="col mb-3">
+                        <div class="d-flex align-items-center">
+                            <label for="inputName"><b>Toán:</b></label>
+                            <input type="number" class="mx-2" step="0.1" min="0" max="10" name="mathScore" placeholder="Toán">
+                        </div>
+                    </div>
+
+                    <div class="col mb-3">
+                        <div class="d-flex align-items-center">
+                            <label for="inputName"><b>Văn:</b></label>
+                            <input type="number" class="mx-2" step="0.1" min="0" max="10" name="literatureScore" placeholder="Văn">
+                        </div>
+                    </div>
+
+                    <div class="col mb-3">
+                        <div class="d-flex align-items-center">
+                            <label for="inputName"><b>Anh:</b></label>
+                            <input type="number" class="mx-2" step="0.1" min="0" max="10" name="englishScore" placeholder="Anh">
+                        </div>
+                    </div>
+                </div>
+
+                <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
+                <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
+                <tr>
+                    <th rowspan="1">Lớp</th>
+                    <th class="px-4">6</th>
+                    <th class="px-4">7</th>
+                    <th class="px-4">8</th>
+                    <th class="px-4">9</th>
+                    <th rowspan="2" class="px-3">Xếp loại tốt nghiệp THCS</th>
+                    
+                </tr>
+                
+                <tr>
+                    <td>Hạnh kiểm</td>
+                    <td>
+                        <select class="form-select" id="inputGroupSelect01" name="conduct6" aria-label="Default select example">
+                            <option selected value="">Hạnh kiểm</option>
+                            <option value="Tốt">Tốt</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Yếu">Yếu</option>
+                            <option value="Chưa Đạt">Chưa Đạt</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select" id="inputGroupSelect01" name="conduct7" aria-label="Default select example">
+                            <option selected value="">Hạnh kiểm</option>
+                            <option value="Tốt">Tốt</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Yếu">Yếu</option>
+                            <option value="Chưa Đạt">Chưa Đạt</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select" id="inputGroupSelect01" name="conduct8" aria-label="Default select example">
+                            <option selected value="">Hạnh kiểm</option>
+                            <option value="Tốt">Tốt</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Yếu">Yếu</option>
+                            <option value="Chưa Đạt">Chưa Đạt</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select" id="inputGroupSelect01" name="conduct9" aria-label="Default select example">
+                            <option selected value="">Hạnh kiểm</option>
+                            <option value="Tốt">Tốt</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Yếu">Yếu</option>
+                            <option value="Chưa Đạt">Chưa Đạt</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Học lực</td>
+                    <td>
+                        <select class="form-select" id="inputGroupSelect01" name="academicRating6" aria-label="Default select example">
+                            <option selected value="">Học lực</option>
+                            <option value="Giỏi">Giỏi</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Trung Bình">Trung bình</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select" id="inputGroupSelect01" name="academicRating7" aria-label="Default select example">
+                            <option selected value="">Học lực</option>
+                            <option value="Giỏi">Giỏi</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Trung Bình">Trung bình</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select" id="inputGroupSelect01" name="academicRating8" aria-label="Default select example">
+                            <option selected value="">Học lực</option>
+                            <option value="Giỏi">Giỏi</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Trung Bình">Trung bình</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select" id="inputGroupSelect01" name="academicRating9" aria-label="Default select example">
+                            <option selected value="">Học lực</option>
+                            <option value="Giỏi">Giỏi</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Trung Bình">Trung bình</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select" id="inputGroupSelect01" name="graduationRating" aria-label="Default select example">
+                            <option selected value="">Xếp loại</option>
+                            <option value="Giỏi">Giỏi</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Trung Bình">Trung Bình</option>
+                        </select>
+                    </td>
+                </tr>
+                </table>
+
+                <label for="inputName"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
+                <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
+                    <tr>
+                        <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
+                    </tr>
+                    <tbody>
+                        <td class="px-3"><b>Văn</b></td>
+                        <td class="px-3"><b>Toán</b></td>
+                        <td class="px-3"><b>Ngoại ngữ</b></td>
+                        <td class="px-3"><b>Vật lý</b></td>
+                        <td class="px-3"><b>Hóa học</b></td>
+                        <td class="px-3"><b>Sinh</b></td>
+                        <td class="px-3"><b>Sử</b></td>
+                        <td class="px-3"><b>Địa</b></td>
+                    </tbody>
+                    <tbody>
+                        <td>
+                            <input type="number" step="0.1" min="0" max="10" name="avgLiteratureScore" placeholder="Văn">
+                        </td>
+                        <td>
+                            <input type="number" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Toán">
+                        </td>
+                        <td>
+                            <input type="number" step="0.1" min="0" max="10" name="avgEnglishScore" placeholder="Ngoại Ngữ">
+                        </td>
+                        <td>
+                            <input type="number" step="0.1" min="0" max="10" name="avgPhysicsScore" placeholder="Vật Lý">
+                        </td>
+                        <td>
+                            <input type="number" step="0.1" min="0" max="10" name="avgChemistryScore" placeholder="Hoá Học">
+                        </td>
+                        <td>
+                            <input type="number" step="0.1" min="0" max="10" name="avgBiologyScore" placeholder="Sinh">
+                        </td>
+                        <td>
+                            <input type="number" step="0.1" min="0" max="10" name="avgHistoryScore" placeholder="Sử">
+                        </td>
+                        <td>
+                            <input type="number" step="0.1" min="0" max="10" name="avgGeographyScore" placeholder="Địa">
+                        </td>
+                    </tbody>
+                </table>
+            </div>  
+
+            <div class="box-submit-3" style="display: none;">
+                <p class="fs-5">Sau khi nghiên cứu các tổ hợp của nhà trường:</p>
+                <table class="table table-bordered">
+                <thead>
+                    <tr>
+                    <th scope="col">Tổ hợp</th>
+                    <th scope="col" colspan="4">Môn lựa chọn (04 môn)</th>
+                    <th scope="col" colspan="3">Cụm chuyên đề (03 môn)</th>
+                    <th scope="col">Số lớp</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each combinations}}
+                        <tr>
+                            <td scope="row">{{this.name}}</td>
+                            {{#each optionalSubjects}}
+                                <td>{{this.name}}</td>
+                            {{/each}}
+                            {{#each compulsorySubjects}}
+                                <td>{{this.name}}</td>
+                            {{/each}}
+                            <td>{{this.classesCount}}</td>
+                            <td>
+                                <div id-modal="{{this.id}}" class="btn-show-modal"><p class="m-0 text-decoration-underline">Xem Chi Tiết</p></div>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+                </table>
+                <p class="fs-5 d-flex justify-content-center">Đăng ký tổ hợp theo nguyện vọng:</p>
+                <div class="d-flex justify-content-center align-items-center box-choose-combination">
+                    <div class="box-select-1 d-flex align-items-center">
+                        <p class="me-2 fw-bold">Nguyện vọng 1:</p>
+                        <div class="input-group mb-3 me-4">
+                            <select class="form-select" id="select-combination1" name="combination1" aria-label="Default select example">
+                                <option selected value="">--Chọn tổ hợp--</option>
+                                {{#each combinations}}
+                                    <option value="{{this.name}}">{{this.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="box-select-2 d-flex align-items-center">
+                        <p class="me-2 fw-bold">Nguyện vọng 2:</p>
+                        <div class="input-group mb-3 me-4">
+                            <select class="form-select" id="select-combination2" name="combination2" aria-label="Default select example" disabled>
+                                <option selected value="">--Chọn tổ hợp--</option>
+                                {{#each combinations}}
+                                    <option value="{{this.name}}">{{this.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-submit-4 container" style="display:none;">
+                <form id="form-submit-combination">
+                    <legend class="text-center mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
+                    <div class="row">
+                        <div class="col col-md-3 mb-3 mx-3 d-flex align-items-start flex-column ps-0">
+                            <label for=""><b>Ảnh thẻ:</b></label>
                             <div class="row mb-3">
                                 <div class="d-flex align-items-start flex-column">
-                                    <div class="imgBoderFake"><p>3x4</p></div>
-                                    <img id="resultImage" class="col col-md-2 ps-0" style="max-width:200px; display:none;">
-                                        <input type="file" class="mt-3" id="inputImage" accept="image/*" required>
-                                        <button id="recropBtn" class="mt-4 btn btn-primary" type="button" style="display:none;">Cắt lại</button>
+                                    <img class="col col-md-2 ps-0 resultImage" style="max-width:200px;">
                                 </div>
-                                <input id="input-get-data" type="text" name="avatarLink" style="display: none;">
+                                <input class="input-get-data-avatar" type="text" name="avatarLink" style="display: none;">
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col mb-3">
-                                <div class="d-flex align-items-start flex-column">
-                                    <label for="inputName"><b>Họ và tên học sinh:</b></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                                        <input id="inputName" type="text" class="form-control" placeholder="Họ và tên học sinh" aria-label="Họ và tên học sinh" name="fullName" aria-describedby="basic-addon1" style="text-transform: capitalize;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col d-flex align-items-start flex-column">
-                                <label for="inputName"><b>Giới tính:</b></label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-venus-mars"></i></span>
-                                    <select class="form-select" id="inputGroupSelect01" name="gender" aria-label="Default select example" required>
-                                        <option selected value="">--Giới tính--</option>
-                                        <option value="Nam">Nam</option>
-                                        <option value="Nữ">Nữ</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col d-flex align-items-start flex-column">
-                                <label for="inputGroupSelect01"><b>Dân tộc:</b></label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-person"></i></span>
-                                    <select class="form-select" id="inputGroupSelect01" name="nation" aria-label="Default select example" required>
-                                        <option selected value="">--Dân tộc--</option>
-                                        {{#each nations}}
-                                            <option value="{{this.name}}">{{this.name}}</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col d-flex align-items-start flex-column">
-                                <label for="inputName"><b>Ngày tháng năm sinh:</b></label>
-                                <div class=" input-group form-group-datepicker mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
-                                    <input type="text" class="form-control" id="datepicker" class="login__input" name="dateOfBirth" rules="required" aria-describedby="basic-addon1" placeholder="Ngày tháng năm sinh">
-                                    <span class="form-message"></span>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                    <label for="inputName"><b>Nơi sinh:</b></label>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-location-dot"></i></span>
-                                        <input type="text" class="form-control" placeholder="Nơi sinh" name="placeOfBirth" aria-label="Nơi sinh" aria-describedby="basic-addon1" style="text-transform: capitalize;">
-                                    </div>
-                                </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <label for="inputName"><b>Nơi ở hiện tại:</b></label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-house"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nơi ở hiện tại" name="currentPlace" aria-label="Nơi ở hiện tại" aria-describedby="basic-addon1" style="text-transform: capitalize;">
-                                </div>
-                            </div>
-
-                            <div class="col d-flex align-items-start flex-column">
-                                <label for="inputName"><b>Trường học cấp 2:</b></label>
-                                <div class="d-flex align-items-center">
-                                    <b class="secondary-school-choosen me-4" style="display: none;"></b>
-                                    <button type="button" class="btn btn-primary btn-show-modal-school">
-                                    Chọn trường cấp 2
-                                    </button>
-                                    <button type="button" class="btn btn-primary btn-reShow-modal-school" style="display: none;">
-                                        Chọn lại
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col mb-3">
-                                <div class="d-flex align-items-start flex-column">
-                                    <label for="inputName"><b>Họ và tên cha:</b></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                                        <input id="inputName" type="text" class="form-control" placeholder="Họ và tên cha" aria-label="Họ và tên học sinh" name="fullNameDad" aria-describedby="basic-addon1" style="text-transform: capitalize;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col d-flex align-items-start flex-column">
-                                <label for="inputName"><b>Nghề nghiệp:</b></label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-suitcase"></i></span>
-                                    <input id="inputName" type="text" class="form-control" placeholder="Nghề nghiệp" aria-label="Họ và tên học sinh" name="jobOfDad" aria-describedby="basic-addon1" style="text-transform: capitalize;">
-                                </div>
-                            </div>
-
-                            <div class="col d-flex align-items-start flex-column">
-                                <label for="inputGroupSelect01"><b>Số điện thoại:</b></label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
-                                    <input id="inputName" type="text" class="form-control" placeholder="Số điện thoại" aria-label="Họ và Tên học sinh" name="phoneOfDad" aria-describedby="basic-addon1">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col mb-3">
-                                <div class="d-flex align-items-start flex-column">
-                                    <label for="inputName"><b>Họ và tên mẹ:</b></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                                        <input id="inputName" type="text" class="form-control" placeholder="Họ và tên mẹ" aria-label="Họ và tên học sinh" name="fullNameMom" aria-describedby="basic-addon1" style="text-transform: capitalize;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col d-flex align-items-start flex-column">
-                                <label for="inputName"><b>Nghề nghiệp:</b></label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-suitcase"></i></span>
-                                    <input id="inputName" type="text" class="form-control" placeholder="Nghề nghiệp" aria-label="Họ và Tên học sinh" name="jobOfMon" aria-describedby="basic-addon1" style="text-transform: capitalize;">
-                                </div>
-                            </div>
-
-                            <div class="col d-flex align-items-start flex-column">
-                                <label for="inputGroupSelect01"><b>Số điện thoại:</b></label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
-                                    <input id="inputName" type="text" class="form-control" placeholder="Số điện thoại" aria-label="Họ và Tên học sinh" name="phoneOfMom" aria-describedby="basic-addon1">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row gap-0 column-gap-4">
-                            <label for="inputName"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
-                            <div class="col mb-3">
-                                <div class="d-flex align-items-center">
-                                    <label for="inputName"><b>Toán:</b></label>
-                                    <input type="number" class="mx-2" step="0.1" min="0" max="10" name="mathScore" placeholder="Toán">
-                                </div>
-                            </div>
-
-                            <div class="col mb-3">
-                                <div class="d-flex align-items-center">
-                                    <label for="inputName"><b>Văn:</b></label>
-                                    <input type="number" class="mx-2" step="0.1" min="0" max="10" name="literatureScore" placeholder="Văn">
-                                </div>
-                            </div>
-
-                            <div class="col mb-3">
-                                <div class="d-flex align-items-center">
-                                    <label for="inputName"><b>Anh:</b></label>
-                                    <input type="number" class="mx-2" step="0.1" min="0" max="10" name="englishScore" placeholder="Anh">
-                                </div>
-                            </div>
-                        </div>
-
-                        <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
-                        <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
-                        <tr>
-                            <th rowspan="1">Lớp</th>
-                            <th class="px-4">6</th>
-                            <th class="px-4">7</th>
-                            <th class="px-4">8</th>
-                            <th class="px-4">9</th>
-                            <th rowspan="2" class="px-3">Xếp loại tốt nghiệp THCS</th>
-                            
-                        </tr>
-                        
-                        <tr>
-                            <td>Hạnh kiểm</td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="conduct6" aria-label="Default select example">
-                                    <option selected value="">Hạnh kiểm</option>
-                                    <option value="Tốt">Tốt</option>
-                                    <option value="Khá">Khá</option>
-                                    <option value="Yếu">Yếu</option>
-                                    <option value="Chưa Đạt">Chưa Đạt</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="conduct7" aria-label="Default select example">
-                                    <option selected value="">Hạnh kiểm</option>
-                                    <option value="Tốt">Tốt</option>
-                                    <option value="Khá">Khá</option>
-                                    <option value="Yếu">Yếu</option>
-                                    <option value="Chưa Đạt">Chưa Đạt</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="conduct8" aria-label="Default select example">
-                                    <option selected value="">Hạnh kiểm</option>
-                                    <option value="Tốt">Tốt</option>
-                                    <option value="Khá">Khá</option>
-                                    <option value="Yếu">Yếu</option>
-                                    <option value="Chưa Đạt">Chưa Đạt</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="conduct9" aria-label="Default select example">
-                                    <option selected value="">Hạnh kiểm</option>
-                                    <option value="Tốt">Tốt</option>
-                                    <option value="Khá">Khá</option>
-                                    <option value="Yếu">Yếu</option>
-                                    <option value="Chưa Đạt">Chưa Đạt</option>
-                                </select>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Học lực</td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="academicRating6" aria-label="Default select example">
-                                    <option selected value="">Học lực</option>
-                                    <option value="Giỏi">Giỏi</option>
-                                    <option value="Khá">Khá</option>
-                                    <option value="Trung Bình">Trung bình</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="academicRating7" aria-label="Default select example">
-                                    <option selected value="">Học lực</option>
-                                    <option value="Giỏi">Giỏi</option>
-                                    <option value="Khá">Khá</option>
-                                    <option value="Trung Bình">Trung bình</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="academicRating8" aria-label="Default select example">
-                                    <option selected value="">Học lực</option>
-                                    <option value="Giỏi">Giỏi</option>
-                                    <option value="Khá">Khá</option>
-                                    <option value="Trung Bình">Trung bình</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="academicRating9" aria-label="Default select example">
-                                    <option selected value="">Học lực</option>
-                                    <option value="Giỏi">Giỏi</option>
-                                    <option value="Khá">Khá</option>
-                                    <option value="Trung Bình">Trung bình</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="graduationRating" aria-label="Default select example">
-                                    <option selected value="">Xếp loại</option>
-                                    <option value="Giỏi">Giỏi</option>
-                                    <option value="Khá">Khá</option>
-                                    <option value="Trung Bình">Trung Bình</option>
-                                </select>
-                            </td>
-                        </tr>
-                        </table>
-
-                        <label for="inputName"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
-                        <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
-                            <tr>
-                                <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
-                            </tr>
-                            <tbody>
-                                <td class="px-3"><b>Văn</b></td>
-                                <td class="px-3"><b>Toán</b></td>
-                                <td class="px-3"><b>Ngoại ngữ</b></td>
-                                <td class="px-3"><b>Vật lý</b></td>
-                                <td class="px-3"><b>Hóa học</b></td>
-                                <td class="px-3"><b>Sinh</b></td>
-                                <td class="px-3"><b>Sử</b></td>
-                                <td class="px-3"><b>Địa</b></td>
-                            </tbody>
-                            <tbody>
-                                <td>
-                                    <input type="number" step="0.1" min="0" max="10" name="avgLiteratureScore" placeholder="Văn">
-                                </td>
-                                <td>
-                                    <input type="number" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Toán">
-                                </td>
-                                <td>
-                                    <input type="number" step="0.1" min="0" max="10" name="avgEnglishScore" placeholder="Ngoại Ngữ">
-                                </td>
-                                <td>
-                                    <input type="number" step="0.1" min="0" max="10" name="avgPhysicsScore" placeholder="Vật Lý">
-                                </td>
-                                <td>
-                                    <input type="number" step="0.1" min="0" max="10" name="avgChemistryScore" placeholder="Hoá Học">
-                                </td>
-                                <td>
-                                    <input type="number" step="0.1" min="0" max="10" name="avgBiologyScore" placeholder="Sinh">
-                                </td>
-                                <td>
-                                    <input type="number" step="0.1" min="0" max="10" name="avgHistoryScore" placeholder="Sử">
-                                </td>
-                                <td>
-                                    <input type="number" step="0.1" min="0" max="10" name="avgGeographyScore" placeholder="Địa">
-                                </td>
-                            </tbody>
-                        </table>
-                    </div>  
-
-                    <div class="box-submit-3" style="display: none;">
-                        <p class="fs-5">Sau khi nghiên cứu các tổ hợp của nhà trường:</p>
-                        <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                            <th scope="col">Tổ hợp</th>
-                            <th scope="col" colspan="4">Môn lựa chọn (04 môn)</th>
-                            <th scope="col" colspan="3">Cụm chuyên đề (03 môn)</th>
-                            <th scope="col">Số lớp</th>
-                            <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each combinations}}
-                                <tr>
-                                    <td scope="row">{{this.name}}</td>
-                                    {{#each optionalSubjects}}
-                                        <td>{{this.name}}</td>
-                                    {{/each}}
-                                    {{#each compulsorySubjects}}
-                                        <td>{{this.name}}</td>
-                                    {{/each}}
-                                    <td>{{this.classesCount}}</td>
-                                    <td>
-                                        <div id-modal="{{this.id}}" class="btn-show-modal"><p class="m-0 text-decoration-underline">Xem Chi Tiết</p></div>
-                                    </td>
-                                </tr>
-                            {{/each}}
-                        </tbody>
-                        </table>
-                        <p class="fs-5 d-flex justify-content-center">Đăng ký tổ hợp theo nguyện vọng:</p>
-                        <div class="d-flex justify-content-center align-items-center box-choose-combination">
-                            <div class="box-select-1 d-flex align-items-center">
-                                <p class="me-2 fw-bold">Nguyện vọng 1:</p>
-                                <div class="input-group mb-3 me-4">
-                                    <select class="form-select" id="select-combination1" name="combination1" aria-label="Default select example">
-                                        <option selected value="">--Chọn tổ hợp--</option>
-                                        {{#each combinations}}
-                                            <option value="{{this.name}}">{{this.name}}</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="box-select-2 d-flex align-items-center">
-                                <p class="me-2 fw-bold">Nguyện vọng 2:</p>
-                                <div class="input-group mb-3 me-4">
-                                    <select class="form-select" id="select-combination2" name="combination2" aria-label="Default select example" disabled>
-                                        <option selected value="">--Chọn tổ hợp--</option>
-                                        {{#each combinations}}
-                                            <option value="{{this.name}}">{{this.name}}</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="box-submit-4 container" style="display:none;">
-                        <form id="form-submit-combination">
-                            <legend class="text-center mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
+                        <div class="col gy-3 m-0">
                             <div class="row">
-                                <div class="col col-md-3 mb-3 mx-3 d-flex align-items-start flex-column ps-0">
-                                    <label for=""><b>Ảnh thẻ:</b></label>
-                                    <div class="row mb-3">
-                                        <div class="d-flex align-items-start flex-column">
-                                            <img class="col col-md-2 ps-0 resultImage" style="max-width:200px;">
-                                        </div>
-                                        <input class="input-get-data-avatar" type="text" name="avatarLink" style="display: none;">
-                                    </div>
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
+                                    <h4 class="mb-3"><b class="get-data" name="fullName" style="text-transform: capitalize;"></b></h4>
+                                    <input type="text" class="input-get-data" name="fullName" style="display:none;">
+                                </div>
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputName" >Giới tính: </label>
+                                    <b class="mb-3 get-data-select" name="gender"></b>
+                                    <input type="text" class="input-get-data-select" name="gender" style="display:none;">
+                                </div>
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputGroupSelect01">Dân tộc: </label>
+                                    <b class="mb-3 get-data-select" name="nation"></b>
+                                    <input type="text" class="input-get-data-select" name="nation" style="display:none;">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputName">Ngày tháng năm sinh: </label>
+                                    <b class="mb-3 get-data" name="dateOfBirth" style="text-transform: capitalize;"></b>
+                                    <input type="text" class="input-get-data" name="dateOfBirth" style="display:none;">
                                 </div>
 
-                                <div class="col gy-3 m-0">
-                                    <div class="row">
-                                        <div class="col d-flex align-items-start flex-column">
-                                            <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
-                                            <h4 class="mb-3"><b class="get-data" name="fullName" style="text-transform: capitalize;"></b></h4>
-                                            <input type="text" class="input-get-data" name="fullName" style="display:none;">
-                                        </div>
-                                        <div class="col d-flex align-items-start flex-column">
-                                            <label for="inputName" >Giới tính: </label>
-                                            <b class="mb-3 get-data-select" name="gender"></b>
-                                            <input type="text" class="input-get-data-select" name="gender" style="display:none;">
-                                        </div>
-                                        <div class="col d-flex align-items-start flex-column">
-                                            <label for="inputGroupSelect01">Dân tộc: </label>
-                                            <b class="mb-3 get-data-select" name="nation"></b>
-                                            <input type="text" class="input-get-data-select" name="nation" style="display:none;">
-                                        </div>
-                                    </div>
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputName">Nơi sinh: </label>
+                                    <b class="mb-3 get-data" name="placeOfBirth" style="text-transform: capitalize;"></b>
+                                    <input type="text" class="input-get-data" name="placeOfBirth" style="display:none;">
+                                </div>
 
-                                    <div class="row">
-                                        <div class="col d-flex align-items-start flex-column">
-                                            <label for="inputName">Ngày tháng năm sinh: </label>
-                                            <b class="mb-3 get-data" name="dateOfBirth" style="text-transform: capitalize;"></b>
-                                            <input type="text" class="input-get-data" name="dateOfBirth" style="display:none;">
-                                        </div>
-
-                                        <div class="col d-flex align-items-start flex-column">
-                                            <label for="inputName">Nơi sinh: </label>
-                                            <b class="mb-3 get-data" name="placeOfBirth" style="text-transform: capitalize;"></b>
-                                            <input type="text" class="input-get-data" name="placeOfBirth" style="display:none;">
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="d-flex align-items-start flex-column">
-                                                <label for="inputName">Nguyện vọng 1:</label>
-                                                <b class="get-data-combination" name="combination1"></b>
-                                                <input type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col d-flex align-items-start flex-column">
-                                            <label for="inputName">Trường học cấp 2:</label> 
-                                            <b class="mb-3 get-data-school" name="secondarySchool"></b>
-                                            <input type="text" class="input-get-data-shool" name="secondarySchool" style="display:none;">
-                                        </div>
-
-                                        <div class="col d-flex align-items-start flex-column">
-                                            <label for="inputName">Nơi ở hiện tại:</label> 
-                                            <b class="mb-3 get-data" name="currentPlace" style="text-transform: capitalize;"></b>
-                                            <input type="text" class="input-get-data" name="currentPlace" style="display:none;">
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="d-flex align-items-start flex-column">
-                                                <label for="inputName">Nguyện vọng 2:</label>
-                                                <b class="get-data-combination" name="combination2"></b>
-                                                <input type="text" class="input-get-data-combination" name="combination2" style="display:none;">
-                                            </div>
-                                        </div>
-
+                                <div class="col">
+                                    <div class="d-flex align-items-start flex-column">
+                                        <label for="inputName">Nguyện vọng 1:</label>
+                                        <b class="get-data-combination" name="combination1"></b>
+                                        <input type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="d-flex justify-content-around">
-                                <div class="d-flex  align-items-start flex-column">
-                                    <div class="d-flex justify-content-center">
-                                        <label for="" class="me-4">Họ và tên cha:</label>
-                                        <b class="get-data" name="fullNameDad" style="text-transform: capitalize;"></b>
-                                        <input type="text" class="input-get-data" name="fullNameDad" style="display:none;">
-                                    </div>
-                                    <div class="d-flex">
-                                        <label for="" class="me-4">Họ và tên mẹ:</label>
-                                        <b class="get-data" name="fullNameMom" style="text-transform: capitalize;"></b>
-                                        <input type="text" class="input-get-data" name="fullNameMom" style="display:none;">
+                            <div class="row">
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputName">Trường học cấp 2:</label> 
+                                    <b class="mb-3 get-data-school" name="secondarySchool"></b>
+                                    <input type="text" class="input-get-data-shool" name="secondarySchool" style="display:none;">
+                                </div>
+
+                                <div class="col d-flex align-items-start flex-column">
+                                    <label for="inputName">Nơi ở hiện tại:</label> 
+                                    <b class="mb-3 get-data" name="currentPlace" style="text-transform: capitalize;"></b>
+                                    <input type="text" class="input-get-data" name="currentPlace" style="display:none;">
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex align-items-start flex-column">
+                                        <label for="inputName">Nguyện vọng 2:</label>
+                                        <b class="get-data-combination" name="combination2"></b>
+                                        <input type="text" class="input-get-data-combination" name="combination2" style="display:none;">
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-start flex-column">
-                                    <div class="d-flex">
-                                        <label for="" class="me-4">Nghề nghiệp:</label>
-                                        <b class="get-data" name="jobOfDad" style="text-transform: capitalize;"></b>
-                                        <input type="text" class="input-get-data" name="jobOfDad" style="display:none;">
-                                    </div>
-                                    <div class="d-flex">
-                                        <label for="" class="me-4">Nghề nghiệp:</label>
-                                        <b class="get-data" name="jobOfMom" style="text-transform: capitalize;"></b>
-                                        <input type="text" class="input-get-data" name="jobOfMom" style="display:none;">
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-start flex-column">
-                                    <div class="d-flex">
-                                        <label for="" class="me-4">Số điện thoại:</label>
-                                        <b class="get-data" name="phoneOfDad" style="text-transform: capitalize;"></b>
-                                        <input type="text" class="input-get-data" name="phoneOfDad" style="display:none;">
-                                    </div>
-                                    <div class="d-flex">
-                                        <label for="inputGroupSelect01" class="me-4">Số điện thoại:</label>
-                                        <b class="get-data" name="phoneOfMon" style="text-transform: capitalize;"></b>
-                                        <input type="text" class="input-get-data" name="phoneOfMom" style="display:none;">
-                                    </div>
-                                </div>
+
                             </div>
-
-                            <label for="inputName" class="mt-4"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
-                            <div class="d-flex justify-content-around text-center">
-                                <div class="my-2">
-                                    <label for="inputName"><b>Toán: <b class="get-data fs-5" name="mathScore"></b> điểm</b></label>
-                                    <input type="text" class="input-get-data" name="mathScore" style="display:none;">
-                                </div>
-
-                                <div class="my-2">
-                                    <label for="inputName"><b>Văn: <b class="get-data fs-5" name="literatureScore"></b> điểm</b></label>
-                                    <input type="text" class="input-get-data" name="literatureScore" style="display:none;">
-                                </div>
-
-                                <div class="my-2">
-                                    <label for="inputName"><b>Anh: <b class="get-data fs-5" name="englishScore"></b> điểm</b></label>
-                                    <input type="text" class="input-get-data" name="englishScore" style="display:none;">
-                                </div>
-                            </div>
-
-                            <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
-                            <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
-                            <tr>
-                                <th rowspan="1">Lớp</th>
-                                <th class="px-4">6</th>
-                                <th class="px-4">7</th>
-                                <th class="px-4">8</th>
-                                <th class="px-4">9</th>
-                                <th rowspan="2" class="px-3">Xếp loại tốt nghiệp THCS</th>
-                            </tr>
-                            
-                            <tr>
-                                <td>Hạnh kiểm</td>
-                                <td>
-                                    <b class="get-data-select" name="conduct6"></b>
-                                    <input type="text" class="input-get-data-select" name="conduct6" style="display:none;">
-                                </td>
-                                <td>
-                                    <b class="get-data-select" name="conduct7"></b>
-                                    <input type="text" class="input-get-data-select" name="conduct7" style="display:none;">
-                                </td>
-                                <td>
-                                    <b class="get-data-select" name="conduct8"></b>
-                                    <input type="text" class="input-get-data-select" name="conduct8" style="display:none;">
-                                </td>
-                                <td>
-                                    <b class="get-data-select" name="conduct9"></b>
-                                    <input type="text" class="input-get-data-select" name="conduct9" style="display:none;">
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>Học lực</td>
-                                <td>
-                                    <b class="get-data-select" name="academicRating6"></b>
-                                    <input type="text" class="input-get-data-select" name="academicRating6" style="display:none;">
-                                </td>
-                                <td>
-                                    <b class="get-data-select" name="academicRating7"></b>
-                                    <input type="text" class="input-get-data-select" name="academicRating7" style="display:none;">
-                                </td>
-                                <td>
-                                    <b class="get-data-select" name="academicRating8"></b>
-                                    <input type="text" class="input-get-data-select" name="academicRating8" style="display:none;">
-                                </td>
-                                <td>
-                                    <b class="get-data-select" name="academicRating9"></b>
-                                    <input type="text" class="input-get-data-select" name="academicRating9" style="display:none;">
-                                </td>
-                                <td>
-                                    <b class="get-data-select" name="graduationRating"></b>
-                                    <input type="text" class="input-get-data-select" name="graduationRating" style="display:none;">
-                                </td>
-                            </tr>
-                            </table>
-
-                            <label for="inputName"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
-                            <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
-                                <tr>
-                                    <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
-                                </tr>
-                                <tbody>
-                                    <td class="px-3"><b>Văn</b></td>
-                                    <td class="px-3"><b>Toán</b></td>
-                                    <td class="px-3"><b>Ngoại ngữ</b></td>
-                                    <td class="px-3"><b>Vật lý</b></td>
-                                    <td class="px-3"><b>Hóa học</b></td>
-                                    <td class="px-3"><b>Sinh</b></td>
-                                    <td class="px-3"><b>Sử</b></td>
-                                    <td class="px-3"><b>Địa</b></td>
-                                </tbody>
-                                <tbody>
-                                    <td>
-                                        <b class="get-data" name="avgLiteratureScore"></b>
-                                        <input type="text" class="input-get-data" name="avgLiteratureScore" style="display:none;">
-                                    </td>
-                                    <td>
-                                        <b class="get-data" name="avgMathScore"></b>
-                                        <input type="text" class="input-get-data" name="avgMathScore" style="display:none;">
-                                    </td>
-                                    <td>
-                                        <b class="get-data" name="avgEnglishScore"></b>
-                                        <input type="text" class="input-get-data" name="avgEnglishScore" style="display:none;">
-                                    </td>
-                                    <td>
-                                        <b class="get-data" name="avgPhysicsScore"></b>
-                                        <input type="text" class="input-get-data" name="avgPhysicsScore" style="display:none;">
-                                    </td>
-                                    <td>
-                                        <b class="get-data" name="avgChemistryScore"></b>
-                                        <input type="text" class="input-get-data" name="avgChemistryScore" style="display:none;">
-                                    </td>
-                                    <td>
-                                        <b class="get-data" name="avgBiologyScore"></b>
-                                        <input type="text" class="input-get-data" name="avgBiologyScore" style="display:none;">
-                                    </td>
-                                    <td>
-                                        <b class="get-data" name="avgHistoryScore"></b>
-                                        <input type="text" class="input-get-data" name="avgHistoryScore" style="display:none;">
-                                    </td>
-                                    <td>
-                                        <b class="get-data" name="avgGeographyScore"></b>
-                                        <input type="text" class="input-get-data" name="avgGeographyScore" style="display:none;">
-                                    </td>
-                                </tbody>
-                            </table>
-                        </form>
+                        </div>
                     </div>
-                </div>
 
-                <div id="loading" class="position-absolute" style="display: none;">
-                    <div class="d-flex align-items-center flex-column">
-                        <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang gửi dữ liệu...</h2>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="150" height="150" style="shape-rendering: auto; display: block; background: rgba(255, 255, 255, 0);" xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle stroke-dasharray="122.52211349000194 42.840704496667314" r="26" stroke-width="5" stroke="#00a0e2" fill="none" cy="50" cx="50">
-                            <animateTransform keyTimes="0;1" values="0 50 50;360 50 50" dur="0.7692307692307692s" repeatCount="indefinite" type="rotate" attributeName="transform"></animateTransform>
-                        </circle><g></g></g><!-- [ldio] generated by https://loading.io --></svg>
+                    <div class="d-flex justify-content-around">
+                        <div class="d-flex  align-items-start flex-column">
+                            <div class="d-flex justify-content-center">
+                                <label for="" class="me-4">Họ và tên cha:</label>
+                                <b class="get-data" name="fullNameDad" style="text-transform: capitalize;"></b>
+                                <input type="text" class="input-get-data" name="fullNameDad" style="display:none;">
+                            </div>
+                            <div class="d-flex">
+                                <label for="" class="me-4">Họ và tên mẹ:</label>
+                                <b class="get-data" name="fullNameMom" style="text-transform: capitalize;"></b>
+                                <input type="text" class="input-get-data" name="fullNameMom" style="display:none;">
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start flex-column">
+                            <div class="d-flex">
+                                <label for="" class="me-4">Nghề nghiệp:</label>
+                                <b class="get-data" name="jobOfDad" style="text-transform: capitalize;"></b>
+                                <input type="text" class="input-get-data" name="jobOfDad" style="display:none;">
+                            </div>
+                            <div class="d-flex">
+                                <label for="" class="me-4">Nghề nghiệp:</label>
+                                <b class="get-data" name="jobOfMom" style="text-transform: capitalize;"></b>
+                                <input type="text" class="input-get-data" name="jobOfMom" style="display:none;">
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start flex-column">
+                            <div class="d-flex">
+                                <label for="" class="me-4">Số điện thoại:</label>
+                                <b class="get-data" name="phoneOfDad" style="text-transform: capitalize;"></b>
+                                <input type="text" class="input-get-data" name="phoneOfDad" style="display:none;">
+                            </div>
+                            <div class="d-flex">
+                                <label for="inputGroupSelect01" class="me-4">Số điện thoại:</label>
+                                <b class="get-data" name="phoneOfMon" style="text-transform: capitalize;"></b>
+                                <input type="text" class="input-get-data" name="phoneOfMom" style="display:none;">
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+                    <label for="inputName" class="mt-4"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
+                    <div class="d-flex justify-content-around text-center">
+                        <div class="my-2">
+                            <label for="inputName"><b>Toán: <b class="get-data fs-5" name="mathScore"></b> điểm</b></label>
+                            <input type="text" class="input-get-data" name="mathScore" style="display:none;">
+                        </div>
+
+                        <div class="my-2">
+                            <label for="inputName"><b>Văn: <b class="get-data fs-5" name="literatureScore"></b> điểm</b></label>
+                            <input type="text" class="input-get-data" name="literatureScore" style="display:none;">
+                        </div>
+
+                        <div class="my-2">
+                            <label for="inputName"><b>Anh: <b class="get-data fs-5" name="englishScore"></b> điểm</b></label>
+                            <input type="text" class="input-get-data" name="englishScore" style="display:none;">
+                        </div>
+                    </div>
+
+                    <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
+                    <tr>
+                        <th rowspan="1">Lớp</th>
+                        <th class="px-4">6</th>
+                        <th class="px-4">7</th>
+                        <th class="px-4">8</th>
+                        <th class="px-4">9</th>
+                        <th rowspan="2" class="px-3">Xếp loại tốt nghiệp THCS</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>Hạnh kiểm</td>
+                        <td>
+                            <b class="get-data-select" name="conduct6"></b>
+                            <input type="text" class="input-get-data-select" name="conduct6" style="display:none;">
+                        </td>
+                        <td>
+                            <b class="get-data-select" name="conduct7"></b>
+                            <input type="text" class="input-get-data-select" name="conduct7" style="display:none;">
+                        </td>
+                        <td>
+                            <b class="get-data-select" name="conduct8"></b>
+                            <input type="text" class="input-get-data-select" name="conduct8" style="display:none;">
+                        </td>
+                        <td>
+                            <b class="get-data-select" name="conduct9"></b>
+                            <input type="text" class="input-get-data-select" name="conduct9" style="display:none;">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Học lực</td>
+                        <td>
+                            <b class="get-data-select" name="academicRating6"></b>
+                            <input type="text" class="input-get-data-select" name="academicRating6" style="display:none;">
+                        </td>
+                        <td>
+                            <b class="get-data-select" name="academicRating7"></b>
+                            <input type="text" class="input-get-data-select" name="academicRating7" style="display:none;">
+                        </td>
+                        <td>
+                            <b class="get-data-select" name="academicRating8"></b>
+                            <input type="text" class="input-get-data-select" name="academicRating8" style="display:none;">
+                        </td>
+                        <td>
+                            <b class="get-data-select" name="academicRating9"></b>
+                            <input type="text" class="input-get-data-select" name="academicRating9" style="display:none;">
+                        </td>
+                        <td>
+                            <b class="get-data-select" name="graduationRating"></b>
+                            <input type="text" class="input-get-data-select" name="graduationRating" style="display:none;">
+                        </td>
+                    </tr>
+                    </table>
+
+                    <label for="inputName"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
+                        <tr>
+                            <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
+                        </tr>
+                        <tbody>
+                            <td class="px-3"><b>Văn</b></td>
+                            <td class="px-3"><b>Toán</b></td>
+                            <td class="px-3"><b>Ngoại ngữ</b></td>
+                            <td class="px-3"><b>Vật lý</b></td>
+                            <td class="px-3"><b>Hóa học</b></td>
+                            <td class="px-3"><b>Sinh</b></td>
+                            <td class="px-3"><b>Sử</b></td>
+                            <td class="px-3"><b>Địa</b></td>
+                        </tbody>
+                        <tbody>
+                            <td>
+                                <b class="get-data" name="avgLiteratureScore"></b>
+                                <input type="text" class="input-get-data" name="avgLiteratureScore" style="display:none;">
+                            </td>
+                            <td>
+                                <b class="get-data" name="avgMathScore"></b>
+                                <input type="text" class="input-get-data" name="avgMathScore" style="display:none;">
+                            </td>
+                            <td>
+                                <b class="get-data" name="avgEnglishScore"></b>
+                                <input type="text" class="input-get-data" name="avgEnglishScore" style="display:none;">
+                            </td>
+                            <td>
+                                <b class="get-data" name="avgPhysicsScore"></b>
+                                <input type="text" class="input-get-data" name="avgPhysicsScore" style="display:none;">
+                            </td>
+                            <td>
+                                <b class="get-data" name="avgChemistryScore"></b>
+                                <input type="text" class="input-get-data" name="avgChemistryScore" style="display:none;">
+                            </td>
+                            <td>
+                                <b class="get-data" name="avgBiologyScore"></b>
+                                <input type="text" class="input-get-data" name="avgBiologyScore" style="display:none;">
+                            </td>
+                            <td>
+                                <b class="get-data" name="avgHistoryScore"></b>
+                                <input type="text" class="input-get-data" name="avgHistoryScore" style="display:none;">
+                            </td>
+                            <td>
+                                <b class="get-data" name="avgGeographyScore"></b>
+                                <input type="text" class="input-get-data" name="avgGeographyScore" style="display:none;">
+                            </td>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+        <div id="loading" class="position-absolute" style="display: none;">
+            <div class="d-flex align-items-center flex-column">
+                <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang gửi dữ liệu...</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="150" height="150" style="shape-rendering: auto; display: block; background: rgba(255, 255, 255, 0);" xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle stroke-dasharray="122.52211349000194 42.840704496667314" r="26" stroke-width="5" stroke="#00a0e2" fill="none" cy="50" cx="50">
+                    <animateTransform keyTimes="0;1" values="0 50 50;360 50 50" dur="0.7692307692307692s" repeatCount="indefinite" type="rotate" attributeName="transform"></animateTransform>
+                </circle><g></g></g><!-- [ldio] generated by https://loading.io --></svg>
             </div>
         </div>
     </div>
@@ -925,6 +924,25 @@
         const btnNextStep = document.querySelector('#btnNextStep');
         btnNextStep.disabled = !checked;
     }
+
+    const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
+    litSidebars.pop();
+
+    litSidebars.forEach((li) => {
+        if(li.getAttribute('value') === 'Đăng ký tổ hợp') {
+            li.parentElement.classList.add('active');
+        } else {
+            li.parentElement.classList.remove('active');
+        }
+        li.parentElement.onclick = () => {
+        li.parentElement.classList.add('active')
+        litSidebars.forEach((liCheckClassActive) => {
+            if(liCheckClassActive !== li) {
+            liCheckClassActive.parentElement.classList.remove('active');
+            }
+        })
+        }
+    })
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" defer></script>
@@ -933,9 +951,11 @@
 
 <script>
     const combinationDetailModal = document.querySelector('#combinationDetailModal');
+    const headerTittle = document.querySelector('.header-box').getElementsByTagName('h4')[0];
     let page = 1;
 
     function setActiveForSteps(page) {
+        const tittleStep = document.getElementById(`tittle-step-${page}`);
         const barStepContainer = document.querySelector(".progress_bar-steps");
         const barSteps = document.querySelectorAll(".progress_bar-step");
         const steps_progress = document.querySelector(".progress_bar-progress");
@@ -943,6 +963,8 @@
         const arrBarStep = Array.from(barSteps);
         arrBarStep[page-1].classList.add('active');
         let pageXStep1;
+
+        headerTittle.textContent = tittleStep.textContent;
 
         const liActiveElements = document.querySelectorAll('li.active');
 
