@@ -90,7 +90,6 @@ class CombinationController {
       let data = await database.collection("registeredCombinations").orderBy("registeredAt", "asc").get();
       data = Array.from(data.docs).map((doc) => {
         var result = RegisteredCombinationModel.fromFirestore(doc);
-        console.log(result);
         result.registeredAt = convertToVietnameseDateTime(result.registeredAt.toDate());
         return result;
       });
