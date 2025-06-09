@@ -12,12 +12,9 @@ class SchoolController {
       if (req.query.role === undefined) {
         return res.redirect(`/school?role=${req.cookies.role}`);
       }
-      const highSchool = await this.highSchoolDbRef.getItemByFilter(
-        {
-          name: "Trường THPT Duy Tân"
-        },
-        false
-      );
+      const highSchool = await this.highSchoolDbRef.getItemByFilter({
+        name: "Trường THPT Duy Tân"
+      });
 
       return res.render("school/school_detail", {
         highSchool: highSchool,

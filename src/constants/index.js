@@ -6,6 +6,8 @@ const CombinationsCollectionName = "combinations";
 const SubmittedCombinationsCollectionName = "submittedCombinations";
 const TrendingCombinationsCollectionName = "trendingCombinations";
 const SubjectsCollectionName = "subjects";
+const NationsCollectionName = "nations";
+const RegisteredCombinationsCollectionName = "registeredCombinations";
 
 module.exports = {
   UsersCollectionName,
@@ -14,5 +16,7 @@ module.exports = {
   CombinationsCollectionName,
   SubmittedCombinationsCollectionName,
   TrendingCombinationsCollectionName,
-  SubjectsCollectionName
+  SubjectsCollectionName,
+  NationsCollectionName,
+  RegisteredCombinationsCollectionName
 };

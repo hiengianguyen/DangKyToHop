@@ -1,5 +1,0 @@
-const RecommendController = require("../apps/controllers/RecommendController");
-const express = require("express");
-const router = express.Router();
-
-module.exports = router;

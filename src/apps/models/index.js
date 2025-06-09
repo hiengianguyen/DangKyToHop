@@ -3,7 +3,6 @@ const CombinationModel = require("../models/CombinationModel");
 const HighSchoolModel = require("../models/HighSchoolModel");
 const SecondarySchoolModel = require("../models/SecondarySchoolModel");
 const SubjectModel = require("../models/SubjectModel");
-const TrendingCombinationModel = require("../models/TrendingCombinationModel");
 const UserModel = require("../models/UserModel");
 const NationModel = require("../models/NationModel");
 const RegisteredCombinationModel = require("../models/RegisteredCombinationModel");
@@ -14,7 +13,6 @@ module.exports = {
   HighSchoolModel,
   SecondarySchoolModel,
   SubjectModel,
-  TrendingCombinationModel,
   UserModel,
   NationModel,
   RegisteredCombinationModel

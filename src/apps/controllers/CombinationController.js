@@ -11,7 +11,9 @@ const {
   SubjectsCollectionName,
   CombinationsCollectionName,
   UsersCollectionName,
-  SecondarySchoolsCollectionName
+  SecondarySchoolsCollectionName,
+  NationsCollectionName,
+  RegisteredCombinationsCollectionName
 } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
 const database = require("../../config/database/index");
@@ -20,9 +22,9 @@ class CombinationController {
   constructor() {
     this.userDbRef = new FirestoreModel(UsersCollectionName, UserModel);
     this.subjectDbRef = new FirestoreModel(SubjectsCollectionName, SubjectModel);
-    this.nationDbRef = new FirestoreModel("nations", NationModel);
+    this.nationDbRef = new FirestoreModel(NationsCollectionName, NationModel);
     this.secondarySchoolDbRef = new FirestoreModel(SecondarySchoolsCollectionName, SecondarySchoolModel);
-    this.registeredCombinationDbRef = new FirestoreModel("registeredCombinations", RegisteredCombinationModel);
+    this.registeredCombinationsDbRef = new FirestoreModel(RegisteredCombinationsCollectionName, RegisteredCombinationModel);
     this.combinationDbRef = new FirestoreModel(CombinationsCollectionName, CombinationModel);
     this.submited = this.submited.bind(this);
     this.submitedList = this.submitedList.bind(this);
@@ -77,7 +79,7 @@ class CombinationController {
           userId,
           new Date() // registeredAt
         );
-        const submitedByUserId = await this.registeredCombinationDbRef.getItemByFilter(
+        const submitedByUserId = await this.registeredCombinationsDbRef.getItemByFilter(
           {
             userId: userId
           },
@@ -85,13 +87,13 @@ class CombinationController {
         );
 
         if (submitedByUserId) {
-          await this.registeredCombinationDbRef.updateItem(submitedByUserId.id, submitedCombinationModel.toFirestore());
+          await this.registeredCombinationsDbRef.updateItem(submitedByUserId.id, submitedCombinationModel.toFirestore());
           return res.json({
             message: "Cập nhật thông tin đăng ký vào lớp 10 thành công.",
             data: data
           });
         } else {
-          await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
+          await this.registeredCombinationsDbRef.addItem(submitedCombinationModel);
           return res.json({
             message: "Gửi thông tin đăng ký vào lớp 10 thành công."
           });
@@ -104,15 +106,15 @@ class CombinationController {
 
   async submitedList(req, res, next) {
     if (req.cookies.isLogin === "true") {
-      let data = await database.collection("registeredCombinations").orderBy("registeredAt", "asc").get();
-      data = Array.from(data.docs).map((doc) => {
-        var result = RegisteredCombinationModel.fromFirestore(doc);
-        result.registeredAt = convertToVietnameseDateTime(result.registeredAt.toDate());
-        return result;
-      });
-      return res.render("combination/submited_list", {
-        submitedList: data
-      });
+      // let data = await database.collection("registeredCombinations").orderBy("registeredAt", "asc").get();
+      // data = Array.from(data.docs).map((doc) => {
+      //   var result = RegisteredCombinationModel.fromFirestore(doc);
+      //   result.registeredAt = convertToVietnameseDateTime(result.registeredAt.toDate());
+      //   return result;
+      // });
+      // return res.render("combination/submited_list", {
+      //   submitedList: []
+      // });
     } else {
       return res.redirect("/");
     }
@@ -121,7 +123,7 @@ class CombinationController {
   async submitedDetail(req, res, next) {
     if (req.cookies.isLogin === "true") {
       const submitedCombinationId = req.params.id;
-      const data = await this.registeredCombinationDbRef.getItemById(submitedCombinationId, true);
+      const data = await this.registeredCombinationsDbRef.getItemById(submitedCombinationId);
       return res.render("combination/submited_detail", {
         submitedCombinationDetail: data
       });
@@ -137,7 +139,7 @@ class CombinationController {
       }
       const user = await this.userDbRef.getItemById(req.cookies.userId);
 
-      const secondarySchools = await this.secondarySchoolDbRef.getAllItems(false);
+      const secondarySchools = await this.secondarySchoolDbRef.getAllItems();
       const districts = secondarySchools.map((doc) => {
         return {
           districtId: doc.districtId,
@@ -145,14 +147,14 @@ class CombinationController {
         };
       });
 
-      const nations = await this.nationDbRef.getAllItems(false);
+      const nations = await this.nationDbRef.getAllItems();
       nations.sort((a, b) => (a.name > b.name ? 1 : -1));
 
-      const subjects = await this.subjectDbRef.getAllItems(false);
+      const subjects = await this.subjectDbRef.getAllItems();
       subjects.map((subject) => {
         return subject.docs;
       });
-      const combinations = await this.combinationDbRef.getAllItems(false);
+      const combinations = await this.combinationDbRef.getAllItems();
       //sort by name (asc)
       combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
 

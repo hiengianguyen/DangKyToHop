@@ -83,7 +83,7 @@ class RegisteredCombinationModel {
     this.registeredAt = registeredAt || new Date();
   }
 
-  static fromFirestore(doc) {
+  fromFirestore(doc) {
     if (!doc.exists) return null;
     const data = doc.data();
     return new RegisteredCombinationModel(
