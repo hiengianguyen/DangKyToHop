@@ -15,7 +15,6 @@ const {
 } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
 const database = require("../../config/database/index");
-const xlsx = require("xlsx");
 
 class CombinationController {
   constructor() {
@@ -34,52 +33,65 @@ class CombinationController {
   async submited(req, res, next) {
     if (req.cookies.isLogin === "true") {
       const data = req.body;
-      const submitedCombinationModel = new RegisteredCombinationModel(
-        undefined, // id
-        data.fullName,
-        data.dateOfBirth,
-        data.secondarySchool,
-        data.gender,
-        data.placeOfBirth,
-        data.currentPlace,
-        data.nation,
-        data.avatarLink,
-        data.combination1,
-        data.combination2,
-        data.fullNameDad,
-        data.fullNameMom,
-        data.jobOfDad,
-        data.jobOfMom,
-        data.phoneOfDad,
-        data.phoneOfMom,
-        data.mathScore,
-        data.literatureScore,
-        data.englishScore,
-        data.conduct6,
-        data.conduct7,
-        data.conduct8,
-        data.conduct9,
-        data.academicRating6,
-        data.academicRating7,
-        data.academicRating8,
-        data.academicRating9,
-        data.graduationRating,
-        data.avgLiteratureScore,
-        data.avgMathScore,
-        data.avgEnglishScore,
-        data.avgPhysicsScore,
-        data.avgChemistryScore,
-        data.avgBiologyScore,
-        data.avgHistoryScore,
-        data.avgGeographyScore,
-        undefined, // isDeleted
-        new Date() // registeredAt
-      );
-      await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
-      return res.json({
-        message: "Dữ liệu đã được nhận!",
-        data: data
-      });
+      if (data) {
+        const allUserIdSubmited = (await this.registeredCombinationDbRef.getAllItems(true)).map((docSubmited) => {
+          return docSubmited.registeredBy;
+        });
+
+        if (!allUserIdSubmited.includes(req.cookies.userId)) {
+          const submitedCombinationModel = new RegisteredCombinationModel(
+            undefined, // id
+            data.fullName,
+            data.dateOfBirth,
+            data.secondarySchool,
+            data.gender,
+            data.placeOfBirth,
+            data.currentPlace,
+            data.nation,
+            data.avatarLink,
+            data.combination1,
+            data.combination2,
+            data.fullNameDad,
+            data.fullNameMom,
+            data.jobOfDad,
+            data.jobOfMom,
+            data.phoneOfDad,
+            data.phoneOfMom,
+            data.mathScore,
+            data.literatureScore,
+            data.englishScore,
+            data.conduct6,
+            data.conduct7,
+            data.conduct8,
+            data.conduct9,
+            data.academicRating6,
+            data.academicRating7,
+            data.academicRating8,
+            data.academicRating9,
+            data.graduationRating,
+            data.avgLiteratureScore,
+            data.avgMathScore,
+            data.avgEnglishScore,
+            data.avgPhysicsScore,
+            data.avgChemistryScore,
+            data.avgBiologyScore,
+            data.avgHistoryScore,
+            data.avgGeographyScore,
+            undefined, // isDeleted
+            req.cookies.userId,
+            new Date() // registeredAt
+          );
+          await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
+          return res.json({
+            message: "Gửi thông tin đăng ký vào lớp 10 thành công.",
+            data: data
+          });
+        } else {
+          return res.json({
+            message: 'Bạn đã đăng ký trước đây, nếu cần chỉnh sửa hay qua trang "Bảng đăng ký".'
+          });
+        }
+      }
     } else {
       return res.redirect("/");
     }

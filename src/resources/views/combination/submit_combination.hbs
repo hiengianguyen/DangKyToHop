@@ -888,7 +888,7 @@
             e.target.style.border = "1px solid red";
         } else {
             e.target.style.border = "1px solid #dee2e6";
-            $(".form-group-datepicker .form-message").get(0).innerHTML = "";
+            document.querySelector(".form-group-datepicker .form-message").innerHTML = "";
         }
     });
 
@@ -980,7 +980,7 @@
     }
 
     function checkPageReturnScript(currentPage) {
-         page = currentPage;
+            page = currentPage;
         switch(currentPage) {
             case 1:
                 setActiveForSteps(currentPage);
@@ -1226,15 +1226,26 @@
 
                                 const result = await response.json();
                                 loading.style.display = 'none';
-                                toastMessage({
-                                    tittle: "Thông báo",
-                                    message: "Gửi thông tin đăng ký vào lớp 10 thành công.",
-                                    type: "success",
-                                    duration: 6000,
-                                    icon: "✅",
-                                    fideOut: 1000,
-                                    width: "280px"
-                                })
+                                if(result.data) {
+                                    toastMessage({
+                                        tittle: "Thông báo",
+                                        message: result.message,
+                                        type: "success",
+                                        duration: 6000,
+                                        icon: "✅",
+                                        fideOut: 1000,
+                                        width: "280px"
+                                    })
+                                } else {
+                                    toastMessage({
+                                        tittle: "Thông báo",
+                                        message: result.message,
+                                        type: "error",
+                                        duration: 6000,
+                                        icon: "❌",
+                                        fideOut: 1000
+                                    })
+                                }
                             })
                             .catch((err) => {
                                 loading.style.display = 'none';
@@ -1325,7 +1336,6 @@
                 }
 
                 const glassOverlay = document.querySelector('.glass-overlay');
-
                 const btnShows = document.querySelectorAll('.btn-show-modal');
 
                 btnShows.forEach((btnShow) => {
@@ -1380,39 +1390,38 @@
                 break;
         }
     }
-        const btnNext = document.querySelector('#btnNextStep');
-        const btnPrev = document.querySelector('#btnPrevStep');
-        const btnSubmitCombination = document.querySelector('#btnSubmit');
+    const btnNext = document.querySelector('#btnNextStep');
+    const btnPrev = document.querySelector('#btnPrevStep');
+    const btnSubmitCombination = document.querySelector('#btnSubmit');
 
-        btnNext.onclick = () => {
-            btnPrev.style.display = 'block';
-            const currentBox = document.querySelector(`.box-submit-${page}`);
-            currentBox.style.display = 'none';
-            if(page+1 <= 4) page++;
-            const nextBox = document.querySelector(`.box-submit-${page}`);
-            nextBox.style.display = 'block';
-            if(page == 4) {
-                btnNext.style.display = 'none';
-                btnSubmitCombination.style.display = 'block';
-            }
-            checkPageReturnScript(page);
+    btnNext.onclick = () => {
+        btnPrev.style.display = 'block';
+        const currentBox = document.querySelector(`.box-submit-${page}`);
+        currentBox.style.display = 'none';
+        if(page+1 <= 4) page++;
+        const nextBox = document.querySelector(`.box-submit-${page}`);
+        nextBox.style.display = 'block';
+        if(page == 4) {
+            btnNext.style.display = 'none';
+            btnSubmitCombination.style.display = 'block';
         }
+        checkPageReturnScript(page);
+    }
 
-        btnPrev.onclick = () => {
-            btnNext.style.display = 'block';
-            btnSubmitCombination.style.display = 'none';
-            const currentBox = document.querySelector(`.box-submit-${page}`);
-            console.log(currentBox)
-            currentBox.style.display = 'none';
-            if(page-1 >= 1) {
-                page--;
-            }
-            const nextBox = document.querySelector(`.box-submit-${page}`);
-            nextBox.style.display = 'block';
-            if(page == 1) {
-                btnPrev.style.display = 'none';
-            }
-            checkPageReturnScript(page);
+    btnPrev.onclick = () => {
+        btnNext.style.display = 'block';
+        btnSubmitCombination.style.display = 'none';
+        const currentBox = document.querySelector(`.box-submit-${page}`);
+        currentBox.style.display = 'none';
+        if(page-1 >= 1) {
+            page--;
         }
+        const nextBox = document.querySelector(`.box-submit-${page}`);
+        nextBox.style.display = 'block';
+        if(page == 1) {
+            btnPrev.style.display = 'none';
+        }
+        checkPageReturnScript(page);
+    }
     
 </script>
