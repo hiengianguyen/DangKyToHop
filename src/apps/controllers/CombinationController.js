@@ -32,63 +32,68 @@ class CombinationController {
 
   async submited(req, res, next) {
     if (req.cookies.isLogin === "true") {
+      const userId = req.cookies.userId;
       const data = req.body;
       if (data) {
-        const allUserIdSubmited = (await this.registeredCombinationDbRef.getAllItems(true)).map((docSubmited) => {
-          return docSubmited.registeredBy;
-        });
+        const submitedCombinationModel = new RegisteredCombinationModel(
+          undefined, // id
+          data.fullName,
+          data.dateOfBirth,
+          data.secondarySchool,
+          data.gender,
+          data.placeOfBirth,
+          data.currentPlace,
+          data.nation,
+          data.avatarLink,
+          data.combination1,
+          data.combination2,
+          data.fullNameDad,
+          data.fullNameMom,
+          data.jobOfDad,
+          data.jobOfMom,
+          data.phoneOfDad,
+          data.phoneOfMom,
+          data.mathScore,
+          data.literatureScore,
+          data.englishScore,
+          data.conduct6,
+          data.conduct7,
+          data.conduct8,
+          data.conduct9,
+          data.academicRating6,
+          data.academicRating7,
+          data.academicRating8,
+          data.academicRating9,
+          data.graduationRating,
+          data.avgLiteratureScore,
+          data.avgMathScore,
+          data.avgEnglishScore,
+          data.avgPhysicsScore,
+          data.avgChemistryScore,
+          data.avgBiologyScore,
+          data.avgHistoryScore,
+          data.avgGeographyScore,
+          undefined, // isDeleted
+          userId,
+          new Date() // registeredAt
+        );
+        const submitedByUserId = await this.registeredCombinationDbRef.getItemByFilter(
+          {
+            registeredBy: userId
+          },
+          true
+        );
 
-        if (!allUserIdSubmited.includes(req.cookies.userId)) {
-          const submitedCombinationModel = new RegisteredCombinationModel(
-            undefined, // id
-            data.fullName,
-            data.dateOfBirth,
-            data.secondarySchool,
-            data.gender,
-            data.placeOfBirth,
-            data.currentPlace,
-            data.nation,
-            data.avatarLink,
-            data.combination1,
-            data.combination2,
-            data.fullNameDad,
-            data.fullNameMom,
-            data.jobOfDad,
-            data.jobOfMom,
-            data.phoneOfDad,
-            data.phoneOfMom,
-            data.mathScore,
-            data.literatureScore,
-            data.englishScore,
-            data.conduct6,
-            data.conduct7,
-            data.conduct8,
-            data.conduct9,
-            data.academicRating6,
-            data.academicRating7,
-            data.academicRating8,
-            data.academicRating9,
-            data.graduationRating,
-            data.avgLiteratureScore,
-            data.avgMathScore,
-            data.avgEnglishScore,
-            data.avgPhysicsScore,
-            data.avgChemistryScore,
-            data.avgBiologyScore,
-            data.avgHistoryScore,
-            data.avgGeographyScore,
-            undefined, // isDeleted
-            req.cookies.userId,
-            new Date() // registeredAt
-          );
-          await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
+        if (submitedByUserId) {
+          await this.registeredCombinationDbRef.updateItem(submitedByUserId.id, submitedCombinationModel.toFirestore());
           return res.json({
-            message: "Gửi thông tin đăng ký vào lớp 10 thành công.",
+            message: "Cập nhật thông tin đăng ký vào lớp 10 thành công.",
             data: data
           });
         } else {
+          await this.registeredCombinationDbRef.addItem(submitedCombinationModel);
           return res.json({
-            message: 'Bạn đã đăng ký trước đây, nếu cần chỉnh sửa hay qua trang "Bảng đăng ký".'
+            message: "Gửi thông tin đăng ký vào lớp 10 thành công."
           });
         }
       }

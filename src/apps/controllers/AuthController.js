@@ -11,10 +11,13 @@ class AuthController {
   async signIn(req, res, next) {
     const { phone, password } = req.body;
 
-    const existedUser = await this.userDbRef.getItemByFilter({
-      phone: phone,
-      password: password
-    });
+    const existedUser = await this.userDbRef.getItemByFilter(
+      {
+        phone: phone,
+        password: password
+      },
+      false
+    );
 
     if (existedUser) {
       // save info to cookie in 1 week
@@ -32,7 +35,7 @@ class AuthController {
 
   async signUp(req, res, next) {
     const { fullName, password, phone } = req.body;
-    const existedPhone = await this.userDbRef.getItemByFilter({ phone: phone });
+    const existedPhone = await this.userDbRef.getItemByFilter({ phone: phone }, false);
 
     if (existedPhone) {
       return res.redirect("/?signupError=existed-phone");
