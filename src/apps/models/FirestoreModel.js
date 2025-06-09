@@ -8,30 +8,22 @@ class FirestoreModel {
     this.modelClass = modelClass;
   }
 
-  async getAllItems(useStatic) {
+  async getAllItems() {
     try {
       const result = await this.collectionRef.where("isDeleted", "==", false).get();
       const allDocs = Array.from(result.docs);
-      if (useStatic) {
-        return allDocs.map((doc) => this.modelClass.fromFirestore(doc));
-      } else {
-        return allDocs.map((doc) => this.model.fromFirestore(doc));
-      }
+      return allDocs.map((doc) => this.model.fromFirestore(doc));
     } catch (error) {
       console.log("error:", error);
       return [];
     }
   }
 
-  async getItemById(id, useStatic) {
+  async getItemById(id) {
     try {
       const doc = await this.collectionRef.doc(id).get();
       if (doc.data().isDeleted === false) {
-        if (useStatic) {
-          return this.modelClass.fromFirestore(doc);
-        } else {
-          return this.model.fromFirestore(doc);
-        }
+        return this.model.fromFirestore(doc);
       } else {
         return null;
       }
@@ -41,7 +33,7 @@ class FirestoreModel {
     }
   }
 
-  async getItemByFilter(query, useStatic) {
+  async getItemByFilter(query) {
     try {
       let snapshot = this.collectionRef;
       const queryKeys = Object.keys(query);
@@ -54,11 +46,7 @@ class FirestoreModel {
 
       const result = await snapshot.get();
       let docs;
-      if (useStatic) {
-        docs = Array.from(result.docs).map((doc) => this.modelClass.fromFirestore(doc));
-      } else {
-        docs = Array.from(result.docs).map((doc) => this.model.fromFirestore(doc));
-      }
+      docs = Array.from(result.docs).map((doc) => this.model.fromFirestore(doc));
       return docs[0];
     } catch (error) {
       console.log("error:", error);

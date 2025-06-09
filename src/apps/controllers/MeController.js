@@ -15,7 +15,7 @@ class MeController {
       if (req.query.role === "") {
         return res.redirect(`/me/profile?role=${req.cookies.role}`);
       }
-      const user = await this.userDbRef.getItemById(req.cookies.userId, false);
+      const user = await this.userDbRef.getItemById(req.cookies.userId);
       return res.render("me/profile", {
         user: user,
         signin: req.cookies.isLogin
@@ -31,7 +31,7 @@ class MeController {
         return res.redirect(`/me/profile/edit?role=${req.cookies.role}`);
       }
       const role = req.query.role;
-      const user = await this.userDbRef.getItemById(req.cookies.userId, false);
+      const user = await this.userDbRef.getItemById(req.cookies.userId);
 
       return res.render("me/edit_profile", {
         role: role,
