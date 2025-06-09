@@ -79,7 +79,7 @@ class CombinationController {
         );
         const submitedByUserId = await this.registeredCombinationDbRef.getItemByFilter(
           {
-            registeredBy: userId
+            userId: userId
           },
           true
         );
