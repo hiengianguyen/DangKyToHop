@@ -41,7 +41,7 @@ class FirestoreModel {
     }
   }
 
-  async getItemByFilter(query) {
+  async getItemByFilter(query, useStatic) {
     try {
       let snapshot = this.collectionRef;
       const queryKeys = Object.keys(query);
@@ -53,7 +53,12 @@ class FirestoreModel {
       snapshot = snapshot.where("isDeleted", "==", false);
 
       const result = await snapshot.get();
-      const docs = Array.from(result.docs).map((doc) => this.model.fromFirestore(doc));
+      let docs;
+      if (useStatic) {
+        docs = Array.from(result.docs).map((doc) => this.modelClass.fromFirestore(doc));
+      } else {
+        docs = Array.from(result.docs).map((doc) => this.model.fromFirestore(doc));
+      }
       return docs[0];
     } catch (error) {
       console.log("error:", error);
