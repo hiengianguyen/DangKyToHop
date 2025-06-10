@@ -123,11 +123,22 @@ class CombinationController {
 
   async submitedDetail(req, res, next) {
     if (req.cookies.isLogin === "true") {
-      const submitedCombinationId = req.params.id;
-      const data = await this.registeredCombinationsDbRef.getItemById(submitedCombinationId);
-      return res.render("combination/submited_detail", {
-        submitedCombinationDetail: data
-      });
+      if (req.params.id) {
+        const submitedCombinationId = req.params.id;
+        const data = await this.registeredCombinationsDbRef.getItemById(submitedCombinationId);
+        return res.render("combination/submited_detail", {
+          submitedCombinationDetail: data
+        });
+      } else {
+        const userId = req.cookies.userId;
+        const data = await this.registeredCombinationsDbRef.getItemByFilter({
+          userId: userId
+        });
+        return res.render("combination/submited_detail", {
+          submitedCombinationDetail: data,
+          role: req.cookies.role
+        });
+      }
     } else {
       return res.redirect("/");
     }

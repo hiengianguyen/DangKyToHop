@@ -9,6 +9,7 @@ const router = express.Router();
 router.post("/submited", CombinationController.submited);
 router.get("/submited-list", CombinationController.submitedList);
 router.get("/submit-combination", CombinationController.submitCombination);
-router.get("/submited-list/:id", CombinationController.submitedDetail);
+router.get("/submited-detail", CombinationController.submitedDetail);
+router.get("/submited-detail/:id", CombinationController.submitedDetail);
 
 module.exports = router;
