@@ -5,7 +5,6 @@ class FirestoreModel {
     this.collectionName = collectionName;
     this.collectionRef = database.collection(collectionName);
     this.model = new modelClass();
-    this.modelClass = modelClass;
   }
 
   async getAllItems(orderBy) {
@@ -17,8 +16,8 @@ class FirestoreModel {
       }
 
       const result = await snapshot.get();
-      const allDocs = Array.from(result.docs);
-      return allDocs.map((doc) => this.model.fromFirestore(doc));
+      const docs = Array.from(result.docs).map((doc) => this.model.fromFirestore(doc));
+      return docs;
     } catch (error) {
       console.log("error:", error);
       return [];
@@ -51,8 +50,7 @@ class FirestoreModel {
       snapshot = snapshot.where("isDeleted", "==", false);
 
       const result = await snapshot.get();
-      let docs;
-      docs = Array.from(result.docs).map((doc) => this.model.fromFirestore(doc));
+      const docs = Array.from(result.docs).map((doc) => this.model.fromFirestore(doc));
       return docs[0];
     } catch (error) {
       console.log("error:", error);
@@ -70,11 +68,7 @@ class FirestoreModel {
         snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
       }
 
-      if (onlyDeletedDocs == true) {
-        snapshot = snapshot.where("isDeleted", "==", true);
-      } else {
-        snapshot = snapshot.where("isDeleted", "==", false);
-      }
+      snapshot = snapshot.where("isDeleted", "==", onlyDeletedDocs);
 
       if (orderBy) {
         snapshot = snapshot.orderBy(orderBy.fieldName, orderBy.type);
