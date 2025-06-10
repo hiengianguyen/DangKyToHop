@@ -5,7 +5,6 @@ class FirestoreModel {
     this.collectionName = collectionName;
     this.collectionRef = database.collection(collectionName);
     this.model = new modelClass();
-    this.modelClass = modelClass;
   }
 
   async getAllItems(orderBy) {
