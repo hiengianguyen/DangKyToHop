@@ -36,43 +36,44 @@
     ></a>
   </div>
     
-      {{#if (eq signin 'true')}} 
-      <!-- Begin: Nav -->
-      <div class="nav-bar">
-        <ul id="nav" class="p-0 m-0">
-          <li><a href="/combination/submit-combination">Đăng ký tổ hợp</a></li>
-          <li><a href="/school">Trường học</a></li>
-          <li><a href="/school/contact">Liên hệ</a></li>
-        </ul>
-      </div>
-      <!-- End: Nav -->
-      <div class="nav-profile d-flex me me-4">
-        <li>
-          <a
-            class="nav-link text-white mx-2 d-flex align-items-center"
-            href='/me/profile?role={{role}}'
-          >
-            <img
-              class="rounded-circle me-2"
-              src="{{avatar}}"
-            />
-            <p class="m-0 text-black">{{fullName}}</p>
-          </a>
-        </li>
-        <li class="nav-item d-flex align-items-center ms-2">
-          <a
-            href="/auth/signout"
-            class="btn btn-outline-success my-2 my-sm-0"
-          >Đăng Xuất</a>
-      </div>
-      <div class="redirect-back-fixed fixed-top">
-        <div class="redirect-back d-flex align-items-center rounded-circle shadow">
-            <i class="fa-solid fa-reply fs-4"></i>
-        </div>
-    </div>
-    {{/if}}
+{{#if (eq signin 'true')}} 
+<!-- Begin: Nav -->
+<div class="nav-bar">
+  <ul id="nav" class="p-0 m-0">
+    <li><a href="/combination/submit-combination">Đăng ký tổ hợp</a></li>
+    <li><a href="/school">Trường học</a></li>
+    <li><a href="/school/contact">Liên hệ</a></li>
+  </ul>
+</div>
+<!-- End: Nav -->
+<div class="nav-profile d-flex me me-4">
+  <li>
+    <a
+      class="nav-link text-white mx-2 d-flex align-items-center"
+      href='/me/profile?role={{role}}'
+    >
+      <img
+        class="rounded-circle me-2"
+        src="{{avatar}}"
+      />
+      <p class="m-0 text-black">{{fullName}}</p>
+    </a>
+  </li>
+  <li class="nav-item d-flex align-items-center ms-2">
+    <a
+      href="/auth/signout"
+      class="btn btn-outline-success my-2 my-sm-0"
+    >Đăng Xuất</a>
+</div>
+<div class="redirect-back-fixed fixed-top">
+  <div class="redirect-back d-flex align-items-center rounded-circle shadow">
+      <i class="fa-solid fa-reply fs-4"></i>
   </div>
-  <div id="toast"></div>
+</div>
+{{/if}}
+</div>
+
+<div id="toast"></div>
 <div class="row" style="height: 100%;padding-left: 15px;">
   <div id="sidebar" class="col-sm-2 .col-md-3">
     <div class="sidebar-content">
