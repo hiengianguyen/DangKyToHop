@@ -106,15 +106,16 @@ class CombinationController {
 
   async submitedList(req, res, next) {
     if (req.cookies.isLogin === "true") {
-      // let data = await database.collection("registeredCombinations").orderBy("registeredAt", "asc").get();
-      // data = Array.from(data.docs).map((doc) => {
-      //   var result = RegisteredCombinationModel.fromFirestore(doc);
-      //   result.registeredAt = convertToVietnameseDateTime(result.registeredAt.toDate());
-      //   return result;
-      // });
-      // return res.render("combination/submited_list", {
-      //   submitedList: []
-      // });
+      let data = await this.registeredCombinationsDbRef.getAllItems({
+        fieldName: "registeredAt",
+        type: "asc"
+      });
+      Array.from(data).forEach((doc) => {
+        doc.registeredAt = convertToVietnameseDateTime(doc.registeredAt.toDate());
+      });
+      return res.render("combination/submited_list", {
+        submitedList: data
+      });
     } else {
       return res.redirect("/");
     }

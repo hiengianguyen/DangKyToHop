@@ -8,9 +8,15 @@ class FirestoreModel {
     this.modelClass = modelClass;
   }
 
-  async getAllItems() {
+  async getAllItems(orderBy) {
     try {
-      const result = await this.collectionRef.where("isDeleted", "==", false).get();
+      let snapshot = this.collectionRef.where("isDeleted", "==", false);
+
+      if (orderBy) {
+        snapshot = snapshot.orderBy(orderBy.fieldName, orderBy.type);
+      }
+
+      const result = await snapshot.get();
       const allDocs = Array.from(result.docs);
       return allDocs.map((doc) => this.model.fromFirestore(doc));
     } catch (error) {
@@ -54,7 +60,7 @@ class FirestoreModel {
     }
   }
 
-  async getItemsByFilter(query, onlyDeletedDocs = false) {
+  async getItemsByFilter(query, onlyDeletedDocs = false, orderBy) {
     try {
       let snapshot = this.collectionRef;
       const queryKeys = Object.keys(query);
@@ -68,6 +74,10 @@ class FirestoreModel {
         snapshot = snapshot.where("isDeleted", "==", true);
       } else {
         snapshot = snapshot.where("isDeleted", "==", false);
+      }
+
+      if (orderBy) {
+        snapshot = snapshot.orderBy(orderBy.fieldName, orderBy.type);
       }
 
       const result = await snapshot.get();
