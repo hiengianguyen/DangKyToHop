@@ -29,6 +29,7 @@ class CombinationController {
     this.submitedList = this.submitedList.bind(this);
     this.submitedDetail = this.submitedDetail.bind(this);
     this.submitCombination = this.submitCombination.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   async submited(req, res, next) {
@@ -200,6 +201,12 @@ class CombinationController {
     } else {
       return res.redirect("/");
     }
+  }
+
+  async delete(req, res, next) {
+    const docId = req.params.id;
+    await this.registeredCombinationsDbRef.softDeleteItem(docId);
+    return res.redirect("back");
   }
 }
 
