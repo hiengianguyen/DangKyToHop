@@ -135,20 +135,17 @@ input {
 #sidebar .menu-bar a.active {
   background-color: #29a9ef;
   color: #ffffff;
-  text-decoration: none;
-  font-size: 18px; }
+  text-decoration: none; }
 
 #sidebar .menu-bar a:not(.active):hover {
   background-color: #caeaff;
   color: #444444;
-  text-decoration: none;
-  font-size: 18px; }
+  text-decoration: none; }
 
 #sidebar .end-box a:not(.nav-profile):hover {
   background-color: #ff1c60;
   color: #fff;
-  text-decoration: none;
-  font-size: 18px; }
+  text-decoration: none; }
 
 #sidebar .end-box {
   width: 100%; }
@@ -157,8 +154,7 @@ input {
 #sidebar .nav-profile:hover {
   background-color: #d4d0d1;
   color: #fff;
-  text-decoration: none;
-  font-size: 18px; }
+  text-decoration: none; }
 
 #sidebar .nav-profile img {
   width: 35px; }
