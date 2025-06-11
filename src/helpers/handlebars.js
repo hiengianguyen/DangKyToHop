@@ -1,9 +1,5 @@
 module.exports = {
-  eq: (a, b) => {
-    console.log("a", a);
-    console.log("b", b);
-    return a === b;
-  },
+  eq: (a, b) => a === b,
   convertToVietnameseDateTime: (dateTime) => {
     const updatedAt = new Date(dateTime);
 

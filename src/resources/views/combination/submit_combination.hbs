@@ -63,7 +63,7 @@
                 <button type="button" class="btn btn-primary ms-auto me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive" disabled>
                     Tiếp tục
                 </button>
-                <button type="button" class="btn btn-primary ms-auto me-4" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#exampleModalLive" style="display: none;">
+                <button type="button" class="btn btn-primary ms-auto me-4" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#exampleModalLive" style="display: none;" {{#if (eq role 'manager')}}disabled{{/if}}>
                     Xác nhận
                 </button>
             </div>

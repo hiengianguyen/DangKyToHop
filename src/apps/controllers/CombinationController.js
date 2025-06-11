@@ -114,7 +114,8 @@ class CombinationController {
         doc.registeredAt = convertToVietnameseDateTime(doc.registeredAt.toDate());
       });
       return res.render("combination/submited_list", {
-        submitedList: data
+        submitedList: data,
+        role: req.cookies.role
       });
     } else {
       return res.redirect("/");
@@ -185,7 +186,8 @@ class CombinationController {
         subjects: subjects,
         districts: districts,
         secondarySchools: JSON.stringify(secondarySchools),
-        signin: req.cookies.isLogin
+        signin: req.cookies.isLogin,
+        role: req.cookies.role
       });
     } else {
       return res.redirect("/");
