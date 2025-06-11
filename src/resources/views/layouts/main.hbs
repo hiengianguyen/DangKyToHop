@@ -28,50 +28,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 <body style="font-family: 'Lexend', sans-serif;">
-<div id="header" class="text-uppercase align-items-center" style="display: none;">
-  <div class="home-page-logo">
-    <a class="navbar-brands ps-4 text-white" href="/"><img 
-    alt="Home Page" 
-    src="https://res.cloudinary.com/dwoymvppw/image/upload/t_home_page_logo/v1744130637/home-page-DKTH-removebg-preview_fgnp3d.png" 
-    ></a>
-  </div>
-    
-{{#if (eq signin 'true')}} 
-<!-- Begin: Nav -->
-<div class="nav-bar">
-  <ul id="nav" class="p-0 m-0">
-    <li><a href="/combination/submit-combination">Đăng ký tổ hợp</a></li>
-    <li><a href="/school">Trường học</a></li>
-    <li><a href="/school/contact">Liên hệ</a></li>
-  </ul>
-</div>
-<!-- End: Nav -->
-<div class="nav-profile d-flex me me-4">
-  <li>
-    <a
-      class="nav-link text-white mx-2 d-flex align-items-center"
-      href='/me/profile?role={{role}}'
-    >
-      <img
-        class="rounded-circle me-2"
-        src="{{avatar}}"
-      />
-      <p class="m-0 text-black">{{fullName}}</p>
-    </a>
-  </li>
-  <li class="nav-item d-flex align-items-center ms-2">
-    <a
-      href="/auth/signout"
-      class="btn btn-outline-success my-2 my-sm-0"
-    >Đăng Xuất</a>
-</div>
-<div class="redirect-back-fixed fixed-top">
-  <div class="redirect-back d-flex align-items-center rounded-circle shadow">
-      <i class="fa-solid fa-reply fs-4"></i>
-  </div>
-</div>
-{{/if}}
-</div>
 
 <div id="toast"></div>
 <div class="row" style="height: 100%;padding-left: 15px;">
@@ -102,11 +58,19 @@
                 <p class="m-0"><i class="fa-solid fa-address-book me-3"></i>Liên hệ</p>
             </li>
           </a>
-          <a href="/combination/submited-list">
-            <li class="box my-1" value="Danh sách đăng ký">
-                <p class="m-0"><i class="fa-solid fa-folder me-3"></i>Danh sách đăng ký</p>
-            </li>
-          </a>
+          {{#if (eq role 'student')}}
+            <a href="/combination/submited-detail">
+              <li class="box my-1" value="Hồ sơ đã nộp">
+                  <p class="m-0"><i class="fa-solid fa-file-circle-check me-3"></i>Hồ sơ đã nộp</p>
+              </li>
+            </a>
+          {{else}}
+            <a href="/combination/submited-list">
+              <li class="box my-1" value="Danh sách đăng ký">
+                  <p class="m-0"><i class="fa-solid fa-folder me-3"></i>Danh sách đăng ký</p>
+              </li>
+            </a>
+          {{/if}}
         </ul>
       </div>
       <div class="dash my-3"></div>
@@ -133,16 +97,5 @@
   {{{body}}}
 </div>
 <script src="/redirectBack.js"></script>
-<script>
-  const header = document.getElementById('header');
-
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 0) {
-        header.classList.add('shadow');
-    } else {
-        header.classList.remove('shadow');
-    }
-  });
-</script>
 </body>
 </html>
