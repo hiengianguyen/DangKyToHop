@@ -17,7 +17,7 @@ module.exports = {
 
     return formattedDateTime;
   },
-  includes: (arr, b) => arr.includes(b),
+  includes: (a, b) => a.includes(b),
   returnDes: (obj, b) => {
     console.log(obj, b);
     if (obj.name == b) {

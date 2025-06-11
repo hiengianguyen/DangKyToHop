@@ -16,7 +16,6 @@ const {
   RegisteredCombinationsCollectionName
 } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
-const database = require("../../config/database/index");
 
 class CombinationController {
   constructor() {
@@ -79,18 +78,14 @@ class CombinationController {
           userId,
           new Date() // registeredAt
         );
-        const submitedByUserId = await this.registeredCombinationsDbRef.getItemByFilter(
-          {
-            userId: userId
-          },
-          true
-        );
+        const submitedByUserId = await this.registeredCombinationsDbRef.getItemByFilter({
+          userId: userId
+        });
 
         if (submitedByUserId) {
           await this.registeredCombinationsDbRef.updateItem(submitedByUserId.id, submitedCombinationModel.toFirestore());
           return res.json({
-            message: "Cập nhật thông tin đăng ký vào lớp 10 thành công.",
-            data: data
+            message: "Cập nhật thông tin đăng ký vào lớp 10 thành công."
           });
         } else {
           await this.registeredCombinationsDbRef.addItem(submitedCombinationModel);
@@ -150,6 +145,16 @@ class CombinationController {
       if (req.query.role === undefined) {
         return res.redirect(`/combination/submit-combination?role=${req.cookies.role}`);
       }
+      let docSubmited;
+
+      if (req.query.step) {
+        docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
+          userId: req.cookies.userId
+        });
+        secondarySchool = docSubmited.secondarySchool;
+      }
+
+      const step = Number(req.query.step) || 1;
       const user = await this.userDbRef.getItemById(req.cookies.userId);
 
       const secondarySchools = await this.secondarySchoolDbRef.getAllItems();
@@ -187,7 +192,10 @@ class CombinationController {
         districts: districts,
         secondarySchools: JSON.stringify(secondarySchools),
         signin: req.cookies.isLogin,
-        role: req.cookies.role
+        role: req.cookies.role,
+        step: step,
+        submitedDetail: docSubmited || false,
+        isEdit: docSubmited ? true : false
       });
     } else {
       return res.redirect("/");
