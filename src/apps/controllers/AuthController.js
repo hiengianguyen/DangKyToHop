@@ -1,9 +1,9 @@
 const { FirestoreModel, UserModel } = require("../models");
-const { UsersCollectionName } = require("../../constants");
+const { CollectionNameConstant } = require("../../constants");
 
 class AuthController {
   constructor() {
-    this.userDbRef = new FirestoreModel(UsersCollectionName, UserModel);
+    this.userDbRef = new FirestoreModel(CollectionNameConstant.Users, UserModel);
     this.signIn = this.signIn.bind(this);
     this.signUp = this.signUp.bind(this);
   }

@@ -7,24 +7,17 @@ const {
   UserModel,
   SecondarySchoolModel
 } = require("../models");
-const {
-  SubjectsCollectionName,
-  CombinationsCollectionName,
-  UsersCollectionName,
-  SecondarySchoolsCollectionName,
-  NationsCollectionName,
-  RegisteredCombinationsCollectionName
-} = require("../../constants");
+const { CollectionNameConstant } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
 
 class CombinationController {
   constructor() {
-    this.userDbRef = new FirestoreModel(UsersCollectionName, UserModel);
-    this.subjectDbRef = new FirestoreModel(SubjectsCollectionName, SubjectModel);
-    this.nationDbRef = new FirestoreModel(NationsCollectionName, NationModel);
-    this.secondarySchoolDbRef = new FirestoreModel(SecondarySchoolsCollectionName, SecondarySchoolModel);
-    this.registeredCombinationsDbRef = new FirestoreModel(RegisteredCombinationsCollectionName, RegisteredCombinationModel);
-    this.combinationDbRef = new FirestoreModel(CombinationsCollectionName, CombinationModel);
+    this.userDbRef = new FirestoreModel(CollectionNameConstant.Users, UserModel);
+    this.subjectDbRef = new FirestoreModel(CollectionNameConstant.Subjects, SubjectModel);
+    this.nationDbRef = new FirestoreModel(CollectionNameConstant.Nations, NationModel);
+    this.secondarySchoolDbRef = new FirestoreModel(CollectionNameConstant.SecondarySchools, SecondarySchoolModel);
+    this.registeredCombinationsDbRef = new FirestoreModel(CollectionNameConstant.RegisteredCombinations, RegisteredCombinationModel);
+    this.combinationDbRef = new FirestoreModel(CollectionNameConstant.Combinations, CombinationModel);
     this.submited = this.submited.bind(this);
     this.submitedList = this.submitedList.bind(this);
     this.submitedDetail = this.submitedDetail.bind(this);

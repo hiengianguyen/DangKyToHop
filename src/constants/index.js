@@ -1,21 +1,7 @@
-const UsersCollectionName = "users";
-const HighSchoolsCollectionName = "highSchools";
-const SecondarySchoolsCollectionName = "secondarySchools";
-const CombinationsCollectionName = "combinations";
-const SubmittedCombinationsCollectionName = "submittedCombinations";
-const TrendingCombinationsCollectionName = "trendingCombinations";
-const SubjectsCollectionName = "subjects";
-const NationsCollectionName = "nations";
-const RegisteredCombinationsCollectionName = "registeredCombinations";
+const CloudinaryConstant = require("./cloudinaryConstants");
+const CollectionNameConstant = require("./collectionNameConstants");
 
 module.exports = {
-  UsersCollectionName,
-  HighSchoolsCollectionName,
-  SecondarySchoolsCollectionName,
-  CombinationsCollectionName,
-  SubmittedCombinationsCollectionName,
-  TrendingCombinationsCollectionName,
-  SubjectsCollectionName,
-  NationsCollectionName,
-  RegisteredCombinationsCollectionName
+  CloudinaryConstant,
+  CollectionNameConstant
 };
