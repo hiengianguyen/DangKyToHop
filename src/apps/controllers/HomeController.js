@@ -13,9 +13,7 @@ class HomeController {
     if (req.cookies.isLogin === "true") {
       return res.redirect(`/combination/submit-combination?role=${req.cookies.role}`);
     } else {
-      return res.render("home", {
-        signin: req.cookies.isLogin
-      });
+      return res.render("home");
     }
   }
 }

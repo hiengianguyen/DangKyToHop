@@ -3,6 +3,7 @@ const authRouter = require("./authRoute");
 const meRouter = require("./meRoute");
 const schoolRouter = require("./schoolRoute");
 const combinationRouter = require("./combinationRoute");
+
 function routes(app) {
   app.use("/", homeRouter);
   app.use("/me", meRouter);

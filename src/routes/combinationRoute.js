@@ -1,9 +1,6 @@
 const CombinationController = require("../apps/controllers/CombinationController");
 const express = require("express");
-const multer = require("multer");
-const pathh = require("path");
 // Multer config
-const upload = multer({ dest: pathh.join(__dirname, "../uploads") });
 const router = express.Router();
 
 router.post("/submited", CombinationController.submited);
