@@ -1,4 +1,3 @@
-// collection names
 const UsersCollectionName = "users";
 const HighSchoolsCollectionName = "highSchools";
 const SecondarySchoolsCollectionName = "secondarySchools";

@@ -1,6 +1,5 @@
 const CombinationController = require("../apps/controllers/CombinationController");
 const express = require("express");
-// Multer config
 const router = express.Router();
 
 router.post("/submited", CombinationController.submited);
