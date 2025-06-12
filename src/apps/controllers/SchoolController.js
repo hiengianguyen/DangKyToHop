@@ -1,9 +1,9 @@
 const { FirestoreModel, HighSchoolModel } = require("../models");
-const { HighSchoolsCollectionName } = require("../../constants");
+const { CollectionNameConstant } = require("../../constants");
 
 class SchoolController {
   constructor() {
-    this.highSchoolDbRef = new FirestoreModel(HighSchoolsCollectionName, HighSchoolModel);
+    this.highSchoolDbRef = new FirestoreModel(CollectionNameConstant.HighSchools, HighSchoolModel);
     this.index = this.index.bind(this);
   }
 

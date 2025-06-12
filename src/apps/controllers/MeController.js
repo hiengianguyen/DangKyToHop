@@ -1,10 +1,10 @@
 const { FirestoreModel, UserModel, SecondarySchoolModel } = require("../models");
-const { UsersCollectionName, SecondarySchoolsCollectionName } = require("../../constants");
+const { CollectionNameConstant } = require("../../constants");
 
 class MeController {
   constructor() {
-    this.userDbRef = new FirestoreModel(UsersCollectionName, UserModel);
-    this.secondarySchoolDbRef = new FirestoreModel(SecondarySchoolsCollectionName, SecondarySchoolModel);
+    this.userDbRef = new FirestoreModel(CollectionNameConstant.Users, UserModel);
+    this.secondarySchoolDbRef = new FirestoreModel(CollectionNameConstant.SecondarySchools, SecondarySchoolModel);
     this.index = this.index.bind(this);
     this.edit = this.edit.bind(this);
     this.update = this.update.bind(this);

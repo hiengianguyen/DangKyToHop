@@ -1,15 +1,20 @@
+const CloudinaryConstant = {
+  CloudName: "dwoymvppw",
+  UploadPreset: "my_preset",
+  UploadUrl: "https://api.cloudinary.com/v1_1/{cloudName}/upload"
+};
+
 function uploadImageToCloudinary(file, foder) {
   return new Promise((resolve, reject) => {
     if (file) {
-      const cloudName = "dwoymvppw";
-      const uploadPreset = "my_preset";
+      const uploadUrl = CloudinaryConstant.UploadUrl.replace("{cloudName}", CloudinaryConstant.CloudName);
 
       const formData = new FormData();
       formData.append("file", file);
-      formData.append("upload_preset", uploadPreset);
+      formData.append("upload_preset", CloudinaryConstant.UploadPreset);
       formData.append("folder", foder);
 
-      fetch(`https://api.cloudinary.com/v1_1/${cloudName}/upload`, {
+      fetch(uploadUrl, {
         method: "POST",
         body: formData
       })

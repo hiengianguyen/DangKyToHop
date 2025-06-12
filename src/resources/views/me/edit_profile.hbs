@@ -140,7 +140,7 @@
   const imgProfile = document.getElementById("profile-img");
   const hiddenAvatarInput = document.getElementById("avatar-input");
 
-  inputChooseFileImg.addEventListener("change", (event) => {
+  inputChooseFileImg.addEventListener("change", async(event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
 
@@ -148,7 +148,7 @@
       imgProfile.src = e.target.result;
     };
 
-    uploadImageToCloudinary(file, 'users')
+    await uploadImageToCloudinary(file, 'users')
       .then((imageUrl) => {
         imgProfile.src = imageUrl; 
         hiddenAvatarInput.value = imageUrl;
