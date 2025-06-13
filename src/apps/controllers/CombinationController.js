@@ -102,6 +102,7 @@ class CombinationController {
       Array.from(data).forEach((doc) => {
         doc.registeredAt = convertToVietnameseDateTime(doc.registeredAt.toDate());
       });
+
       return res.render("combination/submited_list", {
         submitedList: data,
         role: req.cookies.role
