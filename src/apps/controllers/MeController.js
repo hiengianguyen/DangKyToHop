@@ -11,14 +11,14 @@ class MeController {
   }
 
   async index(req, res, next) {
-    if (req.cookies.isLogin === "true") {
-      if (req.query.role === "") {
-        return res.redirect(`/me/profile?role=${req.cookies.role}`);
+    if (req?.cookies?.isLogin === "true") {
+      if (req?.query?.role === "") {
+        return res.redirect(`/me/profile?role=${req?.cookies?.role}`);
       }
-      const user = await this.userDbRef.getItemById(req.cookies.userId);
+      const user = await this.userDbRef.getItemById(req?.cookies?.userId);
       return res.render("me/profile", {
         user: user,
-        signin: req.cookies.isLogin
+        signin: req?.cookies?.isLogin
       });
     } else {
       return res.redirect("/");
@@ -26,17 +26,17 @@ class MeController {
   }
 
   async edit(req, res, next) {
-    if (req.cookies.isLogin === "true") {
-      if (req.query.role === "") {
-        return res.redirect(`/me/profile/edit?role=${req.cookies.role}`);
+    if (req?.cookies?.isLogin === "true") {
+      if (req?.query?.role === "") {
+        return res.redirect(`/me/profile/edit?role=${req?.cookies?.role}`);
       }
-      const role = req.query.role;
-      const user = await this.userDbRef.getItemById(req.cookies.userId);
+      const role = req?.query?.role;
+      const user = await this.userDbRef.getItemById(req?.cookies?.userId);
 
       return res.render("me/edit_profile", {
         role: role,
         user: user,
-        signin: req.cookies.isLogin
+        signin: req?.cookies?.isLogin
       });
     } else {
       return res.redirect("/");
@@ -44,15 +44,15 @@ class MeController {
   }
 
   async update(req, res, next) {
-    if (req.cookies.isLogin === "true") {
-      const role = req.query.role;
-      const { fullName, phone, avatar } = req.body;
+    if (req?.cookies?.isLogin === "true") {
+      const role = req?.query?.role;
+      const { fullName, phone, avatar } = req?.body;
       let formData = {
         fullName: fullName,
         phone: phone
       };
 
-      if (req.cookies.role === "manager") {
+      if (req?.cookies?.role === "manager") {
         formData = {
           fullName: fullName,
           phone: phone
@@ -64,7 +64,7 @@ class MeController {
         await res.cookie("avatar", avatar, { maxAge: 604800000, httpOnly: true });
       }
 
-      await this.userDbRef.updateItem(req.cookies.userId, formData);
+      await this.userDbRef.updateItem(req?.cookies?.userId, formData);
       await res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true });
       return res.redirect(`/me/profile?role=${role}`);
     } else {

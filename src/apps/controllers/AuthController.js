@@ -9,7 +9,7 @@ class AuthController {
   }
 
   async signIn(req, res, next) {
-    const { phone, password } = req.body;
+    const { phone, password } = req?.body;
 
     const existedUser = await this.userDbRef.getItemByFilter({
       phone: phone,
@@ -25,14 +25,18 @@ class AuthController {
       res.cookie("avatar", existedUser.avatar, { maxAge: 604800000, httpOnly: true });
       res.cookie("role", existedUser.role, { maxAge: 604800000, httpOnly: true });
 
-      return res.redirect(`/combination/submit-combination?role=${existedUser.role}`);
+      if (existedUser.role === "manager") {
+        return res.redirect("/combination/submited-list");
+      } else {
+        return res.redirect("/combination/submit-combination");
+      }
     } else {
       return res.redirect("/?signinError=incorrect-phone-password");
     }
   }
 
   async signUp(req, res, next) {
-    const { fullName, password, phone } = req.body;
+    const { fullName, password, phone } = req?.body;
     const existedPhone = await this.userDbRef.getItemByFilter({ phone: phone });
 
     if (existedPhone) {
@@ -40,7 +44,7 @@ class AuthController {
     } else {
       const userModel = new UserModel(undefined, fullName, password, phone, undefined, undefined, undefined);
       await this.userDbRef.addItem(userModel);
-      return res.redirect("/");
+      return res.redirect("/?signup=success");
     }
   }
 

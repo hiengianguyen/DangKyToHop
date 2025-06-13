@@ -43,6 +43,7 @@
                 <p class="m-0"><i class="fa-solid fa-house me-3"></i>Trang chủ</p>
             </li>
           </a>
+          {{#if (eq role 'student')}}
           <a href="/combination/submit-combination">
             <li class="box my-1" value="Đăng ký tổ hợp">
                 <p class="m-0"><i class="fa-solid fa-user-pen me-3"></i>Đăng ký tổ hợp</p>
@@ -58,7 +59,6 @@
                 <p class="m-0"><i class="fa-solid fa-address-book me-3"></i>Liên hệ</p>
             </li>
           </a>
-          {{#if (eq role 'student')}}
             <a href="/combination/submited-detail">
               <li class="box my-1" value="Hồ sơ đã nộp">
                   <p class="m-0"><i class="fa-solid fa-file-circle-check me-3"></i>Hồ sơ đã nộp</p>
