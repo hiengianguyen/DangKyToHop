@@ -52,8 +52,6 @@ class FileController {
         phoneNumber: row.phoneNumber
       };
     });
-
-    console.log(rows);
     const buffer = exportExcelFile(rows, keys);
 
     res.setHeader("Content-Disposition", "attachment; filename=DanhSachDangKy.xlsx");

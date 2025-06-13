@@ -103,7 +103,7 @@
 
 <div id="glass"></div>
 
-<div class="modal" id="modal-login" style="display: none;">
+<div class="modal" id="modal-login" style="display: {{#if signupSuccess}}flex{{else}}none{{/if}};">
   <div class="modal-container container mx-auto">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Đăng ký thông tin</h5>
@@ -114,10 +114,10 @@
       <div class="modal-bodyy rounded-bottom">
         <div class="container p-4">
           <div class="tabs">
-              <div class="tab " onclick="switchTab('signin')">Đăng nhập</div>
-              <div class="tab active" onclick="switchTab('signup')">Đăng ký</div>
+              <div class="tab {{#if signupSuccess}}active{{/if}}" onclick="switchTab('signin')">Đăng nhập</div>
+              <div class="tab {{#if signupSuccess}}{{else}}active{{/if}}" onclick="switchTab('signup')">Đăng ký</div>
           </div>
-          <div id="signin" class="form-container">
+          <div id="signin" class="form-container {{#if signupSuccess}}active{{/if}}">
               <form class="form-sign-in" action="/auth/signin" method="POST">
                   <div class="form-group">
                       <label for="signin-phone">Số điện thoại:</label>
@@ -132,7 +132,7 @@
                   <button class="btn btn-primary form" type="submit">Đăng nhập</button>
               </form>
           </div>
-          <div id="signup" class="form-container active">
+          <div id="signup" class="form-container {{#if signupSuccess}}{{else}}active{{/if}}">
             <form class="form-sign-up" action="/auth/signup" method="POST">
               <div class="register-form mb-4">
                 <div class="form-group">
@@ -186,6 +186,11 @@
   const btnCloseModalLogin = document.getElementById('modal-login-close');
   const glass = document.getElementById('glass');
   const body = document.querySelector('body');
+
+  if(modalLogin.style.display === 'flex') {
+    glass.classList.add('active');
+    body.style.overflowY = 'hidden';
+  }
 
   btnShowModalLogin.onclick = () => {
     modalLogin.style.display = 'flex';

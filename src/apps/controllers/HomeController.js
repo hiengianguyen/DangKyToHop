@@ -10,10 +10,20 @@ class HomeController {
   }
 
   async homePage(req, res, next) {
-    if (req.cookies.isLogin === "true") {
-      return res.redirect(`/combination/submit-combination?role=${req.cookies.role}`);
+    if (req?.cookies?.isLogin === "true") {
+      if (req?.cookies?.role === "manager") {
+        return res.redirect("/combination/submited-list");
+      } else {
+        return res.redirect("/combination/submit-combination");
+      }
     } else {
-      return res.render("home");
+      let signupSuccess = false;
+      if (req?.query?.signup) {
+        signupSuccess = true;
+      }
+      return res.render("home", {
+        signupSuccess: signupSuccess
+      });
     }
   }
 }
