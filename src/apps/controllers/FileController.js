@@ -1,10 +1,11 @@
-const { FirestoreModel, RegisteredCombinationModel } = require("../models");
+const { FirestoreModel, RegisteredCombinationModel, UserModel } = require("../models");
 const { CollectionNameConstant } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
 const { exportExcelFile } = require("../../utils/exportFile");
 
 class FileController {
   constructor() {
+    this.userDBRef = new FirestoreModel(CollectionNameConstant.Users, UserModel);
     this.registeredCombinationsDbRef = new FirestoreModel(CollectionNameConstant.RegisteredCombinations, RegisteredCombinationModel);
     this.exportSubmitedListExcel = this.exportSubmitedListExcel.bind(this);
   }
@@ -14,9 +15,20 @@ class FileController {
       fieldName: "registeredAt",
       type: "asc"
     });
-    Array.from(submitedList).forEach((doc) => {
-      doc.registeredAt = convertToVietnameseDateTime(doc.registeredAt.toDate());
-    });
+    submitedList = await Promise.all(
+      submitedList.map(async (doc) => {
+        let phoneNumber;
+        if (doc.userId) {
+          const userSubmited = await this.userDBRef.getItemById(doc.userId);
+          phoneNumber = userSubmited.phone || "";
+        }
+        return {
+          ...doc,
+          registeredAt: convertToVietnameseDateTime(doc.registeredAt.toDate()),
+          phoneNumber: phoneNumber
+        };
+      })
+    );
 
     const keys = [
       "STT",
@@ -28,7 +40,21 @@ class FileController {
       "Ngày đăng ký",
       "SĐT liên hệ"
     ];
-    const buffer = exportExcelFile(submitedList, keys);
+    const rows = submitedList.map((row, index) => {
+      return {
+        index: index + 1,
+        fullName: row.fullName,
+        dateOfBirth: row.dateOfBirth,
+        secondarySchool: row.secondarySchool + ", " + (row.schoolDistrict || ""),
+        combination1: row.combination1,
+        combination2: row.combination2,
+        registeredAt: row.registeredAt,
+        phoneNumber: row.phoneNumber
+      };
+    });
+
+    console.log(rows);
+    const buffer = exportExcelFile(rows, keys);
 
     res.setHeader("Content-Disposition", "attachment; filename=DanhSachDangKy.xlsx");
     res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");

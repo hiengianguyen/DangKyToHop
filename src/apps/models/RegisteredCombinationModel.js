@@ -4,6 +4,7 @@ class RegisteredCombinationModel {
     fullName,
     dateOfBirth,
     secondarySchool,
+    schoolDistrict,
     gender,
     placeOfBirth,
     currentPlace,
@@ -45,6 +46,7 @@ class RegisteredCombinationModel {
     this.fullName = fullName;
     this.dateOfBirth = dateOfBirth;
     this.secondarySchool = secondarySchool;
+    this.schoolDistrict = schoolDistrict;
     this.gender = gender;
     this.placeOfBirth = placeOfBirth;
     this.currentPlace = currentPlace;
@@ -91,6 +93,7 @@ class RegisteredCombinationModel {
       data.fullName,
       data.dateOfBirth,
       data.secondarySchool,
+      data.schoolDistrict,
       data.gender,
       data.placeOfBirth,
       data.currentPlace,
@@ -135,6 +138,7 @@ class RegisteredCombinationModel {
       fullName: this.fullName,
       dateOfBirth: this.dateOfBirth,
       secondarySchool: this.secondarySchool,
+      schoolDistrict: this.schoolDistrict,
       gender: this.gender,
       placeOfBirth: this.placeOfBirth,
       currentPlace: this.currentPlace,

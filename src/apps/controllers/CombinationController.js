@@ -28,6 +28,7 @@ class CombinationController {
   async submited(req, res, next) {
     if (req.cookies.isLogin === "true") {
       const userId = req.cookies.userId;
+      const user = await this.userDbRef.getItemById(userId);
       const data = req.body;
       if (data) {
         const submitedCombinationModel = new RegisteredCombinationModel(
@@ -35,6 +36,7 @@ class CombinationController {
           data.fullName,
           data.dateOfBirth,
           data.secondarySchool,
+          data.schoolDistrict,
           data.gender,
           data.placeOfBirth,
           data.currentPlace,
