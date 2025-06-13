@@ -1,19 +1,6 @@
 const XLSX = require("xlsx");
 
-function exportExcelFile(submitedList, keys) {
-  const rows = submitedList.map((row, index) => {
-    return {
-      index: index + 1,
-      fullName: row.fullName,
-      dateOfBirth: row.dateOfBirth,
-      secondarySchool: row.secondarySchool,
-      combination1: row.combination1,
-      combination2: row.combination2,
-      registeredAt: row.registeredAt,
-      phoneNumber: row.phoneNumber
-    };
-  });
-
+function exportExcelFile(rows, keys) {
   const worksheet = XLSX.utils.json_to_sheet(rows);
   const workbook = XLSX.utils.book_new();
 

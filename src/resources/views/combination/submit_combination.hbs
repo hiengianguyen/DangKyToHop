@@ -778,6 +778,7 @@
                             </td>
                         </tbody>
                     </table>
+                    <input value="{{submitedDetail.schoolDistrict}}" type="text" class="input-get-data-district" name="schoolDistrict" style="display:none;">
                 </form>
             </div>
         </div>
@@ -822,16 +823,16 @@
         <div class="container">
             <div class="form-group">
                 <label for="inputName"><b>Địa bàn trên tỉnh Quảng Nam:</b></label>
-                <select class="form-select form-select-district" name="districtId" aria-label="Default select example" required>
+                <select class="form-select form-select-district" name="schoolDistrict" aria-label="Default select example">
                     <option selected value="">-- Bạn ở đâu trên địa bàn tỉnh Quảng Nam --</option>
                     {{#each districts}}
-                        <option value="{{this.districtId}}">{{this.districtName}}</option>
+                        <option value="{{this.districtName}}">{{this.districtName}}</option>
                     {{/each}}
                 </select>
             </div>
             <div class="form-group">
                 <label for="inputName"><b>Trường học cấp 2:</b></label>
-                <select class="form-select form-select-school" name="secondarySchoolName" aria-label="Default select example" required disabled>
+                <select class="form-select form-select-school" name="secondarySchoolName" aria-label="Default select example" disabled>
                     <option selected value="">-- Trường học cấp 2 của bạn là --</option>
                 </select>
             </div>
@@ -1049,11 +1050,10 @@
 
 
                 allTagPage2HaveAttName.shift();
-
                 allTagPage2HaveAttName.sort((a, b) => (a.name > b.name ? 1 : -1));
                 allTagAddDatasPage4.sort((a, b) => (a.name > b.name ? 1 : -1));
                 allTagPage4HaveAttName.sort((a, b) => (a.getAttribute('name') > b.getAttribute('name') ? 1 : -1));
-                
+
                 allTagPage2HaveAttName.forEach((tag, index) => {
                     tag.onchange = () => {
                         allTagPage4HaveAttName[index].textContent = allTagAddDatasPage4[index].value = tag.value;
@@ -1080,11 +1080,15 @@
                     const inputGetDataShool = document.querySelector('div.box-submit-4 input.input-get-data-shool');
                     const selectDistrict = document.querySelector(".form-select-district");
                     const selectSchool = document.querySelector(".form-select-school");
+                    const inputDistrict = document.querySelector('div.box-submit-4 input.input-get-data-district');
+
+                    console.log(selectDistrict, selectSchool)
 
                     allTagForCheck.push(inputChooseAvatar);
                     if(!{{{isEdit}}}) {
                         allTagForCheck.push(selectSchool);
                     }
+                    
                     btnShowModalSchool.onclick = () => showModalChooseSchool();
                     btnReShowModalSchool.onclick = () => showModalChooseSchool();
                     nextBtnPage2.onclick = () => {
@@ -1106,14 +1110,15 @@
                             checkPageReturnScript(currentPage);
                         }
                     }
-                    
+
                     selectDistrict.onchange = (e) => {
                         selectSchool.disabled = false;
+                        inputDistrict.value = selectDistrict.value;
                         selectSchool.innerHTML = "";
-                        const districtId = e.target.value;
+                        const districtName = e.target.value;
                         const data = {{{secondarySchools}}};
                         const result = data.filter((doc) => {
-                            return doc.districtId === districtId;
+                            return doc.districtName === districtName;
                         })[0];
                         if(result) {
                             selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
