@@ -34,6 +34,7 @@
     "multer": "^2.0.0",
     "node-sass": "^9.0.0",
     "prettier": "^3.5.3",
+    "puppeteer": "^24.10.1",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

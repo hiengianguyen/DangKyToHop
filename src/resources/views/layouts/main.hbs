@@ -28,73 +28,75 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 <body style="font-family: 'Lexend', sans-serif;">
-
-<div id="toast"></div>
-<div class="row" style="height: 100%;padding-left: 15px;">
-  <div id="sidebar" class="col-sm-2 .col-md-3">
-    <div class="sidebar-content">
-      <div class="home mb-2">
-        <img src="https://res.cloudinary.com/dwoymvppw/image/upload/t_home_page_logo/v1744130637/home-page-DKTH-removebg-preview_fgnp3d.png" alt="homepage">
-      </div>
-      <div class="menu-bar">
-        <ul class="boxs d-flex align-items-start flex-column p-0">
-          <a href="/">
-            <li class="box my-1" value="Trang chủ">
-                <p class="m-0"><i class="fa-solid fa-house me-3"></i>Trang chủ</p>
-            </li>
-          </a>
-          {{#if (eq role 'student')}}
-          <a href="/combination/submit-combination">
-            <li class="box my-1" value="Đăng ký tổ hợp">
-                <p class="m-0"><i class="fa-solid fa-user-pen me-3"></i>Đăng ký tổ hợp</p>
-            </li>
-          </a>
-          <a href="/school">
-            <li class="box my-1" value="Trường học">
-                <p class="m-0"><i class="fa-solid fa-school me-3"></i>Trường học</p>
-            </li>
-          </a>
-          <a href="/school/contact">
-            <li class="box my-1" value="Liên hệ">
-                <p class="m-0"><i class="fa-solid fa-address-book me-3"></i>Liên hệ</p>
-            </li>
-          </a>
-            <a href="/combination/submited-detail">
-              <li class="box my-1" value="Hồ sơ đã nộp">
-                  <p class="m-0"><i class="fa-solid fa-file-circle-check me-3"></i>Hồ sơ đã nộp</p>
+  <div id="toast"></div>
+  <div class="row" style="height: 100%;padding-left: 15px;">
+    {{#if isExportPDF}}
+    {{else}}
+    <div id="sidebar" class="col-sm-2 .col-md-3">
+      <div class="sidebar-content">
+        <div class="home mb-2">
+          <img src="https://res.cloudinary.com/dwoymvppw/image/upload/t_home_page_logo/v1744130637/home-page-DKTH-removebg-preview_fgnp3d.png" alt="homepage">
+        </div>
+        <div class="menu-bar">
+          <ul class="boxs d-flex align-items-start flex-column p-0">
+            <a href="/">
+              <li class="box my-1" value="Trang chủ">
+                  <p class="m-0"><i class="fa-solid fa-house me-3"></i>Trang chủ</p>
               </li>
             </a>
-          {{else}}
-            <a href="/combination/submited-list">
-              <li class="box my-1" value="Danh sách đăng ký">
-                  <p class="m-0"><i class="fa-solid fa-folder me-3"></i>Danh sách đăng ký</p>
+            {{#if (eq role 'student')}}
+            <a href="/combination/submit-combination">
+              <li class="box my-1" value="Đăng ký tổ hợp">
+                  <p class="m-0"><i class="fa-solid fa-user-pen me-3"></i>Đăng ký tổ hợp</p>
               </li>
             </a>
-          {{/if}}
-        </ul>
-      </div>
-      <div class="dash my-3"></div>
-      <div class="end-box">
-        <a
-          class="nav-profile"
-          href='/me/profile?role={{role}}'
-        >
-          <li class="box" value="profile"></li>
-          <img
-            class="rounded-circle me-2"
-            src="{{avatar}}"
-          />
-          <p class="m-0 text-black">{{fullName}}</p>
-        </a>
-        <a href="/auth/signout">
-          <li class="box my-1 mt-2">
-              <p class="m-0"><i class="fa fa-power-off me-3" aria-hidden="true"></i>Đăng xuất</p>
-          </li>
-        </a>
+            <a href="/school">
+              <li class="box my-1" value="Trường học">
+                  <p class="m-0"><i class="fa-solid fa-school me-3"></i>Trường học</p>
+              </li>
+            </a>
+            <a href="/school/contact">
+              <li class="box my-1" value="Liên hệ">
+                  <p class="m-0"><i class="fa-solid fa-address-book me-3"></i>Liên hệ</p>
+              </li>
+            </a>
+              <a href="/combination/submited-detail">
+                <li class="box my-1" value="Hồ sơ đã nộp">
+                    <p class="m-0"><i class="fa-solid fa-file-circle-check me-3"></i>Hồ sơ đã nộp</p>
+                </li>
+              </a>
+            {{else}}
+              <a href="/combination/submited-list">
+                <li class="box my-1" value="Danh sách đăng ký">
+                    <p class="m-0"><i class="fa-solid fa-folder me-3"></i>Danh sách đăng ký</p>
+                </li>
+              </a>
+            {{/if}}
+          </ul>
+        </div>
+        <div class="dash my-3"></div>
+        <div class="end-box">
+          <a
+            class="nav-profile"
+            href='/me/profile?role={{role}}'
+          >
+            <li class="box" value="profile"></li>
+            <img
+              class="rounded-circle me-2"
+              src="{{avatar}}"
+            />
+            <p class="m-0 text-black">{{fullName}}</p>
+          </a>
+          <a href="/auth/signout">
+            <li class="box my-1 mt-2">
+                <p class="m-0"><i class="fa fa-power-off me-3" aria-hidden="true"></i>Đăng xuất</p>
+            </li>
+          </a>
+        </div>
       </div>
     </div>
+    {{/if}}
+    {{{body}}}
   </div>
-  {{{body}}}
-</div>
 </body>
 </html>
