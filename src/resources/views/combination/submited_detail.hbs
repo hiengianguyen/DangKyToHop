@@ -5,16 +5,18 @@
 </head>
 
 <div id="master" class="col .col-md-9 p-0">
-    <div class="school-info d-flex">
-        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
-        
-        <div class="banner-container">
-            <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
-            <div class="school-info-detail fs-5">
-                <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
+    {{#if isExportPDF}}
+    {{else}}
+        <div class="school-info d-flex">
+            <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+            <div class="banner-container">
+                <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+                <div class="school-info-detail fs-5">
+                    <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
+                </div>
             </div>
         </div>
-    </div>
+    {{/if}}
 
     <div class="card-body" style="display: none;">
         {{#if submitedCombinationDetail}}
@@ -220,15 +222,18 @@
                         </td>
                     </tbody>
                 </table>
-                <div class="d-flex justify-content-center gap-3 mt-4">
-                    {{#if (eq role 'student')}}
-                        <a href="/combination/submit-combination?role={{role}}&step=2" class="btn btn-secondary">Chỉnh sửa thông tin</a>
-                        <button type="button" id="btn-modal-delete" class="btn btn-danger">Xoá hồ sơ này</button>
-                        <a href="#" class="btn btn-info">Xuất file PDF</a>
-                    {{else}}
-                        <a href="#" class="btn btn-info">Xuất file PDF</a>
-                    {{/if}}
-                </div>
+                {{#if isExportPDF}}
+                {{else}}
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        {{#if (eq role 'student')}}
+                            <a href="/combination/submit-combination?role={{role}}&step=2" class="btn btn-secondary">Chỉnh sửa thông tin</a>
+                            <button type="button" id="btn-modal-delete" class="btn btn-danger">Xoá hồ sơ này</button>
+                            <a href="/file/pdf/submited" target="_blank" class="btn btn-info">Xuất file PDF</a>
+                        {{else}}
+                            <a href="/file/pdf/submited" target="_blank" class="btn btn-info">Xuất file PDF</a>
+                        {{/if}}
+                    </div>
+                {{/if}}
             </div>
         {{else}}
             <div class="container" style="margin-top: -50px;">
