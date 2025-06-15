@@ -18,11 +18,16 @@ class HomeController {
       }
     } else {
       let signupSuccess = false;
+      let messageError;
       if (req?.query?.signup) {
+        signupSuccess = true;
+      } else if (req?.query?.signinError === "incorrect-phone-password") {
+        messageError = "Số điện thoại hoặc mật khẩu sai";
         signupSuccess = true;
       }
       return res.render("home", {
-        signupSuccess: signupSuccess
+        signupSuccess: signupSuccess,
+        messageError: messageError
       });
     }
   }
