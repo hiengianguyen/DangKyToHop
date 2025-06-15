@@ -19,7 +19,8 @@ class SchoolController {
       return res.render("school/school_detail", {
         highSchool: highSchool,
         signin: req?.cookies?.isLogin,
-        userId: req?.cookies?.userId
+        userId: req?.cookies?.userId,
+        role: req?.query?.role
       });
     } else {
       return res.redirect("/");
@@ -33,7 +34,8 @@ class SchoolController {
       }
       return res.render("school/contact", {
         signin: req?.cookies?.isLogin,
-        userId: req?.cookies?.userId
+        userId: req?.cookies?.userId,
+        role: req?.query?.role
       });
     } else {
       return res.redirect("/");
