@@ -65,16 +65,10 @@ class FileController {
 
   async exportSubmitedPDF(req, res, next) {
     // 1. Lấy dữ liệu cho file PDF
-    let data;
-    if (req?.params?.id) {
-      const submitedCombinationId = req?.params?.id;
-      data = await this.registeredCombinationsDbRef.getItemById(submitedCombinationId);
-    } else {
-      const userId = req?.cookies?.userId;
-      data = await this.registeredCombinationsDbRef.getItemByFilter({
-        userId: userId
-      });
-    }
+    const userId = req?.params?.userId ?? req?.cookies?.userId;
+    const data = await this.registeredCombinationsDbRef.getItemByFilter({
+      userId: userId
+    });
 
     // 2. Render HTML từ Handlebars
     const html = await new Promise((resolve, reject) => {
