@@ -18,7 +18,8 @@ class MeController {
       const user = await this.userDbRef.getItemById(req?.cookies?.userId);
       return res.render("me/profile", {
         user: user,
-        signin: req?.cookies?.isLogin
+        signin: req?.cookies?.isLogin,
+        role: req?.cookies?.role
       });
     } else {
       return res.redirect("/");

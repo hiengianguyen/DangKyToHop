@@ -28,7 +28,6 @@ class CombinationController {
   async submited(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
       const userId = req?.cookies?.userId;
-      const user = await this.userDbRef.getItemById(userId);
       const data = req?.body;
       if (data) {
         const submitedCombinationModel = new RegisteredCombinationModel(
@@ -116,22 +115,16 @@ class CombinationController {
 
   async submitedDetail(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      if (req?.params?.id) {
-        const submitedCombinationId = req?.params?.id;
-        const data = await this.registeredCombinationsDbRef.getItemById(submitedCombinationId);
-        return res.render("combination/submited_detail", {
-          submitedCombinationDetail: data
-        });
-      } else {
-        const userId = req?.cookies?.userId;
-        const data = await this.registeredCombinationsDbRef.getItemByFilter({
-          userId: userId
-        });
-        return res.render("combination/submited_detail", {
-          submitedCombinationDetail: data,
-          role: req?.cookies?.role
-        });
-      }
+      const userId = req?.params?.userId ?? req?.cookies?.userId;
+      const data = await this.registeredCombinationsDbRef.getItemByFilter({
+        userId: userId
+      });
+
+      return res.render("combination/submited_detail", {
+        submitedCombinationDetail: data,
+        role: req?.cookies?.role,
+        userId: req?.cookies?.userId
+      });
     } else {
       return res.redirect("/");
     }
@@ -192,7 +185,8 @@ class CombinationController {
         role: req?.cookies?.role,
         step: step,
         submitedDetail: docSubmited || false,
-        isEdit: docSubmited ? true : false
+        isEdit: docSubmited ? true : false,
+        userId: req?.cookies?.userId
       });
     } else {
       return res.redirect("/");

@@ -3,6 +3,6 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/excel/submited-list", FileController.exportSubmitedListExcel);
-router.get("/pdf/submited", FileController.exportSubmitedPDF);
+router.get("/pdf/submited/:id", FileController.exportSubmitedPDF);
 
 module.exports = router;
