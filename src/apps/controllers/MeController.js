@@ -19,7 +19,8 @@ class MeController {
       return res.render("me/profile", {
         user: user,
         signin: req?.cookies?.isLogin,
-        role: req?.cookies?.role
+        role: req?.cookies?.role,
+        userId: req?.cookies?.userId
       });
     } else {
       return res.redirect("/");
@@ -37,7 +38,8 @@ class MeController {
       return res.render("me/edit_profile", {
         role: role,
         user: user,
-        signin: req?.cookies?.isLogin
+        signin: req?.cookies?.isLogin,
+        userId: req?.cookies?.userId
       });
     } else {
       return res.redirect("/");

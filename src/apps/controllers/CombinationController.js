@@ -141,7 +141,6 @@ class CombinationController {
         docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
           userId: req?.cookies?.userId
         });
-        secondarySchool = docSubmited.secondarySchool;
       }
 
       const step = Number(req?.query?.step) || 1;

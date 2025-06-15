@@ -103,7 +103,7 @@
 
 <div id="glass"></div>
 
-<div class="modal" id="modal-login" style="display: {{#if signupSuccess}}flex{{else}}none{{/if}};">
+<div class="modal" id="modal-login" style="display: {{#if signupSuccess}}flex{{else}}{{#if messageError}}flex{{else}}none{{/if}}{{/if}};">
   <div class="modal-container container mx-auto">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Đăng ký thông tin</h5>
@@ -114,20 +114,20 @@
       <div class="modal-bodyy rounded-bottom">
         <div class="container p-4">
           <div class="tabs">
-              <div class="tab {{#if signupSuccess}}active{{/if}}" onclick="switchTab('signin')">Đăng nhập</div>
+              <div class="tab {{#if signupSuccess}}active{{else}}{{/if}}" onclick="switchTab('signin')">Đăng nhập</div>
               <div class="tab {{#if signupSuccess}}{{else}}active{{/if}}" onclick="switchTab('signup')">Đăng ký</div>
           </div>
-          <div id="signin" class="form-container {{#if signupSuccess}}active{{/if}}">
+          <div id="signin" class="form-container {{#if signupSuccess}}active{{else}}{{/if}}">
               <form class="form-sign-in" action="/auth/signin" method="POST">
                   <div class="form-group">
                       <label for="signin-phone">Số điện thoại:</label>
-                      <input type="text" id="signin-phone" name="phone" class="login__input" rules="required|number|length:10" placeholder="Số điện thoại">
+                      <input type="text" id="signin-phone" name="phone" class="login__input" rules="required|number|length:10" placeholder="Số điện thoại" {{#if messageError}}style="border: 1px solid red;"{{else}}{{/if}}>
                       <span class="form-message"></span>
                   </div>
                   <div class="form-group my-3 form-group-password mb-4">
                       <label for="signin-password">Mật khẩu:</label>
-                      <input type="password" id="signin-password" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu">
-                      <span class="form-message">{{signinError}}</span>
+                      <input type="password" id="signin-password" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu" {{#if messageError}}style="border: 1px solid red;"{{else}}{{/if}}>
+                      <span class="form-message" {{#if messageError}}style="color: red;"{{/if}}>{{messageError}}</span>
                   </div>
                   <button class="btn btn-primary form" type="submit">Đăng nhập</button>
               </form>
