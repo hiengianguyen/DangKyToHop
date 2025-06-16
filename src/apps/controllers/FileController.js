@@ -1,10 +1,10 @@
 const { FirestoreModel, RegisteredCombinationModel, UserModel } = require("../models");
 const { CollectionNameConstant } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
+const { generateJWT } = require("../../utils/generateJWT");
 const { exportExcelFile } = require("../../utils/exportFile");
-const puppeteer = require("puppeteer");
-const fs = require("fs");
-const path = require("path");
+const http = require("https");
+require("dotenv").config();
 
 class FileController {
   constructor() {
@@ -64,46 +64,55 @@ class FileController {
   }
 
   async exportSubmitedPDF(req, res, next) {
-    // 1. Lấy dữ liệu cho file PDF
     const userId = req?.params?.userId ?? req?.cookies?.userId;
     const data = await this.registeredCombinationsDbRef.getItemByFilter({
       userId: userId
     });
 
-    // 2. Render HTML từ Handlebars
-    const html = await new Promise((resolve, reject) => {
-      req.app.render(
-        "combination/submited_detail",
-        {
-          submitedCombinationDetail: data,
-          isExportPDF: true
-        },
-        (err, html) => {
-          if (err) return reject(err);
-          resolve(html);
+    const options = {
+      method: "POST",
+      hostname: "us1.pdfgeneratorapi.com",
+      port: null,
+      path: "/api/v4/documents/generate",
+      headers: {
+        Authorization: `Bearer ${generateJWT(process.env.GENERATOR_PDF_API_KEY, process.env.GENERATOR_PDF_API_SECRET, process.env.EMAIL)}`,
+        "Content-Type": "application/json"
+      }
+    };
+
+    let PDFUrl;
+    const require = http.request(options, function (response) {
+      const chunks = [];
+
+      response.on("data", function (chunk) {
+        chunks.push(chunk);
+      });
+
+      response.on("end", function () {
+        const body = Buffer.concat(chunks);
+        PDFUrl = JSON.parse(body.toString()).response;
+
+        if (!PDFUrl) {
+          return res.status(500).send("Không tạo được file PDF.");
         }
-      );
+
+        return res.redirect(PDFUrl);
+      });
     });
 
-    // 3. Dùng Puppeteer để xuất PDF
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.setContent(html, { waitUntil: ["load", "domcontentloaded", "networkidle0"] });
+    require.write(
+      JSON.stringify({
+        template: {
+          id: process.env.GENERATOR_PDF_TEMPLATE_ID,
+          data: data
+        },
+        format: "pdf",
+        output: "url",
+        name: data.fullName
+      })
+    );
 
-    const pdfBuffer = await page.pdf({ format: "A4", printBackground: true });
-    fs.writeFileSync("HoSoChiTiet.pdf", pdfBuffer);
-
-    await browser.close();
-
-    // 4. Gửi file về trình duyệt
-    res.set({
-      "Content-Disposition": "inline; filename=HoSoChiTiet.pdf",
-      "Content-Type": "application/pdf",
-      "Content-Length": pdfBuffer.length
-    });
-
-    //return res.send(pdfBuffer);
-    return res.sendFile(path.resolve("HoSoChiTiet.pdf"));
+    require.end();
   }
 }
 

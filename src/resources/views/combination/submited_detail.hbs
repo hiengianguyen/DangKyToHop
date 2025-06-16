@@ -228,9 +228,9 @@
                         {{#if (eq role 'student')}}
                             <a href="/combination/submit-combination?role={{role}}&step=2" class="btn btn-secondary">Chỉnh sửa thông tin</a>
                             <button type="button" id="btn-modal-delete" class="btn btn-danger">Xoá hồ sơ này</button>
-                            <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info">Xuất file PDF</a>
+                            <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info" target="_blank">Xuất file PDF</a>
                         {{else}}
-                            <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info">Xuất file PDF</a>
+                            <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info" target="_blank">Xuất file PDF</a>
                         {{/if}}
                     </div>
                 {{/if}}
