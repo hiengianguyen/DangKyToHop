@@ -80,12 +80,14 @@ class CombinationController {
         if (submitedByUserId) {
           await this.registeredCombinationsDbRef.updateItem(submitedByUserId.id, submitedCombinationModel.toFirestore());
           return res.json({
-            message: "Cập nhật thông tin đăng ký vào lớp 10 thành công."
+            message: "Cập nhật thông tin đăng ký vào lớp 10 thành công.",
+            userId: userId
           });
         } else {
           await this.registeredCombinationsDbRef.addItem(submitedCombinationModel);
           return res.json({
-            message: "Gửi thông tin đăng ký vào lớp 10 thành công."
+            message: "Gửi thông tin đăng ký vào lớp 10 thành công.",
+            userId: userId
           });
         }
       }
