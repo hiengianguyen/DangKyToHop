@@ -1,5 +1,6 @@
 module.exports = {
   eq: (a, b) => a === b,
+  not: (a) => !a,
   convertToVietnameseDateTime: (dateTime) => {
     const updatedAt = new Date(dateTime);
     const vietnameseDateTime = updatedAt.toLocaleString("vi-VN", {

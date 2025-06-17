@@ -31,75 +31,119 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 <body style="font-family: 'Lexend', sans-serif;">
-  <div id="toast"></div>
-  <div class="row" style="height: 100%;padding-left: 15px;">
-    {{#if isExportPDF}}
-    {{else}}
-    <div id="sidebar" class="col-sm-2 .col-md-3">
-      <div class="sidebar-content">
-        <div class="home mb-2">
-          <img src="https://res.cloudinary.com/dwoymvppw/image/upload/t_home_page_logo/v1744130637/home-page-DKTH-removebg-preview_fgnp3d.png" alt="homepage">
-        </div>
-        <div class="menu-bar">
-          <ul class="boxs d-flex align-items-start flex-column p-0">
-            <a href="/">
-              <li class="box my-1" value="Trang chủ">
-                  <p class="m-0"><i class="fa-solid fa-house me-3"></i>Trang chủ</p>
-              </li>
-            </a>
-            {{#if (eq role 'student')}}
-            <a href="/combination/submit-combination">
-              <li class="box my-1" value="Đăng ký tổ hợp">
-                  <p class="m-0"><i class="fa-solid fa-user-pen me-3"></i>Đăng ký tổ hợp</p>
-              </li>
-            </a>
-            <a href="/school">
-              <li class="box my-1" value="Trường học">
-                  <p class="m-0"><i class="fa-solid fa-school me-3"></i>Trường học</p>
-              </li>
-            </a>
-            <a href="/school/contact">
-              <li class="box my-1" value="Liên hệ">
-                  <p class="m-0"><i class="fa-solid fa-address-book me-3"></i>Liên hệ</p>
-              </li>
-            </a>
-              <a href="/combination/submited-detail/{{userId}}">
-                <li class="box my-1" value="Hồ sơ đã nộp">
-                    <p class="m-0"><i class="fa-solid fa-file-circle-check me-3"></i>Hồ sơ đã nộp</p>
+  {{#if (not isHomePage)}}
+    <div id="toast"></div>
+    <div class="row" style="height:100%; margin-left: 0px;">
+      {{#if isExportPDF}}
+      {{else}}
+      <div id="sidebar" class="shadow">
+        <div class="sidebar-content">
+          <div class="home mb-2">
+            <div class="d-flex align-items-center">
+              <div class="me-2">
+                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1750136232/logo_web_alpmal.png" alt="homepage">
+              </div>
+              <div class="tittle-sidebar">
+                <span class="name fw-bolder">
+                  Đăng ký tổ hợp
+                </span>
+                <span class="des fw-medium">
+                  Lựa chọn tổ hợp vàng
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="dash my-3"></div>
+          <div class="menu-bar">
+            <ul class="boxs d-flex align-items-start flex-column p-0">
+              <a href="/" class="p-0">
+                <li class="box mb-1" value="Trang chủ">
+                    <i class="fa-solid fa-house"></i>
+                    <p class="text m-0">Trang chủ</p>
                 </li>
               </a>
-            {{else}}
-              <a href="/combination/submited-list">
-                <li class="box my-1" value="Danh sách đăng ký">
-                    <p class="m-0"><i class="fa-solid fa-folder me-3"></i>Danh sách đăng ký</p>
+              {{#if (eq role 'student')}}
+              <a href="/combination/submit-combination" class="p-0">
+                <li class="box my-1" value="Đăng ký tổ hợp">
+                    <i class="fa-solid fa-user-pen"></i>
+                    <p class="text m-0"></i>Đăng ký tổ hợp</p>
                 </li>
               </a>
-            {{/if}}
-          </ul>
-        </div>
-        <div class="dash my-3"></div>
-        <div class="end-box">
-          <a
-            class="nav-profile"
-            href='/me/profile?role={{role}}'
-          >
-            <li class="box" value="profile"></li>
-            <img
-              class="rounded-circle me-2"
-              src="{{avatar}}"
-            />
-            <p class="m-0 text-black">{{fullName}}</p>
-          </a>
-          <a href="/auth/signout">
-            <li class="box my-1 mt-2">
-                <p class="m-0"><i class="fa fa-power-off me-3" aria-hidden="true"></i>Đăng xuất</p>
-            </li>
-          </a>
+              <a href="/school" class="p-0">
+                <li class="box my-1" value="Trường học">
+                    <i class="fa-solid fa-school"></i>
+                    <p class="text m-0">Trường học</p>
+                </li>
+              </a>
+              <a href="/school/contact" class="p-0">
+                <li class="box my-1" value="Liên hệ">
+                    <i class="fa-solid fa-address-book"></i>
+                    <p class="text m-0">Liên hệ</p>
+                </li>
+              </a>
+                <a href="/combination/submited-detail/{{userId}}" class="p-0">
+                  <li class="box my-1" value="Hồ sơ đã nộp">
+                      <i class="fa-solid fa-file-circle-check"></i>
+                      <p class="text m-0">Hồ sơ đã nộp</p>
+                  </li>
+                </a>
+              {{else}}
+                <a href="/combination/submited-list" class="p-0">
+                  <li class="box my-1" value="Danh sách đăng ký">
+                      <i class="fa-solid fa-folder"></i>
+                      <p class="text m-0">Danh sách đăng ký</p>
+                  </li>
+                </a>
+              {{/if}}
+            </ul>
+          </div>
+          <div class="dash my-3"></div>
+          <div class="end-box">
+            <a
+              class="nav-profile p-0"
+              href='/me/profile?role={{role}}'
+            >
+              <li class="box avatar" value="profile">
+              <img
+                class="rounded-circle"
+                src="{{avatar}}"
+              />
+              <p class="m-0 text text-black">{{fullName}}</p></li>
+            </a>
+            <a href="/auth/signout" class="p-0">
+              <li class="box my-1 mt-2">
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                  <p class="text m-0">Đăng xuất</p>
+              </li>
+            </a>
+          </div>
+          <div class="dash my-3"></div>
+          <div class="show-sidebar">
+            <div id="btn-push-sidebar" class="p-0">
+              <li class="box mb-1" value="Trang chủ">
+                  <p class="text m-0">Thu nhỏ điều hướng</p>
+                  <i class="fa-solid fa-arrow-left"></i>
+              </li>
+            </div>
+          </div>
         </div>
       </div>
+      {{/if}}
+  {{/if}}
+      {{{body}}}
     </div>
-    {{/if}}
-    {{{body}}}
-  </div>
 </body>
 </html>
+
+{{#if (not isHomePage)}}
+  <script>
+    const sideBar = document.getElementById('sidebar');
+    const btnPushSidebar = document.getElementById('btn-push-sidebar');
+    const iconBtnSidebar = btnPushSidebar.getElementsByTagName('i')[0];
+    btnPushSidebar.onclick = (e) => {
+      iconBtnSidebar.className = "fa-solid fa-arrow-right" === iconBtnSidebar.className ? "fa-solid fa-arrow-left" : "fa-solid fa-arrow-right";
+      sideBar.classList.toggle('active');
+      e.preventdefault();
+    }
+  </script>
+{{/if}}
