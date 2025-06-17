@@ -52,7 +52,7 @@ input {
   background-color: #ffffff;
   z-index: 3;
   transition: all 0.3s ease;
-  box-shadow: 0 -5px 1rem #bfbfbf;
+  box-shadow: 0 -5px 1rem #afafaf;
 }
 
 #sidebar.active {
@@ -188,6 +188,10 @@ input {
   margin-left: 5px;
 }
 
+#sidebar .box.redirect {
+  margin-left: 4px;
+}
+
 #sidebar.active .box {
   margin-left: 0;
 }
@@ -226,7 +230,7 @@ input {
 }
 
 #sidebar .show-sidebar i {
-  margin-left: 16px;
+  margin-left: 6px;
 }
 
 #sidebar.active .show-sidebar i {
