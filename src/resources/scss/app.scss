@@ -16,98 +16,6 @@
   margin-top: 75px;
 }
 
-// COMMON
-
-.d-flex.me img {
-  width: 2.4pc;
-  height: 2.4pc;
-}
-
-#header {
-  display: flex;
-  align-items: stretch;
-  position: fixed;
-  background-color: #fff;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.navbar-brands img {
-  width: 45%;
-}
-
-.navbar-brands img:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-
-.nav-bar {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-#nav {
-  display: inline-block;
-}
-
-#nav li {
-  display: inline-block;
-  position: relative;
-}
-
-#nav > li > a {
-  color: #677381;
-  padding: 0 24px;
-}
-
-#nav li:hover .sudnav {
-  display: block;
-  border-radius: 10px;
-}
-
-#nav li a {
-  color: rgb(121, 121, 121);
-  line-height: 64px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-#nav .nav-arrow-down {
-  font-size: 12px;
-}
-
-#nav .sudnav {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
-#nav > li:hover > a {
-  color: #29a9ef;
-}
-
-#nav .sudnav li:hover {
-  color: #000;
-  background-color: #ccc;
-}
-
-#nav .sudnav li a {
-  color: #000;
-}
-
-#nav .sudnav li {
-  color: #fff;
-  padding: 0 24px;
-  text-decoration: none;
-  line-height: 46px;
-  display: block;
-}
-
 input {
   width: 100%;
   padding: 10px;
@@ -129,6 +37,10 @@ input {
   align-items: center;
 }
 
+.box.active p {
+  opacity: 0;
+}
+
 .shadow {
   transition: box-shadow 0.3s ease;
 }
@@ -137,18 +49,50 @@ input {
   width: 280px;
   padding: 16px;
   background-color: #ffffff;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+#sidebar.active {
+  width: 80px;
+}
+
+#sidebar .home {
+  position: relative;
 }
 
 #sidebar .home img {
-  width: 100%;
+  width: 50px;
 }
 
-#sidebar .sidebar-content {
-  position: fixed;
-  width: 18pc;
+#sidebar .home .fa-solid {
+  position: absolute;
+  right: -30px;
+  top: 4pc;
+  color: #ffffff;
+  background-color: #29a9ef;
+  padding: 9px;
+  border-radius: 50%;
+  z-index: 10000;
+}
+
+.home .fa-solid:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#sidebar .home .tittle-sidebar {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+}
+
+#sidebar.active .home .tittle-sidebar {
+  opacity: 0;
 }
 
 #sidebar a {
+  padding: 0;
   width: 100%;
   padding-left: 18px;
   color: #444444;
@@ -161,10 +105,27 @@ input {
   margin-top: 10px;
 }
 
+#sidebar.active a {
+  justify-content: center;
+}
+
+#sidebar.active a i {
+  margin: 0;
+}
+
+#sidebar a i {
+  margin-right: 16px;
+}
+
 #sidebar .menu-bar a.active {
   background-color: #29a9ef;
   color: #ffffff;
   text-decoration: none;
+}
+
+#sidebar .end-box a,
+#sidebar .menu-bar a {
+  transition: all 0.4s ease;
 }
 
 #sidebar .menu-bar a:not(.active):hover {
@@ -183,6 +144,18 @@ input {
   width: 100%;
 }
 
+#sidebar.active .end-box i {
+  margin: 0;
+}
+
+#sidebar .end-box img {
+  margin-right: 8px;
+}
+
+#sidebar.active .end-box img {
+  margin-right: 0;
+}
+
 #sidebar .nav-profile.active,
 #sidebar .nav-profile:hover {
   background-color: #d4d0d1;
@@ -198,4 +171,62 @@ input {
   width: 100%;
   height: 1px;
   background-color: #ccc;
+}
+
+#sidebar .box {
+  display: flex;
+  align-items: center;
+}
+
+#sidebar .box:not(.avatar) {
+  margin-left: 16px;
+}
+
+#sidebar .box.avatar {
+  margin-left: 5px;
+}
+
+#sidebar.active .box {
+  margin-left: 0;
+}
+
+#sidebar .home .tittle-sidebar,
+#sidebar .box .text {
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+#sidebar.active .box .text {
+  display: none;
+}
+
+#sidebar.active .box i {
+  margin-right: 0;
+}
+
+#sidebar .show-sidebar #btn-push-sidebar {
+  background-color: #6c757d;
+  color: #ffffff;
+  padding: 0;
+  width: 100%;
+  padding-left: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  height: 50px;
+  list-style: none;
+  margin-top: 10px;
+}
+
+#sidebar .show-sidebar #btn-push-sidebar:hover {
+  cursor: pointer;
+}
+
+#sidebar .show-sidebar i {
+  margin-left: 16px;
+}
+
+#sidebar.active .show-sidebar i {
+  margin-left: 0;
 }

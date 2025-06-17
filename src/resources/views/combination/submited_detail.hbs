@@ -284,10 +284,10 @@
 
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
     litSidebars.pop();
+    litSidebars.pop();
 
     let pageForStudent = true;
-    const href = window.location.href;
-    if(href.split('submited-detail')[1]) {
+    if(litSidebars[litSidebars.length - 1].textContent === 'Hồ sơ đã nộp') {
         pageForStudent = false;
     }
 

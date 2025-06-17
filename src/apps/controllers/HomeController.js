@@ -27,7 +27,8 @@ class HomeController {
       }
       return res.render("home", {
         signupSuccess: signupSuccess,
-        messageError: messageError
+        messageError: messageError,
+        isHomePage: true
       });
     }
   }
