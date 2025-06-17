@@ -46,11 +46,13 @@ input {
 }
 
 #sidebar {
+  position: absolute;
   width: 280px;
   padding: 16px;
   background-color: #ffffff;
-  z-index: 1;
+  z-index: 3;
   transition: all 0.3s ease;
+  box-shadow: 0 -5px 1rem #bfbfbf;
 }
 
 #sidebar.active {
@@ -229,4 +231,19 @@ input {
 
 #sidebar.active .show-sidebar i {
   margin-left: 0;
+}
+
+#dark-glass {
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 0.4s ease;
+}
+
+#dark-glass.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.445);
+  z-index: 2;
 }

@@ -33,10 +33,9 @@
 <body style="font-family: 'Lexend', sans-serif;">
   {{#if (not isHomePage)}}
     <div id="toast"></div>
-    <div class="row" style="height:100%; margin-left: 0px;">
       {{#if isExportPDF}}
       {{else}}
-      <div id="sidebar" class="shadow">
+      <div id="sidebar" class="shadow" style="height: 100%;">
         <div class="sidebar-content">
           <div class="home mb-2">
             <div class="d-flex align-items-center">
@@ -128,22 +127,24 @@
           </div>
         </div>
       </div>
+      <div id="dark-glass" class="active"></div>
       {{/if}}
   {{/if}}
       {{{body}}}
-    </div>
 </body>
 </html>
 
 {{#if (not isHomePage)}}
   <script>
-    const sideBar = document.getElementById('sidebar');
+    const mainSideBar = document.getElementById('sidebar');
     const btnPushSidebar = document.getElementById('btn-push-sidebar');
+    const darkGlass = document.getElementById('dark-glass');
     const iconBtnSidebar = btnPushSidebar.getElementsByTagName('i')[0];
-    btnPushSidebar.onclick = (e) => {
+
+    btnPushSidebar.onclick = darkGlass.onclick = () => {
       iconBtnSidebar.className = "fa-solid fa-arrow-right" === iconBtnSidebar.className ? "fa-solid fa-arrow-left" : "fa-solid fa-arrow-right";
-      sideBar.classList.toggle('active');
-      e.preventdefault();
+      mainSideBar.classList.toggle('active');
+      darkGlass.classList.toggle('active');
     }
   </script>
 {{/if}}

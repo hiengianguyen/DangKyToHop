@@ -105,27 +105,30 @@
 </div>
 
 <script>
-  window.addEventListener('load', function () {
-    document.getElementById('loading-full').style.display = 'none';
-    document.querySelector('.content').style.display = 'block';
-  });
+    var sideBar = document.getElementById('sidebar');
+    const master = document.getElementById('master');
+    window.addEventListener('load', function () {
+        document.getElementById('loading-full').style.display = 'none';
+        document.querySelector('.content').style.display = 'block';
+        sideBar.style.height = master.clientHeight;
+    });
 
-  const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
-  litSidebars.pop();
+    const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
+    litSidebars.pop();
 
-  litSidebars.forEach((li) => {
-    if(li.getAttribute('value') === 'Liên hệ') {
-        li.parentElement.classList.add('active');
-    } else {
-        li.parentElement.classList.remove('active');
-    }
-    li.parentElement.onclick = () => {
-      li.parentElement.classList.add('active')
-      litSidebars.forEach((liCheckClassActive) => {
-        if(liCheckClassActive !== li) {
-          liCheckClassActive.parentElement.classList.remove('active');
+    litSidebars.forEach((li) => {
+        if(li.getAttribute('value') === 'Liên hệ') {
+            li.parentElement.classList.add('active');
+        } else {
+            li.parentElement.classList.remove('active');
         }
-      })
-    }
-  })
+        li.parentElement.onclick = () => {
+        li.parentElement.classList.add('active')
+        litSidebars.forEach((liCheckClassActive) => {
+            if(liCheckClassActive !== li) {
+            liCheckClassActive.parentElement.classList.remove('active');
+            }
+        })
+        }
+    })
 </script>
