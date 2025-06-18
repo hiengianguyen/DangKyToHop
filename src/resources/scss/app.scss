@@ -46,7 +46,6 @@ input {
 }
 
 #sidebar {
-  position: absolute;
   width: 280px;
   padding: 16px;
   background-color: #ffffff;
@@ -237,17 +236,14 @@ input {
   margin-left: 0;
 }
 
-#dark-glass {
-  background-color: rgba(0, 0, 0, 0);
-  transition: all 0.4s ease;
+#side-bar-glass {
 }
 
-#dark-glass.active {
+#side-bar-glass.active {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.445);
   z-index: 2;
 }
