@@ -907,7 +907,7 @@
         const content = document.querySelector('.content');
         document.getElementById('loading-full').style.display = 'none';
         content.style.display = 'block';
-        sideBar.style.height = master.clientHeight;
+        sideBar.parentElement.style.height = master.clientHeight;
     });
 </script>
 

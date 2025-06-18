@@ -87,7 +87,7 @@
     window.addEventListener('load', function () {
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body').style.display = 'block';
-        sideBar.style.height = master.clientHeight;
+        sideBar.parentElement.style.height = master.clientHeight;
     });
 
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
