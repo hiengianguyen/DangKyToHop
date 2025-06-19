@@ -129,7 +129,6 @@
               </div>
             </div>
           </div>
-          <div id="side-bar-glass" class="active"></div>
         {{/if}}
       {{/if}}
         {{{body}}}
@@ -142,22 +141,25 @@
     var sideBar = document.getElementById('sidebar');
     const mainSideBar = document.getElementById('sidebar');
     const btnPushSidebar = document.getElementById('btn-push-sidebar');
-    const sideBarGlass = document.getElementById('side-bar-glass');
     const iconBtnSidebar = btnPushSidebar.getElementsByTagName('i')[0];
+    
+     window.addEventListener('load', function () {
+      if(sideBar.className === 'active') {
+        btnPushSidebar.title = 'Phóng to bảng điều hướng';
+        iconBtnSidebar.className = 'fa-solid fa-arrow-right';
+      }
+     })
 
     if(localStorage.getItem('isActive') === 'true') {
       sideBar.classList.add('active');
-      sideBarGlass.classList.remove('active');
     } else {
       sideBar.classList.remove('active');
-      sideBarGlass.classList.add('active');
     }
 
     // sidebar(.active) ==> The sidebar is miniature.
-    btnPushSidebar.onclick = sideBarGlass.onclick = () => {
+    btnPushSidebar.onclick = () => {
       iconBtnSidebar.className = "fa-solid fa-arrow-right" === iconBtnSidebar.className ? "fa-solid fa-arrow-left" : "fa-solid fa-arrow-right";
       mainSideBar.classList.toggle('active');
-      sideBarGlass.classList.toggle('active');
 
       if(mainSideBar.className === 'active') {
         localStorage.setItem('isActive', true);

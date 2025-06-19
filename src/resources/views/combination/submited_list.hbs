@@ -17,56 +17,56 @@
         </div>
     </div>
     <div class="card-body" style="display: none;">
-        <div class="d-flex justify-content-between me-3">
-            <h3 class="text-center">Danh Sách Đã Đăng Ký</h3>
-            <a href="/file/excel/submited-list" class="btn btn-info justify-content-end">Xuất file Excel</a>
-        </div>
         <div class="container-submited-list">
-            <div class="row">
-            {{#each submitedList}}
-                <div class="card mb-3 m-2" style="width: 340px;">
-                    <div class="row g-0" style="position: relative;">
-                        <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
-                            <img src="{{this.avatarLink}}" class="img-fluid rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 7px;">
-                            <a href="submited-detail/{{this.userId}}" class="btn btn-primary mt-2" style="width: 107px; margin-left: 7px;">Xem thông tin</a>
-                        </div>
-                        <div class="col-md-8 ps-0">
-                            <div class="card-body pe-0">
-                                <h5 class="card-title">{{this.fullName}}</h5>
-                                <div class="d-flex justify-content-between" style="font-size: 12px;">
-                                    <div class="d-flex align-items-start flex-column">
-                                        <p class="pe-1 m-0" style="width: max-content;"><b>Giới tính:</b></p>
-                                        <p class="m-0 pe-0" >{{this.gender}}</p>
+            <div class="d-flex justify-content-between me-3">
+                <h3 class="text-center m-0">Danh Sách Đã Đăng Ký</h3>
+                <a href="/file/excel/submited-list" class="btn btn-info justify-content-end">Xuất file Excel</a>
+            </div>
+            <div class="row p-0">
+                {{#each submitedList}}
+                    <div class="card mb-3 m-2" style="width: 17.8pc;font-size: 12px;height: 14pc;">
+                        <div class="row g-0" style="position: relative;">
+                            <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
+                                <img src="{{this.avatarLink}}" class="img-fluid rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 7px;">
+                                <a href="submited-detail/{{this.userId}}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 7px;">Xem thông tin</a>
+                            </div>
+                            <div class="col-md-8 ps-0">
+                                <div class="card-body pe-0">
+                                    <h5 class="card-title">{{this.fullName}}</h5>
+                                    <div class="d-flex justify-content-between" style="font-size: 10px;">
+                                        <div class="d-flex align-items-start flex-column">
+                                            <p class="pe-1 m-0" style="width: max-content;"><b>Giới tính:</b></p>
+                                            <p class="m-0 pe-0" >{{this.gender}}</p>
+                                        </div>
+                                        <div class="d-flex align-items-start flex-column mx-2">
+                                            <p class="m-0" style="width: max-content;"><b>Ngày sinh:</b></p>
+                                            <p class="m-0">{{this.dateOfBirth}}</p>
+                                        </div>
+                                        <div class="d-flex align-items-start flex-column">
+                                            <p class="m-0" style="width: max-content;"><b>Dân tộc:</b></p>
+                                            <p class="m-0">{{this.nation}}</p>
+                                        </div>
                                     </div>
-                                    <div class="d-flex align-items-start flex-column mx-2">
-                                        <p class="m-0" style="width: max-content;"><b>Ngày sinh:</b></p>
-                                        <p class="m-0">{{this.dateOfBirth}}</p>
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column">
-                                        <p class="m-0" style="width: max-content;"><b>Dân tộc:</b></p>
-                                        <p class="m-0">{{this.nation}}</p>
-                                    </div>
-                                </div>
 
-                                <div class="d-flex align-items-start flex-column">
-                                    <p class="pe-1 m-0"><b>Nguyện vọng 1:</b></p>
-                                    <p class="m-0 pe-0" >{{this.combination1}}</p>
-                                </div>
+                                    <div class="d-flex align-items-start flex-column">
+                                        <p class="pe-1 m-0"><b>Nguyện vọng 1:</b></p>
+                                        <p class="m-0 pe-0" >{{this.combination1}}</p>
+                                    </div>
 
-                                <div class="d-flex align-items-start flex-column">
-                                    <p class="pe-1 m-0"><b>Nguyện vọng 2:</b></p>
-                                    <p class="m-0 pe-0" >{{this.combination2}}</p>
-                                </div>
-                                
-                                <div class="d-flex align-items-start flex-column">
-                                    <p class="card-text mb-0"><small class="text-body-secondary">Đăng ký lúc:</small></p>
-                                    <p class="card-text"><small class="text-body-secondary"><b>{{this.registeredAt}}</b></small></p>
+                                    <div class="d-flex align-items-start flex-column">
+                                        <p class="pe-1 m-0"><b>Nguyện vọng 2:</b></p>
+                                        <p class="m-0 pe-0" >{{this.combination2}}</p>
+                                    </div>
+                                    
+                                    <div class="d-flex align-items-start flex-column">
+                                        <p class="card-text mb-0"><small class="text-body-secondary">Đăng ký lúc:</small></p>
+                                        <p class="card-text"><small class="text-body-secondary"><b>{{this.registeredAt}}</b></small></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            {{/each}}
+                {{/each}}
             </div>
         </div>
     </div>
