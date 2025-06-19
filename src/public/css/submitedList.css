@@ -5,3 +5,43 @@
   height: 26px;
   width: 1px;
   background-color: #ccc; }
+
+.sort-box #sort-title {
+  background-color: #8dfff5;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+
+.sort-box .list-sort {
+  list-style: none; }
+
+.sort-box .list-sort > li:not(.active) {
+  padding: 10px;
+  background-color: aliceblue;
+  opacity: 1;
+  transition: all 0.5s ease; }
+
+.sort-box .list-sort li.active,
+.sort-box .list-sort li.active ul {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease; }
+
+.sort-box .list-sort li:hover:not(.sub-li-type) {
+  background-color: #e3e7ea;
+  cursor: pointer; }
+
+.sub-li-type ul {
+  list-style: none; }
+
+#sort-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s ease; }
+
+#sort-content.active {
+  opacity: 1;
+  max-height: 100%;
+  transition: all 0.5s ease; }

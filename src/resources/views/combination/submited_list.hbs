@@ -22,7 +22,7 @@
                 <h3 class="text-center m-0">Danh Sách Đã Đăng Ký</h3>
                 <a href="/file/excel/submited-list" class="btn btn-info justify-content-end">Xuất file Excel</a>
             </div>
-            <div class="row p-0">
+            <div class="mx-4">
                 <div class="filter-box my-3">
                     <div class="d-flex align-items-center border border-black" style="width:30pc;">
                         <i class="fa-solid fa-magnifying-glass mx-2"></i>
@@ -161,50 +161,93 @@
                         </div>
                     </div>
                 </div>
-                {{#each submitedList}}
-                    <div class="card mb-3 m-2" style="width: 17.8pc;font-size: 12px;height: 14pc;">
-                        <div class="row g-0" style="position: relative;">
-                            <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
-                                <img src="{{this.avatarLink}}" class="img-fluid rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 7px;">
-                                <a href="submited-detail/{{this.userId}}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 7px;">Xem thông tin</a>
-                            </div>
-                            <div class="col-md-8 ps-0">
-                                <div class="card-body pe-0">
-                                    <h5 class="card-title">{{this.fullName}}</h5>
-                                    <div class="d-flex justify-content-between" style="font-size: 10px;">
-                                        <div class="d-flex align-items-start flex-column">
-                                            <p class="pe-1 m-0" style="width: max-content;"><b>Giới tính:</b></p>
-                                            <p class="m-0 pe-0" >{{this.gender}}</p>
+               <div class="d-flex">
+                    <div class="row" style="width: 100%;justify-content: center;">
+                        <div class="col-9 row" style="margin-left: 10px;">
+                            {{#each submitedList}}
+                                <div class="card mb-3 m-2" style="width: 17.8pc;font-size: 12px;height: 14pc;">
+                                    <div class="row g-0" style="position: relative;">
+                                        <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
+                                            <img src="{{this.avatarLink}}" class="img-fluid rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 5px;">
+                                            <a href="submited-detail/{{this.userId}}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 7px;">Xem thông tin</a>
                                         </div>
-                                        <div class="d-flex align-items-start flex-column mx-2">
-                                            <p class="m-0" style="width: max-content;"><b>Ngày sinh:</b></p>
-                                            <p class="m-0">{{this.dateOfBirth}}</p>
-                                        </div>
-                                        <div class="d-flex align-items-start flex-column">
-                                            <p class="m-0" style="width: max-content;"><b>Dân tộc:</b></p>
-                                            <p class="m-0">{{this.nation}}</p>
-                                        </div>
-                                    </div>
+                                        <div class="col-md-8 ps-0">
+                                            <div class="card-body pe-0">
+                                                <h5 class="card-title">{{this.fullName}}</h5>
+                                                <div class="d-flex justify-content-between" style="font-size: 10px;">
+                                                    <div class="d-flex align-items-start flex-column">
+                                                        <p class="pe-1 m-0" style="width: max-content;"><b>Giới tính:</b></p>
+                                                        <p class="m-0 pe-0" >{{this.gender}}</p>
+                                                    </div>
+                                                    <div class="d-flex align-items-start flex-column mx-2">
+                                                        <p class="m-0" style="width: max-content;"><b>Ngày sinh:</b></p>
+                                                        <p class="m-0">{{this.dateOfBirth}}</p>
+                                                    </div>
+                                                    <div class="d-flex align-items-start flex-column">
+                                                        <p class="m-0" style="width: max-content;"><b>Dân tộc:</b></p>
+                                                        <p class="m-0">{{this.nation}}</p>
+                                                    </div>
+                                                </div>
 
-                                    <div class="d-flex align-items-start flex-column">
-                                        <p class="pe-1 m-0"><b>Nguyện vọng 1:</b></p>
-                                        <p class="m-0 pe-0" >{{this.combination1}}</p>
-                                    </div>
+                                                <div class="d-flex align-items-start flex-column">
+                                                    <p class="pe-1 m-0"><b>Nguyện vọng 1:</b></p>
+                                                    <p class="m-0 pe-0" >{{this.combination1}}</p>
+                                                </div>
 
-                                    <div class="d-flex align-items-start flex-column">
-                                        <p class="pe-1 m-0"><b>Nguyện vọng 2:</b></p>
-                                        <p class="m-0 pe-0" >{{this.combination2}}</p>
+                                                <div class="d-flex align-items-start flex-column">
+                                                    <p class="pe-1 m-0"><b>Nguyện vọng 2:</b></p>
+                                                    <p class="m-0 pe-0" >{{this.combination2}}</p>
+                                                </div>
+                                                
+                                                <div class="d-flex align-items-start flex-column">
+                                                    <p class="card-text mb-0"><small class="text-body-secondary">Đăng ký lúc:</small></p>
+                                                    <p class="card-text"><small class="text-body-secondary"><b>{{this.registeredAt}}</b></small></p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    
-                                    <div class="d-flex align-items-start flex-column">
-                                        <p class="card-text mb-0"><small class="text-body-secondary">Đăng ký lúc:</small></p>
-                                        <p class="card-text"><small class="text-body-secondary"><b>{{this.registeredAt}}</b></small></p>
-                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                        <div class="col-2">
+                            <div class="sort-box">
+                                <div id="sort-title">
+                                    <p class="m-0">
+                                        Sắp xếp theo <i class="fa-solid fa-chevron-down" id="sort-icon-title" style="font-size: 13px;"></i>
+                                    </p>
+                                </div>
+                                <div id="sort-content">
+                                    <ul class="list-sort p-0">
+                                        <li class="ps-4">Họ và tên 
+                                        </li>
+                                        <li class="active sub-li-type">
+                                            <ul>
+                                                <li class="p-2 type-sort">Tăng dần <i class="ms-2 fa-solid fa-check"></i></li>
+                                                <li class="p-2 type-sort">Giảm dần <i></i></li>
+                                            </ul>
+                                        </li>
+                                        <li class="ps-4">Ngày đăng ký 
+                                        </li>
+                                        <li class="active sub-li-type">
+                                            <ul>
+                                                <li class="p-2 type-sort">Tăng dần <i></i></li>
+                                                <li class="p-2 type-sort">Giảm dần <i></i></li>
+                                            </ul>
+                                        </li>
+                                        <li class="ps-4" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào
+                                        </li>
+                                        <li class="active sub-li-type">
+                                            <ul>
+                                                <li class="p-2 type-sort">Tăng dần <i></i></li>
+                                                <li class="p-2 type-sort">Giảm dần <i></i></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                {{/each}}
+               </div>
             </div>
         </div>
     </div>
@@ -246,4 +289,28 @@
         })
         }
     })
+
+    const sortTitle = document.getElementById('sort-title');
+    const sortContent = document.getElementById('sort-content');
+    const iconSortTitle = document.getElementById('sort-icon-title');
+    const tagLisSort = sortContent.querySelectorAll('li:not(.type-sort)');
+    const typeSortI = Array.from(sortContent.querySelectorAll('.type-sort i'));
+
+    Array.from(tagLisSort).forEach((li, index) => {
+        li.onclick = () => {
+            if (Array.from(tagLisSort)[index + 1]?.className.includes('sub-li-type')) {
+                Array.from(tagLisSort)[index + 1].classList.toggle('active');
+            }
+        }
+    })
+
+    sortTitle.onclick = () => {
+        sortContent.classList.toggle('active');
+        if(sortContent.className.includes('active')) {
+            iconSortTitle.className = "fa-solid fa-chevron-up";
+        } else {
+            iconSortTitle.className = "fa-solid fa-chevron-down";
+        }
+    }
+
 </script>
