@@ -23,11 +23,12 @@
                 <a href="/file/excel/submited-list" class="btn btn-info justify-content-end">Xuất file Excel</a>
             </div>
             <div class="mx-4">
-                <div class="filter-box my-3">
+                <div class="filter-box d-flex align-items-center my-3">
                     <div class="d-flex align-items-center border border-black" style="width:30pc;">
                         <i class="fa-solid fa-magnifying-glass mx-2"></i>
-                        <input class="ps-0" type="text" name="fullName" style="border: none;outline:none;" placeholder="Tìm kiếm theo tên...">
+                        <input class="ps-0" type="text" name="fullName" style="border: none;outline:none;" placeholder="Tìm kiếm theo họ và tên...">
                     </div>
+                    <button type="button" class="btn btn-primary ms-3">Tìm kiếm</button>
                 </div>
                 <div class="d-flex align-items-center mb-3">
                     <p class="mb-0 me-3"><b>Giới tính :</b></p>
@@ -218,28 +219,28 @@
                                 </div>
                                 <div id="sort-content">
                                     <ul class="list-sort p-0">
-                                        <li class="ps-4">Họ và tên 
+                                        <li class="ps-4 sub-li-type title">Họ và tên <i class="ms-2 title fa-solid fa-arrow-down-short-wide" style="font-size: 20px;"></i>
                                         </li>
-                                        <li class="active sub-li-type">
+                                        <li class="active sub-li-type type">
                                             <ul>
-                                                <li class="p-2 type-sort">Tăng dần <i class="ms-2 fa-solid fa-check"></i></li>
-                                                <li class="p-2 type-sort">Giảm dần <i></i></li>
+                                                <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-2 fa-solid fa-check"></i></li>
+                                                <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-2 fa-solid"></i></li>
                                             </ul>
                                         </li>
-                                        <li class="ps-4">Ngày đăng ký 
+                                        <li class="ps-4 title sub-li-type">Ngày đăng ký <i style="font-size: 20px;"></i>
                                         </li>
-                                        <li class="active sub-li-type">
+                                        <li class="active sub-li-type type">
                                             <ul>
-                                                <li class="p-2 type-sort">Tăng dần <i></i></li>
-                                                <li class="p-2 type-sort">Giảm dần <i></i></li>
+                                                <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-2 fa-solid"></i></li>
+                                                <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-2 fa-solid"></i></li>
                                             </ul>
                                         </li>
-                                        <li class="ps-4" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào
+                                        <li class="ps-4 title sub-li-type" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào <i style="font-size: 20px;"></i>
                                         </li>
-                                        <li class="active sub-li-type">
+                                        <li class="active sub-li-type type">
                                             <ul>
-                                                <li class="p-2 type-sort">Tăng dần <i></i></li>
-                                                <li class="p-2 type-sort">Giảm dần <i></i></li>
+                                                <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-2 fa-solid"></i></li>
+                                                <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-2 fa-solid"></i></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -294,13 +295,42 @@
     const sortContent = document.getElementById('sort-content');
     const iconSortTitle = document.getElementById('sort-icon-title');
     const tagLisSort = sortContent.querySelectorAll('li:not(.type-sort)');
-    const typeSortI = Array.from(sortContent.querySelectorAll('.type-sort i'));
+    const typeSortI = sortContent.querySelectorAll('.type-sort i');
 
     Array.from(tagLisSort).forEach((li, index) => {
+        if(index%2 === 0 && li.querySelector('i').className) {
+            Array.from(tagLisSort)[index + 1].classList.remove('active');
+        }
         li.onclick = () => {
-            if (Array.from(tagLisSort)[index + 1]?.className.includes('sub-li-type')) {
+            if (Array.from(tagLisSort)[index + 1]?.className.includes(' type')) {
                 Array.from(tagLisSort)[index + 1].classList.toggle('active');
             }
+        }
+    })
+
+    Array.from(typeSortI).forEach((i, index) => {
+        i.parentElement.onclick = () => {
+            const valueTypeSort = i.parentElement.dataset.value;
+            i.classList.add('fa-check')
+            Array.from(typeSortI).forEach((iSub) => {
+                if(iSub !== i) {
+                    iSub.className = 'ms-2 fa-solid';
+                }
+            });
+  
+            const activeLi = getParentLi(i, 'sub-li-type');
+            const parentLi = activeLi.previousElementSibling;
+            const icon = valueTypeSort === 'asc' ? "ms-2 title fa-solid fa-arrow-down-short-wide" : "ms-2 title fa-solid fa-arrow-down-wide-short";
+            parentLi.querySelector('i').className = icon
+
+            Array.from(tagLisSort).forEach((liP) => {
+                if(liP !== parentLi && liP.className.includes('title')) {
+                   liP.querySelector('i').className = '';
+                }
+                if(liP.className.includes(' type') && liP !== activeLi) {
+                    liP.classList.add('active')
+                }
+            })
         }
     })
 
@@ -311,6 +341,15 @@
         } else {
             iconSortTitle.className = "fa-solid fa-chevron-down";
         }
+    }
+
+    function getParentLi(element, className) {
+       while(element.parentElement) {
+        if (element.parentElement.className.includes(className)) {
+          return element.parentElement
+        }
+        element = element.parentElement;
+       }
     }
 
 </script>
