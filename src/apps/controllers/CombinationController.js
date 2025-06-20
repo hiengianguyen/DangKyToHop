@@ -108,6 +108,7 @@ class CombinationController {
 
       return res.render("combination/submited_list", {
         submitedList: data,
+        submitedListData: JSON.stringify(data),
         role: req?.cookies?.role
       });
     } else {
