@@ -23,7 +23,23 @@
   padding: 10px;
   background-color: aliceblue;
   opacity: 1;
+  transition: all 0.8s ease;
+}
+
+.list-sort .title i {
+  opacity: 0;
   transition: all 0.5s ease;
+}
+
+.list-sort .title i.ms-2 {
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.type-sort:hover,
+.sort-box .list-sort > li.title:hover {
+  background-color: #e3e7ea;
+  cursor: pointer;
 }
 
 .sort-box .list-sort li.active,
@@ -34,12 +50,7 @@
   transition: all 0.5s ease;
 }
 
-.sort-box .list-sort li:hover:not(.sub-li-type) {
-  background-color: #e3e7ea;
-  cursor: pointer;
-}
-
-.sub-li-type ul {
+.sub-li-type:not(.title) ul {
   list-style: none;
 }
 
