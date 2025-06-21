@@ -11,6 +11,7 @@ class FileController {
     this.userDBRef = new FirestoreModel(CollectionNameConstant.Users, UserModel);
     this.registeredCombinationsDbRef = new FirestoreModel(CollectionNameConstant.RegisteredCombinations, RegisteredCombinationModel);
     this.exportSubmitedListExcel = this.exportSubmitedListExcel.bind(this);
+    this.exportSubmitedListFilterExcel = this.exportSubmitedListFilterExcel.bind(this);
     this.exportSubmitedPDF = this.exportSubmitedPDF.bind(this);
   }
 
@@ -19,6 +20,54 @@ class FileController {
       fieldName: "registeredAt",
       type: "asc"
     });
+    submitedList = await Promise.all(
+      submitedList.map(async (doc) => {
+        let phoneNumber;
+        if (doc.userId) {
+          const userSubmited = await this.userDBRef.getItemById(doc.userId);
+          phoneNumber = userSubmited.phone || "";
+        }
+        return {
+          ...doc,
+          registeredAt: convertToVietnameseDateTime(doc.registeredAt.toDate()),
+          phoneNumber: phoneNumber
+        };
+      })
+    );
+
+    const keys = [
+      "STT",
+      "Họ tên học sinh",
+      "Ngày tháng năm sinh",
+      "Trường cấp 2",
+      "Nguyện vọng 1",
+      "Nguyện vọng 2",
+      "Ngày đăng ký",
+      "SĐT liên hệ"
+    ];
+    const rows = submitedList.map((row, index) => {
+      return {
+        index: index + 1,
+        fullName: row.fullName,
+        dateOfBirth: row.dateOfBirth,
+        secondarySchool: row.secondarySchool + ", " + (row.schoolDistrict || ""),
+        combination1: row.combination1,
+        combination2: row.combination2,
+        registeredAt: row.registeredAt,
+        phoneNumber: row.phoneNumber
+      };
+    });
+    const buffer = exportExcelFile(rows, keys);
+
+    res.setHeader("Content-Disposition", "attachment; filename=DanhSachDangKy.xlsx");
+    res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+    return res.send(buffer);
+  }
+
+  async exportSubmitedListFilterExcel(req, res, next) {
+    const idSubmitteds = JSON.parse(req?.body?.idSubmitteds);
+    let submitedList = await Promise.all(idSubmitteds.map(async (id) => await this.registeredCombinationsDbRef.getItemById(id)));
+
     submitedList = await Promise.all(
       submitedList.map(async (doc) => {
         let phoneNumber;

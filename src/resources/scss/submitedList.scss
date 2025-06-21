@@ -72,3 +72,21 @@
 
   text-align: center;
 }
+
+.dropdown-menu.show {
+  position: absolute;
+  top: -2px;
+  left: -90px;
+  margin: 0px;
+  transform: translate3d(-108px, 0px, 0px);
+}
+
+.dropdown-menu li {
+  text-align: center;
+  padding: 10px;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li:hover {
+  background-color: #ccc;
+}
