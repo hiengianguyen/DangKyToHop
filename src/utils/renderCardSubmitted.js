@@ -3,7 +3,7 @@ function renderCardSubmitted(parentElement, data) {
   parentElement.innerHTML = data
     .map((doc) => {
       return `
-            <div class="card mb-3 m-2" style="width: 17.8pc;font-size: 12px;height: 14pc;">
+            <div class="card mb-3 m-2" value="${doc.id}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
                 <div class="row g-0" style="position: relative;">
                     <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
                         <img src="${doc.avatarLink}" class="img-fluid rounded-end border border-dark-subtle" alt="${doc.fullName}" style="margin-left: 5px;">

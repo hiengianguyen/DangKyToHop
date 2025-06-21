@@ -20,7 +20,15 @@
         <div class="container-submited-list">
             <div class="d-flex justify-content-between me-3">
                 <h3 class="text-center m-0">Danh Sách Đã Đăng Ký</h3>
-                <a href="/file/excel/submited-list" class="btn btn-info justify-content-end">Xuất file Excel</a>
+                <div class="btn-group dropstart">
+                    <button type="button" class="btn btn-info dropdown-toggle" id="btn-export-excel" data-bs-toggle="dropdown" aria-expanded="false">
+                        Xuất file Excel
+                    </button>
+                    <ul id="dropdown-menu" class="dropdown-menu p-0">
+                        <li class="all-doc"><a href="/file/excel/submited-list" class="dropdown-item">Tất cả các hồ sơ</a></li>
+                        <li class="filter">Các hồ sơ đã được lọc</li>
+                    </ul>
+                </div>
             </div>
             <div class="filter-box d-flex align-items-center my-3">
                 <div class="d-flex align-items-center border border-black" style="width:30pc;">
@@ -164,7 +172,7 @@
             <div class="row" style="width: 100%;">
                 <div id="container-submitted" class="col-11 row" style="margin-left: 10px;padding: 0;max-width: 85%;">
                     {{#each submitedList}}
-                        <div class="card mb-3 m-2" style="width: 17.8pc;font-size: 12px;height: 14pc;">
+                        <div class="card mb-3 m-2" value="{{this.id}}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
                             <div class="row g-0" style="position: relative;">
                                 <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
                                     <img src="{{this.avatarLink}}" class="img-fluid rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 5px;">
@@ -258,6 +266,10 @@
         </div>
     </div>
 </div>
+
+<form action="/file/excel/filter-submited-list" method="post" id="form-export-excel-filter" style="display: none;">
+    <input type="hidden" name="idSubmitteds" id="input-hid-idSubmitteds">
+</form>
 
 
 <script src="https://unpkg.com/jsrmvi/dist/jsrmvi.min.js"></script>
@@ -382,6 +394,24 @@
         }
         element = element.parentElement;
        }
+    }
+
+    const btnExportExcel = document.getElementById('btn-export-excel');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    const btnExportFilter = dropdownMenu.querySelector('li.filter');
+    const formExportFilterExcel = document.getElementById('form-export-excel-filter');
+    const inputGetAllIdSubmitted = document.getElementById('input-hid-idSubmitteds');
+
+    btnExportFilter.onclick = () => {
+        const idSubmitteds = Array.from(containerSubmitted.querySelectorAll('.card')).map((card) => card.getAttribute('value'));
+        inputGetAllIdSubmitted.value = JSON.stringify(idSubmitteds);
+        formExportFilterExcel.submit();
+    }
+
+    btnExportExcel.onclick = () => {
+        btnExportExcel.setAttribute('aria-expanded', !(btnExportExcel.getAttribute('aria-expanded') === 'true'))
+        btnExportExcel.classList.toggle('show');
+        dropdownMenu.classList.toggle('show');
     }
 
 </script>
