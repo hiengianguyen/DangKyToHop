@@ -31,7 +31,8 @@ function filterSubmittedList() {
   }
 
   if (result.length === 0) {
-    return renderCardSubmitted(containerSubmitted, []);
+    renderCardSubmitted(containerSubmitted, []);
+    return [];
   }
 
   //filter Gender.
@@ -42,7 +43,8 @@ function filterSubmittedList() {
   }
 
   if (result.length === 0) {
-    return renderCardSubmitted(containerSubmitted, []);
+    renderCardSubmitted(containerSubmitted, []);
+    return [];
   }
 
   //filter Name.
@@ -52,5 +54,6 @@ function filterSubmittedList() {
     });
   }
 
-  return renderCardSubmitted(containerSubmitted, result);
+  renderCardSubmitted(containerSubmitted, result);
+  return result;
 }
