@@ -225,19 +225,19 @@
                         </div>
                         <div id="sort-content">
                             <ul class="list-sort p-0">
-                                <li class="sub-li-type title">Họ và tên <i class="ms-2 title fa-solid fa-arrow-up-wide-short" style="font-size: 20px;"></i>
-                                </li>
-                                <li class="active sub-li-type type">
-                                    <ul>
-                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-2 fa-solid fa-check"></i></li>
-                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-2 fa-solid"></i></li>
-                                    </ul>
-                                </li>
-                                <li class="title sub-li-type">Ngày đăng ký <i style="font-size: 20px;"></i>
+                                <li class="sub-li-type title">Họ và tên <i style="font-size: 20px;"></i>
                                 </li>
                                 <li class="active sub-li-type type">
                                     <ul>
                                         <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-2 fa-solid"></i></li>
+                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-2 fa-solid"></i></li>
+                                    </ul>
+                                </li>
+                                <li class="title sub-li-type">Ngày đăng ký <i class="ms-2 title fa-solid fa-arrow-up-wide-short" style="font-size: 20px;"></i>
+                                </li>
+                                <li class="active sub-li-type type">
+                                    <ul>
+                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-2 fa-solid fa-check"></i></li>
                                         <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-2 fa-solid"></i></li>
                                     </ul>
                                 </li>
@@ -285,26 +285,27 @@
     const radioGenders = document.getElementById('radios-gender').querySelectorAll('input');
     const radioCombinations1 = document.getElementById('radios-combination-1').querySelectorAll('input');
     const radioCombinations2 = document.getElementById('radios-combination-2').querySelectorAll('input');
+    let result = data;
 
     btnSearchName.onclick = () => {
-        filterSubmittedList();
+        result = filterSubmittedList();
     }
 
     Array.from(radioGenders).forEach((radio) => {
         radio.onchange = () => {
-            filterSubmittedList();
+            result = filterSubmittedList();
         }
     })
 
     Array.from(radioCombinations1).forEach((radio) => {
         radio.onchange = () => {
-            filterSubmittedList();
+            result = filterSubmittedList();
         }
     })
 
     Array.from(radioCombinations2).forEach((radio) => {
         radio.onchange = () => {
-            filterSubmittedList();
+            result = filterSubmittedList();
         }
     })
 
@@ -375,6 +376,62 @@
                     liP.classList.add('active')
                 }
             })
+
+            switch(index) {
+                case 0:
+                case 1:
+                    result.sort((a, b) => {
+                        function getLastName(fullName) {
+                            const parts = fullName.trim().split(" ");
+                            return parts[parts.length - 1].toLowerCase();
+                        };
+
+                        const nameA = getLastName(a.fullName);
+                        const nameB = getLastName(b.fullName);
+
+                        if(valueTypeSort === 'asc') {
+                            return nameA.localeCompare(nameB);
+                        } else {
+                            return nameB.localeCompare(nameA);
+                        }
+                    });
+                    renderCardSubmitted(containerSubmitted, result);
+                    break
+                case 2:
+                case 3:
+                    result.sort((a, b) => {
+                        const parseDate = (dateStr) => {
+                            const [day, month, year] = dateStr.split(' ')[2].split("/").map(Number);
+                            return new Date(year, month - 1, day);
+                        };
+
+
+                        if(valueTypeSort === 'asc') {
+                            return parseDate(a.registeredAt) - parseDate(b.registeredAt);
+                        } else {
+                            return parseDate(b.registeredAt) - parseDate(a.registeredAt);
+                        }
+                    });
+                    renderCardSubmitted(containerSubmitted, result);
+                    break
+                case 4:
+                case 5:
+                    result.sort((a, b) => {
+                        const totalA = Number(a.mathScore || '0') + Number(a.literatureScore || '0') + Number(a.englishScore || '0');
+                        const totalB = Number(b.mathScore || '0') + Number(b.literatureScore || '0') + Number(b.englishScore || '0');
+
+                        console.log(totalA)
+
+                        if(valueTypeSort === 'asc') {
+                            return totalA - totalB;
+                        } else {
+                            return totalB - totalA;
+
+                        }
+                    });
+                    renderCardSubmitted(containerSubmitted, result);
+                    break
+            }
         }
     })
 
