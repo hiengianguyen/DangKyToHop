@@ -994,10 +994,14 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" defer></script>
-<script src="/uploadImageToCloudinary.js" defer></script>
 <script src="/showToastMessage.js" defer></script>
+<script type="module" src="/fetchAsync.js" defer></script>
 
-<script>
+<script type="module">
+    import { uploadImageToCloudinary } from '/uploadImageToCloudinary.js';
+    // Gắn uploadImageToCloudinary vào window để gọi được từ HTML
+    window.uploadImageToCloudinary = uploadImageToCloudinary;
+    
     const combinationDetailModal = document.querySelector('#combinationDetailModal');
     const headerTittle = document.querySelector('.header-box').getElementsByTagName('h4')[0];
     let page = {{{step}}} || 1;
@@ -1094,14 +1098,7 @@
                     btnReShowModalSchool.onclick = () => showModalChooseSchool();
                     nextBtnPage2.onclick = () => {
                         if(!checkAllInputHadValue(allTagForCheck)) {
-                            toastMessage({
-                                tittle: "Thông báo",
-                                message: "Hãy nhập thông tin đầy đủ trước khi bấm \"Tiếp tục\".",
-                                type: "error",
-                                duration: 6000,
-                                icon: "❌",
-                                fideOut: 1000
-                            })
+                            toastMessage("Thông báo", "Hãy nhập thông tin đầy đủ trước khi bấm \"Tiếp tục\".", "error", 6000, "❌", 1000);
                         } else {
                             const currentBox = document.querySelector(`.box-submit-${currentPage}`);
                             currentBox.style.display = 'none';
@@ -1168,14 +1165,7 @@
                                 glassOverlay.classList.remove('active');
                                 tagShowSchool.textContent = inputGetDataShool.value = selectSchool.value;
                             } else {
-                                toastMessage({
-                                    tittle: "Thông báo",
-                                    message: "Hãy chọn giá trị theo thứ tự và đầy đủ trước khi bấm \"Xác nhận\".",
-                                    type: "error",
-                                    duration: 6000,
-                                    icon: "❌",
-                                    fideOut: 1000
-                                })
+                                toastMessage("Thông báo", "Hãy chọn giá trị theo thứ tự và đầy đủ trước khi bấm \"Xác nhận\".", "error", 6000, "❌", 1000);
                             }
                         }
                     }
@@ -1271,44 +1261,22 @@
                     const btnSubmitForm = document.querySelector('#btnSubmit');
                     btnSubmitForm.onclick = async () => {
                         loading.style.display = 'flex';
-                        await uploadImageToCloudinary(inputAvatarStep4.value, "avatars")
-                            .then(async (imageUrl) => {
-                                inputAvatarStep4.value = imageUrl;
-                                const formData = new FormData(formSubmit);
-                                const data = Object.fromEntries(formData.entries());
+                        const uploaded = await uploadImageToCloudinary(inputAvatarStep4.value, "avatars");
+                        if (uploaded.data) {
+                            inputAvatarStep4.value = uploaded.data;
+                            const formData = new FormData(formSubmit);
+                            const data = Object.fromEntries(formData.entries());
 
-                                const response = await fetch('/combination/submited', {
-                                    method: 'POST',
-                                    headers: {
-                                    'Content-Type': 'application/json',
-                                    },
-                                    body: JSON.stringify(data)
-                                });
-
-                                const result = await response.json();
-                                loading.style.display = 'none';
-                                toastMessage({
-                                    tittle: "Thông báo",
-                                    message: result.message,
-                                    type: "success",
-                                    duration: 6000,
-                                    icon: "✅",
-                                    fideOut: 1000
-                                })
-                                const currentUrl = window.location.origin + `/combination/submited-detail/${result.userId}`;
-                                window.location.href = currentUrl;
-                            })
-                            .catch((err) => {
-                                loading.style.display = 'none';
-                                toastMessage({
-                                    tittle: "Thông báo",
-                                    message: err,
-                                    type: "error",
-                                    duration: 6000,
-                                    icon: "❌",
-                                    fideOut: 1000
-                                })
-                            })
+                            const result = await fetchAsync('/combination/submited', 'POST', data);
+                            loading.style.display = 'none';
+                            toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
+                            const currentUrl = window.location.origin + `/combination/submited-detail/${result.userId}`;
+                            window.location.href = currentUrl;
+                        }
+                        else {
+                            loading.style.display = 'none';
+                            toastMessage("Thông báo", uploaded.error, "error", 6000, "❌", 1000);
+                        }
                     }
                     setActiveForSteps(currentPage);
                 }
@@ -1335,14 +1303,7 @@
 
                 btnNextPage3.onclick = () => {
                     if(!checkAllSelectInPage3([selectCombination1, selectCombination2])) {
-                        toastMessage({
-                                tittle: "Thông báo",
-                                message: "Hãy chọn nguyện vọng đầy đủ trước khi bấm \"Tiếp tục\".",
-                                type: "error",
-                                duration: 6000,
-                                icon: "❌",
-                                fideOut: 1000
-                            })
+                        toastMessage("Thông báo", "Hãy chọn nguyện vọng đầy đủ trước khi bấm \"Tiếp tục\".", "error", 6000, "❌", 1000);
                     } else {
                         const currentBox = document.querySelector(`.box-submit-${currentPage}`);
                         currentBox.style.display = 'none';

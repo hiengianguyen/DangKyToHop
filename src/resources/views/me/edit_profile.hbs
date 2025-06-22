@@ -75,10 +75,12 @@
   onload="varidator('#form-edit-profile')"
 ></script>
 
-<script src="/uploadImageToCloudinary.js" defer></script>
 <script src="https://upload-widget.cloudinary.com/global/all.js"></script>
+<script type="module">
+    import { uploadImageToCloudinary } from '/uploadImageToCloudinary.js';
+    // Gắn uploadImageToCloudinary vào window để gọi được từ HTML
+    window.uploadImageToCloudinary = uploadImageToCloudinary;
 
-<script>
     var sideBar = document.getElementById('sidebar');
     window.addEventListener('load', function () {
         sideBar.parentElement.style.height = '100%'
@@ -153,14 +155,14 @@
       imgProfile.src = e.target.result;
     };
 
-    await uploadImageToCloudinary(file, 'users')
-      .then((imageUrl) => {
-        imgProfile.src = imageUrl; 
-        hiddenAvatarInput.value = imageUrl;
-      })
-      .catch((error) => {
-        console.error('Error uploading image:', error);
+    const uploaded = await uploadImageToCloudinary(file, 'users');
+    if (uploaded.data) {
+        imgProfile.src = uploaded.data; 
+        hiddenAvatarInput.value = uploaded.data;
+    }
+    else {
+        console.error('Error uploading image:', uploaded.error);
         alert('Có lỗi khi tải ảnh lên Cloudinary');
-      });
+    }
   });
 </script>
