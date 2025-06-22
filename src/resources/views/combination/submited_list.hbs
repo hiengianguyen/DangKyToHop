@@ -179,7 +179,7 @@
                                     <a href="submited-detail/{{this.userId}}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 7px;">Xem thông tin</a>
                                 </div>
                                 <div class="col-md-8 ps-0">
-                                    <div class="card-body pe-0">
+                                    <div class="card-body pb-3 pe-0">
                                         <h6 class="card-title">{{this.fullName}}</h6>
                                         <div class="d-flex justify-content-between" style="font-size: 10px;">
                                             <div class="d-flex align-items-start flex-column">
@@ -213,6 +213,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="position-absolute" style="bottom: 10px;right: 15px;">
+                                <i title="Lưu hồ sơ này" value="{{this.id}}" class="fa-solid fa-bookmark save-doc-icon {{#if this.favourite}}saved{{/if}}"></i>
+                            </div>
                         </div>
                     {{/each}}
                 </div>
@@ -227,26 +230,26 @@
                             <ul class="list-sort p-0">
                                 <li class="sub-li-type title">Họ và tên <i style="font-size: 20px;"></i>
                                 </li>
-                                <li class="active sub-li-type type">
-                                    <ul>
-                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-2 fa-solid"></i></li>
-                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-2 fa-solid"></i></li>
+                                <li class="active sub-li-type type py-0">
+                                    <ul class="ps-3">
+                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-1 fa-solid"></i></li>
+                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-1 fa-solid"></i></li>
                                     </ul>
                                 </li>
-                                <li class="title sub-li-type">Ngày đăng ký <i class="ms-2 title fa-solid fa-arrow-up-wide-short" style="font-size: 20px;"></i>
+                                <li class="title sub-li-type">Ngày đăng ký <i class="ms-1 title fa-solid fa-arrow-up-wide-short" style="font-size: 20px;"></i>
                                 </li>
-                                <li class="active sub-li-type type">
-                                    <ul>
-                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-2 fa-solid fa-check"></i></li>
-                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-2 fa-solid"></i></li>
+                                <li class="active sub-li-type type py-0">
+                                    <ul class="ps-3">
+                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-1 fa-solid fa-check"></i></li>
+                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-1 fa-solid"></i></li>
                                     </ul>
                                 </li>
                                 <li class="title sub-li-type" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào <i style="font-size: 20px;"></i>
                                 </li>
-                                <li class="active sub-li-type type">
-                                    <ul>
-                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-2 fa-solid"></i></li>
-                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-2 fa-solid"></i></li>
+                                <li class="active sub-li-type type py-0">
+                                    <ul class="ps-3">
+                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-1 fa-solid"></i></li>
+                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-1 fa-solid"></i></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -275,6 +278,7 @@
 <script src="https://unpkg.com/jsrmvi/dist/jsrmvi.min.js"></script>
 <script src="/filterSubmittedList.js"></script>
 <script src="/renderCardSubmitted.js"></script>
+<script src="/showToastMessage.js"></script>
 <script>
     const { removeVI, DefaultOption } = jsrmvi;
 
@@ -359,13 +363,13 @@
             i.classList.add('fa-check')
             Array.from(typeSortI).forEach((iSub) => {
                 if(iSub !== i) {
-                    iSub.className = 'ms-2 fa-solid';
+                    iSub.className = 'ms-1 fa-solid';
                 }
             });
   
             const activeLi = getParentLi(i, 'sub-li-type');
             const parentLi = activeLi.previousElementSibling;
-            const icon = valueTypeSort === 'asc' ? "ms-2 title fa-solid fa-arrow-up-wide-short" : "ms-2 title fa-solid fa-arrow-down-wide-short";
+            const icon = valueTypeSort === 'asc' ? "ms-1 title fa-solid fa-arrow-up-wide-short" : "ms-1 title fa-solid fa-arrow-down-wide-short";
             parentLi.querySelector('i').className = icon
 
             Array.from(tagLisSort).forEach((liP) => {
@@ -470,5 +474,33 @@
         btnExportExcel.classList.toggle('show');
         dropdownMenu.classList.toggle('show');
     }
+
+    const iconSaves = document.querySelectorAll('.save-doc-icon');
+    
+    Array.from(iconSaves).forEach((icon) => {
+        icon.onclick = async () => {
+            icon.classList.toggle('saved');
+            const docId = icon.getAttribute('value');
+            const response = await fetch('/combination/save', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    docId
+                })
+            });
+
+            const result = await response.json();
+            toastMessage({
+                tittle: "Thông báo",
+                message: result.message,
+                type: "success",
+                duration: 6000,
+                icon: "✅",
+                fideOut: 1000
+            })
+        } 
+    })
 
 </script>

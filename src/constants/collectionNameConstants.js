@@ -7,7 +7,8 @@ const CollectionNameConstant = {
   TrendingCombinations: "trendingCombinations",
   Subjects: "subjects",
   Nations: "nations",
-  RegisteredCombinations: "registeredCombinations"
+  RegisteredCombinations: "registeredCombinations",
+  FavouriteSubmitted: "favouriteSubmitted"
 };
 
 module.exports = CollectionNameConstant;
