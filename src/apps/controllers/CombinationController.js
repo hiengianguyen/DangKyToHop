@@ -26,6 +26,7 @@ class CombinationController {
     this.submitCombination = this.submitCombination.bind(this);
     this.delete = this.delete.bind(this);
     this.saveDoc = this.saveDoc.bind(this);
+    this.unsaveDoc = this.unsaveDoc.bind(this);
     this.savedSubmitted = this.savedSubmitted.bind(this);
   }
 
@@ -229,24 +230,30 @@ class CombinationController {
     });
 
     if (docSubmitedSaved) {
-      if (docSubmitedSaved.isDeleted) {
-        await this.favouriteSubmittedDbRef.updateItem(docSubmitedSaved.id, { isDeleted: false });
-        return res.json({
-          message: "Lưu hồ sơ học sinh thành công"
-        });
-      } else {
-        await this.favouriteSubmittedDbRef.softDeleteItem(docSubmitedSaved.id);
-        return res.json({
-          message: "Gỡ lưu hồ sơ học sinh thành công"
-        });
-      }
+      await this.favouriteSubmittedDbRef.updateItem(docSubmitedSaved.id, { isDeleted: false });
     } else {
       const favouriteSubmittedModal = new FavouriteSubmittedModel(undefined, userId, docId, undefined);
       await this.favouriteSubmittedDbRef.addItem(favouriteSubmittedModal);
-      return res.json({
-        message: "Lưu hồ sơ học sinh thành công"
-      });
     }
+
+    return res.json({
+      message: "Lưu hồ sơ học sinh thành công"
+    });
+  }
+
+  async unsaveDoc(req, res, next) {
+    const docId = req?.body?.docId;
+    const userId = req?.cookies?.userId;
+
+    const docSubmitedSaved = await this.favouriteSubmittedDbRef.getItemByFilter({
+      userId: userId,
+      submittedId: docId
+    });
+
+    await this.favouriteSubmittedDbRef.softDeleteItem(docSubmitedSaved.id);
+    return res.json({
+      message: "Gỡ lưu hồ sơ học sinh thành công"
+    });
   }
 
   async savedSubmitted(req, res, next) {

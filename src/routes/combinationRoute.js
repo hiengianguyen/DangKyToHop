@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post("/submited", CombinationController.submited);
 router.post("/save", CombinationController.saveDoc);
+router.post("/unsave", CombinationController.unsaveDoc);
 router.get("/submited-list", CombinationController.submitedList);
 router.get("/submited-list/saved", CombinationController.savedSubmitted);
 router.get("/submit-combination", CombinationController.submitCombination);

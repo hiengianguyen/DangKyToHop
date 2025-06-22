@@ -38,7 +38,7 @@ class FirestoreModel {
     }
   }
 
-  async getItemByFilter(query) {
+  async getItemByFilter(query, includeDeletedDoc = false) {
     try {
       let snapshot = this.collectionRef;
       const queryKeys = Object.keys(query);
@@ -46,6 +46,10 @@ class FirestoreModel {
 
       for (var i = 0; i < queryKeys.length; i++) {
         snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
+      }
+
+      if (includeDeletedDoc == false) {
+        snapshot = snapshot.where("isDeleted", "==", false);
       }
 
       const result = await snapshot.get();
@@ -57,7 +61,7 @@ class FirestoreModel {
     }
   }
 
-  async getItemsByFilter(query, onlyDeletedDocs = false, orderBy) {
+  async getItemsByFilter(query, includeDeletedDocs = false, orderBy) {
     try {
       let snapshot = this.collectionRef;
       const queryKeys = Object.keys(query);
@@ -67,7 +71,9 @@ class FirestoreModel {
         snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
       }
 
-      snapshot = snapshot.where("isDeleted", "==", onlyDeletedDocs);
+      if (includeDeletedDocs == false) {
+        snapshot = snapshot.where("isDeleted", "==", false);
+      }
 
       if (orderBy) {
         snapshot = snapshot.orderBy(orderBy.fieldName, orderBy.type);
