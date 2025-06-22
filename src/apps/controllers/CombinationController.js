@@ -5,7 +5,8 @@ const {
   NationModel,
   RegisteredCombinationModel,
   UserModel,
-  SecondarySchoolModel
+  SecondarySchoolModel,
+  FavouriteSubmittedModel
 } = require("../models");
 const { CollectionNameConstant } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
@@ -18,11 +19,13 @@ class CombinationController {
     this.secondarySchoolDbRef = new FirestoreModel(CollectionNameConstant.SecondarySchools, SecondarySchoolModel);
     this.registeredCombinationsDbRef = new FirestoreModel(CollectionNameConstant.RegisteredCombinations, RegisteredCombinationModel);
     this.combinationDbRef = new FirestoreModel(CollectionNameConstant.Combinations, CombinationModel);
+    this.favouriteSubmittedDbRef = new FirestoreModel(CollectionNameConstant.FavouriteSubmitted, FavouriteSubmittedModel);
     this.submited = this.submited.bind(this);
     this.submitedList = this.submitedList.bind(this);
     this.submitedDetail = this.submitedDetail.bind(this);
     this.submitCombination = this.submitCombination.bind(this);
     this.delete = this.delete.bind(this);
+    this.saveDoc = this.saveDoc.bind(this);
   }
 
   async submited(req, res, next) {
@@ -98,11 +101,24 @@ class CombinationController {
 
   async submitedList(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
+      const userId = req?.cookies?.userId;
       let data = await this.registeredCombinationsDbRef.getAllItems({
         fieldName: "registeredAt",
         type: "asc"
       });
+
+      let allIdDocSaved = await this.favouriteSubmittedDbRef.getItemsByFilter({
+        userId: userId
+      });
+
+      allIdDocSaved = allIdDocSaved.map((docSaved) => docSaved.submittedId);
+
       Array.from(data).forEach((doc) => {
+        if (allIdDocSaved.includes(doc.id)) {
+          doc.favourite = true;
+        } else {
+          doc.favourite = false;
+        }
         doc.registeredAt = convertToVietnameseDateTime(doc.registeredAt.toDate());
       });
 
@@ -199,6 +215,21 @@ class CombinationController {
     const docId = req?.params?.id;
     await this.registeredCombinationsDbRef.softDeleteItem(docId);
     return res.redirect("back");
+  }
+
+  async saveDoc(req, res, next) {
+    const docId = req?.body?.docId;
+    const userId = req?.cookies?.userId;
+
+    const docSubmitedSaved = await this.favouriteSubmittedDbRef.getItemById(docId);
+    if()
+
+    const favouriteSubmittedModal = new FavouriteSubmittedModel(undefined, userId, docId, undefined);
+    await this.favouriteSubmittedDbRef.addItem(favouriteSubmittedModal);
+
+    return res.json({
+      message: "Lưu hồ sơ học sinh thành công"
+    });
   }
 }
 

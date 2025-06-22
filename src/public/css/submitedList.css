@@ -9,6 +9,7 @@
 .sort-box #sort-title {
   background-color: #8dfff5;
   padding: 10px;
+  padding-left: 25px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px; }
 
@@ -17,6 +18,7 @@
 
 .sort-box .list-sort > li:not(.active) {
   padding: 10px;
+  padding-left: 25px;
   background-color: aliceblue;
   opacity: 1;
   transition: all 0.8s ease; }
@@ -25,7 +27,7 @@
   opacity: 0;
   transition: all 0.5s ease; }
 
-.list-sort .title i.ms-2 {
+.list-sort .title i.ms-1 {
   opacity: 1;
   transition: all 0.5s ease; }
 
@@ -57,7 +59,7 @@
 
 .sort-box {
   width: 12pc;
-  text-align: center; }
+  text-align: start; }
 
 .dropdown-menu.show {
   position: absolute;
@@ -73,3 +75,13 @@
 .dropdown-menu li a:hover,
 .dropdown-menu li:hover {
   background-color: #ccc; }
+
+.save-doc-icon {
+  color: #b6b6b6; }
+
+.save-doc-icon.saved {
+  color: #eae502; }
+
+.save-doc-icon:hover {
+  color: #cacaca;
+  cursor: pointer; }
