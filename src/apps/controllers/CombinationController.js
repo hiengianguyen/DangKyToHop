@@ -26,6 +26,7 @@ class CombinationController {
     this.submitCombination = this.submitCombination.bind(this);
     this.delete = this.delete.bind(this);
     this.saveDoc = this.saveDoc.bind(this);
+    this.savedSubmitted = this.savedSubmitted.bind(this);
   }
 
   async submited(req, res, next) {
@@ -125,7 +126,8 @@ class CombinationController {
       return res.render("combination/submited_list", {
         submitedList: data,
         submitedListData: JSON.stringify(data),
-        role: req?.cookies?.role
+        role: req?.cookies?.role,
+        isSavedPage: false
       });
     } else {
       return res.redirect("/");
@@ -221,14 +223,57 @@ class CombinationController {
     const docId = req?.body?.docId;
     const userId = req?.cookies?.userId;
 
-    const docSubmitedSaved = await this.favouriteSubmittedDbRef.getItemById(docId);
-    if()
+    const docSubmitedSaved = await this.favouriteSubmittedDbRef.getItemByFilter({
+      userId: userId,
+      submittedId: docId
+    });
 
-    const favouriteSubmittedModal = new FavouriteSubmittedModel(undefined, userId, docId, undefined);
-    await this.favouriteSubmittedDbRef.addItem(favouriteSubmittedModal);
+    if (docSubmitedSaved) {
+      if (docSubmitedSaved.isDeleted) {
+        await this.favouriteSubmittedDbRef.updateItem(docSubmitedSaved.id, { isDeleted: false });
+        return res.json({
+          message: "Lưu hồ sơ học sinh thành công"
+        });
+      } else {
+        await this.favouriteSubmittedDbRef.softDeleteItem(docSubmitedSaved.id);
+        return res.json({
+          message: "Gỡ lưu hồ sơ học sinh thành công"
+        });
+      }
+    } else {
+      const favouriteSubmittedModal = new FavouriteSubmittedModel(undefined, userId, docId, undefined);
+      await this.favouriteSubmittedDbRef.addItem(favouriteSubmittedModal);
+      return res.json({
+        message: "Lưu hồ sơ học sinh thành công"
+      });
+    }
+  }
 
-    return res.json({
-      message: "Lưu hồ sơ học sinh thành công"
+  async savedSubmitted(req, res, next) {
+    const userId = req?.cookies?.userId;
+    let allDocSubmittedSaved = await this.favouriteSubmittedDbRef.getItemsByFilter({
+      userId: userId,
+      isDeleted: false
+    });
+
+    if (allDocSubmittedSaved) {
+      allDocSubmittedSaved = await Promise.all(
+        allDocSubmittedSaved.map(async (docSaved) => await this.registeredCombinationsDbRef.getItemById(docSaved.submittedId))
+      );
+
+      Array.from(allDocSubmittedSaved).forEach((doc) => {
+        doc.favourite = true;
+        doc.registeredAt = convertToVietnameseDateTime(doc.registeredAt.toDate());
+      });
+    } else {
+      allDocSubmittedSaved = [];
+    }
+
+    return res.render("combination/submited_list", {
+      submitedList: allDocSubmittedSaved,
+      submitedListData: JSON.stringify(allDocSubmittedSaved),
+      role: req?.cookies?.role,
+      isSavedPage: true
     });
   }
 }

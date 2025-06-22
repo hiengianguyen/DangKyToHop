@@ -47,7 +47,6 @@ class FirestoreModel {
       for (var i = 0; i < queryKeys.length; i++) {
         snapshot = snapshot.where(queryKeys[i], "==", queryValues[i]);
       }
-      snapshot = snapshot.where("isDeleted", "==", false);
 
       const result = await snapshot.get();
       const docs = Array.from(result.docs).map((doc) => this.model.fromFirestore(doc));

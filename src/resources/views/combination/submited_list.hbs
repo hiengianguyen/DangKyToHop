@@ -19,7 +19,13 @@
     <div class="card-body" style="display: none;">
         <div class="container-submited-list">
             <div class="d-flex justify-content-between me-3">
-                <h3 class="text-center m-0">Danh Sách Đã Đăng Ký</h3>
+                <h3 class="text-center m-0">
+                    {{#if isSavedPage}}
+                        Danh Sách Hồ Sơ Đã Lưu
+                    {{else}}
+                        Danh Sách Đã Đăng Ký
+                    {{/if}}
+                </h3>
                 <div class="btn-group dropstart">
                     <button type="button" class="btn btn-info dropdown-toggle" id="btn-export-excel" data-bs-toggle="dropdown" aria-expanded="false">
                         Xuất file Excel
@@ -321,11 +327,13 @@
         sideBar.parentElement.style.height = master.clientHeight;
     });
 
+    const isSavedPage = {{{isSavedPage}}};
+
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
     litSidebars.pop();
 
     litSidebars.forEach((li) => {
-        if(li.getAttribute('value') === 'Danh sách đăng ký') {
+        if(isSavedPage ? li.getAttribute('value') === 'Hồ sơ đã lưu' : li.getAttribute('value') === 'Danh sách đăng ký') {
             li.parentElement.classList.add('active');
         } else {
             li.parentElement.classList.remove('active');
