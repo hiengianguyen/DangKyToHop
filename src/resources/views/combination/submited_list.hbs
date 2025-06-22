@@ -214,8 +214,8 @@
                                         
                                         <div class="d-flex align-items-start flex-column">
                                             <p class="card-text mb-0"><small class="text-body-secondary">Đăng ký lúc:</small></p>
-                                            <p class="card-text"><small class="text-body-secondary"><b>{{this.registeredAt}}</b></small></p>
                                         </div>
+                                            <p class="card-text"><small class="text-body-secondary"><b>{{this.registeredAt}}</b></small></p>
                                     </div>
                                 </div>
                             </div>
@@ -487,27 +487,49 @@
     
     Array.from(iconSaves).forEach((icon) => {
         icon.onclick = async () => {
-            icon.classList.toggle('saved');
             const docId = icon.getAttribute('value');
-            const response = await fetch('/combination/save', {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    docId
-                })
-            });
+            if(!icon.className.includes('saved')) {
+                const response = await fetch('/combination/save', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        docId: docId
+                    })
+                });
 
-            const result = await response.json();
-            toastMessage({
-                tittle: "Thông báo",
-                message: result.message,
-                type: "success",
-                duration: 6000,
-                icon: "✅",
-                fideOut: 1000
-            })
+                const result = await response.json();
+                toastMessage({
+                    tittle: "Thông báo",
+                    message: result.message,
+                    type: "success",
+                    duration: 6000,
+                    icon: "✅",
+                    fideOut: 1000
+                })
+            } else {
+                const response = await fetch('/combination/unsave', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        docId: docId
+                    })
+                });
+
+                const result = await response.json();
+                toastMessage({
+                    tittle: "Thông báo",
+                    message: result.message,
+                    type: "success",
+                    duration: 6000,
+                    icon: "✅",
+                    fideOut: 1000
+                })
+            }
+            icon.classList.toggle('saved');
         } 
     })
 
