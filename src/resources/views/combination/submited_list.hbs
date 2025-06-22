@@ -285,6 +285,7 @@
 <script src="/filterSubmittedList.js"></script>
 <script src="/renderCardSubmitted.js"></script>
 <script src="/showToastMessage.js"></script>
+<script src="/fetchAsync.js"></script>
 <script>
     const { removeVI, DefaultOption } = jsrmvi;
 
@@ -382,7 +383,7 @@
 
             Array.from(tagLisSort).forEach((liP) => {
                 if(liP !== parentLi && liP.className.includes('title')) {
-                   liP.querySelector('i').className = '';
+                    liP.querySelector('i').className = '';
                 }
                 if(liP.className.includes(' type') && liP !== activeLi) {
                     liP.classList.add('active')
@@ -416,7 +417,6 @@
                             const [day, month, year] = dateStr.split(' ')[2].split("/").map(Number);
                             return new Date(year, month - 1, day);
                         };
-
 
                         if(valueTypeSort === 'asc') {
                             return parseDate(a.registeredAt) - parseDate(b.registeredAt);
@@ -489,45 +489,11 @@
         icon.onclick = async () => {
             const docId = icon.getAttribute('value');
             if(!icon.className.includes('saved')) {
-                const response = await fetch('/combination/save', {
-                    method: 'POST',
-                    headers: {
-                    'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        docId: docId
-                    })
-                });
-
-                const result = await response.json();
-                toastMessage({
-                    tittle: "Thông báo",
-                    message: result.message,
-                    type: "success",
-                    duration: 6000,
-                    icon: "✅",
-                    fideOut: 1000
-                })
+                const result = await fetchAsync('/combination/save', 'POST', { docId: docId });
+                toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
             } else {
-                const response = await fetch('/combination/unsave', {
-                    method: 'POST',
-                    headers: {
-                    'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        docId: docId
-                    })
-                });
-
-                const result = await response.json();
-                toastMessage({
-                    tittle: "Thông báo",
-                    message: result.message,
-                    type: "success",
-                    duration: 6000,
-                    icon: "✅",
-                    fideOut: 1000
-                })
+                const result = await fetchAsync('/combination/unsave', 'POST', { docId: docId });
+                toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
             }
             icon.classList.toggle('saved');
         } 
