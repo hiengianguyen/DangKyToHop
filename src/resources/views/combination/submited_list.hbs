@@ -413,15 +413,10 @@
                 case 2:
                 case 3:
                     result.sort((a, b) => {
-                        const parseDate = (dateStr) => {
-                            const [day, month, year] = dateStr.split(' ')[2].split("/").map(Number);
-                            return new Date(year, month - 1, day);
-                        };
-
                         if(valueTypeSort === 'asc') {
-                            return parseDate(a.registeredAt) - parseDate(b.registeredAt);
+                            return convertVieDayTimeToDate(a.registeredAt) - convertVieDayTimeToDate(b.registeredAt);
                         } else {
-                            return parseDate(b.registeredAt) - parseDate(a.registeredAt);
+                            return convertVieDayTimeToDate(b.registeredAt) - convertVieDayTimeToDate(a.registeredAt);
                         }
                     });
                     renderCardSubmitted(containerSubmitted, result);
@@ -431,8 +426,6 @@
                     result.sort((a, b) => {
                         const totalA = Number(a.mathScore || '0') + Number(a.literatureScore || '0') + Number(a.englishScore || '0');
                         const totalB = Number(b.mathScore || '0') + Number(b.literatureScore || '0') + Number(b.englishScore || '0');
-
-                        console.log(totalA)
 
                         if(valueTypeSort === 'asc') {
                             return totalA - totalB;
