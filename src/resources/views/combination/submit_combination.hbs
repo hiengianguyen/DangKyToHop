@@ -995,12 +995,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" defer></script>
 <script src="/showToastMessage.js" defer></script>
-<script type="module" src="/fetchAsync.js" defer></script>
 
 <script type="module">
     import { uploadImageToCloudinary } from '/uploadImageToCloudinary.js';
-    // Gắn uploadImageToCloudinary vào window để gọi được từ HTML
+    import { fetchAsync } from '/fetchAsync.js';
+    // Gắn uploadImageToCloudinary, fetchAsync vào window để gọi được từ HTML
     window.uploadImageToCloudinary = uploadImageToCloudinary;
+    window.fetchAsync = fetchAsync;
     
     const combinationDetailModal = document.querySelector('#combinationDetailModal');
     const headerTittle = document.querySelector('.header-box').getElementsByTagName('h4')[0];
@@ -1267,7 +1268,7 @@
                             const formData = new FormData(formSubmit);
                             const data = Object.fromEntries(formData.entries());
 
-                            const result = await fetchAsync('/combination/submited', 'POST', data);
+                            const result = await fetchAsync('/combination/submited', 'POST', data, null, true);
                             loading.style.display = 'none';
                             toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
                             const currentUrl = window.location.origin + `/combination/submited-detail/${result.userId}`;
