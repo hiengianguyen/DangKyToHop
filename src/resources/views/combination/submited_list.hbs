@@ -280,13 +280,16 @@
     <input type="hidden" name="idSubmitteds" id="input-hid-idSubmitteds">
 </form>
 
-
 <script src="https://unpkg.com/jsrmvi/dist/jsrmvi.min.js"></script>
 <script src="/filterSubmittedList.js"></script>
 <script src="/renderCardSubmitted.js"></script>
 <script src="/showToastMessage.js"></script>
-<script src="/fetchAsync.js"></script>
-<script>
+
+<script type="module">
+    import { fetchAsync } from '/fetchAsync.js';
+    // Gắn fetchAsync vào window để gọi được từ HTML
+    window.fetchAsync = fetchAsync;
+
     const { removeVI, DefaultOption } = jsrmvi;
 
     const data = {{{submitedListData}}};
@@ -414,9 +417,9 @@
                 case 3:
                     result.sort((a, b) => {
                         if(valueTypeSort === 'asc') {
-                            return convertVieDayTimeToDate(a.registeredAt) - convertVieDayTimeToDate(b.registeredAt);
+                            return convertVietnameseDatetimeToDate(a.registeredAt) - convertVietnameseDatetimeToDate(b.registeredAt);
                         } else {
-                            return convertVieDayTimeToDate(b.registeredAt) - convertVieDayTimeToDate(a.registeredAt);
+                            return convertVietnameseDatetimeToDate(b.registeredAt) - convertVietnameseDatetimeToDate(a.registeredAt);
                         }
                     });
                     renderCardSubmitted(containerSubmitted, result);
@@ -479,13 +482,20 @@
     const iconSaves = document.querySelectorAll('.save-doc-icon');
     
     Array.from(iconSaves).forEach((icon) => {
+        if(icon.className.includes('saved')) {
+            icon.setAttribute('title', 'Gỡ lưu hồ sơ này');
+        } else {
+            icon.setAttribute('title', 'Lưu hồ sơ này');
+        }
         icon.onclick = async () => {
             const docId = icon.getAttribute('value');
             if(!icon.className.includes('saved')) {
-                const result = await fetchAsync('/combination/save', 'POST', { docId: docId });
+                icon.setAttribute('title', 'Gỡ lưu hồ sơ này');
+                const result = await fetchAsync('/combination/save', 'POST', { docId: docId }, null, true);
                 toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
             } else {
-                const result = await fetchAsync('/combination/unsave', 'POST', { docId: docId });
+                icon.setAttribute('title', 'Lưu hồ sơ này');
+                const result = await fetchAsync('/combination/unsave', 'POST', { docId: docId }, null, true);
                 toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
             }
             icon.classList.toggle('saved');

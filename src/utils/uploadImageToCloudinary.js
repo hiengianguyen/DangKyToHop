@@ -16,6 +16,7 @@ export async function uploadImageToCloudinary(file, foder) {
     formData.append("folder", foder);
 
     const data = await fetchAsync(uploadUrl, "POST", formData, {});
+
     if (data.secure_url) {
       return {
         data: data.secure_url
