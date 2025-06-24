@@ -220,9 +220,6 @@
                             <button type="button" class="btn btn-primary btn-show-modal-school">
                             Chọn trường cấp 2
                             </button>
-                            <button type="button" class="btn btn-primary btn-reShow-modal-school" style="display: none;">
-                                Chọn lại
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -1083,7 +1080,6 @@
                     var nextBtnPage2 = document.querySelector('div.box-submit-2 #btnNextStep');
                     const inputChooseAvatar = document.querySelector('div.box-submit-2 input[name="avatarLink"]');
                     const btnShowModalSchool = document.querySelector('div.box-submit-2 button.btn-show-modal-school');
-                    const btnReShowModalSchool = document.querySelector('div.box-submit-2 button.btn-reShow-modal-school');
                     const tagShowSchool = document.querySelector('div.box-submit-4 .get-data-school');
                     const inputGetDataShool = document.querySelector('div.box-submit-4 input.input-get-data-shool');
                     const selectDistrict = document.querySelector(".form-select-district");
@@ -1096,7 +1092,6 @@
                     }
                     
                     btnShowModalSchool.onclick = () => showModalChooseSchool();
-                    btnReShowModalSchool.onclick = () => showModalChooseSchool();
                     nextBtnPage2.onclick = () => {
                         if(!checkAllInputHadValue(allTagForCheck)) {
                             toastMessage("Thông báo", "Hãy nhập thông tin đầy đủ trước khi bấm \"Tiếp tục\".", "error", 6000, "❌", 1000);
@@ -1146,13 +1141,9 @@
                         glassOverlay.classList.add('active');
                         body.style.overflowY = 'hidden';
                         modalChooseSchool.style.display = 'flex';
-                        btnShowModalSchool.style.display = 'none';
-                        btnReShowModalSchool.style.display = 'block';
 
                         btnClose.onclick = () => {
                             body.style.overflowY = 'auto';
-                            btnShowModalSchool.style.display = 'block';
-                            btnReShowModalSchool.style.display = 'none';
                             modalChooseSchool.style.display = 'none';
                             glassOverlay.classList.remove('active');
                         }
