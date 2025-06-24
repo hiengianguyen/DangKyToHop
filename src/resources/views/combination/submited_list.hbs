@@ -246,16 +246,16 @@
                                 </li>
                                 <li class="active sub-li-type type py-0">
                                     <ul class="ps-3">
-                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-1 fa-solid fa-check"></i></li>
-                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-1 fa-solid"></i></li>
+                                        <li class="p-2 type-sort" data-value="asc">Trước đó <i class="ms-1 fa-solid fa-check"></i></li>
+                                        <li class="p-2 type-sort" data-value="desc">Gần đây <i class="ms-1 fa-solid"></i></li>
                                     </ul>
                                 </li>
                                 <li class="title sub-li-type" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào <i style="font-size: 20px;"></i>
                                 </li>
                                 <li class="active sub-li-type type py-0">
                                     <ul class="ps-3">
-                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-1 fa-solid"></i></li>
-                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-1 fa-solid"></i></li>
+                                        <li class="p-2 type-sort" data-value="asc">Cao nhất <i class="ms-1 fa-solid"></i></li>
+                                        <li class="p-2 type-sort" data-value="desc">Thấp nhất <i class="ms-1 fa-solid"></i></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -283,6 +283,7 @@
 <script src="https://unpkg.com/jsrmvi/dist/jsrmvi.min.js"></script>
 <script src="/filterSubmittedList.js"></script>
 <script src="/renderCardSubmitted.js"></script>
+<script src="/convertVietnameseDatetimeToDate.js"></script>
 <script src="/showToastMessage.js"></script>
 
 <script type="module">
@@ -293,7 +294,6 @@
     const { removeVI, DefaultOption } = jsrmvi;
 
     const data = {{{submitedListData}}};
-    const searchName = document.getElementById('search-name-inp');
     const btnSearchName = document.getElementById('search-name-btn');
     const containerSubmitted = document.getElementById('container-submitted');
     const radioGenders = document.getElementById('radios-gender').querySelectorAll('input');
@@ -302,24 +302,28 @@
     let result = data;
 
     btnSearchName.onclick = () => {
-        result = filterSubmittedList();
+        result = filterSubmittedList(data);
+        setFeatureForIconSave();
     }
 
     Array.from(radioGenders).forEach((radio) => {
         radio.onchange = () => {
-            result = filterSubmittedList();
+            result = filterSubmittedList(data);
+            setFeatureForIconSave();
         }
     })
 
     Array.from(radioCombinations1).forEach((radio) => {
         radio.onchange = () => {
-            result = filterSubmittedList();
+            result = filterSubmittedList(data);
+            setFeatureForIconSave();
         }
     })
 
     Array.from(radioCombinations2).forEach((radio) => {
         radio.onchange = () => {
-            result = filterSubmittedList();
+            result = filterSubmittedList(data);
+            setFeatureForIconSave();
         }
     })
 
@@ -393,52 +397,56 @@
                 }
             })
 
-            switch(index) {
-                case 0:
-                case 1:
-                    result.sort((a, b) => {
-                        function getLastName(fullName) {
-                            const parts = fullName.trim().split(" ");
-                            return parts[parts.length - 1].toLowerCase();
-                        };
+            if(result.length > 1) {
+                switch(index) {
+                    case 0:
+                    case 1:
+                        result.sort((a, b) => {
+                            function getLastName(fullName) {
+                                const parts = fullName.trim().split(" ");
+                                return parts[parts.length - 1].toLowerCase();
+                            };
 
-                        const nameA = getLastName(a.fullName);
-                        const nameB = getLastName(b.fullName);
+                            const nameA = getLastName(a.fullName);
+                            const nameB = getLastName(b.fullName);
 
-                        if(valueTypeSort === 'asc') {
-                            return nameA.localeCompare(nameB);
-                        } else {
-                            return nameB.localeCompare(nameA);
-                        }
-                    });
-                    renderCardSubmitted(containerSubmitted, result);
-                    break
-                case 2:
-                case 3:
-                    result.sort((a, b) => {
-                        if(valueTypeSort === 'asc') {
-                            return convertVietnameseDatetimeToDate(a.registeredAt) - convertVietnameseDatetimeToDate(b.registeredAt);
-                        } else {
-                            return convertVietnameseDatetimeToDate(b.registeredAt) - convertVietnameseDatetimeToDate(a.registeredAt);
-                        }
-                    });
-                    renderCardSubmitted(containerSubmitted, result);
-                    break
-                case 4:
-                case 5:
-                    result.sort((a, b) => {
-                        const totalA = Number(a.mathScore || '0') + Number(a.literatureScore || '0') + Number(a.englishScore || '0');
-                        const totalB = Number(b.mathScore || '0') + Number(b.literatureScore || '0') + Number(b.englishScore || '0');
+                            if(valueTypeSort === 'asc') {
+                                return nameA.localeCompare(nameB);
+                            } else {
+                                return nameB.localeCompare(nameA);
+                            }
+                        });
+                        renderCardSubmitted(containerSubmitted, result);
+                        setFeatureForIconSave();
+                        break
+                    case 2:
+                    case 3:
+                        result.sort((a, b) => {
+                            if(valueTypeSort === 'asc') {
+                                return convertVietnameseDatetimeToDate(a.registeredAt) - convertVietnameseDatetimeToDate(b.registeredAt);
+                            } else {
+                                return convertVietnameseDatetimeToDate(b.registeredAt) - convertVietnameseDatetimeToDate(a.registeredAt);
+                            }
+                        });
+                        renderCardSubmitted(containerSubmitted, result);
+                        setFeatureForIconSave();
+                        break
+                    case 4:
+                    case 5:
+                        result.sort((a, b) => {
+                            const totalA = Number(a.mathScore || '0') + Number(a.literatureScore || '0') + Number(a.englishScore || '0');
+                            const totalB = Number(b.mathScore || '0') + Number(b.literatureScore || '0') + Number(b.englishScore || '0');
 
-                        if(valueTypeSort === 'asc') {
-                            return totalA - totalB;
-                        } else {
-                            return totalB - totalA;
-
-                        }
-                    });
-                    renderCardSubmitted(containerSubmitted, result);
-                    break
+                            if(valueTypeSort === 'asc') {
+                                return totalB - totalA;
+                            } else {
+                                return totalA - totalB;
+                            }
+                        });
+                        renderCardSubmitted(containerSubmitted, result);
+                        setFeatureForIconSave();
+                        break
+                }
             }
         }
     })
@@ -478,28 +486,30 @@
         btnExportExcel.classList.toggle('show');
         dropdownMenu.classList.toggle('show');
     }
-
-    const iconSaves = document.querySelectorAll('.save-doc-icon');
+    setFeatureForIconSave();
     
-    Array.from(iconSaves).forEach((icon) => {
-        if(icon.className.includes('saved')) {
-            icon.setAttribute('title', 'Gỡ lưu hồ sơ này');
-        } else {
-            icon.setAttribute('title', 'Lưu hồ sơ này');
-        }
-        icon.onclick = async () => {
-            const docId = icon.getAttribute('value');
-            if(!icon.className.includes('saved')) {
+    function setFeatureForIconSave() {
+        const iconSaves = document.querySelectorAll('.save-doc-icon');
+        Array.from(iconSaves).forEach((icon) => {
+            if(icon.className.includes('saved')) {
                 icon.setAttribute('title', 'Gỡ lưu hồ sơ này');
-                const result = await fetchAsync('/combination/save', 'POST', { docId: docId }, null, true);
-                toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
             } else {
                 icon.setAttribute('title', 'Lưu hồ sơ này');
-                const result = await fetchAsync('/combination/unsave', 'POST', { docId: docId }, null, true);
-                toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
             }
-            icon.classList.toggle('saved');
-        } 
-    })
+            icon.onclick = async () => {
+                const docId = icon.getAttribute('value');
+                icon.classList.toggle('saved');
+                if(!icon.className.includes('saved')) {
+                    icon.setAttribute('title', 'Gỡ lưu hồ sơ này');
+                    const result = await fetchAsync('/combination/unsave', 'POST', { docId: docId }, null, true);
+                    toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
+                } else {
+                    icon.setAttribute('title', 'Lưu hồ sơ này');
+                    const result = await fetchAsync('/combination/save', 'POST', { docId: docId }, null, true);
+                    toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
+                }
+            } 
+        })
+    }
 
 </script>

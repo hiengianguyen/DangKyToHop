@@ -1,6 +1,12 @@
-function filterSubmittedList() {
+function filterSubmittedList(data) {
   let result;
+  const searchName = document.getElementById("search-name-inp");
   const valueName = searchName.value;
+  const containerSubmitted = document.getElementById("container-submitted");
+  const radioGenders = document.getElementById("radios-gender").querySelectorAll("input");
+  const radioCombinations1 = document.getElementById("radios-combination-1").querySelectorAll("input");
+  const radioCombinations2 = document.getElementById("radios-combination-2").querySelectorAll("input");
+
   const valueGender = Array.from(radioGenders).find((radio) => {
     return radio.checked;
   }).value;
