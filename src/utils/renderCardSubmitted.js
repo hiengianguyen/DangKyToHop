@@ -44,6 +44,9 @@ function renderCardSubmitted(parentElement, data) {
                         </div>
                     </div>
                 </div>
+                <div class="position-absolute" style="bottom: 10px;right: 15px;">
+                    <i title="Lưu hồ sơ này" value="${doc.id}" class="fa-solid fa-bookmark save-doc-icon ${doc.favourite ? "saved" : ""}"></i>
+                </div>
             </div>
         `;
     })

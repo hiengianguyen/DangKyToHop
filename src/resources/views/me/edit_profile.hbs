@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="btn-edit d-flex justify-content-end mt-2">
-                <button type="submit" class="btn bg-success btn-lg text-white">Cập Nhật</button>
+                    <button type="button" id="btn-update-profile" class="btn bg-success btn-lg text-white">Cập Nhật</button>
                 </div>
             </div>
             </form>
@@ -79,7 +79,6 @@
   src="/validationForm.js"
   onload="varidator('#form-edit-profile')"
 ></script>
-<script src="https://upload-widget.cloudinary.com/global/all.js"></script>
 <script src="/showToastMessage.js" defer></script>
 
 <script type="module">
@@ -111,29 +110,47 @@
         }
     })
 
+    const formUpdate = document.querySelector('#form-edit-profile');
+    const btnUpdate = document.querySelector('#btn-update-profile');
     const inputChooseFileImg = document.getElementById("formFile");
     const imgProfile = document.getElementById("profile-img");
     const hiddenAvatarInput = document.getElementById("avatar-input");
     const loading = document.getElementById('loading-full');
+    const loadingText = loading.querySelector('h2');
+
+    btnUpdate.onclick = async () => {
+        const file = inputChooseFileImg.files[0];
+        if(file) {
+            loadingText.textContent = 'Đang tải ảnh lên...';
+            loading.style.display = 'flex';
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                imgProfile.src = e.target.result;
+            };
+
+            const uploaded = await uploadImageToCloudinary(file, 'users');
+            loading.style.display = 'none';
+            if (uploaded.data) {
+                imgProfile.src = uploaded.data; 
+                hiddenAvatarInput.value = uploaded.data;
+            }
+            else {
+                console.error('Error uploading image:', uploaded.error);
+                toastMessage("Thông báo", 'Có lỗi khi tải ảnh lên', "error", 6000, "❌", 1000);
+                return
+            }
+        }
+
+        formUpdate.submit();
+    }
 
     inputChooseFileImg.addEventListener("change", async(event) => {
+        loadingText.textContent = 'Đang cập nhật hồ sơ...';
         loading.style.display = 'flex';
         const file = event.target.files[0];
-        const reader = new FileReader();
 
-        reader.onload = function (e) {
-            imgProfile.src = e.target.result;
-        };
-
-        const uploaded = await uploadImageToCloudinary(file, 'users');
+        imgProfile.src = await URL.createObjectURL(file);
         loading.style.display = 'none';
-        if (uploaded.data) {
-            imgProfile.src = uploaded.data; 
-            hiddenAvatarInput.value = uploaded.data;
-        }
-        else {
-            console.error('Error uploading image:', uploaded.error);
-            toastMessage("Thông báo", 'Có lỗi khi tải ảnh lên', "error", 6000, "❌", 1000);
-        }
     });
 </script>
