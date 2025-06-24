@@ -7,7 +7,7 @@ function renderCardSubmitted(parentElement, data) {
                 <div class="row g-0" style="position: relative;">
                     <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
                         <img src="${doc.avatarLink}" class="img-fluid rounded-end border border-dark-subtle" alt="${doc.fullName}" style="margin-left: 5px;">
-                        <a href="submited-detail/${doc.userId}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 7px;">Xem thông tin</a>
+                        <a href="/combination/submited-detail/${doc.userId}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 7px;">Xem thông tin</a>
                     </div>
                     <div class="col-md-8 ps-0">
                         <div class="card-body pe-0">
