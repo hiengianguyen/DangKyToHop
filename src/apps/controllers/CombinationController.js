@@ -10,6 +10,7 @@ const {
 } = require("../models");
 const { CollectionNameConstant } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
+const { convertVietnameseDatetimeToDate } = require("../../utils/convertVietnameseDatetimeToDate");
 
 class CombinationController {
   constructor() {
@@ -34,6 +35,7 @@ class CombinationController {
     if (req?.cookies?.isLogin === "true") {
       const userId = req?.cookies?.userId;
       const data = req?.body;
+      const currentTime = new Date();
       if (data) {
         const submitedCombinationModel = new RegisteredCombinationModel(
           undefined, // id
@@ -76,7 +78,7 @@ class CombinationController {
           data.avgGeographyScore,
           undefined, // isDeleted
           userId,
-          new Date() // registeredAt
+          convertToVietnameseDateTime(currentTime) // registeredAt
         );
         const submitedByUserId = await this.registeredCombinationsDbRef.getItemByFilter({
           userId: userId
@@ -104,9 +106,10 @@ class CombinationController {
   async submitedList(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
       const userId = req?.cookies?.userId;
-      let data = await this.registeredCombinationsDbRef.getAllItems({
-        fieldName: "registeredAt",
-        type: "asc"
+      let data = await this.registeredCombinationsDbRef.getAllItems();
+
+      data = data.sort((a, b) => {
+        return convertVietnameseDatetimeToDate(a.registeredAt) - convertVietnameseDatetimeToDate(b.registeredAt);
       });
 
       let allIdDocSaved = await this.favouriteSubmittedDbRef.getItemsByFilter({
@@ -121,7 +124,6 @@ class CombinationController {
         } else {
           doc.favourite = false;
         }
-        doc.registeredAt = convertToVietnameseDateTime(doc.registeredAt.toDate());
       });
 
       return res.render("combination/submited_list", {
@@ -270,7 +272,6 @@ class CombinationController {
 
       Array.from(allDocSubmittedSaved).forEach((doc) => {
         doc.favourite = true;
-        doc.registeredAt = convertToVietnameseDateTime(doc.registeredAt.toDate());
       });
     } else {
       allDocSubmittedSaved = [];

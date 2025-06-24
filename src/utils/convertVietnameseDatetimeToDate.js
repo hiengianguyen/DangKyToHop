@@ -5,3 +5,5 @@ function convertVietnameseDatetimeToDate(dateTimeStr) {
 
   return new Date(year, month - 1, day, hours, minutes, seconds);
 }
+
+module.exports = { convertVietnameseDatetimeToDate };
