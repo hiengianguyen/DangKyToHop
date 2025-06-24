@@ -29,7 +29,6 @@ class FileController {
         }
         return {
           ...doc,
-          registeredAt: convertToVietnameseDateTime(doc.registeredAt.toDate()),
           phoneNumber: phoneNumber
         };
       })
@@ -77,7 +76,6 @@ class FileController {
         }
         return {
           ...doc,
-          registeredAt: convertToVietnameseDateTime(doc.registeredAt.toDate()),
           phoneNumber: phoneNumber
         };
       })
