@@ -1,6 +1,6 @@
-function convertToVietnameseDateTime(dateTime) {
-  const updatedAt = new Date(dateTime);
-  const vietnameseDateTime = updatedAt.toLocaleString("vi-VN", {
+function convertToVietnameseDateTime(strDateTime) {
+  const date = new Date(strDateTime);
+  const vietnameseDateTime = date.toLocaleString("vi-VN", {
     day: "numeric",
     month: "numeric",
     year: "numeric",
