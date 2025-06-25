@@ -282,18 +282,16 @@
     <input type="hidden" name="idSubmitteds" id="input-hid-idSubmitteds">
 </form>
 
-<script src="https://unpkg.com/jsrmvi/dist/jsrmvi.min.js"></script>
-<script src="/filterSubmittedList.js"></script>
 <script src="/renderCardSubmitted.js"></script>
 <script src="/convertVietnameseDatetimeToDate.js"></script>
 <script src="/showToastMessage.js"></script>
 
 <script type="module">
     import { fetchAsync } from '/fetchAsync.js';
+    import { filterSubmittedList } from '/filterSubmittedList.js';
     // Gắn fetchAsync vào window để gọi được từ HTML
     window.fetchAsync = fetchAsync;
-
-    const { removeVI, DefaultOption } = jsrmvi;
+    window.filterSubmittedList = filterSubmittedList;
 
     const data = {{{submitedListData}}};
     const btnSearchName = document.getElementById('search-name-btn');

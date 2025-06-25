@@ -1,3 +1,7 @@
+import { jsrmvi } from "/jsrmvi.js";
+
+const { removeVI } = jsrmvi;
+
 function filterSubmittedList(data) {
   let result;
   const searchName = document.getElementById("search-name-inp");
@@ -63,3 +67,5 @@ function filterSubmittedList(data) {
   renderCardSubmitted(containerSubmitted, result);
   return result;
 }
+
+export { filterSubmittedList };
