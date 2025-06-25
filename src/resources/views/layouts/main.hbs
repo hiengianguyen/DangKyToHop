@@ -33,8 +33,6 @@
 <body style="font-family: 'Lexend', sans-serif;">
   {{#if (not isHomePage)}}
     <div id="toast"></div>
-      {{#if isExportPDF}}
-      {{else}}
         <div class="d-flex">
           <div id="sidebar">
             <div class="sidebar-content">
@@ -136,7 +134,6 @@
             </div>
           </div>
         {{/if}}
-      {{/if}}
         {{{body}}}
       </div>
 </body>
@@ -148,11 +145,19 @@
     const mainSideBar = document.getElementById('sidebar');
     const btnPushSidebar = document.getElementById('btn-push-sidebar');
     const iconBtnSidebar = btnPushSidebar.getElementsByTagName('i')[0];
+    const containerSubmitted = document.getElementById('container-submitted');
     
      window.addEventListener('load', function () {
       if(sideBar.className === 'active') {
+        if(containerSubmitted) {
+          containerSubmitted.style.maxWidth = '88%';
+        }
         btnPushSidebar.title = 'Phóng to bảng điều hướng';
         iconBtnSidebar.className = 'fa-solid fa-arrow-right';
+      } else {
+        if(containerSubmitted) {
+          containerSubmitted.style.maxWidth = '85%';
+        }
       }
      })
 
@@ -168,9 +173,15 @@
       mainSideBar.classList.toggle('active');
 
       if(mainSideBar.className === 'active') {
+        if(containerSubmitted) {
+          containerSubmitted.style.maxWidth = '88%';
+        }
         localStorage.setItem('isActive', true);
         btnPushSidebar.setAttribute("title", "Phóng to bảng điều hướng");
       } else {
+        if(containerSubmitted) {
+          containerSubmitted.style.maxWidth = '85%';
+        }
         localStorage.setItem('isActive', false)
         btnPushSidebar.setAttribute("title", "Thu nhỏ bảng điều hướng");
       }

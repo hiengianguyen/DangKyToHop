@@ -8,10 +8,9 @@
 </head>
 
 
-<div id="master" class="col .col-md-9 p-0" style="overflow-y: auto;">
-    <div class="school-info d-flex">
+<div id="master" class="col .col-md-9 p-0">
+    <div id="banner" class="school-info d-flex">
         <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
-        
         <div class="banner-container">
             <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
             <div class="school-info-detail fs-5">
@@ -19,104 +18,105 @@
             </div>
         </div>
     </div>
-    
-    <div class="header-box d-flex align-items-center justify-content-start">
-        <h4 class="ms-4 mb-0">Đọc thông tin về việc chọn tổ hợp</h4>
-    </div>
-    <div class="card-body submit pt-4">
+    <div id="card-body" class="card-body submit pt-4">
         <div class="content position-relative" style="display:none;">
-            <div class="step-container">
-                <div class="progress_bar">
-                    <ul class="progress_bar-steps">
-                        <li class="progress_bar-progress"></li>
-                        <li class="progress_bar-step active">
-                            <span>1</span>
-                            <div class="step-label">
-                                <p id="tittle-step-1">Đọc thông tin về việc chọn tổ hợp</p>
-                            </div>
-                        </li>
-                        <li class="progress_bar-step">
-                            <span>2</span>
-                            <div class="step-label">
-                                <p id="tittle-step-2">Nhập thông tin đăng ký</p>
-                            </div>
-                        </li>
-                        <li class="progress_bar-step">
-                            <span>3</span>
-                            <div class="step-label">
-                                <p id="tittle-step-3">Chọn tổ hợp</p>
-                            </div>
-                        </li>
-                        <li class="progress_bar-step">
-                            <span>4</span>
-                            <div class="step-label">
-                                <p id="tittle-step-4">Xác nhận thông tin</p>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="box-radius shadow">
+                <div class="step-container">
+                    <div class="progress_bar">
+                        <ul class="progress_bar-steps">
+                            <li class="progress_bar-progress"></li>
+                            <li class="progress_bar-step active">
+                                <span>1</span>
+                                <div class="step-label">
+                                    <p id="tittle-step-1">Đọc thông tin về việc chọn tổ hợp</p>
+                                </div>
+                            </li>
+                            <li class="progress_bar-step">
+                                <span>2</span>
+                                <div class="step-label">
+                                    <p id="tittle-step-2">Nhập thông tin đăng ký</p>
+                                </div>
+                            </li>
+                            <li class="progress_bar-step">
+                                <span>3</span>
+                                <div class="step-label">
+                                    <p id="tittle-step-3">Chọn tổ hợp</p>
+                                </div>
+                            </li>
+                            <li class="progress_bar-step">
+                                <span>4</span>
+                                <div class="step-label">
+                                    <p id="tittle-step-4">Xác nhận thông tin</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div class="card border-dark my-3 box-submit-1" style="display: {{#if (includes 'box-submit-1' step)}}block{{else}}none{{/if}};" >
-                <div class="d-flex justify-content-end my-4">
+            <div class="box-radius shadow box-submit-1" style="display: {{#if (includes 'box-submit-1' step)}}block{{else}}none{{/if}};">
+                <div class="d-flex align-items-between justify-content-start">
+                    <h4 class="mb-0">Đọc thông tin về việc chọn tổ hợp</h4>
                     <button type="button" class="btn btn-primary ms-auto me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive" disabled>
                         Tiếp tục
                     </button>
                 </div>
-                <div class="card-header fw-bold">Thông tin chung về đăng ký nguyện vọng vào lớp 10 - Trường THPT Duy Tân</div>
-                <div class="card-body">
-                    <div class="content-box">
-                        <p class="fw-bolder mb-2">Đối tượng đăng ký</p>
-                        <ul>
-                            <li>Học sinh lớp 9 chuẩn bị lên lớp 10 tại <b>TP. Tam Kỳ, tỉnh Quảng Nam</b>.</li>
-                            <li>Học sinh đang học tại các trường THCS công lập, ngoài công lập hoặc tương đương.</li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <p class="fw-bolder mb-2">Thời gian đăng ký</p>
-                        <ul>
-                            <li>Thời gian bắt đầu: <b>15/08/2025</b>.</li>
-                            <li>Thời gian kết thúc: <b>29/08/2025</b>.</li>
-                            <li>Lưu ý: Không đăng ký sau thời gian quy định.</li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <p class="fw-bolder mb-2">Cách thức đăng ký</p>
-                        <ul>
-                            <li>Đăng ký trực tuyến trên website này.</li>
-                            <li>Chọn hai nguyện vọng theo thứ tự ưu tiên.</li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <p class="fw-bolder mb-2">Tổ hợp môn xét tuyển</p>
-                        <ul>
-                            <li>Mỗi trường có thể có tổ hợp môn riêng (Toán - Văn - Anh, Toán - Lý - Hóa, v.v...).</li>
-                            <li>Cần tìm hiểu kỹ trước khi chọn nguyện vọng.</li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <p class="fw-bolder mb-2">Lưu ý khi đăng ký</p>
-                        <ul>
-                            <li>Không thể chọn 2 nguyện vọng giống nhau.</li>
-                            <li>Ưu tiên nguyện vọng 1 nếu có điểm chuẩn bằng nhau.</li>
-                            <li>Có thể chỉnh sửa trong thời gian đăng ký, nhưng nên kiểm tra kỹ trước khi lưu.</li>
-                        </ul>
-                    </div>
-                    <div class="my-2 d-flex justify-content-center">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="checkReaded">
-                            <label class="form-check-label" for="checkReaded" style="cursor:pointer;"><i>Tôi đã đọc và đồng ý với các lưu ý trên</i></label>
+                <div>
+                    <div class="card-body" style="font-size: 17px;">
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Đối tượng đăng ký</p>
+                            <ul>
+                                <li>Học sinh lớp 9 chuẩn bị lên lớp 10 tại <b>TP. Tam Kỳ, tỉnh Quảng Nam</b>.</li>
+                                <li>Học sinh đang học tại các trường THCS công lập, ngoài công lập hoặc tương đương.</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Thời gian đăng ký</p>
+                            <ul>
+                                <li>Thời gian bắt đầu: <b>15/08/2025</b>.</li>
+                                <li>Thời gian kết thúc: <b>29/08/2025</b>.</li>
+                                <li>Lưu ý: Không đăng ký sau thời gian quy định.</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Cách thức đăng ký</p>
+                            <ul>
+                                <li>Đăng ký trực tuyến trên website này.</li>
+                                <li>Chọn hai nguyện vọng theo thứ tự ưu tiên.</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Tổ hợp môn xét tuyển</p>
+                            <ul>
+                                <li>Mỗi trường có thể có tổ hợp môn riêng (Toán - Văn - Anh, Toán - Lý - Hóa, v.v...).</li>
+                                <li>Cần tìm hiểu kỹ trước khi chọn nguyện vọng.</li>
+                            </ul>
+                        </div>
+                        <div class="content-box">
+                            <p class="fw-bolder mb-2">Lưu ý khi đăng ký</p>
+                            <ul>
+                                <li>Không thể chọn 2 nguyện vọng giống nhau.</li>
+                                <li>Ưu tiên nguyện vọng 1 nếu có điểm chuẩn bằng nhau.</li>
+                                <li>Có thể chỉnh sửa trong thời gian đăng ký, nhưng nên kiểm tra kỹ trước khi lưu.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 d-flex justify-content-center">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="checkReaded">
+                                <label class="form-check-label" for="checkReaded" style="cursor:pointer;"><i>Tôi đã đọc và đồng ý với các lưu ý trên</i></label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="container box-submit-2 border border-dark" style="display: {{#if (includes 'box-submit-2' step)}}block{{else}}none{{/if}};">
-                <div class="d-flex justify-content-end my-4">
-                    <button type="button" class="btn btn-primary ms-4" id="btnPrevStep" style="display: {{#if (includes 'box-submit-2' step)}}none{{else}}block{{/if}};">
+            <div class="box-radius shadow box-submit-2" style="display: {{#if (includes 'box-submit-2' step)}}block{{else}}none{{/if}};">
+                <div class="d-flex align-items-center mb-3">
+                    <h4 class="mb-0 me-auto">Nhập thông tin đăng ký</h4>
+                    <button type="button" class="btn btn-primary me-3" id="btnPrevStep" style="display: {{#if (includes 'box-submit-2' step)}}none{{else}}block{{/if}};">
                         Trở lại
                     </button>
-                    <button type="button" class="btn btn-primary ms-auto me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive">
+                    <button type="button" class="btn btn-primary me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive">
                         Tiếp tục
                     </button>
                 </div>
@@ -442,17 +442,19 @@
                         </td>
                     </tbody>
                 </table>
-            </div>  
+            </div>
 
-            <div class="box-submit-3" style="display: none;">
-                <div class="d-flex justify-content-end my-4">
-                    <button type="button" class="btn btn-primary ms-4" id="btnPrevStep">
+            <div class="box-radius shadow box-submit-3" style="display: none;">
+                <div class="d-flex align-items-center mb-3">
+                    <h4 class="mb-0 me-auto">Chọn tổ hợp</h4>
+                    <button type="button" class="btn btn-primary me-3" id="btnPrevStep">
                         Trở lại
                     </button>
-                    <button type="button" class="btn btn-primary ms-auto me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive">
+                    <button type="button" class="btn btn-primary me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive">
                         Tiếp tục
                     </button>
                 </div>
+
                 <p class="fs-5">Sau khi nghiên cứu các tổ hợp của nhà trường:</p>
                 <table class="table table-bordered">
                 <thead>
@@ -524,12 +526,13 @@
                 </div>
             </div>
 
-            <div class="box-submit-4 container" style="display: none;">
-                <div class="d-flex justify-content-end my-4">
-                    <button type="button" class="btn btn-primary ms-4" id="btnPrevStep">
+            <div class="box-radius shadow box-submit-4" style="display: none;">
+                <div class="d-flex align-items-center mb-3">
+                    <h4 class="mb-0 me-auto">Xác nhận thông tin</h4>
+                    <button type="button" class="btn btn-primary me-3 ms-4" id="btnPrevStep">
                         Trở lại
                     </button>
-                    <button type="button" class="btn btn-primary ms-auto me-4" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#exampleModalLive" {{#if (eq role 'manager')}}disabled{{/if}}>
+                    <button type="button" class="btn btn-primary me-4" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#exampleModalLive" {{#if (eq role 'manager')}}disabled{{/if}}>
                         Xác nhận
                     </button>
                 </div>
@@ -999,9 +1002,11 @@
     // Gắn uploadImageToCloudinary, fetchAsync vào window để gọi được từ HTML
     window.uploadImageToCloudinary = uploadImageToCloudinary;
     window.fetchAsync = fetchAsync;
+
+    const banner = document.getElementById('banner');
+    const cardBody = document.getElementById('card-body');
     
     const combinationDetailModal = document.querySelector('#combinationDetailModal');
-    const headerTittle = document.querySelector('.header-box').getElementsByTagName('h4')[0];
     let page = {{{step}}} || 1;
 
     window.addEventListener('load', function () {
@@ -1018,8 +1023,6 @@
         const arrBarStep = Array.from(barSteps);
         arrBarStep[page-1].classList.add('active');
 
-        headerTittle.textContent = tittleStep.textContent;
-
         const liActiveElements = document.querySelectorAll('li.active');
 
         if(liActiveElements.length > page) {
@@ -1031,6 +1034,10 @@
         } else {
             steps_progress.style.width = `${liActiveElements[liActiveElements.length - 1].offsetLeft + liActiveElements[liActiveElements.length - 1].offsetWidth}px`
         }
+    }
+
+    function setHeightContent() {
+        sideBar.parentElement.style.height = banner.clientHeight + cardBody.clientHeight;
     }
 
     function checkPageReturnScript(currentPage) {
@@ -1402,6 +1409,7 @@
                 }
             break;
         }
+        setHeightContent()
     }
     const btnNext = document.querySelector('#btnNextStep');
     const btnPrev = document.querySelector('#btnPrevStep');
