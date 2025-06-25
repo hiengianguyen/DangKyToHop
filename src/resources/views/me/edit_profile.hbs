@@ -9,59 +9,61 @@
 </head>
 
 <div id="master" class="col .col-md-9 p-0">
-    <div class="card mb-3 d-flex justify-content-center align-items-center">
-        <div class="header-box d-flex align-items-center justify-content-start">
-            <h4 class="ms-4 mb-0">Chỉnh sửa trang cá nhân</h4>
+    <div class="box-radius shadow m-4">
+        <div class="d-flex align-items-between justify-content-start">
+            <h4 class="mb-0">Chỉnh sửa trang cá nhân</h4>
         </div>
-        <div class="card-body-profile my-4">
-            <form
-            class="profile-user rounded shadow-sm bg-body-tertiary"
-            id="form-edit-profile"
-            method="POST"
-            action="/me/profile/update?role={{role}}"
-            >
-            <div class="info-top containers mb-3 d-flex justify-content-center">
-                <img
-                class="profile-img-user rounded-circle mt-2"
-                id="profile-img"
-                src="{{user.avatar}}"
-                alt="User"
-                />
-            </div>
-            <div class="container d-flex justify-content-center">
-                <input class="choose-file-input" type="file" id="formFile" />
-                <input id="avatar-input" name="avatar" type="text" style="display:none" />
-            </div>
-            <div class="profile-dad-name info mt-8 flex-column-reverse mx-5">
-                <div class="form-group">
-                <label for="profile-name-input" class="form-label-profile">Họ và Tên:</label>
-                <input
-                    type="text"
-                    class="form-control login__input"
-                    name="fullName"
-                    rules="required|min:10"
-                    value="{{user.fullName}}"
-                />
-                <span class="form-message"></span>
+        <div class="mb-3 d-flex justify-content-center align-items-center">
+            <div class="card-body-profile my-4">
+                <form
+                class="profile-user"
+                id="form-edit-profile"
+                method="POST"
+                action="/me/profile/update?role={{role}}"
+                >
+                <div class="info-top containers mb-3 d-flex justify-content-center">
+                    <img
+                    class="profile-img-user rounded-circle mt-2"
+                    id="profile-img"
+                    src="{{user.avatar}}"
+                    alt="User"
+                    />
                 </div>
-
-                <div class="form-group">
-                    <label for="profile-phone-input" class="form-label-profile">Số điện thoại:</label>
+                <div class="container d-flex justify-content-center">
+                    <input class="choose-file-input" type="file" id="formFile" />
+                    <input id="avatar-input" name="avatar" type="text" style="display:none" />
+                </div>
+                <div class="profile-dad-name info mt-8 flex-column-reverse mx-5">
+                    <div class="form-group">
+                    <label for="profile-name-input" class="form-label-profile">Họ và Tên:</label>
                     <input
                         type="text"
                         class="form-control login__input"
-                        name="phone"
-                        rules="required|number|length:10"
-                        value="{{user.phone}}"
+                        name="fullName"
+                        rules="required|min:10"
+                        value="{{user.fullName}}"
                     />
                     <span class="form-message"></span>
-                </div>
+                    </div>
 
-                <div class="btn-edit d-flex justify-content-end mt-2">
-                    <button type="button" id="btn-update-profile" class="btn bg-success btn-lg text-white">Cập Nhật</button>
+                    <div class="form-group">
+                        <label for="profile-phone-input" class="form-label-profile">Số điện thoại:</label>
+                        <input
+                            type="text"
+                            class="form-control login__input"
+                            name="phone"
+                            rules="required|number|length:10"
+                            value="{{user.phone}}"
+                        />
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="btn-edit d-flex justify-content-end mt-2">
+                        <button type="button" id="btn-update-profile" class="btn bg-success btn-lg text-white">Cập Nhật</button>
+                    </div>
                 </div>
+                </form>
             </div>
-            </form>
         </div>
     </div>
 </div>

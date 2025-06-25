@@ -7,7 +7,7 @@
 </head>
 
 <div id="master" class="col .col-md-9 p-0">
-    <div class="school-info d-flex">
+    <div id="banner" class="school-info d-flex">
         <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
         <div class="banner-container">
             <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
@@ -16,249 +16,251 @@
             </div>
         </div>
     </div>
-    <div class="card-body" style="display: none;">
-        <div class="container-submited-list">
-            <div class="d-flex justify-content-between me-3">
-                <h3 class="text-center m-0">
-                    {{#if isSavedPage}}
-                        Danh Sách Hồ Sơ Đã Lưu
-                    {{else}}
-                        Danh Sách Đã Đăng Ký
-                    {{/if}}
-                </h3>
-                <div class="btn-group dropstart">
-                    <button type="button" class="btn btn-info dropdown-toggle" id="btn-export-excel" data-bs-toggle="dropdown" aria-expanded="false">
-                        Xuất file Excel
-                    </button>
-                    <ul id="dropdown-menu" class="dropdown-menu p-0">
-                        <li class="all-doc"><a href="/file/excel/submited-list" class="dropdown-item">Tất cả các hồ sơ</a></li>
-                        <li class="filter">Các hồ sơ đã được lọc</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="filter-box d-flex align-items-center my-3">
-                <div class="d-flex align-items-center border border-black" style="width:30pc;">
-                    <i class="fa-solid fa-magnifying-glass mx-2"></i>
-                    <input class="ps-0" type="text" id="search-name-inp" name="fullName" style="border: none;outline:none;" placeholder="Tìm kiếm theo họ và tên...">
-                </div>
-                <button type="button" id="search-name-btn" class="btn btn-primary ms-3">Tìm kiếm</button>
-            </div>
-            <div class="d-flex align-items-center mb-3">
-                <p class="mb-0 me-3"><b>Giới tính :</b></p>
-                <div id="radios-gender" class="gap-3">
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="gender" value="all" checked>
-                        <label class="form-check-label">
-                            Tất cả
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="gender" value="Nam">
-                        <label class="form-check-label">
-                            Nam
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline me-0">
-                        <input class="form-check-input" type="radio" name="gender" value="Nữ">
-                        <label class="form-check-label">
-                            Nữ
-                        </label>
+    <div class="box-radius shadow m-4" id="card-body">
+        <div class="card-body p-0" style="display: none;">
+            <div class="container-submited-list">
+                <div class="d-flex justify-content-between">
+                    <h3 class="text-center m-0">
+                        {{#if isSavedPage}}
+                            Danh Sách Hồ Sơ Đã Lưu
+                        {{else}}
+                            Danh Sách Đã Đăng Ký
+                        {{/if}}
+                    </h3>
+                    <div class="btn-group dropstart">
+                        <button type="button" class="btn btn-info dropdown-toggle" id="btn-export-excel" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-cloud-arrow-up me-2"></i> Xuất file Excel
+                        </button>
+                        <ul id="dropdown-menu" class="dropdown-menu p-0">
+                            <li class="all-doc"><a href="/file/excel/submited-list" class="dropdown-item">Tất cả các hồ sơ</a></li>
+                            <li class="filter">Các hồ sơ đã được lọc</li>
+                        </ul>
                     </div>
                 </div>
+                <div class="filter-box d-flex align-items-center my-3">
+                    <div class="d-flex align-items-center border border-black" style="width:30pc;">
+                        <i class="fa-solid fa-magnifying-glass mx-2"></i>
+                        <input class="ps-0" type="text" id="search-name-inp" name="fullName" style="border: none;outline:none;" placeholder="Tìm kiếm theo họ và tên...">
+                    </div>
+                    <button type="button" id="search-name-btn" class="btn btn-primary ms-3">Tìm kiếm</button>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <p class="mb-0 me-3"><b>Giới tính :</b></p>
+                    <div id="radios-gender" class="gap-3">
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="gender" value="all" checked>
+                            <label class="form-check-label">
+                                Tất cả
+                            </label>
+                        </div>
 
-                <div class="dash-height mx-3"></div>
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="gender" value="Nam">
+                            <label class="form-check-label">
+                                Nam
+                            </label>
+                        </div>
 
-                <p class="mb-0 me-3"><b>Nguyện vọng 1:</b></p>
-                <div id="radios-combination-1" class=" gap-3">
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination1" value="all" checked>
-                        <label class="form-check-label">
-                            Tất cả
-                        </label>
+                        <div class="form-check form-check-inline me-0">
+                            <input class="form-check-input" type="radio" name="gender" value="Nữ">
+                            <label class="form-check-label">
+                                Nữ
+                            </label>
+                        </div>
                     </div>
 
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination1" value="1">
-                        <label class="form-check-label">
-                            1
-                        </label>
+                    <div class="dash-height mx-3"></div>
+
+                    <p class="mb-0 me-3"><b>Nguyện vọng 1:</b></p>
+                    <div id="radios-combination-1" class=" gap-3">
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination1" value="all" checked>
+                            <label class="form-check-label">
+                                Tất cả
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination1" value="1">
+                            <label class="form-check-label">
+                                1
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination1" value="2">
+                            <label class="form-check-label">
+                                2
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination1" value="3">
+                            <label class="form-check-label">
+                                3
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination1" value="4">
+                            <label class="form-check-label">
+                                4
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination1" value="5">
+                            <label class="form-check-label">
+                                5
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline me-0">
+                            <input class="form-check-input" type="radio" name="combination1" value="6">
+                            <label class="form-check-label">
+                                6
+                            </label>
+                        </div>
                     </div>
 
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination1" value="2">
-                        <label class="form-check-label">
-                            2
-                        </label>
-                    </div>
+                    <div class="dash-height mx-3"></div>
+                    <p class="mb-0 me-3"><b>Nguyện vọng 2:</b></p>
+                    <div id="radios-combination-2" class="gap-3">
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination2" value="all" checked>
+                            <label class="form-check-label">
+                                Tất cả
+                            </label>
+                        </div>
 
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination1" value="3">
-                        <label class="form-check-label">
-                            3
-                        </label>
-                    </div>
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination2" value="1">
+                            <label class="form-check-label">
+                                1
+                            </label>
+                        </div>
 
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination1" value="4">
-                        <label class="form-check-label">
-                            4
-                        </label>
-                    </div>
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination2" value="2">
+                            <label class="form-check-label">
+                                2
+                            </label>
+                        </div>
 
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination1" value="5">
-                        <label class="form-check-label">
-                            5
-                        </label>
-                    </div>
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination2" value="3">
+                            <label class="form-check-label">
+                                3
+                            </label>
+                        </div>
 
-                    <div class="form-check form-check-inline me-0">
-                        <input class="form-check-input" type="radio" name="combination1" value="6">
-                        <label class="form-check-label">
-                            6
-                        </label>
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination2" value="4">
+                            <label class="form-check-label">
+                                4
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="combination2" value="5">
+                            <label class="form-check-label">
+                                5
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline me-0">
+                            <input class="form-check-input" type="radio" name="combination2" value="6">
+                            <label class="form-check-label">
+                                6
+                            </label>
+                        </div>
                     </div>
                 </div>
+                <div class="row" style="width: 100%;">
+                    <div id="container-submitted" class="col-11 row" style="margin-left: 10px;padding: 0;max-width: 88%;">
+                        {{#each submitedList}}
+                            <div class="card mb-3 m-2" value="{{this.id}}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
+                                <div class="row g-0" style="position: relative;">
+                                    <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
+                                        <img src="{{this.avatarLink}}" class="img-fluid rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 5px;">
+                                        <a href="/combination/submited-detail/{{this.userId}}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 7px;">Xem thông tin</a>
+                                    </div>
+                                    <div class="col-md-8 ps-0">
+                                        <div class="card-body pb-3 pe-0">
+                                            <h6 class="card-title">{{this.fullName}}</h6>
+                                            <div class="d-flex justify-content-between" style="font-size: 10px;">
+                                                <div class="d-flex align-items-start flex-column">
+                                                    <p class="pe-1 m-0" style="width: max-content;"><b>Giới tính:</b></p>
+                                                    <p class="m-0 pe-0" >{{this.gender}}</p>
+                                                </div>
+                                                <div class="d-flex align-items-start flex-column mx-2">
+                                                    <p class="m-0" style="width: max-content;"><b>Ngày sinh:</b></p>
+                                                    <p class="m-0">{{this.dateOfBirth}}</p>
+                                                </div>
+                                                <div class="d-flex align-items-start flex-column">
+                                                    <p class="m-0" style="width: max-content;"><b>Dân tộc:</b></p>
+                                                    <p class="m-0">{{this.nation}}</p>
+                                                </div>
+                                            </div>
 
-                <div class="dash-height mx-3"></div>
-                <p class="mb-0 me-3"><b>Nguyện vọng 2:</b></p>
-                <div id="radios-combination-2" class="gap-3">
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination2" value="all" checked>
-                        <label class="form-check-label">
-                            Tất cả
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination2" value="1">
-                        <label class="form-check-label">
-                            1
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination2" value="2">
-                        <label class="form-check-label">
-                            2
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination2" value="3">
-                        <label class="form-check-label">
-                            3
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination2" value="4">
-                        <label class="form-check-label">
-                            4
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline me-2">
-                        <input class="form-check-input" type="radio" name="combination2" value="5">
-                        <label class="form-check-label">
-                            5
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline me-0">
-                        <input class="form-check-input" type="radio" name="combination2" value="6">
-                        <label class="form-check-label">
-                            6
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="width: 100%;">
-                <div id="container-submitted" class="col-11 row" style="margin-left: 10px;padding: 0;max-width: 85%;">
-                    {{#each submitedList}}
-                        <div class="card mb-3 m-2" value="{{this.id}}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
-                            <div class="row g-0" style="position: relative;">
-                                <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
-                                    <img src="{{this.avatarLink}}" class="img-fluid rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 5px;">
-                                    <a href="/combination/submited-detail/{{this.userId}}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 7px;">Xem thông tin</a>
-                                </div>
-                                <div class="col-md-8 ps-0">
-                                    <div class="card-body pb-3 pe-0">
-                                        <h6 class="card-title">{{this.fullName}}</h6>
-                                        <div class="d-flex justify-content-between" style="font-size: 10px;">
                                             <div class="d-flex align-items-start flex-column">
-                                                <p class="pe-1 m-0" style="width: max-content;"><b>Giới tính:</b></p>
-                                                <p class="m-0 pe-0" >{{this.gender}}</p>
+                                                <p class="pe-1 m-0"><b>Nguyện vọng 1:</b></p>
+                                                <p class="m-0 pe-0" >{{this.combination1}}</p>
                                             </div>
-                                            <div class="d-flex align-items-start flex-column mx-2">
-                                                <p class="m-0" style="width: max-content;"><b>Ngày sinh:</b></p>
-                                                <p class="m-0">{{this.dateOfBirth}}</p>
-                                            </div>
+
                                             <div class="d-flex align-items-start flex-column">
-                                                <p class="m-0" style="width: max-content;"><b>Dân tộc:</b></p>
-                                                <p class="m-0">{{this.nation}}</p>
+                                                <p class="pe-1 m-0"><b>Nguyện vọng 2:</b></p>
+                                                <p class="m-0 pe-0" >{{this.combination2}}</p>
                                             </div>
+                                            
+                                            <div class="d-flex align-items-start flex-column">
+                                                <p class="card-text mb-0"><small class="text-body-secondary">Đăng ký lúc:</small></p>
+                                            </div>
+                                                <p class="card-text"><small class="text-body-secondary"><b>{{this.registeredAt}}</b></small></p>
                                         </div>
-
-                                        <div class="d-flex align-items-start flex-column">
-                                            <p class="pe-1 m-0"><b>Nguyện vọng 1:</b></p>
-                                            <p class="m-0 pe-0" >{{this.combination1}}</p>
-                                        </div>
-
-                                        <div class="d-flex align-items-start flex-column">
-                                            <p class="pe-1 m-0"><b>Nguyện vọng 2:</b></p>
-                                            <p class="m-0 pe-0" >{{this.combination2}}</p>
-                                        </div>
-                                        
-                                        <div class="d-flex align-items-start flex-column">
-                                            <p class="card-text mb-0"><small class="text-body-secondary">Đăng ký lúc:</small></p>
-                                        </div>
-                                            <p class="card-text"><small class="text-body-secondary"><b>{{this.registeredAt}}</b></small></p>
                                     </div>
                                 </div>
+                                <div class="position-absolute" style="bottom: 10px;right: 15px;">
+                                    <i title="Lưu hồ sơ này" value="{{this.id}}" class="fa-solid fa-bookmark save-doc-icon {{#if this.favourite}}saved{{/if}}"></i>
+                                </div>
                             </div>
-                            <div class="position-absolute" style="bottom: 10px;right: 15px;">
-                                <i title="Lưu hồ sơ này" value="{{this.id}}" class="fa-solid fa-bookmark save-doc-icon {{#if this.favourite}}saved{{/if}}"></i>
+                        {{/each}}
+                    </div>
+                    <div class="col d-flex justify-content-center pe-0">
+                        <div class="sort-box">
+                            <div id="sort-title">
+                                <p class="m-0">
+                                    Sắp xếp theo <i class="fa-solid fa-chevron-down" id="sort-icon-title" style="font-size: 13px;"></i>
+                                </p>
                             </div>
-                        </div>
-                    {{/each}}
-                </div>
-                <div class="col d-flex justify-content-center pe-0">
-                    <div class="sort-box">
-                        <div id="sort-title">
-                            <p class="m-0">
-                                Sắp xếp theo <i class="fa-solid fa-chevron-down" id="sort-icon-title" style="font-size: 13px;"></i>
-                            </p>
-                        </div>
-                        <div id="sort-content">
-                            <ul class="list-sort p-0">
-                                <li class="sub-li-type title">Họ và tên <i style="font-size: 20px;"></i>
-                                </li>
-                                <li class="active sub-li-type type py-0">
-                                    <ul class="ps-3">
-                                        <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-1 fa-solid"></i></li>
-                                        <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-1 fa-solid"></i></li>
-                                    </ul>
-                                </li>
-                                <li class="title sub-li-type">Ngày đăng ký <i class="ms-1 title fa-solid fa-arrow-up-wide-short" style="font-size: 20px;"></i>
-                                </li>
-                                <li class="active sub-li-type type py-0">
-                                    <ul class="ps-3">
-                                        <li class="p-2 type-sort" data-value="asc">Trước đó <i class="ms-1 fa-solid fa-check"></i></li>
-                                        <li class="p-2 type-sort" data-value="desc">Gần đây <i class="ms-1 fa-solid"></i></li>
-                                    </ul>
-                                </li>
-                                <li class="title sub-li-type" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào <i style="font-size: 20px;"></i>
-                                </li>
-                                <li class="active sub-li-type type py-0">
-                                    <ul class="ps-3">
-                                        <li class="p-2 type-sort" data-value="asc">Cao nhất <i class="ms-1 fa-solid"></i></li>
-                                        <li class="p-2 type-sort" data-value="desc">Thấp nhất <i class="ms-1 fa-solid"></i></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <div id="sort-content">
+                                <ul class="list-sort p-0">
+                                    <li class="sub-li-type title">Họ và tên <i style="font-size: 20px;"></i>
+                                    </li>
+                                    <li class="active sub-li-type type py-0">
+                                        <ul class="ps-3">
+                                            <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-1 fa-solid"></i></li>
+                                            <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-1 fa-solid"></i></li>
+                                        </ul>
+                                    </li>
+                                    <li class="title sub-li-type">Ngày đăng ký <i class="ms-1 title fa-solid fa-arrow-up-wide-short" style="font-size: 20px;"></i>
+                                    </li>
+                                    <li class="active sub-li-type type py-0">
+                                        <ul class="ps-3">
+                                            <li class="p-2 type-sort" data-value="asc">Trước đó <i class="ms-1 fa-solid fa-check"></i></li>
+                                            <li class="p-2 type-sort" data-value="desc">Gần đây <i class="ms-1 fa-solid"></i></li>
+                                        </ul>
+                                    </li>
+                                    <li class="title sub-li-type" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào <i style="font-size: 20px;"></i>
+                                    </li>
+                                    <li class="active sub-li-type type py-0">
+                                        <ul class="ps-3">
+                                            <li class="p-2 type-sort" data-value="asc">Cao nhất <i class="ms-1 fa-solid"></i></li>
+                                            <li class="p-2 type-sort" data-value="desc">Thấp nhất <i class="ms-1 fa-solid"></i></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -301,6 +303,14 @@
     const radioCombinations2 = document.getElementById('radios-combination-2').querySelectorAll('input');
     let result = data;
 
+    if(Array.from(containerSubmitted.querySelectorAll('.card')).length > 10) {
+        containerSubmitted.style.height = "45pc";
+        containerSubmitted.style.overflowY = 'scroll';
+    } else {
+        containerSubmitted.style.height = "auto";
+        containerSubmitted.style.overflowY = 'auto';
+    }
+
     btnSearchName.onclick = () => {
         result = filterSubmittedList(data);
         setFeatureForIconSave();
@@ -330,8 +340,16 @@
     var sideBar = document.getElementById('sidebar');
     const master = document.getElementById('master');
     window.addEventListener('load', function () {
+        const body = document.querySelector('body');
+        const banner = document.getElementById('banner');
+        const cardBody = document.getElementById('card-body');
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body').style.display = 'block';
+        if(body.clientHeight > (banner.clientHeight + cardBody.clientHeight)) {
+            body.querySelector('.d-flex').style.height = body.clientHeight;
+        } else {
+            body.querySelector('.d-flex').style.height = banner.clientHeight + cardBody.clientHeight;
+        }
         sideBar.parentElement.style.height = master.clientHeight;
     });
 
@@ -511,5 +529,4 @@
             } 
         })
     }
-
 </script>

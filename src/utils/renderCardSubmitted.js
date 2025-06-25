@@ -1,4 +1,11 @@
 function renderCardSubmitted(parentElement, data) {
+  if (data.length > 10) {
+    parentElement.style.height = "45pc";
+    parentElement.style.overflowY = "scroll";
+  } else {
+    parentElement.style.height = "auto";
+    parentElement.style.overflowY = "auto";
+  }
   parentElement.innerHTML = "";
   parentElement.innerHTML = data
     .map((doc) => {

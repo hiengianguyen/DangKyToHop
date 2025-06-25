@@ -10,3 +10,12 @@
 .school-info-detail img {
   width: 100%;
   height: 89%; }
+
+#master {
+  background-color: #29a9ef; }
+
+.box-radius {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 25px;
+  margin-top: 20px; }
