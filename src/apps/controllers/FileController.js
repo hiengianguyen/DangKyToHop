@@ -116,6 +116,13 @@ class FileController {
       userId: userId
     });
 
+    const registeredAt = data.registeredAt;
+    const registeredDay = registeredAt.split(" ")[1];
+    const [day, month, year] = registeredDay.split("/");
+    data.registeredDay = day;
+    data.registeredMonth = month;
+    data.registeredYear = year;
+
     const options = {
       method: "POST",
       hostname: "us1.pdfgeneratorapi.com",
