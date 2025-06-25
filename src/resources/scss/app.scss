@@ -1,3 +1,5 @@
+@import "breakpoints";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -247,3 +249,28 @@ input {
   height: 100vh;
   z-index: 2;
 }
+
+// /* Extra large screens */
+// @media (width >= 1920px) {
+// }
+
+// /* Desktops */
+// @media (1200px <= width <= 1919px) {
+// }
+
+// /* Laptops/Large tablets */
+// @media (992px <= width <= 1199px) {
+// }
+
+// /* Small tablets */
+// @media (768px <= width <= 991px) {
+// }
+
+// /* Extra small devices */
+// @media (481px <= width <= 767px) {
+// }
+
+// /* Mobile devices */
+// @media (width <= 480px) {
+
+// }

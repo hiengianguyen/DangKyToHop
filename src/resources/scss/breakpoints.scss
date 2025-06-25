@@ -1,0 +1,19 @@
+$breakpoints: (
+  phone-sm: 420px,
+  phone: 767px,
+  tablet: 768px,
+  tablet-lg: 1199px,
+  desktop: 1919px,
+  screens-lg: 1920px
+);
+
+@mixin respond($bp) {
+  @if map-has-key($breakpoints, $bp) {
+    $value: map-get($breakpoints, $bp);
+
+    //Build media query
+    @media (max-width: $value) {
+      @content;
+    }
+  }
+}
