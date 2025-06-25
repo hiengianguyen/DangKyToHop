@@ -161,10 +161,12 @@
       }
      })
 
-    if(localStorage.getItem('isActive') === 'true') {
-      sideBar.classList.add('active');
-    } else {
-      sideBar.classList.remove('active');
+    if(sideBar) {
+      if(localStorage.getItem('isActive') === 'true') {
+        sideBar.classList.add('active');
+      } else {
+        sideBar.classList.remove('active');
+      }
     }
 
     // sidebar(.active) ==> The sidebar is miniature.

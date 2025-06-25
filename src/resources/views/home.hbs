@@ -7,11 +7,11 @@
 <div class="p-0">
   <div class="containers">
     <div class="container-start">
-      <p class="text-center fw-bold fs-4">Về trang web Đăng ký tổ hợp</p>
-      <div class="d-flex justify-content-center">
+      <p class="text-center fw-bold">Về trang web Đăng ký tổ hợp</p>
+      <div class="d-flex introduce-box">
         <div class="content-box">
             <h2>Giúp học sinh chọn đúng tổ hợp, bước đầu cho hành trình vào lớp 10</h2>
-            <p class="fs-5">Hệ thống trực tuyến hỗ trợ <b>học sinh lớp 9</b> lựa chọn tổ hợp môn phù hợp với năng lực và định hướng tương lai, đồng thời giúp giáo viên <b>theo dõi, tư vấn và tổng hợp nguyện vọng</b> dễ dàng.</p>
+            <p>Hệ thống trực tuyến hỗ trợ <b>học sinh lớp 9</b> lựa chọn tổ hợp môn phù hợp với năng lực và định hướng tương lai, đồng thời giúp giáo viên <b>theo dõi, tư vấn và tổng hợp nguyện vọng</b> dễ dàng.</p>
         </div>
         <div class="img-start">
           <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749121953/img_1_ss5mze.png" alt="">
@@ -45,11 +45,11 @@
     </div>
 
     <div class="container-school">
-      <h4 class="text-center fw-bold mt-4 fs-4">Về trường học</h4>
+      <h4 class="text-center fw-bold mt-4">Về trường học</h4>
 
       <div class="d-flex align-items-center flex-column box-2">
-        <div class="content-box mt-4">
-          <p class="fs-5">
+        <div class="content-box des mt-4">
+          <p>
             Trải qua 15 năm phát triển, Trường THPT Duy Tân đã mở rộng quy mô đáng kể. 
             Năm học 2024–2025, trường có 32 lớp với 1.256 học sinh và đội ngũ gần 80 cán bộ, giáo viên. 
             Địa bàn tuyển sinh của trường bao gồm các xã phường như Tam Phú, An Phú, 
@@ -63,8 +63,8 @@
         </div>
       </div>
 
-      <div class="container-body d-flex justify-content-center align-items-center">
-        <div class="content-box me-4" style="width: 40pc;">
+      <div class="container-body d-flex justify-content-center">
+        <div class="content-box me-4">
           <h4 class="fw-bold text-center">Thành tích nổi bật – Niềm tự hào của nhà trường</h4>
           <p>
             Năm học vừa qua, trường chúng tôi đã bồi dưỡng và đưa nhiều học sinh tham gia các kỳ thi học sinh giỏi cấp thành phố. 
@@ -76,7 +76,7 @@
             <li>Thành tích này là minh chứng rõ ràng cho chất lượng giảng dạy và sự đầu tư đúng hướng của nhà trường trong suốt thời gian qua.</li>
           </ul>
         </div>
-        <div class="image-stack ms-4 d-flex align-items-center">
+        <div class="image-stack d-flex">
             <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong2_hrmmg7.jpg" alt="Ảnh khen thưởng">
             <div class="ms-2">
               <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179322/9999_copy_cqmuuu.jpg" alt="Ảnh khen thưởng">
@@ -87,7 +87,7 @@
     </div>
 
     <div class="container-end d-flex justify-content-center">
-      <div class="content-box póition-relative">
+      <div class="content-box position-relative">
         <h4 class="fw-bold">Ngôi trường sẵn sàng chào đón bạn</h4>
         <p>Chúng tôi tin rằng mỗi học sinh là một hạt giống tiềm năng – chỉ cần được gieo trồng đúng nơi, sẽ có cơ hội phát triển mạnh mẽ. 
           Hãy để ngôi trường này trở thành nơi bắt đầu cho hành trình trưởng thành và thành công của bạn.</p>
@@ -163,9 +163,6 @@
 <script src="/validationForm.js" onload="varidator('.form-sign-up')"></script>
 
 <script>
-  window.addEventListener('load', function () {
-    document.getElementById('sidebar').style.display = 'none';
-  })
   function switchTab(tab) {
     document.querySelectorAll('.form-container').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
