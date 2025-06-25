@@ -1,5 +1,4 @@
 import { jsrmvi } from "/jsrmvi.js";
-
 const { removeVI } = jsrmvi;
 
 function filterSubmittedList(data) {
