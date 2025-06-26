@@ -127,15 +127,16 @@
                     <label id="poin-offical" class="col"><p class="fw-bold">Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</p></label>
                     <div class="d-flex poin-box">
                         <div class="my-2">
-                            <label><b>Toán: <b class="poin">{{submitedCombinationDetail.mathScore}}</b> điểm</b></label>
+
+                            <label for="inputName"><b>Toán: <b>{{submitedCombinationDetail.mathScore}}</b></b></label>
                         </div>
 
                         <div class="my-2">
-                            <label><b>Văn: <b class="poin">{{submitedCombinationDetail.literatureScore}}</b> điểm</b></label>
+                            <label for="inputName"><b>Văn: <b>{{submitedCombinationDetail.literatureScore}}</b></b></label>
                         </div>
 
                         <div class="my-2">
-                            <label><b>Anh: <b class="poin">{{submitedCombinationDetail.englishScore}}</b> điểm</b></label>
+                            <label for="inputName"><b>Anh: <b>{{submitedCombinationDetail.englishScore}}</b></b></label>
                         </div>
                     </div>
 
@@ -153,6 +154,17 @@
                         
                         <tr>
                             <td>Hạnh kiểm</td>
+                        <tbody>
+                            <td class="px-3"><b>Văn</b></td>
+                            <td class="px-3"><b>Toán</b></td>
+                            <td class="px-3"><b>Anh</b></td>
+                            <td class="px-3"><b>Vật lý</b></td>
+                            <td class="px-3"><b>Hóa học</b></td>
+                            <td class="px-3"><b>Sinh</b></td>
+                            <td class="px-3"><b>Sử</b></td>
+                            <td class="px-3"><b>Địa</b></td>
+                        </tbody>
+                        <tbody>
                             <td style="text-transform: capitalize;">
                                 <b>{{submitedCombinationDetail.conduct6}}</b> 
                             </td>

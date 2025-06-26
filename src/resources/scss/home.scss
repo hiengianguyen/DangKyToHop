@@ -14,17 +14,18 @@
 
 .container-start {
   height: 30pc;
-  padding-top: 41px;
+  padding-top: 40px;
   background-color: #faf1e2;
   @include respond(phone-sm) {
-    height: 20pc;
+    height: auto;
+    padding-top: 30px;
   }
 }
 
 .container-start > p {
   font-size: 20px;
   @include respond(phone-sm) {
-    font-size: 10px;
+    font-size: 18px;
     margin-bottom: 10px;
   }
 }
@@ -40,6 +41,9 @@
 
 .container-start .img-start img {
   height: 100%;
+  @include respond(desktop) {
+    height: 88%;
+  }
   @include respond(phone-sm) {
     height: 8pc;
   }
@@ -55,14 +59,14 @@
 
 .introduce-box h2 {
   @include respond(phone-sm) {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
 .introduce-box p {
   font-size: 20px;
   @include respond(phone-sm) {
-    font-size: 8px;
+    font-size: 10px;
   }
 }
 
@@ -89,13 +93,13 @@
 
 .container-center h2 {
   @include respond(phone-sm) {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
 .container-center p {
   @include respond(phone-sm) {
-    font-size: 8px;
+    font-size: 10px;
     text-align: justify;
   }
 }
@@ -121,14 +125,14 @@
 .container-school > h4 {
   font-size: 24px;
   @include respond(phone-sm) {
-    font-size: 10px;
+    font-size: 18px;
   }
 }
 
 .content-box.des p {
   font-size: 20px;
   @include respond(phone-sm) {
-    font-size: 8px;
+    font-size: 10px;
     text-align: justify;
   }
 }
@@ -139,6 +143,7 @@
   margin-left: 24px;
   align-items: center;
   @include respond(phone-sm) {
+    width: 275px;
     margin-left: 5px;
     align-items: start;
     height: auto;
@@ -172,9 +177,6 @@
 }
 
 .container-school {
-  @include respond(phone-sm) {
-    height: 36pc;
-  }
 }
 
 .container-school .content-box {
@@ -193,31 +195,38 @@
 
 .container-school .container-body {
   align-items: center;
+  justify-content: center;
   @include respond(phone-sm) {
+    flex-direction: column;
     margin-top: 24px;
   }
 }
 
 .container-school .container-body .content-box {
   width: 40pc;
+  margin-right: 24px;
+  @include respond(phone-sm) {
+    width: auto;
+    margin-right: 0;
+  }
 }
 
 .container-school .container-body h4 {
   @include respond(phone-sm) {
-    font-size: 10px;
+    font-size: 13px;
   }
 }
 
 .container-school .container-body p {
   @include respond(phone-sm) {
-    font-size: 8px;
+    font-size: 12px;
     text-align: justify;
   }
 }
 
 .container-school .container-body ul {
   @include respond(phone-sm) {
-    font-size: 8px;
+    font-size: 10px;
     text-align: justify;
     padding-left: 16px;
   }
@@ -227,19 +236,18 @@
   background-color: #faf1e2;
   @include respond(phone-sm) {
     padding: 0 1pc;
-    height: 15pc;
   }
 }
 
 .container-end h4 {
   @include respond(phone-sm) {
-    font-size: 10px;
+    font-size: 14px;
   }
 }
 
 .container-end p {
   @include respond(phone-sm) {
-    font-size: 8px;
+    font-size: 10px;
     text-align: justify;
   }
 }
@@ -248,7 +256,7 @@
   width: 31pc;
   border-radius: 12px;
   @include respond(phone-sm) {
-    width: 9pc;
+    width: 10pc;
   }
 }
 
@@ -266,7 +274,7 @@
   margin-bottom: 5pc;
   @include respond(phone-sm) {
     margin-top: 2pc;
-    margin-bottom: 2pc;
+    margin-bottom: 4pc;
   }
 }
 
@@ -276,6 +284,12 @@
     text-align: justify;
     padding: 5px;
     margin-bottom: 2pc;
+  }
+}
+
+.modal-container {
+  @include respond(phone-sm) {
+    padding: 0 40px;
   }
 }
 
