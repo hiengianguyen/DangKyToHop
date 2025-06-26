@@ -84,10 +84,19 @@ input {
   opacity: 0.9;
 }
 
-#sidebar .home .tittle-sidebar {
+.tittle-sidebar {
   display: flex;
   flex-direction: column;
   opacity: 1;
+  @include respond(phone-sm) {
+    font-size: 7px;
+  }
+}
+
+.tittle-sidebar .name {
+  @include respond(phone-sm) {
+    font-size: 10px;
+  }
 }
 
 #sidebar.active .home .tittle-sidebar {
@@ -250,6 +259,33 @@ input {
   z-index: 2;
 }
 
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 36px;
+  z-index: 1000;
+  background-color: #ffffff;
+}
+
+#header .nav-img img {
+  @include respond(phone-sm) {
+    height: 32px;
+    margin-left: 10px;
+  }
+}
+
+#all-content {
+  display: flex;
+  @include respond(phone-sm) {
+    display: block;
+  }
+}
+
+#header .nav-bar {
+  height: 100%;
+  width: 40px;
+}
 // /* Extra large screens */
 // @media (width >= 1920px) {
 // }

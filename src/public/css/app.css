@@ -68,10 +68,17 @@ input {
   cursor: pointer;
   opacity: 0.9; }
 
-#sidebar .home .tittle-sidebar {
+.tittle-sidebar {
   display: flex;
   flex-direction: column;
   opacity: 1; }
+  @media (max-width: 430px) {
+    .tittle-sidebar {
+      font-size: 7px; } }
+
+@media (max-width: 430px) {
+  .tittle-sidebar .name {
+    font-size: 10px; } }
 
 #sidebar.active .home .tittle-sidebar {
   opacity: 0; }
@@ -200,3 +207,26 @@ input {
   width: 100vw;
   height: 100vh;
   z-index: 2; }
+
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 36px;
+  z-index: 1000;
+  background-color: #ffffff; }
+
+@media (max-width: 430px) {
+  #header .nav-img img {
+    height: 32px;
+    margin-left: 10px; } }
+
+#all-content {
+  display: flex; }
+  @media (max-width: 430px) {
+    #all-content {
+      display: block; } }
+
+#header .nav-bar {
+  height: 100%;
+  width: 40px; }

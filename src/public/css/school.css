@@ -13,6 +13,9 @@
 
 #master {
   background-color: #29a9ef; }
+  @media (max-width: 430px) {
+    #master {
+      padding: 14px; } }
 
 .box-radius {
   background-color: #ffffff;
