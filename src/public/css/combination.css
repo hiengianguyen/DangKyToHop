@@ -70,6 +70,9 @@
 
 .modal-container.choose-school {
   padding: 15pc; }
+  @media (max-width: 430px) {
+    .modal-container.choose-school {
+      padding: 0 30px; } }
 
 .modal-content.choose-school {
   height: 22pc; }

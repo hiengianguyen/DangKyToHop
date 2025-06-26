@@ -2,10 +2,11 @@
     <title>Đăng Ký Tổ Hợp | Hồ Sơ Chi Tiết</title>
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/combination.css">
+    <link rel="stylesheet" href="/css/submittedDetail.css">
 </head>
 
-<div id="master" class="col .col-md-9 p-0">
-    <div class="school-info d-flex">
+<div id="master">
+    <div class="school-info">
         <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
         <div class="banner-container">
             <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
@@ -15,23 +16,23 @@
         </div>
     </div>
 
-    <div class="box-radius shadow m-4">
+    <div class="box-radius shadow">
         <div class="card-body" style="display: none;">
             {{#if submitedCombinationDetail}}
                 <div class="container">
-                    <legend class="text-center mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
+                    <legend class="mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
 
-                    <div class="row">
-                        <div class="col col-md-2 mb-3 d-flex align-items-start flex-column">
-                            <label for="" class="ms-3"><b>Ảnh thẻ:</b></label>
-                            <img id="resultImage" src="{{submitedCombinationDetail.avatarLink}}" class="col col-md-2" style="max-width:200px;">
+                    <div class="d-flex">
+                        <div class="offical-avatar me-4 mb-3 d-flex align-items-start flex-column">
+                            <label class="ms-3 avatar"><b>Ảnh thẻ:</b></label>
+                            <img id="resultImage" src="{{submitedCombinationDetail.avatarLink}}" class="col col-md-2">
                         </div>
 
-                        <div class="col gy-3 m-0">
+                        <div class="offical-info gy-3 m-0">
                             <div class="row">
-                                <div class="col d-flex align-items-start flex-column">
+                                <div class="full-name d-flex align-items-start flex-column">
                                     <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
-                                    <h4 class="mb-3" style="width: max-content;text-transform: capitalize;"> {{submitedCombinationDetail.fullName}}</h4>
+                                    <h4 class="mb-3"> {{submitedCombinationDetail.fullName}}</h4>
                                 </div>
                                 <div class="col d-flex align-items-start flex-column">
                                     <label for="inputName" >Giới tính: </label>
@@ -54,7 +55,7 @@
                                     <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.placeOfBirth}}</b>
                                 </div>
 
-                                <div class="col">
+                                <div class="col combination-1-rep">
                                     <div class="d-flex align-items-start flex-column">
                                         <label for="inputName">Nguyện vọng 1:</label>
                                         <b style="text-transform: capitalize;">{{submitedCombinationDetail.combination1}}</b>                       
@@ -73,7 +74,14 @@
                                     <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.currentPlace}}</b>
                                 </div>
 
-                                <div class="col">
+                                <div class="col combination-1">
+                                    <div class="d-flex align-items-start flex-column">
+                                        <label for="inputName">Nguyện vọng 1:</label>
+                                        <b style="text-transform: capitalize;">{{submitedCombinationDetail.combination1}}</b>                       
+                                    </div>
+                                </div>
+
+                                <div class="col combination-2">
                                     <div class="d-flex align-items-start flex-column">
                                         <label for="inputName">Nguyện vọng 2:</label>
                                         <b style="text-transform: capitalize;">{{submitedCombinationDetail.combination2}}</b>
@@ -83,42 +91,43 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-start">
+                    <div id="info-parent" class="d-flex">
                         <div class="d-flex  align-items-start flex-column">
-                            <div class="d-flex justify-content-center">
-                                <label for="" class="me-4">Họ và tên cha</label>
-                                <b style="text-transform: capitalize;">{{submitedCombinationDetail.fullNameDad}}</b>
+                            <div class="d-flex detail justify-content-center">
+                                <label for="">Họ và tên cha</label>
+                                <b>{{submitedCombinationDetail.fullNameDad}}</b>
                             </div>
-                            <div class="d-flex">
-                                <label for="" class="me-4">Họ và tên mẹ:</label>
-                                <b style="text-transform: capitalize;">{{submitedCombinationDetail.fullNameMom}}</b>
+                            <div class="d-flex detail">
+                                <label for="">Họ và tên mẹ:</label>
+                                <b>{{submitedCombinationDetail.fullNameMom}}</b>
                             </div>
                         </div>
-                        <div class="d-flex align-items-start flex-column" style="margin: 0 auto;">
-                            <div class="d-flex">
-                                <label for="" class="me-4">Nghề nghiệp:</label>
-                                <b style="text-transform: capitalize;">{{submitedCombinationDetail.jobOfDad}}</b>
+                        <div class="d-flex align-items-start flex-column job-parent">
+                            <div class="d-flex detail">
+                                <label for="">Nghề nghiệp cha:</label>
+                                <b>{{submitedCombinationDetail.jobOfDad}}</b>
                             </div>
-                            <div class="d-flex">
-                                <label for="" class="me-4">Nghề nghiệp:</label>
-                                <b style="text-transform: capitalize;">{{submitedCombinationDetail.jobOfMom}}</b>
+                            <div class="d-flex detail">
+                                <label for="">Nghề nghiệp mẹ:</label>
+                                <b>{{submitedCombinationDetail.jobOfMom}}</b>
                             </div>
                         </div>
                         <div class="d-flex align-items-start flex-column">
-                            <div class="d-flex">
-                                <label for="" class="me-4">Số điện thoại</label>
-                                <b style="text-transform: capitalize;">{{submitedCombinationDetail.phoneOfDad}}</b>
+                            <div class="d-flex detail">
+                                <label for="">Số điện thoại cha:</label>
+                                <b>{{submitedCombinationDetail.phoneOfDad}}</b>
                             </div>
-                            <div class="d-flex">
-                                <label for="inputGroupSelect01" class="me-4">Số điện thoại</label>
-                                <b style="text-transform: capitalize;">{{submitedCombinationDetail.phoneOfMom}}</b>
+                            <div class="d-flex detail">
+                                <label for="inputGroupSelect01">Số điện thoại mẹ:</label>
+                                <b>{{submitedCombinationDetail.phoneOfMom}}</b>
                             </div>
                         </div>
                     </div>
 
-                    <label for="inputName" class="mt-4"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
-                    <div class="d-flex justify-content-around text-center">
+                    <label id="poin-offical" class="col"><p class="fw-bold">Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</p></label>
+                    <div class="d-flex poin-box">
                         <div class="my-2">
+
                             <label for="inputName"><b>Toán: <b>{{submitedCombinationDetail.mathScore}}</b></b></label>
                         </div>
 
@@ -131,58 +140,20 @@
                         </div>
                     </div>
 
-                    <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
-                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
-                    <tr>
-                        <th rowspan="1">Lớp</th>
-                        <th class="px-4">6</th>
-                        <th class="px-4">7</th>
-                        <th class="px-4">8</th>
-                        <th class="px-4">9</th>
-                        <th rowspan="2" class="px-3">Xếp loại tốt nghiệp THCS</th>
-                    </tr>
-                    
-                    <tr>
-                        <td>Hạnh kiểm</td>
-                        <td style="text-transform: capitalize;">
-                            <b>{{submitedCombinationDetail.conduct6}}</b> 
-                        </td>
-                        <td style="text-transform: capitalize;">
-                            <b>{{submitedCombinationDetail.conduct7}}</b> 
-                        </td>
-                        <td style="text-transform: capitalize;">
-                            <b>{{submitedCombinationDetail.conduct8}}</b> 
-                        </td>
-                        <td style="text-transform: capitalize;">
-                            <b>{{submitedCombinationDetail.conduct9}}</b> 
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>Học lực</td>
-                        <td style="text-transform: capitalize;">
-                            <b>{{submitedCombinationDetail.academicRating6}}</b> 
-                        </td>
-                        <td style="text-transform: capitalize;">
-                            <b>{{submitedCombinationDetail.academicRating7}}</b> 
-                        </td>
-                        <td style="text-transform: capitalize;">
-                            <b>{{submitedCombinationDetail.academicRating8}}</b> 
-                        </td>
-                        <td style="text-transform: capitalize;">
-                            <b>{{submitedCombinationDetail.academicRating9}}</b> 
-                        </td>
-                        <td style="text-transform: capitalize;">
-                            <b>{{submitedCombinationDetail.graduationRating}}</b> 
-                        </td>
-                    </tr>
-                    </table>
-
-                    <label for="inputName"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
-                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-4">
+                    <label class="col table"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
+                    <div class="table-conduct">
+                        <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
                         <tr>
-                            <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
+                            <th rowspan="1">Lớp</th>
+                            <th class="class">6</th>
+                            <th class="class">7</th>
+                            <th class="class">8</th>
+                            <th class="class">9</th>
+                            <th rowspan="2" class="type-graduate">Xếp loại tốt nghiệp THCS</th>
                         </tr>
+                        
+                        <tr>
+                            <td>Hạnh kiểm</td>
                         <tbody>
                             <td class="px-3"><b>Văn</b></td>
                             <td class="px-3"><b>Toán</b></td>
@@ -195,38 +166,91 @@
                         </tbody>
                         <tbody>
                             <td style="text-transform: capitalize;">
-                                <b>{{submitedCombinationDetail.avgLiteratureScore}}</b> 
+                                <b>{{submitedCombinationDetail.conduct6}}</b> 
                             </td>
                             <td style="text-transform: capitalize;">
-                                <b>{{submitedCombinationDetail.avgMathScore}}</b> 
+                                <b>{{submitedCombinationDetail.conduct7}}</b> 
                             </td>
                             <td style="text-transform: capitalize;">
-                                <b>{{submitedCombinationDetail.avgEnglishScore}}</b> 
+                                <b>{{submitedCombinationDetail.conduct8}}</b> 
                             </td>
                             <td style="text-transform: capitalize;">
-                                <b>{{submitedCombinationDetail.avgPhysicsScore}}</b> 
+                                <b>{{submitedCombinationDetail.conduct9}}</b> 
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Học lực</td>
+                            <td style="text-transform: capitalize;">
+                                <b>{{submitedCombinationDetail.academicRating6}}</b> 
                             </td>
                             <td style="text-transform: capitalize;">
-                                <b>{{submitedCombinationDetail.avgChemistryScore}}</b> 
+                                <b>{{submitedCombinationDetail.academicRating7}}</b> 
                             </td>
                             <td style="text-transform: capitalize;">
-                                <b>{{submitedCombinationDetail.avgBiologyScore}}</b> 
+                                <b>{{submitedCombinationDetail.academicRating8}}</b> 
                             </td>
                             <td style="text-transform: capitalize;">
-                                <b>{{submitedCombinationDetail.avgHistoryScore}}</b> 
+                                <b>{{submitedCombinationDetail.academicRating9}}</b> 
                             </td>
                             <td style="text-transform: capitalize;">
-                                <b>{{submitedCombinationDetail.avgGeographyScore}}</b> 
+                                <b>{{submitedCombinationDetail.graduationRating}}</b> 
                             </td>
-                        </tbody>
-                    </table>
-                        <div class="d-flex justify-content-center gap-3 mt-4">
+                        </tr>
+                        </table>
+                    </div>
+
+                    <label class="col table"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
+                    <div class="table-avg-poin">
+                        <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-4">
+                            <tr>
+                                <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
+                            </tr>
+                            <tbody>
+                                <td class="subject"><b>Văn</b></td>
+                                <td class="subject"><b>Toán</b></td>
+                                <td class="subject"><b>Ngoại ngữ</b></td>
+                                <td class="subject"><b>Vật lý</b></td>
+                                <td class="subject"><b>Hóa học</b></td>
+                                <td class="subject"><b>Sinh</b></td>
+                                <td class="subject"><b>Sử</b></td>
+                                <td class="subject"><b>Địa</b></td>
+                            </tbody>
+                            <tbody>
+                                <td style="text-transform: capitalize;">
+                                    <b>{{submitedCombinationDetail.avgLiteratureScore}}</b> 
+                                </td>
+                                <td style="text-transform: capitalize;">
+                                    <b>{{submitedCombinationDetail.avgMathScore}}</b> 
+                                </td>
+                                <td style="text-transform: capitalize;">
+                                    <b>{{submitedCombinationDetail.avgEnglishScore}}</b> 
+                                </td>
+                                <td style="text-transform: capitalize;">
+                                    <b>{{submitedCombinationDetail.avgPhysicsScore}}</b> 
+                                </td>
+                                <td style="text-transform: capitalize;">
+                                    <b>{{submitedCombinationDetail.avgChemistryScore}}</b> 
+                                </td>
+                                <td style="text-transform: capitalize;">
+                                    <b>{{submitedCombinationDetail.avgBiologyScore}}</b> 
+                                </td>
+                                <td style="text-transform: capitalize;">
+                                    <b>{{submitedCombinationDetail.avgHistoryScore}}</b> 
+                                </td>
+                                <td style="text-transform: capitalize;">
+                                    <b>{{submitedCombinationDetail.avgGeographyScore}}</b> 
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
+                        <div class="d-flex justify-content-center btn-feature gap-3 mt-4">
                             {{#if (eq role 'student')}}
-                                <a href="/combination/submit-combination?role={{role}}&step=2" class="btn btn-secondary">Chỉnh sửa thông tin</a>
-                                <button type="button" id="btn-modal-delete" class="btn btn-danger">Xoá hồ sơ này</button>
-                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info" target="_blank">Xuất file PDF</a>
+                                <a href="/combination/submit-combination?role={{role}}&step=2" class="btn btn-secondary d-flex justify-content-center align-items-center">Chỉnh sửa thông tin</a>
+                                <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center">Xoá hồ sơ này</button>
+                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center" target="_blank">Xuất file PDF</a>
                             {{else}}
-                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info" target="_blank">Xuất file PDF</a>
+                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center" target="_blank">Xuất file PDF</a>
                             {{/if}}
                         </div>
                 </div>
@@ -265,8 +289,8 @@
 <div class="glass-overlay" style="display: none;"></div>
 <div id="loading-full" class="position-fixed" style="display: flex;">
     <div class="d-flex align-items-center flex-column">
-        <h2 id="tittle-loading" style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang tải hồ sơ...</h2>
-        <div class="spinner-border mt-4" style="width: 3rem; height: 3rem;color:#29a9ef;" role="status">
+        <h2 id="tittle-loading">Đang tải hồ sơ...</h2>
+        <div class="spinner-border mt-4" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
@@ -278,7 +302,8 @@
     window.addEventListener('load', function () {
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body').style.display = 'block';
-        sideBars.style.height = master.clientHeight;
+        sideBars.style.height = master.parentElement.clientHeight;
+        master.style.height = master.parentElement.clientHeight;
     });
 
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));

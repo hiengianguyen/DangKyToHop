@@ -44,6 +44,9 @@ input {
   z-index: 3;
   transition: all 0.3s ease;
   box-shadow: 0 -5px 1rem #afafaf; }
+  @media (max-width: 430px) {
+    #sidebar {
+      display: none; } }
 
 #sidebar.active {
   width: 80px; }
@@ -68,10 +71,17 @@ input {
   cursor: pointer;
   opacity: 0.9; }
 
-#sidebar .home .tittle-sidebar {
+.tittle-sidebar {
   display: flex;
   flex-direction: column;
   opacity: 1; }
+  @media (max-width: 430px) {
+    .tittle-sidebar {
+      font-size: 10px; } }
+
+@media (max-width: 430px) {
+  .tittle-sidebar .name {
+    font-size: 14px; } }
 
 #sidebar.active .home .tittle-sidebar {
   opacity: 0; }
@@ -200,3 +210,81 @@ input {
   width: 100vw;
   height: 100vh;
   z-index: 2; }
+
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  z-index: 1000;
+  background-color: #ffffff;
+  display: none; }
+  @media (max-width: 430px) {
+    #header {
+      display: block; } }
+
+@media (max-width: 430px) {
+  #header .nav-img img {
+    height: 46px;
+    margin-left: 10px; } }
+
+#all-content {
+  display: flex; }
+  @media (max-width: 430px) {
+    #all-content {
+      display: block; } }
+
+#header .nav-bar-icon {
+  height: 100%;
+  width: 55px; }
+
+#header .nav-bar-icon:hover {
+  color: #ffffff;
+  background-color: #7b7b7b; }
+
+#nav-bar {
+  position: fixed;
+  opacity: 0;
+  transition: all 0.5s ease; }
+
+#nav-bar.active {
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 1;
+  transition: all 0.5s ease; }
+  @media (max-width: 430px) {
+    #nav-bar.active {
+      opacity: 1; } }
+
+#nav-bar a {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #434343; }
+
+#nav-bar a:hover {
+  background-color: #d4d0d1; }
+
+#all-content .big-content {
+  width: 100%; }
+  @media (max-width: 430px) {
+    #all-content .big-content {
+      margin-top: 50px; } }
+
+#loading-full .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: #29a9ef; }
+  @media (max-width: 430px) {
+    #loading-full .spinner-border {
+      width: 40px;
+      height: 40px; } }
+
+#loading-full #tittle-loading {
+  font-family: "Lexend", sans-serif;
+  color: #29a9ef; }
+  @media (max-width: 430px) {
+    #loading-full #tittle-loading {
+      font-size: 25px; } }

@@ -1,0 +1,211 @@
+@import "breakpoints";
+
+.box-radius {
+  @include respond(phone-sm) {
+    margin: 0;
+    padding: 15px;
+  }
+}
+
+.card-body {
+  @include respond(phone-sm) {
+    padding: 0;
+  }
+}
+
+.card-body > .container {
+  @include respond(phone-sm) {
+    padding: 0;
+  }
+}
+
+legend {
+  text-align: center;
+  @include respond(phone-sm) {
+    font-size: 12px;
+  }
+}
+
+label {
+  @include respond(phone-sm) {
+    font-size: 10px;
+    width: max-content;
+    margin-bottom: 5px;
+  }
+}
+
+.full-name {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  @include respond(phone-sm) {
+    flex-basis: auto;
+    max-width: 100%;
+  }
+}
+
+h4 {
+  width: max-content;
+  text-transform: capitalize;
+  @include respond(phone-sm) {
+    width: 100%;
+    font-weight: 600;
+    font-size: 13px;
+  }
+}
+
+#resultImage {
+  max-width: 200px;
+  @include respond(phone-sm) {
+    max-width: 100px;
+    margin: 0;
+  }
+}
+
+.offical-avatar {
+  @include respond(phone-sm) {
+    height: 150px;
+  }
+}
+
+.offical-info {
+  width: 100%;
+  @include respond(phone-sm) {
+  }
+}
+
+b {
+  @include respond(phone-sm) {
+    font-size: 10px;
+    margin-bottom: 6px;
+    width: 100%;
+  }
+}
+
+.col.combination-1,
+.col.combination-2 {
+  @include respond(phone-sm) {
+    margin-bottom: 10px;
+  }
+}
+
+#info-parent {
+  justify-content: space-between;
+  @include respond(phone-sm) {
+    justify-content: center;
+  }
+}
+
+#info-parent label {
+  margin-right: 24px;
+  @include respond(phone-sm) {
+    margin-right: 0;
+  }
+}
+
+#info-parent .detail {
+  @include respond(phone-sm) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#info-parent .detail b {
+  text-transform: capitalize;
+  @include respond(phone-sm) {
+    width: max-content;
+  }
+}
+
+#info-parent .job-parent {
+  margin: 0 auto;
+  @include respond(phone-sm) {
+    margin: 0 32px;
+  }
+}
+
+#poin-offical {
+  margin-top: 24px;
+  @include respond(phone-sm) {
+    margin-top: 10px;
+    padding: 0;
+  }
+}
+
+#poin-offical > p {
+  @include respond(phone-sm) {
+    margin-bottom: 5px;
+  }
+}
+
+.poin-box {
+  justify-content: space-around;
+  text-align: center;
+  @include respond(phone-sm) {
+  }
+}
+
+.poin-box .poin {
+  font-size: 20px;
+  @include respond(phone-sm) {
+    font-size: 12px;
+  }
+}
+
+label.table {
+  @include respond(phone-sm) {
+    padding: 0;
+  }
+}
+
+.table-conduct,
+.table-avg-poin {
+  @include respond(phone-sm) {
+    overflow-x: scroll;
+  }
+}
+
+.table-avg-poin .subject {
+  padding: 0 15px;
+  @include respond(phone-sm) {
+  }
+}
+
+.table-conduct .class {
+  padding: 0 20px;
+  @include respond(phone-sm) {
+  }
+}
+
+.table-conduct .type-graduate {
+  padding: 0 15px;
+  @include respond(phone-sm) {
+    padding: 0 5px;
+  }
+}
+
+tr {
+  @include respond(phone-sm) {
+    font-size: 10px;
+  }
+}
+
+.combination-1-rep {
+  @include respond(phone-sm) {
+    display: none;
+  }
+}
+
+.combination-1 {
+  display: none;
+  @include respond(phone-sm) {
+    display: block;
+  }
+}
+
+.btn-feature a,
+.btn-feature button {
+  @include respond(phone-sm) {
+    font-size: 12px;
+  }
+}

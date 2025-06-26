@@ -7,6 +7,7 @@
     <meta property="og:image" content="https://res.cloudinary.com/dwoymvppw/image/upload/v1744112829/duytan_logo_circle_jeyx7a.png" />
     <meta name="description" content="Đăng Ký Tổ Hợp" />
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/bannerSchool.css">
     <link rel="stylesheet" href="/css/toast_message.css">
     <link
       rel="icon"
@@ -33,109 +34,140 @@
 <body style="font-family: 'Lexend', sans-serif;">
   {{#if (not isHomePage)}}
     <div id="toast"></div>
-        <div class="d-flex">
-          <div id="sidebar">
-            <div class="sidebar-content">
-              <div class="home mb-2">
-                <div class="d-flex align-items-center">
-                  <div class="me-2">
-                    <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1750136232/logo_web_alpmal.png" alt="homepage">
-                  </div>
-                  <div class="tittle-sidebar">
-                    <span class="name fw-bolder">
-                      Đăng ký tổ hợp
-                    </span>
-                    <span class="des fw-medium">
-                      Trường THPT Duy Tân
-                    </span>
-                  </div>
-                </div>
+    <div id="all-content">
+      <div id="sidebar">
+        <div class="sidebar-content">
+          <div class="home mb-2">
+            <div class="d-flex align-items-center">
+              <div class="me-2">
+                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1750136232/logo_web_alpmal.png" alt="homepage">
               </div>
-              <div class="dash my-3"></div>
-              <div class="menu-bar">
-                <ul class="boxs d-flex align-items-start flex-column p-0">
-                  <a href="/" title="Trang chủ" class="p-0">
-                    <li class="box mb-1" value="Trang chủ">
-                        <i class="fa-solid fa-house"></i>
-                        <p class="text m-0">Trang chủ</p>
-                    </li>
-                  </a>
-                  {{#if (eq role 'student')}}
-                    <a href="/combination/submit-combination" title="Đăng ký tổ hợp"  class="p-0">
-                      <li class="box my-1" value="Đăng ký tổ hợp">
-                          <i class="fa-solid fa-user-pen"></i>
-                          <p class="text m-0"></i>Đăng ký tổ hợp</p>
-                      </li>
-                    </a>
-                    <a href="/school" title="Trường học" class="p-0">
-                      <li class="box my-1" value="Trường học">
-                          <i class="fa-solid fa-school"></i>
-                          <p class="text m-0">Trường học</p>
-                      </li>
-                    </a>
-                    <a href="/school/contact" title="Liên hệ" class="p-0">
-                      <li class="box my-1" value="Liên hệ">
-                          <i class="fa-solid fa-address-book"></i>
-                          <p class="text m-0">Liên hệ</p>
-                      </li>
-                    </a>
-                    <a href="/combination/submited-detail/{{userId}}" title="Hồ sơ đã nộp" class="p-0">
-                      <li class="box my-1" value="Hồ sơ đã nộp">
-                          <i class="fa-solid fa-file-circle-check"></i>
-                          <p class="text m-0">Hồ sơ đã nộp</p>
-                      </li>
-                    </a>
-                  {{else}}
-                    <a href="/combination/submited-list" title="Danh sách đăng ký" class="p-0">
-                      <li class="box my-1" value="Danh sách đăng ký">
-                          <i class="fa-solid fa-folder"></i>
-                          <p class="text m-0">Danh sách đăng ký</p>
-                      </li>
-                    </a>
-                    <a href="/combination/submited-list/saved" title="Hồ sơ đã lưu" class="p-0">
-                      <li class="box my-1" value="Hồ sơ đã lưu">
-                          <i class="fa-solid fa-bookmark"></i>
-                          <p class="text m-0">Hồ sơ đã lưu</p>
-                      </li>
-                    </a>
-                  {{/if}}
-                </ul>
-              </div>
-              <div class="dash my-3"></div>
-              <div class="end-box">
-                <a 
-                  title="Trang cá nhân"
-                  class="nav-profile p-0"
-                  href='/me/profile?role={{role}}'
-                >
-                  <li class="box avatar" value="profile">
-                  <img
-                    class="rounded-circle"
-                    src="{{avatar}}"
-                  />
-                  <p class="m-0 text text-black">{{fullName}}</p></li>
-                </a>
-                <a href="/auth/signout" title="Đăng xuất" class="p-0">
-                  <li class="box my-1 mt-2">
-                      <i class="fa fa-power-off" aria-hidden="true"></i>
-                      <p class="text m-0">Đăng xuất</p>
-                  </li>
-                </a>
-              </div>
-              <div class="dash my-3"></div>
-              <div class="show-sidebar">
-                <div id="btn-push-sidebar" title="Thu nhỏ bảng điều hướng" class="p-0">
-                  <li class="box redirect mb-1">
-                      <p class="text m-0">Thu nhỏ bảng điều hướng</p>
-                      <i class="fa-solid fa-arrow-left"></i>
-                  </li>
-                </div>
+              <div class="tittle-sidebar">
+                <span class="name fw-bolder">
+                  Đăng ký tổ hợp
+                </span>
+                <span class="des fw-medium">
+                  Trường THPT Duy Tân
+                </span>
               </div>
             </div>
           </div>
-        {{/if}}
-        {{{body}}}
+          <div class="dash my-3"></div>
+          <div class="menu-bar">
+            <ul class="boxs d-flex align-items-start flex-column p-0">
+              <a href="/" title="Trang chủ" class="p-0">
+                <li class="box mb-1" value="Trang chủ">
+                    <i class="fa-solid fa-house"></i>
+                    <p class="text m-0">Trang chủ</p>
+                </li>
+              </a>
+              {{#if (eq role 'student')}}
+                <a href="/combination/submit-combination" title="Đăng ký tổ hợp"  class="p-0">
+                  <li class="box my-1" value="Đăng ký tổ hợp">
+                      <i class="fa-solid fa-user-pen"></i>
+                      <p class="text m-0"></i>Đăng ký tổ hợp</p>
+                  </li>
+                </a>
+                <a href="/school" title="Trường học" class="p-0">
+                  <li class="box my-1" value="Trường học">
+                      <i class="fa-solid fa-school"></i>
+                      <p class="text m-0">Trường học</p>
+                  </li>
+                </a>
+                <a href="/school/contact" title="Liên hệ" class="p-0">
+                  <li class="box my-1" value="Liên hệ">
+                      <i class="fa-solid fa-address-book"></i>
+                      <p class="text m-0">Liên hệ</p>
+                  </li>
+                </a>
+                <a href="/combination/submited-detail/{{userId}}" title="Hồ sơ đã nộp" class="p-0">
+                  <li class="box my-1" value="Hồ sơ đã nộp">
+                      <i class="fa-solid fa-file-circle-check"></i>
+                      <p class="text m-0">Hồ sơ đã nộp</p>
+                  </li>
+                </a>
+              {{else}}
+                <a href="/combination/submited-list" title="Danh sách đăng ký" class="p-0">
+                  <li class="box my-1" value="Danh sách đăng ký">
+                      <i class="fa-solid fa-folder"></i>
+                      <p class="text m-0">Danh sách đăng ký</p>
+                  </li>
+                </a>
+                <a href="/combination/submited-list/saved" title="Hồ sơ đã lưu" class="p-0">
+                  <li class="box my-1" value="Hồ sơ đã lưu">
+                      <i class="fa-solid fa-bookmark"></i>
+                      <p class="text m-0">Hồ sơ đã lưu</p>
+                  </li>
+                </a>
+              {{/if}}
+            </ul>
+          </div>
+          <div class="dash my-3"></div>
+          <div class="end-box">
+            <a 
+              title="Trang cá nhân"
+              class="nav-profile p-0"
+              href='/me/profile?role={{role}}'
+            >
+              <li class="box avatar" value="profile">
+              <img
+                class="rounded-circle"
+                src="{{avatar}}"
+              />
+              <p class="m-0 text text-black">{{fullName}}</p></li>
+            </a>
+            <a href="/auth/signout" title="Đăng xuất" class="p-0">
+              <li class="box my-1 mt-2">
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                  <p class="text m-0">Đăng xuất</p>
+              </li>
+            </a>
+          </div>
+          <div class="dash my-3"></div>
+          <div class="show-sidebar">
+            <div id="btn-push-sidebar" title="Thu nhỏ bảng điều hướng" class="p-0">
+              <li class="box redirect mb-1">
+                  <p class="text m-0">Thu nhỏ bảng điều hướng</p>
+                  <i class="fa-solid fa-arrow-left"></i>
+              </li>
+            </div>
+          </div>
+        </div>
       </div>
+  {{/if}}
+    <div id="header">
+      <div class="d-flex align-items-center" style="
+          height: 100%;
+          ">
+          <div class="d-flex align-items-center me-auto">
+            <div class="me-1 nav-img">
+                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1750136232/logo_web_alpmal.png" alt="homepage">
+            </div>
+            <div class="tittle-sidebar">
+                <span class="name fw-bolder">
+                Đăng ký tổ hợp
+                </span>
+                <span class="des fw-medium">
+                Trường THPT Duy Tân
+                </span>
+            </div>
+          </div>
+          <div class="nav-bar-icon d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+      </div>
+    </div>
+    <div id="nav-bar">
+      <a href="/combination/submit-combination" title="Đăng ký tổ hợp"><i class="fa-solid fa-user-pen me-2"></i> Đăng ký tổ hợp</a>
+      <a href="/school" title="Trường học"><i class="fa-solid fa-school me-2"></i> Trường học</a>
+      <a href="/school/contact" title="Liên hệ"><i class="fa-solid fa-address-book me-2"></i> Liên hệ</a>
+      <a href="/combination/submited-detail/{{userId}}" title="Hồ sơ đã nộp"><i class="fa-solid fa-file-circle-check me-2"></i> Hồ sơ đã nộp</a>
+    </div>
+
+    <div class="big-content">
+      {{{body}}}
+    </div>
+    </div>
 </body>
 </html>
 
@@ -187,6 +219,13 @@
         localStorage.setItem('isActive', false)
         btnPushSidebar.setAttribute("title", "Thu nhỏ bảng điều hướng");
       }
+    }
+
+    const navBarIcon = document.querySelector('#header .nav-bar-icon');
+    const subNav = document.getElementById('nav-bar');
+
+    navBarIcon.onclick = () => {
+      subNav.classList.toggle('active');
     }
   </script>
 {{/if}}

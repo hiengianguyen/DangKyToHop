@@ -348,7 +348,7 @@
         } else {
             body.querySelector('.d-flex').style.height = banner.clientHeight + cardBody.clientHeight;
         }
-        sideBar.parentElement.style.height = master.clientHeight;
+        sideBar.parentElement.style.height = master.parentElement.clientHeight;
     });
 
     const isSavedPage = {{{isSavedPage}}};

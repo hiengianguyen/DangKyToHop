@@ -1,3 +1,5 @@
+@import "breakpoints";
+
 .school-info-detail {
   position: absolute;
   top: 25px;
@@ -15,11 +17,15 @@
 
 #master {
   background-color: #29a9ef;
+  @include respond(phone-sm) {
+    padding: 45px 20px;
+    height: auto !important;
+  }
 }
 
 .box-radius {
   background-color: #ffffff;
   border-radius: 18px;
   padding: 25px;
-  margin-top: 20px;
+  margin: 30px;
 }
