@@ -90,9 +90,9 @@ b {
 }
 
 #info-parent {
-  justify-content: start;
+  justify-content: space-between;
   @include respond(phone-sm) {
-    flex-direction: column;
+    justify-content: center;
   }
 }
 
@@ -106,15 +106,21 @@ b {
 #info-parent .detail {
   @include respond(phone-sm) {
     flex-direction: column;
-    width: 100%;
+    text-align: center;
+  }
+}
+
+#info-parent .detail b {
+  text-transform: capitalize;
+  @include respond(phone-sm) {
+    width: max-content;
   }
 }
 
 #info-parent .job-parent {
   margin: 0 auto;
   @include respond(phone-sm) {
-    flex-direction: column;
-    margin: 0;
+    margin: 0 32px;
   }
 }
 
@@ -136,7 +142,6 @@ b {
   justify-content: space-around;
   text-align: center;
   @include respond(phone-sm) {
-    flex-direction: column;
   }
 }
 
@@ -182,5 +187,25 @@ label.table {
 tr {
   @include respond(phone-sm) {
     font-size: 10px;
+  }
+}
+
+.combination-1-rep {
+  @include respond(phone-sm) {
+    display: none;
+  }
+}
+
+.combination-1 {
+  display: none;
+  @include respond(phone-sm) {
+    display: block;
+  }
+}
+
+.btn-feature a,
+.btn-feature button {
+  @include respond(phone-sm) {
+    font-size: 12px;
   }
 }

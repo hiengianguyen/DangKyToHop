@@ -1,3 +1,5 @@
+@import "breakpoints";
+
 .input-group-text {
   height: 38px;
   width: 46px;
@@ -83,6 +85,9 @@
 
 .modal-container.choose-school {
   padding: 15pc;
+  @include respond(phone-sm) {
+    padding: 0 30px;
+  }
 }
 
 .modal-content.choose-school {

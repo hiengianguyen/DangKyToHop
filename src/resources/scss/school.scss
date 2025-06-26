@@ -18,7 +18,8 @@
 #master {
   background-color: #29a9ef;
   @include respond(phone-sm) {
-    padding: 14px;
+    padding: 45px 20px;
+    height: auto !important;
   }
 }
 
@@ -26,5 +27,5 @@
   background-color: #ffffff;
   border-radius: 18px;
   padding: 25px;
-  margin-top: 20px;
+  margin: 30px;
 }

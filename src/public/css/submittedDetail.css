@@ -67,10 +67,10 @@ h4 {
     margin-bottom: 10px; } }
 
 #info-parent {
-  justify-content: start; }
+  justify-content: space-between; }
   @media (max-width: 430px) {
     #info-parent {
-      flex-direction: column; } }
+      justify-content: center; } }
 
 #info-parent label {
   margin-right: 24px; }
@@ -81,14 +81,19 @@ h4 {
 @media (max-width: 430px) {
   #info-parent .detail {
     flex-direction: column;
-    width: 100%; } }
+    text-align: center; } }
+
+#info-parent .detail b {
+  text-transform: capitalize; }
+  @media (max-width: 430px) {
+    #info-parent .detail b {
+      width: max-content; } }
 
 #info-parent .job-parent {
   margin: 0 auto; }
   @media (max-width: 430px) {
     #info-parent .job-parent {
-      flex-direction: column;
-      margin: 0; } }
+      margin: 0 32px; } }
 
 #poin-offical {
   margin-top: 24px; }
@@ -104,9 +109,6 @@ h4 {
 .poin-box {
   justify-content: space-around;
   text-align: center; }
-  @media (max-width: 430px) {
-    .poin-box {
-      flex-direction: column; } }
 
 .poin-box .poin {
   font-size: 20px; }
@@ -138,3 +140,18 @@ h4 {
 @media (max-width: 430px) {
   tr {
     font-size: 10px; } }
+
+@media (max-width: 430px) {
+  .combination-1-rep {
+    display: none; } }
+
+.combination-1 {
+  display: none; }
+  @media (max-width: 430px) {
+    .combination-1 {
+      display: block; } }
+
+@media (max-width: 430px) {
+  .btn-feature a,
+  .btn-feature button {
+    font-size: 12px; } }

@@ -15,10 +15,11 @@
   background-color: #29a9ef; }
   @media (max-width: 430px) {
     #master {
-      padding: 14px; } }
+      padding: 45px 20px;
+      height: auto !important; } }
 
 .box-radius {
   background-color: #ffffff;
   border-radius: 18px;
   padding: 25px;
-  margin-top: 20px; }
+  margin: 30px; }
