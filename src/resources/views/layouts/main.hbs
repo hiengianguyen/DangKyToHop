@@ -235,6 +235,7 @@
     window.addEventListener('scroll', function () {
       if (window.scrollY > 0) {
           header.classList.add('shadow');
+          subNav.classList.remove('active');
       } else {
           header.classList.remove('shadow');
       }
