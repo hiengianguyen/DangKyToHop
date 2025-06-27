@@ -101,14 +101,28 @@
 
 .modal-containers {
   width: 45pc; }
+  @media (max-width: 430px) {
+    .modal-containers {
+      padding: 0 30px; } }
 
 .modal-bodyy.combination {
   padding: 4pc;
   height: 32pc;
   overflow: overlay; }
+  @media (max-width: 430px) {
+    .modal-bodyy.combination {
+      padding: 2pc; } }
+
+@media (max-width: 430px) {
+  .modal-bodyy.combination .text,
+  .modal-bodyy.combination p {
+    text-align: justify; } }
 
 .card-body.submit {
   padding: 30px; }
+  @media (max-width: 430px) {
+    .card-body.submit {
+      padding: 16px; } }
 
 .header-box {
   width: 100%;

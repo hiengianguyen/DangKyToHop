@@ -352,3 +352,12 @@ input {
     font-size: 25px;
   }
 }
+
+.school-info {
+  position: relative;
+  height: 20pc;
+  display: flex;
+  @include respond(phone-sm) {
+    display: none;
+  }
+}

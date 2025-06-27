@@ -28,7 +28,7 @@ legend {
 
 label {
   @include respond(phone-sm) {
-    font-size: 10px;
+    font-size: 14px;
     width: max-content;
     margin-bottom: 5px;
   }
@@ -50,7 +50,7 @@ h4 {
   @include respond(phone-sm) {
     width: 100%;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 
@@ -90,7 +90,7 @@ h4 {
 
 b {
   @include respond(phone-sm) {
-    font-size: 12px;
+    font-size: 13px;
     margin-bottom: 6px;
     width: 100%;
   }
@@ -139,9 +139,6 @@ b {
 
 #info-parent .job-parent {
   margin: 0 auto;
-  @include respond(phone-sm) {
-    margin: 0 32px;
-  }
 }
 
 #poin-offical {
@@ -207,6 +204,12 @@ label.table {
 tr {
   @include respond(phone-sm) {
     font-size: 10px;
+  }
+}
+
+table.table-points {
+  @include respond(phone-sm) {
+    width: max-content;
   }
 }
 

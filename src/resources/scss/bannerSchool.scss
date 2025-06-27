@@ -1,14 +1,5 @@
 @import "breakpoints";
 
-.school-info {
-  position: relative;
-  height: 20pc;
-  display: flex;
-  @include respond(phone-sm) {
-    display: none;
-  }
-}
-
 .banner-container,
 .school-banner {
   width: 50%;
