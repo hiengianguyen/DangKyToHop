@@ -145,7 +145,7 @@
 }
 
 .card-body.submit {
-  padding: 30px;
+  padding: 0;
   @include respond(phone-sm) {
     padding: 16px;
   }
