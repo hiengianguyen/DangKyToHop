@@ -1,0 +1,7 @@
+@import "breakpoints";
+
+.box-radius {
+  @include respond(phone-sm) {
+    margin: 0;
+  }
+}
