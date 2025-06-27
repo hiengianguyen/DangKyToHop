@@ -15,7 +15,7 @@ legend {
   text-align: center; }
   @media (max-width: 430px) {
     legend {
-      font-size: 12px; } }
+      font-size: 16px; } }
 
 @media (max-width: 430px) {
   label {
@@ -39,25 +39,36 @@ h4 {
     h4 {
       width: 100%;
       font-weight: 600;
-      font-size: 13px; } }
+      font-size: 16px; } }
+
+@media (max-width: 430px) {
+  .d-flex.box {
+    flex-direction: column; } }
 
 #resultImage {
   max-width: 200px; }
   @media (max-width: 430px) {
     #resultImage {
-      max-width: 100px;
+      max-width: 135px;
       margin: 0; } }
 
-@media (max-width: 430px) {
-  .offical-avatar {
-    height: 150px; } }
+.offical-avatar {
+  align-items: start; }
+  @media (max-width: 430px) {
+    .offical-avatar {
+      align-items: center;
+      height: 200px; } }
 
 .offical-info {
   width: 100%; }
 
 @media (max-width: 430px) {
+  .offical-info .current-place b {
+    width: max-content; } }
+
+@media (max-width: 430px) {
   b {
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 6px;
     width: 100%; } }
 
@@ -71,6 +82,10 @@ h4 {
   @media (max-width: 430px) {
     #info-parent {
       justify-content: center; } }
+
+@media (max-width: 430px) {
+  #info-parent .col {
+    margin-bottom: 10px; } }
 
 #info-parent label {
   margin-right: 24px; }
