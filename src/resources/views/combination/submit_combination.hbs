@@ -2,13 +2,14 @@
     <title>Đăng Ký Tổ Hợp | Chọn Tổ Hợp</title>
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/combination.css">
+    <link rel="stylesheet" href="/css/submitCombination.css">
     <link rel="stylesheet" href="/css/close.css">
     <link rel="stylesheet" href="/css/bar_step.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
 </head>
 
-<div id="master" class="col .col-md-9 p-0">
-    <div id="banner" class="school-info d-flex">
+<div id="master" class="col .col-md-9">
+    <div id="banner" class="school-info">
         <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
         <div class="banner-container">
             <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
@@ -17,9 +18,9 @@
             </div>
         </div>
     </div>
-    <div id="card-body" class="card-body submit pt-4">
+    <div id="card-body" class="card-body submit">
         <div class="content position-relative" style="display:none;">
-            <div class="box-radius shadow">
+            <div class="box-radius step shadow">
                 <div class="step-container">
                     <div class="progress_bar">
                         <ul class="progress_bar-steps">
@@ -54,11 +55,13 @@
             </div>
 
             <div class="box-radius shadow box-submit-1" style="display: {{#if (includes 'box-submit-1' step)}}block{{else}}none{{/if}};">
-                <div class="d-flex align-items-between justify-content-start">
-                    <h4 class="mb-0">Đọc thông tin về việc chọn tổ hợp</h4>
-                    <button type="button" class="btn btn-primary ms-auto me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive" disabled>
-                        Tiếp tục
-                    </button>
+                <div class="title d-flex align-items-between justify-content-start">
+                    <h4 class="mb-0 me-auto">Đọc thông tin về việc chọn tổ hợp</h4>
+                    <div class="button d-flex">
+                        <button type="button" class="btn btn-primary ms-auto" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive" disabled>
+                            Tiếp tục
+                        </button>
+                    </div>
                 </div>
                 <div>
                     <div class="card-body" style="font-size: 17px;">
@@ -110,25 +113,27 @@
             </div>
 
             <div class="box-radius shadow box-submit-2" style="display: {{#if (includes 'box-submit-2' step)}}block{{else}}none{{/if}};">
-                <div class="d-flex align-items-center mb-3">
+                <div class="title d-flex align-items-center mb-3">
                     <h4 class="mb-0 me-auto">Nhập thông tin đăng ký</h4>
-                    <button type="button" class="btn btn-primary me-3" id="btnPrevStep" style="display: {{#if (includes 'box-submit-2' step)}}none{{else}}block{{/if}};">
-                        Trở lại
-                    </button>
-                    <button type="button" class="btn btn-primary me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive">
-                        Tiếp tục
-                    </button>
+                    <div class="button d-flex">
+                        <button type="button" class="btn btn-primary me-3" id="btnPrevStep" style="display: {{#if (includes 'box-submit-2' step)}}none{{else}}block{{/if}};">
+                            Trở lại
+                        </button>
+                        <button type="button" class="btn btn-primary" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive">
+                            Tiếp tục
+                        </button>
+                    </div>
                 </div>
                 <legend class="text-center mb-4">Phiếu đăng ký thông tin vào lớp 10 - Trường THPT Duy Tân</legend>
 
-                <div class="col col-md-4 mb-3 d-flex align-items-start flex-column ps-0">
-                    <label for=""><b>Chọn ảnh thẻ:</b></label>
+                <div class="col col-md-4 avatar mb-3 d-flex flex-column ps-0">
+                    <label><b>Chọn ảnh thẻ:</b></label>
                     <div class="row mb-3">
-                        <div class="d-flex align-items-start flex-column">
+                        <div class="d-flex flex-column avatar-img">
                             <div class="imgBoderFake" style="display: {{#if submitedDetail}}none{{else}}flex{{/if}};"><p>3x4</p></div>
                             <img id="resultImage" class="col col-md-2 ps-0" src="{{submitedDetail.avatarLink}}" style="max-width:200px; display:{{#if submitedDetail}}block{{else}}none{{/if}};">
-                                <input type="file" class="mt-3" id="inputImage" accept="image/*" required>
-                                <button id="recropBtn" class="mt-4 btn btn-primary" type="button" style="display:none;">Cắt lại</button>
+                            <input type="file" class="mt-3" id="inputImage" accept="image/*" required>
+                            <button id="recropBtn" class="mt-4 btn btn-primary" type="button" style="display:none;">Cắt lại</button>
                         </div>
                         <input id="input-get-data" type="text" value="{{submitedDetail.avatarLink}}" name="avatarLink" style="display: none;">
                     </div>
@@ -214,7 +219,7 @@
 
                     <div class="col d-flex align-items-start flex-column">
                         <label for="inputName"><b>Trường học cấp 2:</b></label>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex school-result">
                             <b class="secondary-school-choosen me-4" style="display: {{#if submitedDetail}}block{{else}}none{{/if}};">{{submitedDetail.secondarySchool}}</b>
                             <button type="button" class="btn btn-primary btn-show-modal-school">
                             Chọn trường cấp 2
@@ -304,188 +309,223 @@
                 </div>
 
                 <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
-                <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
-                <tr>
-                    <th rowspan="1">Lớp</th>
-                    <th class="px-4">6</th>
-                    <th class="px-4">7</th>
-                    <th class="px-4">8</th>
-                    <th class="px-4">9</th>
-                    <th rowspan="2" class="px-3">Xếp loại tốt nghiệp THCS</th>
-                </tr>
-                
-                <tr>
-                    <td>Hạnh kiểm</td>
-                    <td>
-                        <select class="form-select" id="inputGroupSelect01" name="conduct6" aria-label="Default select example">
-                            <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Hạnh kiểm</option>
-                            <option {{#if (eq 'Tốt' submitedDetail.conduct6)}} selected {{/if}} value="Tốt">Tốt</option>
-                            <option {{#if (eq 'Khá' submitedDetail.conduct6)}} selected {{/if}} value="Khá">Khá</option>
-                            <option {{#if (eq 'Yếu' submitedDetail.conduct6)}} selected {{/if}} value="Yếu">Yếu</option>
-                            <option {{#if (eq 'Chưa Đạt' submitedDetail.conduct6)}} selected {{/if}} value="Chưa Đạt">Chưa Đạt</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-select" id="inputGroupSelect01" name="conduct7" aria-label="Default select example">
-                            <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Hạnh kiểm</option>
-                            <option {{#if (eq 'Tốt' submitedDetail.conduct7)}} selected {{/if}} value="Tốt">Tốt</option>
-                            <option {{#if (eq 'Khá' submitedDetail.conduct7)}} selected {{/if}} value="Khá">Khá</option>
-                            <option {{#if (eq 'Yếu' submitedDetail.conduct7)}} selected {{/if}} value="Yếu">Yếu</option>
-                            <option {{#if (eq 'Chưa Đạt' submitedDetail.conduct7)}} selected {{/if}} value="Chưa Đạt">Chưa Đạt</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-select" id="inputGroupSelect01" name="conduct8" aria-label="Default select example">
-                            <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Hạnh kiểm</option>
-                            <option {{#if (eq 'Tốt' submitedDetail.conduct8)}} selected {{/if}} value="Tốt">Tốt</option>
-                            <option {{#if (eq 'Khá' submitedDetail.conduct8)}} selected {{/if}} value="Khá">Khá</option>
-                            <option {{#if (eq 'Yếu' submitedDetail.conduct8)}} selected {{/if}} value="Yếu">Yếu</option>
-                            <option {{#if (eq 'Chưa Đạt' submitedDetail.conduct8)}} selected {{/if}} value="Chưa Đạt">Chưa Đạt</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-select" id="inputGroupSelect01" name="conduct9" aria-label="Default select example">
-                            <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Hạnh kiểm</option>
-                            <option {{#if (eq 'Tốt' submitedDetail.conduct9)}} selected {{/if}} value="Tốt">Tốt</option>
-                            <option {{#if (eq 'Khá' submitedDetail.conduct9)}} selected {{/if}} value="Khá">Khá</option>
-                            <option {{#if (eq 'Yếu' submitedDetail.conduct9)}} selected {{/if}} value="Yếu">Yếu</option>
-                            <option {{#if (eq 'Chưa Đạt' submitedDetail.conduct9)}} selected {{/if}} value="Chưa Đạt">Chưa Đạt</option>
-                        </select>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>Học lực</td>
-                    <td>
-                        <select class="form-select" id="inputGroupSelect01" name="academicRating6" aria-label="Default select example">
-                            <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
-                            <option {{#if (eq 'Giỏi' submitedDetail.academicRating6)}} selected {{/if}} value="Giỏi">Giỏi</option>
-                            <option {{#if (eq 'Khá' submitedDetail.academicRating6)}} selected {{/if}} value="Khá">Khá</option>
-                            <option {{#if (eq 'Trung Bình' submitedDetail.academicRating6)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-select" id="inputGroupSelect01" name="academicRating7" aria-label="Default select example">
-                            <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
-                            <option {{#if (eq 'Giỏi' submitedDetail.academicRating7)}} selected {{/if}} value="Giỏi">Giỏi</option>
-                            <option {{#if (eq 'Khá' submitedDetail.academicRating7)}} selected {{/if}} value="Khá">Khá</option>
-                            <option {{#if (eq 'Trung Bình' submitedDetail.academicRating7)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-select" id="inputGroupSelect01" name="academicRating8" aria-label="Default select example">
-                            <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
-                            <option {{#if (eq 'Giỏi' submitedDetail.academicRating8)}} selected {{/if}} value="Giỏi">Giỏi</option>
-                            <option {{#if (eq 'Khá' submitedDetail.academicRating8)}} selected {{/if}} value="Khá">Khá</option>
-                            <option {{#if (eq 'Trung Bình' submitedDetail.academicRating8)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-select" id="inputGroupSelect01" name="academicRating9" aria-label="Default select example">
-                            <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
-                            <option {{#if (eq 'Giỏi' submitedDetail.academicRating9)}} selected {{/if}} value="Giỏi">Giỏi</option>
-                            <option {{#if (eq 'Khá' submitedDetail.academicRating9)}} selected {{/if}} value="Khá">Khá</option>
-                            <option {{#if (eq 'Trung Bình' submitedDetail.academicRating9)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-select" id="inputGroupSelect01" name="graduationRating" aria-label="Default select example">
-                            <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
-                            <option {{#if (eq 'Giỏi' submitedDetail.graduationRating)}} selected {{/if}} value="Giỏi">Giỏi</option>
-                            <option {{#if (eq 'Khá' submitedDetail.graduationRating)}} selected {{/if}} value="Khá">Khá</option>
-                            <option {{#if (eq 'Trung Bình' submitedDetail.graduationRating)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
-                        </select>
-                    </td>
-                </tr>
-                </table>
+                <div class="table-conduct">
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered my-3">
+                        <tr>
+                            <th rowspan="1">Lớp</th>
+                            <th class="class">6</th>
+                            <th class="class">7</th>
+                            <th class="class">8</th>
+                            <th class="class">9</th>
+                            <th rowspan="2" class="type-graduate">Xếp loại tốt nghiệp THCS</th>
+                        </tr>
+                        
+                        <tr>
+                            <td>Hạnh kiểm</td>
+                            <td>
+                                <select class="form-select" id="inputGroupSelect01" name="conduct6" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Hạnh kiểm</option>
+                                    <option {{#if (eq 'Tốt' submitedDetail.conduct6)}} selected {{/if}} value="Tốt">Tốt</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.conduct6)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Yếu' submitedDetail.conduct6)}} selected {{/if}} value="Yếu">Yếu</option>
+                                    <option {{#if (eq 'Chưa Đạt' submitedDetail.conduct6)}} selected {{/if}} value="Chưa Đạt">Chưa Đạt</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" id="inputGroupSelect01" name="conduct7" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Hạnh kiểm</option>
+                                    <option {{#if (eq 'Tốt' submitedDetail.conduct7)}} selected {{/if}} value="Tốt">Tốt</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.conduct7)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Yếu' submitedDetail.conduct7)}} selected {{/if}} value="Yếu">Yếu</option>
+                                    <option {{#if (eq 'Chưa Đạt' submitedDetail.conduct7)}} selected {{/if}} value="Chưa Đạt">Chưa Đạt</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" id="inputGroupSelect01" name="conduct8" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Hạnh kiểm</option>
+                                    <option {{#if (eq 'Tốt' submitedDetail.conduct8)}} selected {{/if}} value="Tốt">Tốt</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.conduct8)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Yếu' submitedDetail.conduct8)}} selected {{/if}} value="Yếu">Yếu</option>
+                                    <option {{#if (eq 'Chưa Đạt' submitedDetail.conduct8)}} selected {{/if}} value="Chưa Đạt">Chưa Đạt</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" id="inputGroupSelect01" name="conduct9" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Hạnh kiểm</option>
+                                    <option {{#if (eq 'Tốt' submitedDetail.conduct9)}} selected {{/if}} value="Tốt">Tốt</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.conduct9)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Yếu' submitedDetail.conduct9)}} selected {{/if}} value="Yếu">Yếu</option>
+                                    <option {{#if (eq 'Chưa Đạt' submitedDetail.conduct9)}} selected {{/if}} value="Chưa Đạt">Chưa Đạt</option>
+                                </select>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Học lực</td>
+                            <td>
+                                <select class="form-select" id="inputGroupSelect01" name="academicRating6" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
+                                    <option {{#if (eq 'Giỏi' submitedDetail.academicRating6)}} selected {{/if}} value="Giỏi">Giỏi</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.academicRating6)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Trung Bình' submitedDetail.academicRating6)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" id="inputGroupSelect01" name="academicRating7" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
+                                    <option {{#if (eq 'Giỏi' submitedDetail.academicRating7)}} selected {{/if}} value="Giỏi">Giỏi</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.academicRating7)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Trung Bình' submitedDetail.academicRating7)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" id="inputGroupSelect01" name="academicRating8" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
+                                    <option {{#if (eq 'Giỏi' submitedDetail.academicRating8)}} selected {{/if}} value="Giỏi">Giỏi</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.academicRating8)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Trung Bình' submitedDetail.academicRating8)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" id="inputGroupSelect01" name="academicRating9" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
+                                    <option {{#if (eq 'Giỏi' submitedDetail.academicRating9)}} selected {{/if}} value="Giỏi">Giỏi</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.academicRating9)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Trung Bình' submitedDetail.academicRating9)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" id="inputGroupSelect01" name="graduationRating" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
+                                    <option {{#if (eq 'Giỏi' submitedDetail.graduationRating)}} selected {{/if}} value="Giỏi">Giỏi</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.graduationRating)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Trung Bình' submitedDetail.graduationRating)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
 
                 <label for="inputName"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
-                <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
-                    <tr>
-                        <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
-                    </tr>
-                    <tbody>
-                        <td class="px-3"><b>Văn</b></td>
-                        <td class="px-3"><b>Toán</b></td>
-                        <td class="px-3"><b>Anh</b></td>
-                        <td class="px-3"><b>Vật lý</b></td>
-                        <td class="px-3"><b>Hóa học</b></td>
-                        <td class="px-3"><b>Sinh</b></td>
-                        <td class="px-3"><b>Sử</b></td>
-                        <td class="px-3"><b>Địa</b></td>
-                    </tbody>
-                    <tbody>
-                        <td>
-                            <input value="{{submitedDetail.avgLiteratureScore}}" type="number" step="0.1" min="0" max="10" name="avgLiteratureScore" placeholder="Văn">
-                        </td>
-                        <td>
-                            <input value="{{submitedDetail.avgMathScore}}" type="number" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Toán">
-                        </td>
-                        <td>
-                            <input value="{{submitedDetail.avgEnglishScore}}" type="number" step="0.1" min="0" max="10" name="avgEnglishScore" placeholder="Anh">
-                        </td>
-                        <td>
-                            <input value="{{submitedDetail.avgPhysicsScore}}" type="number" step="0.1" min="0" max="10" name="avgPhysicsScore" placeholder="Vật Lý">
-                        </td>
-                        <td>
-                            <input value="{{submitedDetail.avgChemistryScore}}" type="number" step="0.1" min="0" max="10" name="avgChemistryScore" placeholder="Hoá Học">
-                        </td>
-                        <td>
-                            <input value="{{submitedDetail.avgBiologyScore}}" type="number" step="0.1" min="0" max="10" name="avgBiologyScore" placeholder="Sinh">
-                        </td>
-                        <td>
-                            <input value="{{submitedDetail.avgHistoryScore}}" type="number" step="0.1" min="0" max="10" name="avgHistoryScore" placeholder="Sử">
-                        </td>
-                        <td>
-                            <input value="{{submitedDetail.avgGeographyScore}}" type="number" step="0.1" min="0" max="10" name="avgGeographyScore" placeholder="Địa">
-                        </td>
-                    </tbody>
-                </table>
+                <div class="table-avg-poin">
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered my-3">
+                        <tr>
+                            <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
+                        </tr>
+                        <tbody>
+                            <td class="subject"><b>Văn</b></td>
+                            <td class="subject"><b>Toán</b></td>
+                            <td class="subject"><b>Anh</b></td>
+                            <td class="subject"><b>Vật lý</b></td>
+                            <td class="subject"><b>Hóa học</b></td>
+                            <td class="subject"><b>Sinh</b></td>
+                            <td class="subject"><b>Sử</b></td>
+                            <td class="subject"><b>Địa</b></td>
+                        </tbody>
+                        <tbody>
+                            <td>
+                                <input value="{{submitedDetail.avgLiteratureScore}}" type="number" step="0.1" min="0" max="10" name="avgLiteratureScore" placeholder="Văn">
+                            </td>
+                            <td>
+                                <input value="{{submitedDetail.avgMathScore}}" type="number" step="0.1" min="0" max="10" name="avgMathScore" placeholder="Toán">
+                            </td>
+                            <td>
+                                <input value="{{submitedDetail.avgEnglishScore}}" type="number" step="0.1" min="0" max="10" name="avgEnglishScore" placeholder="Anh">
+                            </td>
+                            <td>
+                                <input value="{{submitedDetail.avgPhysicsScore}}" type="number" step="0.1" min="0" max="10" name="avgPhysicsScore" placeholder="Vật Lý">
+                            </td>
+                            <td>
+                                <input value="{{submitedDetail.avgChemistryScore}}" type="number" step="0.1" min="0" max="10" name="avgChemistryScore" placeholder="Hoá Học">
+                            </td>
+                            <td>
+                                <input value="{{submitedDetail.avgBiologyScore}}" type="number" step="0.1" min="0" max="10" name="avgBiologyScore" placeholder="Sinh">
+                            </td>
+                            <td>
+                                <input value="{{submitedDetail.avgHistoryScore}}" type="number" step="0.1" min="0" max="10" name="avgHistoryScore" placeholder="Sử">
+                            </td>
+                            <td>
+                                <input value="{{submitedDetail.avgGeographyScore}}" type="number" step="0.1" min="0" max="10" name="avgGeographyScore" placeholder="Địa">
+                            </td>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="box-radius shadow box-submit-3" style="display: none;">
-                <div class="d-flex align-items-center mb-3">
+                <div class="title d-flex align-items-center mb-3">
                     <h4 class="mb-0 me-auto">Chọn tổ hợp</h4>
-                    <button type="button" class="btn btn-primary me-3" id="btnPrevStep">
-                        Trở lại
-                    </button>
-                    <button type="button" class="btn btn-primary me-4" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive">
-                        Tiếp tục
-                    </button>
+                    <div class="button d-flex">
+                        <button type="button" class="btn btn-primary me-3" id="btnPrevStep">
+                            Trở lại
+                        </button>
+                        <button type="button" class="btn btn-primary" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive">
+                            Tiếp tục
+                        </button>
+                    </div>
                 </div>
 
                 <p class="fs-5">Sau khi nghiên cứu các tổ hợp của nhà trường:</p>
-                <table class="table table-bordered">
-                <thead>
-                    <tr>
-                    <th scope="col">Tổ hợp</th>
-                    <th scope="col" colspan="4">Môn lựa chọn (04 môn)</th>
-                    <th scope="col" colspan="3">Cụm chuyên đề (03 môn)</th>
-                    <th scope="col">Số lớp</th>
-                    <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
+                <div class="table-combination">
+                    <table class="table table-bordered combination">
+                        <thead>
+                            <tr>
+                            <th scope="col">Tổ hợp</th>
+                            <th scope="col" colspan="4">Môn lựa chọn (04 môn)</th>
+                            <th scope="col" colspan="3">Cụm chuyên đề (03 môn)</th>
+                            <th scope="col">Số lớp</th>
+                            <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each combinations}}
+                                <tr>
+                                    <td scope="row">{{this.name}}</td>
+                                    {{#each optionalSubjects}}
+                                        <td>{{this.name}}</td>
+                                    {{/each}}
+                                    {{#each compulsorySubjects}}
+                                        <td>{{this.name}}</td>
+                                    {{/each}}
+                                    <td>{{this.classesCount}}</td>
+                                    <td>
+                                        <div id-modal="{{this.id}}" class="btn-show-modal"><p class="m-0 text-decoration-underline">Xem Chi Tiết</p></div>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="combination-box-resp">
                     {{#each combinations}}
-                        <tr>
-                            <td scope="row">{{this.name}}</td>
-                            {{#each optionalSubjects}}
-                                <td>{{this.name}}</td>
-                            {{/each}}
-                            {{#each compulsorySubjects}}
-                                <td>{{this.name}}</td>
-                            {{/each}}
-                            <td>{{this.classesCount}}</td>
-                            <td>
-                                <div id-modal="{{this.id}}" class="btn-show-modal"><p class="m-0 text-decoration-underline">Xem Chi Tiết</p></div>
-                            </td>
-                        </tr>
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                {{this.name}}
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">Môn lựa chọn (04 môn)</h6>
+                                <ul>
+                                    {{#each optionalSubjects}}
+                                        <li>{{this.name}}</li>
+                                    {{/each}}
+                                </ul>
+                                <h6 class="card-title">Cụm chuyên đề (03 môn)</h6>
+                                <ul>
+                                    {{#each compulsorySubjects}}
+                                        <li>{{this.name}}</li>
+                                    {{/each}}
+                                </ul>
+                                <h6 class="card-title">Số lớp: {{this.classesCount}}</h6>
+                                <div id-modal="{{this.id}}" class="btn-show-modal btn btn-primary"><p class="m-0 text-white">Xem Chi Tiết</p></div>
+                            </div>
+                        </div>
                     {{/each}}
-                </tbody>
-                </table>
+                </div>
+                
                 <p class="fs-5 d-flex justify-content-center">Đăng ký tổ hợp theo nguyện vọng:</p>
-                <div class="d-flex justify-content-center align-items-center box-choose-combination">
-                    <div class="box-select-1 d-flex align-items-center">
+                <div class="d-flex justify-content-center box-choose-combination">
+                    <div class="box-select-1 d-flex">
                         <p class="me-2 fw-bold">Nguyện vọng 1:</p>
                         <div class="input-group mb-3 me-4">
                             <select class="form-select" id="select-combination1" name="combination1" aria-label="Default select example">
@@ -504,7 +544,7 @@
                         </div>
                     </div>
 
-                    <div class="box-select-2 d-flex align-items-center">
+                    <div class="box-select-2 d-flex">
                         <p class="me-2 fw-bold">Nguyện vọng 2:</p>
                         <div class="input-group mb-3 me-4">
                             <select class="form-select" id="select-combination2" name="combination2" aria-label="Default select example" {{#if submitedDetail}}{{else}}disabled{{/if}}>
@@ -526,20 +566,22 @@
             </div>
 
             <div class="box-radius shadow box-submit-4" style="display: none;">
-                <div class="d-flex align-items-center mb-3">
+                <div class="title d-flex align-items-center mb-3">
                     <h4 class="mb-0 me-auto">Xác nhận thông tin</h4>
-                    <button type="button" class="btn btn-primary me-3 ms-4" id="btnPrevStep">
-                        Trở lại
-                    </button>
-                    <button type="button" class="btn btn-primary me-4" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#exampleModalLive" {{#if (eq role 'manager')}}disabled{{/if}}>
-                        Xác nhận
-                    </button>
+                    <div class="button d-flex">
+                        <button type="button" class="btn btn-primary me-3 ms-4" id="btnPrevStep">
+                            Trở lại
+                        </button>
+                        <button type="button" class="btn btn-primary" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#exampleModalLive" {{#if (eq role 'manager')}}disabled{{/if}}>
+                            Xác nhận
+                        </button>
+                    </div>
                 </div>
                 <form id="form-submit-combination">
                     <legend class="text-center mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
                     <div class="row">
-                        <div class="col col-md-3 mb-3 mx-3 d-flex align-items-start flex-column ps-0">
-                            <label for=""><b>Ảnh thẻ:</b></label>
+                        <div class="avatar-info col col-md-2 mb-3 mx-3 d-flex flex-column ps-0">
+                            <label><b>Ảnh thẻ:</b></label>
                             <div class="row mb-3">
                                 <div class="d-flex align-items-start flex-column">
                                     <img class="col col-md-2 ps-0 resultImage" style="max-width:200px;">
@@ -550,18 +592,18 @@
 
                         <div class="col gy-3 m-0">
                             <div class="row">
-                                <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
+                                <div class="full-name d-flex align-items-start flex-column">
+                                    <label class="me-2">Họ và Tên học sinh:</label>
                                     <h4 class="mb-3"><b class="get-data" name="fullName" style="text-transform: capitalize;">{{submitedDetail.fullName}}</b></h4>
                                     <input value="{{submitedDetail.fullName}}" type="text" class="input-get-data" name="fullName" style="display:none;">
                                 </div>
                                 <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName" >Giới tính: </label>
+                                    <label >Giới tính: </label>
                                     <b class="mb-3 get-data-select" name="gender">{{submitedDetail.gender}}</b>
                                     <input value="{{submitedDetail.gender}}" type="text" class="input-get-data-select" name="gender" style="display:none;">
                                 </div>
                                 <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputGroupSelect01">Dân tộc: </label>
+                                    <label>Dân tộc: </label>
                                     <b class="mb-3 get-data-select" name="nation">{{submitedDetail.nation}}</b>
                                     <input value="{{submitedDetail.nation}}" type="text" class="input-get-data-select" name="nation" style="display:none;">
                                 </div>
@@ -569,20 +611,20 @@
 
                             <div class="row">
                                 <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName">Ngày tháng năm sinh: </label>
+                                    <label>Ngày tháng năm sinh: </label>
                                     <b class="mb-3 get-data" name="dateOfBirth" style="text-transform: capitalize;">{{submitedDetail.dateOfBirth}}</b>
                                     <input value="{{submitedDetail.dateOfBirth}}" type="text" class="input-get-data" name="dateOfBirth" style="display:none;">
                                 </div>
 
-                                <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName">Nơi sinh: </label>
+                                <div class="place-birth d-flex align-items-start flex-column">
+                                    <label>Nơi sinh: </label>
                                     <b class="mb-3 get-data" name="placeOfBirth" style="text-transform: capitalize;">{{submitedDetail.placeOfBirth}}</b>
                                     <input value="{{submitedDetail.placeOfBirth}}" type="text" class="input-get-data" name="placeOfBirth" style="display:none;">
                                 </div>
 
-                                <div class="col">
+                                <div class="col combination-1-rep">
                                     <div class="d-flex align-items-start flex-column">
-                                        <label for="inputName">Nguyện vọng 1:</label>
+                                        <label>Nguyện vọng 1:</label>
                                         <b class="get-data-combination" name="combination1">{{submitedDetail.combination1}}</b>
                                         <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
                                     </div>
@@ -590,21 +632,28 @@
                             </div>
 
                             <div class="row">
-                                <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName">Trường học cấp 2:</label> 
+                                <div class="place-birth d-flex align-items-start flex-column">
+                                    <label>Trường học cấp 2:</label> 
                                     <b class="mb-3 get-data-school" name="secondarySchool">{{submitedDetail.secondarySchool}}</b>
                                     <input value="{{submitedDetail.secondarySchool}}" type="text" class="input-get-data-shool" name="secondarySchool" style="display:none;">
                                 </div>
 
-                                <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName">Nơi ở hiện tại:</label> 
+                                <div class="place-birth d-flex align-items-start flex-column">
+                                    <label>Nơi ở hiện tại:</label> 
                                     <b class="mb-3 get-data" name="currentPlace" style="text-transform: capitalize;">{{submitedDetail.currentPlace}}</b>
                                     <input value="{{submitedDetail.currentPlace}}" type="text" class="input-get-data" name="currentPlace" style="display:none;">
                                 </div>
 
-                                <div class="col">
+                                <div class="col combination-1">
                                     <div class="d-flex align-items-start flex-column">
-                                        <label for="inputName">Nguyện vọng 2:</label>
+                                        <label>Nguyện vọng 1:</label>
+                                        <b style="text-transform: capitalize;">{{submitedDetail.combination1}}</b>                       
+                                    </div>
+                                </div>
+
+                                <div class="col combination-2">
+                                    <div class="d-flex align-items-start flex-column">
+                                        <label>Nguyện vọng 2:</label>
                                         <b class="get-data-combination" name="combination2">{{submitedDetail.combination2}}</b>
                                         <input value="{{submitedDetail.combination2}}" type="text" class="input-get-data-combination" name="combination2" style="display:none;">
                                     </div>
@@ -614,8 +663,8 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-around">
-                        <div class="d-flex  align-items-start flex-column">
+                    <div class="d-flex justify-content-around info-parent">
+                        <div class="d-flex detail align-items-start flex-column">
                             <div class="d-flex justify-content-center">
                                 <label for="" class="me-4">Họ và tên cha:</label>
                                 <b class="get-data" name="fullNameDad" style="text-transform: capitalize;">{{submitedDetail.fullNameDad}}</b>
@@ -627,156 +676,160 @@
                                 <input value="{{submitedDetail.fullNameMom}}" type="text" class="input-get-data" name="fullNameMom" style="display:none;">
                             </div>
                         </div>
-                        <div class="d-flex align-items-start flex-column">
+                        <div class="d-flex detail align-items-start flex-column">
                             <div class="d-flex">
-                                <label for="" class="me-4">Nghề nghiệp:</label>
+                                <label for="" class="me-4">Nghề nghiệp cha:</label>
                                 <b class="get-data" name="jobOfDad" style="text-transform: capitalize;">{{submitedDetail.jobOfDad}}</b>
                                 <input value="{{submitedDetail.jobOfDad}}" type="text" class="input-get-data" name="jobOfDad" style="display:none;">
                             </div>
                             <div class="d-flex">
-                                <label for="" class="me-4">Nghề nghiệp:</label>
+                                <label for="" class="me-4">Nghề nghiệp mẹ:</label>
                                 <b class="get-data" name="jobOfMom" style="text-transform: capitalize;">{{submitedDetail.jobOfMom}}</b>
                                 <input value="{{submitedDetail.jobOfMom}}" type="text" class="input-get-data" name="jobOfMom" style="display:none;">
                             </div>
                         </div>
-                        <div class="d-flex align-items-start flex-column">
+                        <div class="d-flex detail align-items-start flex-column">
                             <div class="d-flex">
-                                <label for="" class="me-4">Số điện thoại:</label>
+                                <label for="" class="me-4">Số điện thoại cha:</label>
                                 <b class="get-data" name="phoneOfDad" style="text-transform: capitalize;">{{submitedDetail.phoneOfDad}}</b>
                                 <input value="{{submitedDetail.phoneOfDad}}" type="text" class="input-get-data" name="phoneOfDad" style="display:none;">
                             </div>
                             <div class="d-flex">
-                                <label for="inputGroupSelect01" class="me-4">Số điện thoại:</label>
+                                <label for="inputGroupSelect01" class="me-4">Số điện thoại mẹ:</label>
                                 <b class="get-data" name="phoneOfMon" style="text-transform: capitalize;">{{submitedDetail.phoneOfMom}}</b>
                                 <input value="{{submitedDetail.phoneOfMom}}" type="text" class="input-get-data" name="phoneOfMom" style="display:none;">
                             </div>
                         </div>
                     </div>
 
-                    <label for="inputName" class="mt-4"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
+                    <label class="poin"><b>Điểm thi xết tuyển Trung học phổ thông năm học 2025 – 2026:</b></label>
                     <div class="d-flex justify-content-around text-center">
                         <div class="my-2">
-                            <label for="inputName"><b>Toán: <b class="get-data" name="mathScore">{{submitedDetail.mathScore}}</b></b></label>
+                            <label><b>Toán: <b class="get-data" name="mathScore">{{submitedDetail.mathScore}}</b></b></label>
                             <input value="{{submitedDetail.mathScore}}" type="text" class="input-get-data" name="mathScore" style="display:none;">
                         </div>
 
                         <div class="my-2">
-                            <label for="inputName"><b>Văn: <b class="get-data" name="literatureScore">{{submitedDetail.literatureScore}}</b></b></label>
+                            <label><b>Văn: <b class="get-data" name="literatureScore">{{submitedDetail.literatureScore}}</b></b></label>
                             <input value="{{submitedDetail.literatureScore}}" type="text" class="input-get-data" name="literatureScore" style="display:none;">
                         </div>
 
                         <div class="my-2">
-                            <label for="inputName"><b>Anh: <b class="get-data" name="englishScore">{{submitedDetail.englishScore}}</b></b></label>
+                            <label><b>Anh: <b class="get-data" name="englishScore">{{submitedDetail.englishScore}}</b></b></label>
                             <input value="{{submitedDetail.englishScore}}" type="text" class="input-get-data" name="englishScore" style="display:none;">
                         </div>
                     </div>
 
-                    <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
-                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
-                    <tr>
-                        <th rowspan="1">Lớp</th>
-                        <th class="px-4">6</th>
-                        <th class="px-4">7</th>
-                        <th class="px-4">8</th>
-                        <th class="px-4">9</th>
-                        <th rowspan="2" class="px-3">Xếp loại tốt nghiệp THCS</th>
-                    </tr>
-                    
-                    <tr>
-                        <td>Hạnh kiểm</td>
-                        <td>
-                            <b class="get-data-select" name="conduct6">{{submitedDetail.conduct6}}</b>
-                            <input value="{{submitedDetail.conduct6}}" type="text" class="input-get-data-select" name="conduct6" style="display:none;">
-                        </td>
-                        <td>
-                            <b class="get-data-select" name="conduct7">{{submitedDetail.conduct7}}</b>
-                            <input value="{{submitedDetail.conduct7}}" type="text" class="input-get-data-select" name="conduct7" style="display:none;">
-                        </td>
-                        <td>
-                            <b class="get-data-select" name="conduct8">{{submitedDetail.conduct8}}</b>
-                            <input value="{{submitedDetail.conduct8}}" type="text" class="input-get-data-select" name="conduct8" style="display:none;">
-                        </td>
-                        <td>
-                            <b class="get-data-select" name="conduct9">{{submitedDetail.conduct9}}</b>
-                            <input value="{{submitedDetail.conduct9}}" type="text" class="input-get-data-select" name="conduct9" style="display:none;">
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>Học lực</td>
-                        <td>
-                            <b class="get-data-select" name="academicRating6">{{submitedDetail.academicRating6}}</b>
-                            <input value="{{submitedDetail.academicRating6}}" type="text" class="input-get-data-select" name="academicRating6" style="display:none;">
-                        </td>
-                        <td>
-                            <b class="get-data-select" name="academicRating7">{{submitedDetail.academicRating7}}</b>
-                            <input value="{{submitedDetail.academicRating7}}" type="text" class="input-get-data-select" name="academicRating7" style="display:none;">
-                        </td>
-                        <td>
-                            <b class="get-data-select" name="academicRating8">{{submitedDetail.academicRating8}}</b>
-                            <input value="{{submitedDetail.academicRating8}}" type="text" class="input-get-data-select" name="academicRating8" style="display:none;">
-                        </td>
-                        <td>
-                            <b class="get-data-select" name="academicRating9">{{submitedDetail.academicRating9}}</b>
-                            <input value="{{submitedDetail.academicRating9}}" type="text" class="input-get-data-select" name="academicRating9" style="display:none;">
-                        </td>
-                        <td>
-                            <b class="get-data-select" name="graduationRating">{{submitedDetail.graduationRating}}</b>
-                            <input value="{{submitedDetail.graduationRating}}" type="text" class="input-get-data-select" name="graduationRating" style="display:none;">
-                        </td>
-                    </tr>
-                    </table>
+                    <label><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
+                    <div class="table-conduct">
+                        <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered my-3">
+                            <tr>
+                                <th rowspan="1">Lớp</th>
+                                <th class="class">6</th>
+                                <th class="class">7</th>
+                                <th class="class">8</th>
+                                <th class="class">9</th>
+                                <th rowspan="2" class="type-graduate">Xếp loại tốt nghiệp THCS</th>
+                            </tr>
+                            
+                            <tr>
+                                <td>Hạnh kiểm</td>
+                                <td>
+                                    <b class="get-data-select" name="conduct6">{{submitedDetail.conduct6}}</b>
+                                    <input value="{{submitedDetail.conduct6}}" type="text" class="input-get-data-select" name="conduct6" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data-select" name="conduct7">{{submitedDetail.conduct7}}</b>
+                                    <input value="{{submitedDetail.conduct7}}" type="text" class="input-get-data-select" name="conduct7" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data-select" name="conduct8">{{submitedDetail.conduct8}}</b>
+                                    <input value="{{submitedDetail.conduct8}}" type="text" class="input-get-data-select" name="conduct8" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data-select" name="conduct9">{{submitedDetail.conduct9}}</b>
+                                    <input value="{{submitedDetail.conduct9}}" type="text" class="input-get-data-select" name="conduct9" style="display:none;">
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Học lực</td>
+                                <td>
+                                    <b class="get-data-select" name="academicRating6">{{submitedDetail.academicRating6}}</b>
+                                    <input value="{{submitedDetail.academicRating6}}" type="text" class="input-get-data-select" name="academicRating6" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data-select" name="academicRating7">{{submitedDetail.academicRating7}}</b>
+                                    <input value="{{submitedDetail.academicRating7}}" type="text" class="input-get-data-select" name="academicRating7" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data-select" name="academicRating8">{{submitedDetail.academicRating8}}</b>
+                                    <input value="{{submitedDetail.academicRating8}}" type="text" class="input-get-data-select" name="academicRating8" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data-select" name="academicRating9">{{submitedDetail.academicRating9}}</b>
+                                    <input value="{{submitedDetail.academicRating9}}" type="text" class="input-get-data-select" name="academicRating9" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data-select" name="graduationRating">{{submitedDetail.graduationRating}}</b>
+                                    <input value="{{submitedDetail.graduationRating}}" type="text" class="input-get-data-select" name="graduationRating" style="display:none;">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
 
-                    <label for="inputName"><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
-                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered mb-3">
-                        <tr>
-                            <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
-                        </tr>
-                        <tbody>
-                            <td class="px-3"><b>Văn</b></td>
-                            <td class="px-3"><b>Toán</b></td>
-                            <td class="px-3"><b>Anh</b></td>
-                            <td class="px-3"><b>Vật lý</b></td>
-                            <td class="px-3"><b>Hóa học</b></td>
-                            <td class="px-3"><b>Sinh</b></td>
-                            <td class="px-3"><b>Sử</b></td>
-                            <td class="px-3"><b>Địa</b></td>
-                        </tbody>
-                        <tbody>
-                            <td>
-                                <b class="get-data" name="avgLiteratureScore">{{submitedDetail.avgLiteratureScore}}</b>
-                                <input value="{{submitedDetail.avgLiteratureScore}}" type="text" class="input-get-data" name="avgLiteratureScore" style="display:none;">
-                            </td>
-                            <td>
-                                <b class="get-data" name="avgMathScore">{{submitedDetail.avgMathScore}}</b>
-                                <input value="{{submitedDetail.avgMathScore}}" type="text" class="input-get-data" name="avgMathScore" style="display:none;">
-                            </td>
-                            <td>
-                                <b class="get-data" name="avgEnglishScore">{{submitedDetail.avgEnglishScore}}</b>
-                                <input value="{{submitedDetail.avgEnglishScore}}" type="text" class="input-get-data" name="avgEnglishScore" style="display:none;">
-                            </td>
-                            <td>
-                                <b class="get-data" name="avgPhysicsScore">{{submitedDetail.avgPhysicsScore}}</b>
-                                <input value="{{submitedDetail.avgPhysicsScore}}" type="text" class="input-get-data" name="avgPhysicsScore" style="display:none;">
-                            </td>
-                            <td>
-                                <b class="get-data" name="avgChemistryScore">{{submitedDetail.avgChemistryScore}}</b>
-                                <input value="{{submitedDetail.avgChemistryScore}}" type="text" class="input-get-data" name="avgChemistryScore" style="display:none;">
-                            </td>
-                            <td>
-                                <b class="get-data" name="avgBiologyScore">{{submitedDetail.avgBiologyScore}}</b>
-                                <input value="{{submitedDetail.avgBiologyScore}}" type="text" class="input-get-data" name="avgBiologyScore" style="display:none;">
-                            </td>
-                            <td>
-                                <b class="get-data" name="avgHistoryScore">{{submitedDetail.avgHistoryScore}}</b>
-                                <input value="{{submitedDetail.avgHistoryScore}}" type="text" class="input-get-data" name="avgHistoryScore" style="display:none;">
-                            </td>
-                            <td>
-                                <b class="get-data" name="avgGeographyScore">{{submitedDetail.avgGeographyScore}}</b>
-                                <input value="{{submitedDetail.avgGeographyScore}}" type="text" class="input-get-data" name="avgGeographyScore" style="display:none;">
-                            </td>
-                        </tbody>
-                    </table>
+                    <label><b>Điểm số trung bình các môn học rèn luyện cấp THCS:</b></label>
+                    <div class="table-avg-poin">
+                        <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered my-3">
+                            <tr>
+                                <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
+                            </tr>
+                            <tbody>
+                                <td class="subject"><b>Văn</b></td>
+                                <td class="subject"><b>Toán</b></td>
+                                <td class="subject"><b>Anh</b></td>
+                                <td class="subject"><b>Vật lý</b></td>
+                                <td class="subject"><b>Hóa học</b></td>
+                                <td class="subject"><b>Sinh</b></td>
+                                <td class="subject"><b>Sử</b></td>
+                                <td class="subject"><b>Địa</b></td>
+                            </tbody>
+                            <tbody>
+                                <td>
+                                    <b class="get-data" name="avgLiteratureScore">{{submitedDetail.avgLiteratureScore}}</b>
+                                    <input value="{{submitedDetail.avgLiteratureScore}}" type="text" class="input-get-data" name="avgLiteratureScore" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data" name="avgMathScore">{{submitedDetail.avgMathScore}}</b>
+                                    <input value="{{submitedDetail.avgMathScore}}" type="text" class="input-get-data" name="avgMathScore" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data" name="avgEnglishScore">{{submitedDetail.avgEnglishScore}}</b>
+                                    <input value="{{submitedDetail.avgEnglishScore}}" type="text" class="input-get-data" name="avgEnglishScore" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data" name="avgPhysicsScore">{{submitedDetail.avgPhysicsScore}}</b>
+                                    <input value="{{submitedDetail.avgPhysicsScore}}" type="text" class="input-get-data" name="avgPhysicsScore" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data" name="avgChemistryScore">{{submitedDetail.avgChemistryScore}}</b>
+                                    <input value="{{submitedDetail.avgChemistryScore}}" type="text" class="input-get-data" name="avgChemistryScore" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data" name="avgBiologyScore">{{submitedDetail.avgBiologyScore}}</b>
+                                    <input value="{{submitedDetail.avgBiologyScore}}" type="text" class="input-get-data" name="avgBiologyScore" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data" name="avgHistoryScore">{{submitedDetail.avgHistoryScore}}</b>
+                                    <input value="{{submitedDetail.avgHistoryScore}}" type="text" class="input-get-data" name="avgHistoryScore" style="display:none;">
+                                </td>
+                                <td>
+                                    <b class="get-data" name="avgGeographyScore">{{submitedDetail.avgGeographyScore}}</b>
+                                    <input value="{{submitedDetail.avgGeographyScore}}" type="text" class="input-get-data" name="avgGeographyScore" style="display:none;">
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
                     <input value="{{submitedDetail.schoolDistrict}}" type="text" class="input-get-data-district" name="schoolDistrict" style="display:none;">
                 </form>
             </div>
@@ -865,7 +918,7 @@
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
+                            <div class="accordion-body text">
                                 {{this.description}}
                             </div>
                         </div>
@@ -883,7 +936,7 @@
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
+                                <div class="accordion-body text">
                                     {{this.description}}
                                 </div>
                             </div>

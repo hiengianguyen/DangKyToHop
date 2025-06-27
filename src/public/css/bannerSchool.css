@@ -1,11 +1,3 @@
-.school-info {
-  position: relative;
-  height: 20pc;
-  display: flex; }
-  @media (max-width: 430px) {
-    .school-info {
-      display: none; } }
-
 .banner-container,
 .school-banner {
   width: 50%; }

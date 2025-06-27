@@ -123,16 +123,32 @@
 
 .modal-containers {
   width: 45pc;
+  @include respond(phone-sm) {
+    padding: 0 30px;
+  }
 }
 
 .modal-bodyy.combination {
   padding: 4pc;
   height: 32pc;
   overflow: overlay;
+  @include respond(phone-sm) {
+    padding: 2pc;
+  }
+}
+
+.modal-bodyy.combination .text,
+.modal-bodyy.combination p {
+  @include respond(phone-sm) {
+    text-align: justify;
+  }
 }
 
 .card-body.submit {
   padding: 30px;
+  @include respond(phone-sm) {
+    padding: 16px;
+  }
 }
 
 .header-box {
