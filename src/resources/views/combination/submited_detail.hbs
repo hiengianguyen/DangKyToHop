@@ -22,20 +22,20 @@
                 <div class="container">
                     <legend class="mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
 
-                    <div class="d-flex">
-                        <div class="offical-avatar me-4 mb-3 d-flex align-items-start flex-column">
-                            <label class="ms-3 avatar"><b>Ảnh thẻ:</b></label>
+                    <div class="d-flex box">
+                        <div class="offical-avatar me-4 mb-3 d-flex flex-column">
+                            <label class="avatar"><b>Ảnh thẻ:</b></label>
                             <img id="resultImage" src="{{submitedCombinationDetail.avatarLink}}" class="col col-md-2">
                         </div>
 
                         <div class="offical-info gy-3 m-0">
                             <div class="row">
-                                <div class="full-name d-flex align-items-start flex-column">
-                                    <label for="inputName" class="me-2">Họ và Tên học sinh:</label>
+                                <div class="full-name col d-flex align-items-start flex-column">
+                                    <label class="me-2">Họ và Tên học sinh:</label>
                                     <h4 class="mb-3"> {{submitedCombinationDetail.fullName}}</h4>
                                 </div>
                                 <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName" >Giới tính: </label>
+                                    <label>Giới tính:</label>
                                     <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.gender}}</b>
                                 </div>
                                 <div class="col d-flex align-items-start flex-column">
@@ -46,18 +46,18 @@
 
                             <div class="row">
                                 <div class="col d-flex align-items-start flex-column">
-                                        <label for="inputName">Ngày tháng năm sinh: </label>
+                                        <label>Ngày tháng năm sinh: </label>
                                     <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.dateOfBirth}}</b>
                                 </div>
 
                                 <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName">Nơi sinh: </label>
+                                    <label>Nơi sinh: </label>
                                     <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.placeOfBirth}}</b>
                                 </div>
 
                                 <div class="col combination-1-rep">
                                     <div class="d-flex align-items-start flex-column">
-                                        <label for="inputName">Nguyện vọng 1:</label>
+                                        <label>Nguyện vọng 1:</label>
                                         <b style="text-transform: capitalize;">{{submitedCombinationDetail.combination1}}</b>                       
                                     </div>
                                 </div>
@@ -65,25 +65,25 @@
 
                             <div class="row">
                                 <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName">Trường học cấp 2:</label> 
+                                    <label>Trường học cấp 2:</label> 
                                     <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.secondarySchool}}</b>
                                 </div>
 
-                                <div class="col d-flex align-items-start flex-column">
-                                    <label for="inputName">Nơi ở hiện tại:</label> 
+                                <div class="col d-flex align-items-start flex-column current-place">
+                                    <label>Nơi ở hiện tại:</label> 
                                     <b style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.currentPlace}}</b>
                                 </div>
 
                                 <div class="col combination-1">
                                     <div class="d-flex align-items-start flex-column">
-                                        <label for="inputName">Nguyện vọng 1:</label>
+                                        <label>Nguyện vọng 1:</label>
                                         <b style="text-transform: capitalize;">{{submitedCombinationDetail.combination1}}</b>                       
                                     </div>
                                 </div>
 
                                 <div class="col combination-2">
                                     <div class="d-flex align-items-start flex-column">
-                                        <label for="inputName">Nguyện vọng 2:</label>
+                                        <label>Nguyện vọng 2:</label>
                                         <b style="text-transform: capitalize;">{{submitedCombinationDetail.combination2}}</b>
                                     </div>
                                 </div>
@@ -91,8 +91,8 @@
                         </div>
                     </div>
 
-                    <div id="info-parent" class="d-flex">
-                        <div class="d-flex  align-items-start flex-column">
+                    <div id="info-parent" class="row">
+                        <div class="d-flex col align-items-start flex-column">
                             <div class="d-flex detail justify-content-center">
                                 <label for="">Họ và tên cha</label>
                                 <b>{{submitedCombinationDetail.fullNameDad}}</b>
@@ -102,7 +102,7 @@
                                 <b>{{submitedCombinationDetail.fullNameMom}}</b>
                             </div>
                         </div>
-                        <div class="d-flex align-items-start flex-column job-parent">
+                        <div class="d-flex col align-items-start flex-column job-parent">
                             <div class="d-flex detail">
                                 <label for="">Nghề nghiệp cha:</label>
                                 <b>{{submitedCombinationDetail.jobOfDad}}</b>
@@ -112,7 +112,7 @@
                                 <b>{{submitedCombinationDetail.jobOfMom}}</b>
                             </div>
                         </div>
-                        <div class="d-flex align-items-start flex-column">
+                        <div class="d-flex col align-items-start flex-column">
                             <div class="d-flex detail">
                                 <label for="">Số điện thoại cha:</label>
                                 <b>{{submitedCombinationDetail.phoneOfDad}}</b>
@@ -128,15 +128,15 @@
                     <div class="d-flex poin-box">
                         <div class="my-2">
 
-                            <label for="inputName"><b>Toán: <b>{{submitedCombinationDetail.mathScore}}</b></b></label>
+                            <label><b>Toán: <b>{{submitedCombinationDetail.mathScore}}</b></b></label>
                         </div>
 
                         <div class="my-2">
-                            <label for="inputName"><b>Văn: <b>{{submitedCombinationDetail.literatureScore}}</b></b></label>
+                            <label><b>Văn: <b>{{submitedCombinationDetail.literatureScore}}</b></b></label>
                         </div>
 
                         <div class="my-2">
-                            <label for="inputName"><b>Anh: <b>{{submitedCombinationDetail.englishScore}}</b></b></label>
+                            <label><b>Anh: <b>{{submitedCombinationDetail.englishScore}}</b></b></label>
                         </div>
                     </div>
 

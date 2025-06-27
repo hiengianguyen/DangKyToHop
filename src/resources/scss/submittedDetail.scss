@@ -22,7 +22,7 @@
 legend {
   text-align: center;
   @include respond(phone-sm) {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
@@ -50,21 +50,29 @@ h4 {
   @include respond(phone-sm) {
     width: 100%;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 16px;
+  }
+}
+
+.d-flex.box {
+  @include respond(phone-sm) {
+    flex-direction: column;
   }
 }
 
 #resultImage {
   max-width: 200px;
   @include respond(phone-sm) {
-    max-width: 100px;
+    max-width: 135px;
     margin: 0;
   }
 }
 
 .offical-avatar {
+  align-items: start;
   @include respond(phone-sm) {
-    height: 150px;
+    align-items: center;
+    height: 200px;
   }
 }
 
@@ -74,9 +82,15 @@ h4 {
   }
 }
 
+.offical-info .current-place b {
+  @include respond(phone-sm) {
+    width: max-content;
+  }
+}
+
 b {
   @include respond(phone-sm) {
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 6px;
     width: 100%;
   }
@@ -93,6 +107,12 @@ b {
   justify-content: space-between;
   @include respond(phone-sm) {
     justify-content: center;
+  }
+}
+
+#info-parent .col {
+  @include respond(phone-sm) {
+    margin-bottom: 10px;
   }
 }
 

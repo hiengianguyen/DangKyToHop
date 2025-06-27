@@ -244,7 +244,7 @@ input {
 
 #nav-bar {
   position: fixed;
-  opacity: 0;
+  display: none;
   transition: all 0.5s ease; }
 
 #nav-bar.active {
@@ -255,7 +255,7 @@ input {
   transition: all 0.5s ease; }
   @media (max-width: 430px) {
     #nav-bar.active {
-      opacity: 1; } }
+      display: block; } }
 
 #nav-bar a {
   display: block;

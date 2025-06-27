@@ -301,7 +301,7 @@ input {
 
 #nav-bar {
   position: fixed;
-  opacity: 0;
+  display: none;
   transition: all 0.5s ease;
 }
 
@@ -312,7 +312,7 @@ input {
   z-index: 1;
   transition: all 0.5s ease;
   @include respond(phone-sm) {
-    opacity: 1;
+    display: block;
   }
 }
 
