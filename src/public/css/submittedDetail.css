@@ -4,10 +4,6 @@
     padding: 15px; } }
 
 @media (max-width: 430px) {
-  .card-body {
-    padding: 0; } }
-
-@media (max-width: 430px) {
   .card-body > .container {
     padding: 0; } }
 
@@ -29,8 +25,7 @@ legend {
   max-width: 100%; }
   @media (max-width: 430px) {
     .full-name {
-      flex-basis: auto;
-      max-width: 100%; } }
+      flex-basis: auto; } }
 
 h4 {
   width: max-content;
@@ -61,6 +56,18 @@ h4 {
 
 .offical-info {
   width: 100%; }
+
+.offical-info .secondary-school,
+.offical-info .place-birth,
+.offical-info .current-place {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%; }
+  @media (max-width: 430px) {
+    .offical-info .secondary-school,
+    .offical-info .place-birth,
+    .offical-info .current-place {
+      flex-basis: auto; } }
 
 @media (max-width: 430px) {
   .offical-info .current-place b {

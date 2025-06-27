@@ -7,12 +7,6 @@
   }
 }
 
-.card-body {
-  @include respond(phone-sm) {
-    padding: 0;
-  }
-}
-
 .card-body > .container {
   @include respond(phone-sm) {
     padding: 0;
@@ -40,7 +34,6 @@ label {
   max-width: 100%;
   @include respond(phone-sm) {
     flex-basis: auto;
-    max-width: 100%;
   }
 }
 
@@ -79,6 +72,17 @@ h4 {
 .offical-info {
   width: 100%;
   @include respond(phone-sm) {
+  }
+}
+
+.offical-info .secondary-school,
+.offical-info .place-birth,
+.offical-info .current-place {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  @include respond(phone-sm) {
+    flex-basis: auto;
   }
 }
 
