@@ -143,9 +143,6 @@
 .image-stack img:hover {
   transform: scale(1.55); }
 
-@media (max-width: 430px) {
-  .container-school {
-    height: 36pc; } }
 .container-school .content-box {
   width: 62pc; }
   @media (max-width: 430px) {
@@ -159,7 +156,8 @@
       width: 9pc; } }
 
 .container-school .container-body {
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
   @media (max-width: 430px) {
     .container-school .container-body {
       flex-direction: column;
