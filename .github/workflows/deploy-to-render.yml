@@ -18,7 +18,7 @@ jobs:
         with:
           service_id: ${{ secrets.RENDER_SERVICE_ID }}
           api_key: ${{ secrets.RENDER_API_KEY }}
-          clear_cache: true
+          clear_cache: false
           wait_deploy: true
           github_deployment: false
           deployment_environment: "production"
