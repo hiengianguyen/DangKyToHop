@@ -54,9 +54,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.1);
-  animation: brul 0.5s;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 999; }
 
 .modal-container {
@@ -127,6 +125,9 @@
   background-color: #e3e3e3;
   box-shadow: 0 -1px 4px; }
 
+.show-combination {
+  animation: modalFadeIn 1s; }
+
 @keyframes modalFadeIn {
   from {
     opacity: 0.6;
@@ -134,9 +135,3 @@
   to {
     opacity: 1;
     transform: translateY(0px); } }
-
-@keyframes brul {
-  from {
-    backdrop-filter: blur(0); }
-  to {
-    backdrop-filter: blur(10px); } }
