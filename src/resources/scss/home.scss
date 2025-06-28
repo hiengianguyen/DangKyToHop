@@ -71,9 +71,6 @@
   }
 }
 
-.container-center {
-}
-
 .container-center img {
   width: 30pc;
   @include respond(phone-sm) {
@@ -175,9 +172,6 @@
 
 .image-stack img:hover {
   transform: scale(1.55);
-}
-
-.container-school {
 }
 
 .container-school .content-box {

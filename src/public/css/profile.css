@@ -4,11 +4,13 @@
 
 #master {
   padding: 25px;
-  height: 100% !important;
   background-color: #29a9ef; }
   @media (max-width: 430px) {
     #master {
       padding: 45px 16px; } }
+
+#all-content {
+  height: 100%; }
 
 .user-name {
   margin: 0;

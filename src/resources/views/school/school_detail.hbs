@@ -19,8 +19,8 @@
     <div class="box-radius shadow">
         <div class="card-body p-0">
             <div class="content" style="display: none;">
-                <h5 class="card-title">Trường Trung học Phổ thông Duy Tân</h5>
-                <div class="content">
+                <h4 class="card-title">Trường Trung học Phổ thông Duy Tân</h4>
+                <div class="content-box">
                     <p>
                         Trường Trung học Phổ thông (THPT) Duy Tân là một cơ sở giáo dục công lập tọa lạc tại thôn Ngọc Mỹ, xã Tam Phú, thành phố Tam Kỳ, tỉnh Quảng Nam. 
                         Được thành lập vào năm 2010 theo Quyết định số 1119/QĐ-UBND của UBND tỉnh Quảng Nam, trường nhằm tạo điều kiện thuận lợi cho việc học tập của học sinh vùng Đông của thành phố Tam Kỳ.
@@ -34,6 +34,10 @@
                         Năm học 2024–2025, trường có 32 lớp với 1.256 học sinh và đội ngũ gần 80 cán bộ, giáo viên. 
                         Địa bàn tuyển sinh của trường bao gồm các xã phường như Tam Phú, An Phú, Tam Thanh, Tam Thăng (TP. Tam Kỳ), và mở rộng đến các xã Tam Tiến (huyện Núi Thành) và Bình Nam (huyện Thăng Bình).
                     </p>
+                    <div class="img-box d-flex align-items-center mt-4">
+                        <img class="first rounded-3" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_38_sjlsqx.jpg" alt="">
+                        <img class="rounded-3" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179568/BE_GIANG_DT_247_k6rm0i.jpg" alt="">
+                    </div>
                     <p>
                         Trường THPT Duy Tân không chỉ chú trọng đến chất lượng giảng dạy mà còn tích cực tổ chức các hoạt động ngoại khóa, giáo dục đạo đức và kỹ năng sống cho học sinh. 
                         Nhà trường thường xuyên tổ chức các sự kiện như lễ kỷ niệm, hoạt động truyền thống và các chương trình văn hóa, thể thao nhằm tạo môi trường học tập toàn diện cho học sinh.
@@ -42,6 +46,29 @@
                         Với những nỗ lực không ngừng trong việc nâng cao chất lượng giáo dục và phát triển toàn diện cho học sinh, 
                         Trường THPT Duy Tân đã trở thành một trong những trường THPT có uy tín tại tỉnh Quảng Nam.
                     </p>
+                </div>
+                <div class="container-school">
+                    <div class="container-body d-flex">
+                        <div class="content-box">
+                            <h4 class="fw-bold text-center">Thành tích nổi bật – Niềm tự hào của nhà trường</h4>
+                            <p>
+                                Năm học vừa qua, trường chúng tôi đã bồi dưỡng và đưa nhiều học sinh tham gia các kỳ thi học sinh giỏi cấp thành phố. 
+                                Kết quả đạt được vô cùng ấn tượng:
+                            </p>
+                            <ul>
+                                <li>Nhiều giải Nhất, Nhì, Ba, kk ở các môn Toán, Văn, Anh, Lý, Hóa, Địa...(01 giải Nhất; 02 giải Nhì, 08 giải Ba và 08 giải Khuyến khích)</li>
+                                <li>Học sinh không chỉ giỏi kiến thức mà còn được rèn luyện tư duy và kỹ năng làm bài chuyên sâu.</li>
+                                <li>Thành tích này là minh chứng rõ ràng cho chất lượng giảng dạy và sự đầu tư đúng hướng của nhà trường trong suốt thời gian qua.</li>
+                            </ul>
+                            </div>
+                            <div class="image-stack d-flex">
+                                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong2_hrmmg7.jpg" alt="Ảnh khen thưởng">
+                                <div class="ms-2">
+                                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179322/9999_copy_cqmuuu.jpg" alt="Ảnh khen thưởng">
+                                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong1_kjqr9m.jpg" alt="Ảnh khen thưởng">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,11 +84,9 @@
 </div>
 
 <script>
-    var sideBar = document.getElementById('sidebar');
     window.addEventListener('load', function () {
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.content').style.display = 'block';
-        sideBar.parentElement.style.height = '100%';
     });
 
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));

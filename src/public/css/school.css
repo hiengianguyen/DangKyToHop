@@ -12,7 +12,9 @@
   height: 89%; }
 
 #master {
-  background-color: #29a9ef; }
+  background-color: #29a9ef;
+  padding: 10px;
+  height: 100%; }
   @media (max-width: 430px) {
     #master {
       padding: 45px 16px;
