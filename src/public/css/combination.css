@@ -118,6 +118,9 @@
 
 .card-body.submit {
   padding: 16px; }
+  @media (max-width: 430px) {
+    .card-body.submit {
+      padding: 0; } }
 
 .header-box {
   width: 100%;
