@@ -6,6 +6,10 @@
   }
 }
 
+#master {
+  height: auto !important;
+}
+
 .box-radius.step {
   @include respond(phone-sm) {
     display: none;

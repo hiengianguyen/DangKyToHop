@@ -8,11 +8,14 @@
 
 #master {
   padding: 25px;
-  height: 100% !important;
   background-color: #29a9ef;
   @include respond(phone-sm) {
     padding: 45px 16px;
   }
+}
+
+#all-content {
+  height: 100%;
 }
 
 .user-name {

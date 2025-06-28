@@ -108,13 +108,9 @@
 </div>
 
 <script>
-    var sideBar = document.getElementById('sidebar');
-    const master = document.getElementById('master');
     window.addEventListener('load', function () {
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.content').style.display = 'block';
-        sideBar.style.height = master.parentElement.clientHeight;
-        master.style.height = master.parentElement.clientHeight;
     });
 
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));

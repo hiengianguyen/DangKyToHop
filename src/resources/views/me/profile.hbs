@@ -45,12 +45,6 @@
 </div>
 
 <script>
-    var sideBar = document.getElementById('sidebar');
-    const master = document.getElementById('master');
-    window.addEventListener('load', function () {
-        sideBar.parentElement.style.height = '100%';
-        master.style.height = master.parentElement.clientHeight;
-    })
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
     litSidebars.pop();
 

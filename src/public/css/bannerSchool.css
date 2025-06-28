@@ -19,3 +19,7 @@
 
 .school-info-detail p {
   margin-bottom: 0; }
+
+.school-info {
+  margin: -10px;
+  margin-top: 10px; }
