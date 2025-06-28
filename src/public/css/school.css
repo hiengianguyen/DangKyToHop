@@ -22,4 +22,7 @@
   background-color: #ffffff;
   border-radius: 18px;
   padding: 25px;
-  margin: 30px; }
+  margin: 20px; }
+
+.box-radius.step {
+  padding: 15px; }

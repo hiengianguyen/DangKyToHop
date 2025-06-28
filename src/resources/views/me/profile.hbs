@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="/css/combination.css">
 </head>
 
-<div id="master" class="col .col-md-9 p-0">
-    <div class="box-radius shadow m-4">
+<div id="master">
+    <div class="box-radius shadow">
         <div class="d-flex align-items-between justify-content-start">
             <h4 class="mb-0">Trang cá nhân</h4>
         </div>
@@ -20,7 +20,7 @@
                     alt="User"
                     />
                 </div>
-                <div class="info profile-dad-name mx-5">
+                <div class="info profile-dad-name">
                     <div class="info-sub mt-10 containers">
                     <div class="profile-dad-name mb-2">
                         <label for="profile-name-input" class="form-label-profile">Họ và Tên:</label>
@@ -34,8 +34,9 @@
                         <p class="profile-phone-user mb-2">{{user.phone}}</p>
                     </div>
                     </div>
-                    <div class="btn-edit d-flex justify-content-end">
-                    <a href="/me/profile/edit?role={{role}}" class="btn btn-secondary btn-lg">Chỉnh Sửa</a>
+                    <div class="btn-edit d-flex">
+                        <a href="/auth/signout" id="btn-signout" class="btn btn-danger btn-lg me-2">Đăng xuất</a>
+                        <a href="/me/profile/edit?role={{role}}" class="btn btn-secondary btn-lg">Chỉnh sửa</a>
                     </div>
                 </div>
             </div>
@@ -45,8 +46,10 @@
 
 <script>
     var sideBar = document.getElementById('sidebar');
+    const master = document.getElementById('master');
     window.addEventListener('load', function () {
-        sideBar.parentElement.style.height = '100%'
+        sideBar.parentElement.style.height = '100%';
+        master.style.height = master.parentElement.clientHeight;
     })
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
     litSidebars.pop();

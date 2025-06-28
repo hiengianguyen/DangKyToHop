@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/css/combination.css">
 </head>
 
-<div id="master" class="col .col-md-9 p-0">
-    <div class="box-radius shadow m-4">
+<div id="master">
+    <div class="box-radius shadow">
         <div class="d-flex align-items-between justify-content-start">
             <h4 class="mb-0">Chỉnh sửa trang cá nhân</h4>
         </div>
@@ -33,7 +33,7 @@
                     <input class="choose-file-input" type="file" id="formFile" />
                     <input id="avatar-input" name="avatar" type="text" style="display:none" />
                 </div>
-                <div class="profile-dad-name info mt-8 flex-column-reverse mx-5">
+                <div class="profile-dad-name info mt-8 flex-column-reverse">
                     <div class="form-group">
                     <label for="profile-name-input" class="form-label-profile">Họ và Tên:</label>
                     <input
@@ -58,8 +58,8 @@
                         <span class="form-message"></span>
                     </div>
 
-                    <div class="btn-edit d-flex justify-content-end mt-2">
-                        <button type="button" id="btn-update-profile" class="btn bg-success btn-lg text-white">Cập Nhật</button>
+                    <div class="btn-edit d-flex mt-2">
+                        <button type="button" id="btn-update-profile" class="btn bg-success btn-lg text-white">Cập nhật</button>
                     </div>
                 </div>
                 </form>
@@ -71,7 +71,7 @@
 <div id="loading-full" class="position-fixed" style="display: none;">
     <div class="d-flex align-items-center flex-column">
         <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang tải ảnh lên...</h2>
-        <div class="spinner-border mt-4" style="width: 3rem; height: 3rem;color:#29a9ef;" role="status">
+        <div class="spinner-border mt-4" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
@@ -89,8 +89,10 @@
     window.uploadImageToCloudinary = uploadImageToCloudinary;
 
     var sideBar = document.getElementById('sidebar');
+    const master = document.getElementById('master');
     window.addEventListener('load', function () {
-        sideBar.parentElement.style.height = '100%'
+        sideBar.parentElement.style.height = '100%';
+        master.style.height = master.parentElement.clientHeight;
     })
     
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));

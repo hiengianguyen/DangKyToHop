@@ -1,20 +1,59 @@
+@media (max-width: 430px) {
+  .box-radius {
+    margin: 0; } }
+
+#master {
+  padding: 25px;
+  height: 100% !important;
+  background-color: #29a9ef; }
+  @media (max-width: 430px) {
+    #master {
+      padding: 45px 16px; } }
+
 .user-name {
   margin: 0;
   font-weight: 600; }
 
 img.profile-img-user {
-  width: 12pc;
-  height: 12pc; }
+  width: 12pc; }
+  @media (max-width: 430px) {
+    img.profile-img-user {
+      width: 8pc; } }
 
 .info-sub p {
   font-size: 18px; }
 
 .profile-user {
   align-self: center;
-  padding-bottom: 2pc; }
+  padding-bottom: 1pc; }
+
+.info.profile-dad-name {
+  margin: 0 3rem; }
+  @media (max-width: 430px) {
+    .info.profile-dad-name {
+      margin: 0; } }
 
 .profile-dad-name label {
   font-weight: 600; }
 
 .card-body-profile {
   width: 80%; }
+  @media (max-width: 430px) {
+    .card-body-profile {
+      width: auto; } }
+
+.btn-edit {
+  justify-content: end; }
+  @media (max-width: 430px) {
+    .btn-edit {
+      justify-content: center; } }
+
+@media (max-width: 430px) {
+  .btn-edit a {
+    font-size: 14px; } }
+
+#btn-signout {
+  display: none; }
+  @media (max-width: 430px) {
+    #btn-signout {
+      display: block; } }

@@ -145,10 +145,7 @@
 }
 
 .card-body.submit {
-  padding: 0;
-  @include respond(phone-sm) {
-    padding: 16px;
-  }
+  padding: 16px;
 }
 
 .header-box {
