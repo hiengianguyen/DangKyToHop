@@ -162,6 +162,18 @@
       <a href="/school" title="Trường học"><i class="fa-solid fa-school me-2"></i> Trường học</a>
       <a href="/school/contact" title="Liên hệ"><i class="fa-solid fa-address-book me-2"></i> Liên hệ</a>
       <a href="/combination/submited-detail/{{userId}}" title="Hồ sơ đã nộp"><i class="fa-solid fa-file-circle-check me-2"></i> Hồ sơ đã nộp</a>
+      <a 
+        title="Trang cá nhân"
+        href='/me/profile?role={{role}}'
+      >
+        <div class="avatar d-flex" value="profile">
+          <img
+            class="rounded-circle"
+            src="{{avatar}}"
+          />
+          <p class="m-0 text text-black">{{fullName}}</p>
+        </div>
+      </a>
     </div>
 
     <div class="big-content">

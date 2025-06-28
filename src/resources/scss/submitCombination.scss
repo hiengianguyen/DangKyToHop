@@ -11,13 +11,6 @@
     display: none;
   }
 }
-
-#master > .card-body {
-  @include respond(phone-sm) {
-    padding: 0;
-  }
-}
-
 .box-radius h4 {
   @include respond(phone-sm) {
     font-size: 20px;

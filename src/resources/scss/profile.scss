@@ -1,3 +1,20 @@
+@import "breakpoints";
+
+.box-radius {
+  @include respond(phone-sm) {
+    margin: 0;
+  }
+}
+
+#master {
+  padding: 25px;
+  height: 100% !important;
+  background-color: #29a9ef;
+  @include respond(phone-sm) {
+    padding: 45px 16px;
+  }
+}
+
 .user-name {
   margin: 0;
   font-weight: 600;
@@ -5,7 +22,9 @@
 
 img.profile-img-user {
   width: 12pc;
-  height: 12pc;
+  @include respond(phone-sm) {
+    width: 8pc;
+  }
 }
 
 .info-sub p {
@@ -14,7 +33,14 @@ img.profile-img-user {
 
 .profile-user {
   align-self: center;
-  padding-bottom: 2pc;
+  padding-bottom: 1pc;
+}
+
+.info.profile-dad-name {
+  margin: 0 3rem;
+  @include respond(phone-sm) {
+    margin: 0;
+  }
 }
 
 .profile-dad-name label {
@@ -23,4 +49,27 @@ img.profile-img-user {
 
 .card-body-profile {
   width: 80%;
+  @include respond(phone-sm) {
+    width: auto;
+  }
+}
+
+.btn-edit {
+  justify-content: end;
+  @include respond(phone-sm) {
+    justify-content: center;
+  }
+}
+
+.btn-edit a {
+  @include respond(phone-sm) {
+    font-size: 14px;
+  }
+}
+
+#btn-signout {
+  display: none;
+  @include respond(phone-sm) {
+    display: block;
+  }
 }
