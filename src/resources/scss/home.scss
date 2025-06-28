@@ -414,9 +414,7 @@ button.form:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.1);
-  animation: brul 0.5s;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
 
