@@ -279,24 +279,32 @@ input {
     #all-content .big-content {
       margin-top: 50px; } }
 
-@media (max-width: 430px) {
-  #loading-full h2 {
-    font-size: 22px; } }
+#loading h2,
+#loading-full h2 {
+  color: #29a9ef; }
+  @media (max-width: 430px) {
+    #loading h2,
+    #loading-full h2 {
+      font-size: 22px; } }
 
+#loading .spinner-border,
 #loading-full .spinner-border {
   width: 3rem;
   height: 3rem;
   color: #29a9ef; }
   @media (max-width: 430px) {
+    #loading .spinner-border,
     #loading-full .spinner-border {
       width: 35px;
       height: 35px;
       font-size: 14px; } }
 
+#loading #tittle-loading,
 #loading-full #tittle-loading {
   font-family: "Lexend", sans-serif;
   color: #29a9ef; }
   @media (max-width: 430px) {
+    #loading #tittle-loading,
     #loading-full #tittle-loading {
       font-size: 25px; } }
 

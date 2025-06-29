@@ -83,6 +83,7 @@ h4 {
   max-width: 100%;
   @include respond(phone-sm) {
     flex-basis: auto;
+    padding: 0 15px;
   }
 }
 

@@ -67,7 +67,8 @@ h4 {
     .offical-info .secondary-school,
     .offical-info .place-birth,
     .offical-info .current-place {
-      flex-basis: auto; } }
+      flex-basis: auto;
+      padding: 0 15px; } }
 
 @media (max-width: 430px) {
   .offical-info .current-place b {

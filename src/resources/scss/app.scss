@@ -339,12 +339,15 @@ input {
   }
 }
 
+#loading h2,
 #loading-full h2 {
+  color: #29a9ef;
   @include respond(phone-sm) {
     font-size: 22px;
   }
 }
 
+#loading .spinner-border,
 #loading-full .spinner-border {
   width: 3rem;
   height: 3rem;
@@ -356,6 +359,7 @@ input {
   }
 }
 
+#loading #tittle-loading,
 #loading-full #tittle-loading {
   font-family: "Lexend", sans-serif;
   color: #29a9ef;

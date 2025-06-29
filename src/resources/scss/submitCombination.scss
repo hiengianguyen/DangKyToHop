@@ -220,6 +220,7 @@ table.combination {
   max-width: 100%;
   @include respond(phone-sm) {
     flex-basis: auto;
+    padding: 0 15px;
   }
 }
 
@@ -271,5 +272,11 @@ label.poin {
 table.table-points {
   @include respond(phone-sm) {
     width: max-content;
+  }
+}
+
+#form-submit-combination > .row {
+  @include respond(phone-sm) {
+    flex-direction: column;
   }
 }

@@ -173,7 +173,8 @@
   max-width: 100%; }
   @media (max-width: 430px) {
     .box-submit-4 .place-birth {
-      flex-basis: auto; } }
+      flex-basis: auto;
+      padding: 0 15px; } }
 
 @media (max-width: 430px) {
   .box-submit-4 .info-parent {
@@ -209,3 +210,7 @@ label.poin {
 @media (max-width: 430px) {
   table.table-points {
     width: max-content; } }
+
+@media (max-width: 430px) {
+  #form-submit-combination > .row {
+    flex-direction: column; } }
