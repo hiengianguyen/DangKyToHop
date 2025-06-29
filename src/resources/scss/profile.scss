@@ -69,10 +69,3 @@ img.profile-img-user {
     font-size: 14px;
   }
 }
-
-#btn-signout {
-  display: none;
-  @include respond(phone-sm) {
-    display: block;
-  }
-}
