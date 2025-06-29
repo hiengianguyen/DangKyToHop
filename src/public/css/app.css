@@ -315,3 +315,8 @@ input {
   @media (max-width: 430px) {
     .school-info {
       display: none; } }
+
+@media (max-width: 430px) {
+  .footer-text {
+    margin-top: 10px;
+    font-size: 12px; } }

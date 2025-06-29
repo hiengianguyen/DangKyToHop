@@ -376,3 +376,10 @@ input {
     display: none;
   }
 }
+
+.footer-text {
+  @include respond(phone-sm) {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
