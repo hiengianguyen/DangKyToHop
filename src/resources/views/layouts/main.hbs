@@ -32,9 +32,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 <body style="font-family: 'Lexend', sans-serif;">
-  {{#if (not isHomePage)}}
-    <div id="toast"></div>
-    <div id="all-content">
+  <div id="toast"></div>
+  <div id="all-content">
+    {{#if (not isHomePage)}}
       <div id="sidebar">
         <div class="sidebar-content">
           <div class="home mb-2">
@@ -134,7 +134,7 @@
           </div>
         </div>
       </div>
-  {{/if}}
+    {{/if}}
     <div id="header">
       <div class="d-flex align-items-center" style="
           height: 100%;
@@ -181,11 +181,10 @@
         </a>
         <a href="/auth/signout" title="Đăng xuất" style="color: red;"><i class="fa fa-power-off me-2" aria-hidden="true"></i> Đăng xuất</a>
     </div>
-
     <div class="big-content">
       {{{body}}}
     </div>
-    </div>
+  </div>
 </body>
 </html>
 
