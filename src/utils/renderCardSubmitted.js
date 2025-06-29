@@ -12,12 +12,12 @@ function renderCardSubmitted(parentElement, data) {
       return `
             <div class="card mb-3 m-2" value="${doc.id}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
                 <div class="row g-0" style="position: relative;">
-                    <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
-                        <img src="${doc.avatarLink}" class="img-fluid rounded-end border border-dark-subtle" alt="${doc.fullName}" style="margin-left: 28px;">
-                        <a href="/combination/submited-detail/${doc.userId}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 30px;">Xem thông tin</a>
+                    <div class="img-box col-md-4 p-0 text-center d-flex flex-column">
+                        <img src="${doc.avatarLink}" class="img-fluid rounded-end border avatar border-dark-subtle" alt="${doc.fullName}" style="margin-left: 14px;">
+                        <a href="/combination/submited-detail/${doc.userId}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 20px;">Xem thông tin</a>
                     </div>
                     <div class="col-md-8 ps-0">
-                        <div class="card-body pe-0">
+                        <div class="card-body pb-3 pe-0">
                             <h6 class="card-title">${doc.fullName}</h6>
                             <div class="d-flex justify-content-between" style="font-size: 10px;">
                                 <div class="d-flex align-items-start flex-column">
@@ -28,7 +28,7 @@ function renderCardSubmitted(parentElement, data) {
                                     <p class="m-0" style="width: max-content;"><b>Ngày sinh:</b></p>
                                     <p class="m-0">${doc.dateOfBirth}</p>
                                 </div>
-                                <div class="d-flex align-items-start flex-column">
+                                <div class="align-items-start nation flex-column">
                                     <p class="m-0" style="width: max-content;"><b>Dân tộc:</b></p>
                                     <p class="m-0">${doc.nation}</p>
                                 </div>
@@ -58,4 +58,6 @@ function renderCardSubmitted(parentElement, data) {
         `;
     })
     .join("");
+
+  document.getElementById("all-content").style.height = document.getElementById("master").clientHeight;
 }

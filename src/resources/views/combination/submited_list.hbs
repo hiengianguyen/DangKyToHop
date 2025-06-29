@@ -37,7 +37,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="filter-box d-flex align-items-center my-3">
+                <div class="filter-box d-flex my-3">
                     <div class="d-flex align-items-center search-name-div border border-black">
                         <i class="fa-solid fa-magnifying-glass mx-2"></i>
                         <input class="ps-0" type="text" id="search-name-inp" name="fullName" style="border: none;outline:none;" placeholder="Tìm kiếm theo họ và tên...">
@@ -45,27 +45,26 @@
                     <button type="button" id="search-name-btn" class="btn btn-primary">Tìm kiếm</button>
                 </div>
                 <div class="d-flex radios-fil mb-3">
-                    <div class="card border-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
+                    <div class="card border-light gender mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Giới tính:</div>
                         <div class="card-body">
                             <div class="radios-gender">
-                                <p class="mb-0 me-3"><b>Giới tính :</b></p>
                                 <div id="radios-gender" class="gap-3">
-                                    <div class="form-check form-check-inline me-2">
+                                    <div class="form-check form-check-inline mb-2 me-2">
                                         <input class="form-check-input" type="radio" name="gender" value="all" checked>
                                         <label class="form-check-label">
                                             Tất cả
                                         </label>
                                     </div>
 
-                                    <div class="form-check form-check-inline me-2">
+                                    <div class="form-check form-check-inline mb-2 me-2">
                                         <input class="form-check-input" type="radio" name="gender" value="Nam">
                                         <label class="form-check-label">
                                             Nam
                                         </label>
                                     </div>
 
-                                    <div class="form-check form-check-inline me-0">
+                                    <div class="form-check form-check-inline mb-2 me-0">
                                         <input class="form-check-input" type="radio" name="gender" value="Nữ">
                                         <label class="form-check-label">
                                             Nữ
@@ -78,111 +77,121 @@
 
                     <div class="dash-height mx-3"></div>
 
-                    <div class="radios-combination-1">
-                        <p class="mb-0 me-3"><b>Nguyện vọng 1:</b></p>
-                        <div id="radios-combination-1" class=" gap-3">
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination1" value="all" checked>
-                                <label class="form-check-label">
-                                    Tất cả
-                                </label>
-                            </div>
+                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Nguyện vọng 1:</div>
+                        <div class="card-body">
+                            <div class="radios-combination-1">
+                                <div id="radios-combination-1" class=" gap-3">
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination1" value="all" checked>
+                                        <label class="form-check-label">
+                                            Tất cả
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination1" value="1">
-                                <label class="form-check-label">
-                                    1
-                                </label>
-                            </div>
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination1" value="1">
+                                        <label class="form-check-label">
+                                            1
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination1" value="2">
-                                <label class="form-check-label">
-                                    2
-                                </label>
-                            </div>
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination1" value="2">
+                                        <label class="form-check-label">
+                                            2
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination1" value="3">
-                                <label class="form-check-label">
-                                    3
-                                </label>
-                            </div>
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination1" value="3">
+                                        <label class="form-check-label">
+                                            3
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination1" value="4">
-                                <label class="form-check-label">
-                                    4
-                                </label>
-                            </div>
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination1" value="4">
+                                        <label class="form-check-label">
+                                            4
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination1" value="5">
-                                <label class="form-check-label">
-                                    5
-                                </label>
-                            </div>
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination1" value="5">
+                                        <label class="form-check-label">
+                                            5
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-0">
-                                <input class="form-check-input" type="radio" name="combination1" value="6">
-                                <label class="form-check-label">
-                                    6
-                                </label>
+                                    <div class="form-check form-check-inline mb-2 me-0">
+                                        <input class="form-check-input" type="radio" name="combination1" value="6">
+                                        <label class="form-check-label">
+                                            6
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
+                    
+
                     <div class="dash-height mx-3"></div>
-                    <div class="radios-combination-2">
-                        <p class="mb-0 me-3"><b>Nguyện vọng 2:</b></p>
-                        <div id="radios-combination-2" class="gap-3">
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination2" value="all" checked>
-                                <label class="form-check-label">
-                                    Tất cả
-                                </label>
-                            </div>
+                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Nguyện vọng 2:</div>
+                        <div class="card-body">
+                            <div class="radios-combination-2">
+                                <div id="radios-combination-2" class="gap-3">
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination2" value="all" checked>
+                                        <label class="form-check-label">
+                                            Tất cả
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination2" value="1">
-                                <label class="form-check-label">
-                                    1
-                                </label>
-                            </div>
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination2" value="1">
+                                        <label class="form-check-label">
+                                            1
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination2" value="2">
-                                <label class="form-check-label">
-                                    2
-                                </label>
-                            </div>
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination2" value="2">
+                                        <label class="form-check-label">
+                                            2
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination2" value="3">
-                                <label class="form-check-label">
-                                    3
-                                </label>
-                            </div>
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination2" value="3">
+                                        <label class="form-check-label">
+                                            3
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination2" value="4">
-                                <label class="form-check-label">
-                                    4
-                                </label>
-                            </div>
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination2" value="4">
+                                        <label class="form-check-label">
+                                            4
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-2">
-                                <input class="form-check-input" type="radio" name="combination2" value="5">
-                                <label class="form-check-label">
-                                    5
-                                </label>
-                            </div>
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="combination2" value="5">
+                                        <label class="form-check-label">
+                                            5
+                                        </label>
+                                    </div>
 
-                            <div class="form-check form-check-inline me-0">
-                                <input class="form-check-input" type="radio" name="combination2" value="6">
-                                <label class="form-check-label">
-                                    6
-                                </label>
+                                    <div class="form-check form-check-inline mb-2 me-0">
+                                        <input class="form-check-input" type="radio" name="combination2" value="6">
+                                        <label class="form-check-label">
+                                            6
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -192,9 +201,9 @@
                         {{#each submitedList}}
                             <div class="card mb-3 m-2" value="{{this.id}}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
                                 <div class="row g-0" style="position: relative;">
-                                    <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
-                                        <img src="{{this.avatarLink}}" class="img-fluid rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 28px;">
-                                        <a href="/combination/submited-detail/{{this.userId}}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 30px;">Xem thông tin</a>
+                                    <div class="img-box col-md-4 p-0 text-center d-flex flex-column">
+                                        <img src="{{this.avatarLink}}" class="img-fluid avatar rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 14px;">
+                                        <a href="/combination/submited-detail/{{this.userId}}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 20px;">Xem thông tin</a>
                                     </div>
                                     <div class="col-md-8 ps-0">
                                         <div class="card-body pb-3 pe-0">
@@ -208,7 +217,7 @@
                                                     <p class="m-0" style="width: max-content;"><b>Ngày sinh:</b></p>
                                                     <p class="m-0">{{this.dateOfBirth}}</p>
                                                 </div>
-                                                <div class="d-flex align-items-start flex-column">
+                                                <div class="align-items-start nation flex-column">
                                                     <p class="m-0" style="width: max-content;"><b>Dân tộc:</b></p>
                                                     <p class="m-0">{{this.nation}}</p>
                                                 </div>
@@ -226,8 +235,8 @@
                                             
                                             <div class="d-flex align-items-start flex-column">
                                                 <p class="card-text mb-0"><small class="text-body-secondary">Đăng ký lúc:</small></p>
-                                            </div>
                                                 <p class="card-text"><small class="text-body-secondary"><b>{{this.registeredAt}}</b></small></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

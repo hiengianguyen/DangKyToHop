@@ -81,6 +81,9 @@
 .sort-box {
   width: 100%;
   text-align: start;
+  @include respond(phone-sm) {
+    width: 78%;
+  }
 }
 
 .dropdown-menu.show {
@@ -103,6 +106,9 @@
 
 .save-doc-icon {
   color: #b6b6b6;
+  @include respond(phone-sm) {
+    font-size: 20px;
+  }
 }
 
 .save-doc-icon.saved {
@@ -125,12 +131,15 @@
   height: 45pc;
   overflow-y: scroll;
   max-width: 89% !important;
+  @include respond(phone-sm) {
+    max-width: 100% !important;
+    justify-content: center;
+  }
 }
 
 .radios-fil {
-  align-items: center;
+  align-items: start;
   @include respond(phone-sm) {
-    align-items: start;
     flex-direction: column;
   }
 }
@@ -167,5 +176,68 @@
   margin-left: 20px;
   @include respond(phone-sm) {
     margin-left: auto;
+  }
+}
+
+.card.gender {
+  @include respond(phone-sm) {
+    width: 100% !important;
+  }
+}
+
+#master {
+  @include respond(phone-sm) {
+    padding: 45px 0px;
+  }
+}
+
+.box-radius {
+  @include respond(phone-sm) {
+    margin: 20px 16px;
+  }
+}
+
+#container-submitted img.avatar {
+  @include respond(phone-sm) {
+    width: 6pc;
+  }
+}
+
+#container-submitted .card .img-box {
+  align-items: start;
+  @include respond(phone-sm) {
+    width: auto;
+  }
+}
+
+.container-submited-list > .row {
+  @include respond(phone-sm) {
+    justify-content: center;
+    width: auto !important;
+  }
+}
+
+#container-submitted .card > .row {
+  @include respond(phone-sm) {
+    width: max-content;
+  }
+}
+
+#container-submitted .card > .row > .col-md-8 {
+  @include respond(phone-sm) {
+    width: 11pc;
+  }
+}
+
+.row > .col-md-8 .nation {
+  display: flex;
+  @include respond(phone-sm) {
+    display: none;
+  }
+}
+
+#container-submitted .card > .card-body {
+  @include respond(phone-sm) {
+    width: 106%;
   }
 }
