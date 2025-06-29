@@ -1,3 +1,6 @@
+.sidebar-content .home .d-flex {
+  height: auto !important; }
+
 .card-body.ps-0 {
   font-size: 11px; }
 
@@ -5,6 +8,9 @@
   height: 26px;
   width: 1px;
   background-color: #ccc; }
+  @media (max-width: 430px) {
+    .dash-height {
+      display: none; } }
 
 .sort-box #sort-title {
   background-color: #8dfff5;
@@ -58,7 +64,7 @@
   transition: all 0.5s ease; }
 
 .sort-box {
-  width: 12pc;
+  width: 100%;
   text-align: start; }
 
 .dropdown-menu.show {
@@ -91,5 +97,43 @@
   cursor: pointer; }
 
 #container-submitted {
+  display: flex;
+  flex-wrap: wrap;
   height: 45pc;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  max-width: 89% !important; }
+
+.radios-fil {
+  align-items: center; }
+  @media (max-width: 430px) {
+    .radios-fil {
+      align-items: start;
+      flex-direction: column; } }
+
+.container-submited-list .title {
+  justify-content: space-between; }
+  @media (max-width: 430px) {
+    .container-submited-list .title {
+      flex-direction: column; } }
+
+@media (max-width: 430px) {
+  .container-submited-list .title .btn-group {
+    margin: 20px 0;
+    margin-left: auto; } }
+
+@media (max-width: 430px) {
+  .filter-box {
+    flex-direction: column; } }
+
+.search-name-div {
+  width: 30pc; }
+  @media (max-width: 430px) {
+    .search-name-div {
+      width: 100%;
+      margin-bottom: 10px; } }
+
+#search-name-btn {
+  margin-left: 20px; }
+  @media (max-width: 430px) {
+    #search-name-btn {
+      margin-left: auto; } }

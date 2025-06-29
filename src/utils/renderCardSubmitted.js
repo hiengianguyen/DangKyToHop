@@ -13,8 +13,8 @@ function renderCardSubmitted(parentElement, data) {
             <div class="card mb-3 m-2" value="${doc.id}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
                 <div class="row g-0" style="position: relative;">
                     <div class="col-md-4 p-0 text-center d-flex align-items-center flex-column">
-                        <img src="${doc.avatarLink}" class="img-fluid rounded-end border border-dark-subtle" alt="${doc.fullName}" style="margin-left: 5px;">
-                        <a href="/combination/submited-detail/${doc.userId}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 7px;">Xem thông tin</a>
+                        <img src="${doc.avatarLink}" class="img-fluid rounded-end border border-dark-subtle" alt="${doc.fullName}" style="margin-left: 28px;">
+                        <a href="/combination/submited-detail/${doc.userId}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 30px;">Xem thông tin</a>
                     </div>
                     <div class="col-md-8 ps-0">
                         <div class="card-body pe-0">

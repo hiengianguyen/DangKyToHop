@@ -1,3 +1,9 @@
+@import "breakpoints";
+
+.sidebar-content .home .d-flex {
+  height: auto !important;
+}
+
 .card-body.ps-0 {
   font-size: 11px;
 }
@@ -6,6 +12,9 @@
   height: 26px;
   width: 1px;
   background-color: #ccc;
+  @include respond(phone-sm) {
+    display: none;
+  }
 }
 
 .sort-box #sort-title {
@@ -70,7 +79,7 @@
 }
 
 .sort-box {
-  width: 12pc;
+  width: 100%;
   text-align: start;
 }
 
@@ -111,6 +120,52 @@
 }
 
 #container-submitted {
+  display: flex;
+  flex-wrap: wrap;
   height: 45pc;
   overflow-y: scroll;
+  max-width: 89% !important;
+}
+
+.radios-fil {
+  align-items: center;
+  @include respond(phone-sm) {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+.container-submited-list .title {
+  justify-content: space-between;
+  @include respond(phone-sm) {
+    flex-direction: column;
+  }
+}
+
+.container-submited-list .title .btn-group {
+  @include respond(phone-sm) {
+    margin: 20px 0;
+    margin-left: auto;
+  }
+}
+
+.filter-box {
+  @include respond(phone-sm) {
+    flex-direction: column;
+  }
+}
+
+.search-name-div {
+  width: 30pc;
+  @include respond(phone-sm) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+#search-name-btn {
+  margin-left: 20px;
+  @include respond(phone-sm) {
+    margin-left: auto;
+  }
 }
