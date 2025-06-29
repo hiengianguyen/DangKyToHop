@@ -53,9 +53,3 @@ img.profile-img-user {
 @media (max-width: 430px) {
   .btn-edit a {
     font-size: 14px; } }
-
-#btn-signout {
-  display: none; }
-  @media (max-width: 430px) {
-    #btn-signout {
-      display: block; } }
