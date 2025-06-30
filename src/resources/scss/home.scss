@@ -20,103 +20,40 @@
   height: 30pc;
   padding-top: 40px;
   background-color: #faf1e2;
-  @include respond(phone-sm) {
-    height: auto;
-    padding-top: 30px;
-    margin-top: 50px;
-  }
 }
 
 .container-start > p {
   font-size: 20px;
-  @include respond(phone-sm) {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
 }
 
 .container-start .content-box {
   padding: 80px;
   width: 47pc;
-  @include respond(phone-sm) {
-    padding: 20px;
-    width: 100%;
-  }
 }
 
 .container-start .img-start img {
   height: 100%;
-  @include respond(desktop) {
-    height: 88%;
-  }
-  @include respond(phone-sm) {
-    height: 8pc;
-  }
 }
 
 .introduce-box {
   justify-content: center;
-  @include respond(phone-sm) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-.introduce-box h2 {
-  @include respond(phone-sm) {
-    font-size: 12px;
-  }
 }
 
 .introduce-box p {
   font-size: 20px;
-  @include respond(phone-sm) {
-    font-size: 10px;
-  }
 }
 
 .container-center img {
   width: 30pc;
-  @include respond(phone-sm) {
-    width: 10pc;
-    height: 9pc;
-  }
 }
 
 .container-center .content-box {
   padding: 5pc;
   width: 44pc;
-  @include respond(phone-sm) {
-    padding: 2pc;
-    width: 13pc;
-    margin: 0 13px;
-  }
-}
-
-.container-center h2 {
-  @include respond(phone-sm) {
-    font-size: 12px;
-  }
-}
-
-.container-center p {
-  @include respond(phone-sm) {
-    font-size: 10px;
-    text-align: justify;
-  }
-}
-
-.container-center .content-1 img {
-  @include respond(phone-sm) {
-    margin-top: 15px;
-  }
 }
 
 .container-center .content-2 {
   margin-top: -70px;
-  @include respond(phone-sm) {
-    align-items: center;
-  }
 }
 
 .container-school {
@@ -126,17 +63,10 @@
 
 .container-school > h4 {
   font-size: 24px;
-  @include respond(phone-sm) {
-    font-size: 18px;
-  }
 }
 
 .content-box.des p {
   font-size: 20px;
-  @include respond(phone-sm) {
-    font-size: 10px;
-    text-align: justify;
-  }
 }
 
 .image-stack {
@@ -144,34 +74,21 @@
   height: 500px;
   margin-left: 24px;
   align-items: center;
-  @include respond(phone-sm) {
-    width: 275px;
-    margin-left: 5px;
-    align-items: start;
-    height: auto;
-  }
 }
 
 .image-stack img {
-  //position: absolute;
   max-width: 80%;
   max-height: 60%;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
-  @include respond(phone-sm) {
-    max-width: 40%;
-  }
 }
 
 .image-stack div img {
   max-width: 90%;
   max-height: 90%;
   margin: 20px;
-  @include respond(phone-sm) {
-    margin: 5px;
-  }
 }
 
 .image-stack img:hover {
@@ -180,116 +97,40 @@
 
 .container-school .content-box {
   width: 62pc;
-  @include respond(phone-sm) {
-    width: 100%;
-  }
 }
 
 .container-school .box-2 img {
   width: 35pc;
-  @include respond(phone-sm) {
-    width: 9pc;
-  }
 }
 
 .container-school .container-body {
   align-items: center;
   justify-content: center;
-  @include respond(phone-sm) {
-    flex-direction: column;
-    margin-top: 24px;
-  }
 }
 
 .container-school .container-body .content-box {
   width: 40pc;
   margin-right: 24px;
-  @include respond(phone-sm) {
-    width: auto;
-    margin-right: 0;
-  }
-}
-
-.container-school .container-body h4 {
-  @include respond(phone-sm) {
-    font-size: 13px;
-  }
-}
-
-.container-school .container-body p {
-  @include respond(phone-sm) {
-    font-size: 12px;
-    text-align: justify;
-  }
-}
-
-.container-school .container-body ul {
-  @include respond(phone-sm) {
-    font-size: 10px;
-    text-align: justify;
-    padding-left: 16px;
-  }
 }
 
 .container-end {
   background-color: #faf1e2;
-  @include respond(phone-sm) {
-    padding: 0 1pc;
-  }
-}
-
-.container-end h4 {
-  @include respond(phone-sm) {
-    font-size: 14px;
-  }
-}
-
-.container-end p {
-  @include respond(phone-sm) {
-    font-size: 10px;
-    text-align: justify;
-  }
 }
 
 .container-end img {
   width: 31pc;
   border-radius: 12px;
-  @include respond(phone-sm) {
-    width: 10pc;
-  }
 }
 
 .container-end .content-box {
   width: 40pc;
   margin-right: 10pc;
-  @include respond(phone-sm) {
-    margin-right: 20px;
-  }
 }
 
 .container-end img,
 .container-end .content-box {
   margin-top: 5pc;
   margin-bottom: 5pc;
-  @include respond(phone-sm) {
-    margin-top: 2pc;
-    margin-bottom: 4pc;
-  }
-}
-
-#modal-login-btn {
-  @include respond(phone-sm) {
-    font-size: 8px;
-    text-align: justify;
-    padding: 5px;
-    margin-bottom: 2pc;
-  }
-}
-
-.modal-container {
-  @include respond(phone-sm) {
-    padding: 0 40px;
-  }
 }
 
 .login-form {
@@ -428,5 +269,169 @@ button.form:hover {
   }
   to {
     backdrop-filter: blur(10px);
+  }
+}
+
+@include respond(desktop) {
+  .container-start .img-start img {
+    height: 88%;
+  }
+}
+
+@include respond(phone-sm) {
+  .container-start {
+    height: auto;
+    padding-top: 30px;
+    margin-top: 50px;
+  }
+
+  .container-start > p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .container-start .content-box {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .container-start .img-start img {
+    height: 8pc;
+  }
+
+  .introduce-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .introduce-box h2 {
+    font-size: 12px;
+  }
+
+  .introduce-box p {
+    font-size: 10px;
+  }
+
+  .container-center img {
+    width: 10pc;
+    height: 9pc;
+  }
+
+  .container-center .content-box {
+    padding: 2pc;
+    width: 13pc;
+    margin: 0 13px;
+  }
+
+  .container-center h2 {
+    font-size: 12px;
+  }
+
+  .container-center p {
+    font-size: 10px;
+    text-align: justify;
+  }
+
+  .container-center .content-1 img {
+    margin-top: 15px;
+  }
+
+  .container-center .content-2 {
+    align-items: center;
+  }
+
+  .container-school > h4 {
+    font-size: 18px;
+  }
+
+  .content-box.des p {
+    font-size: 10px;
+    text-align: justify;
+  }
+
+  .image-stack {
+    width: 275px;
+    margin-left: 5px;
+    align-items: start;
+    height: auto;
+  }
+
+  .image-stack img {
+    max-width: 40%;
+  }
+
+  .image-stack div img {
+    margin: 5px;
+  }
+
+  .container-school .content-box {
+    width: 100%;
+  }
+
+  .container-school .box-2 img {
+    width: 9pc;
+  }
+
+  .container-school .container-body {
+    flex-direction: column;
+    margin-top: 24px;
+  }
+
+  .container-school .container-body .content-box {
+    width: auto;
+    margin-right: 0;
+  }
+
+  .container-school .container-body h4 {
+    font-size: 13px;
+  }
+
+  .container-school .container-body p {
+    font-size: 12px;
+    text-align: justify;
+  }
+
+  .container-school .container-body ul {
+    font-size: 10px;
+    text-align: justify;
+    padding-left: 16px;
+  }
+
+  .container-end {
+    padding: 0 1pc;
+  }
+
+  .container-end h4 {
+    font-size: 14px;
+  }
+
+  .container-end p {
+    font-size: 10px;
+    text-align: justify;
+  }
+
+  .container-end img {
+    width: 10pc;
+  }
+
+  .container-end .content-box {
+    margin-right: 20px;
+  }
+
+  .container-end img,
+  .container-end .content-box {
+    margin-top: 2pc;
+    margin-bottom: 4pc;
+  }
+
+  #modal-login-btn {
+    font-size: 8px;
+    text-align: justify;
+    padding: 5px;
+    margin-bottom: 2pc;
+  }
+
+  .modal-container {
+    padding: 0 40px;
   }
 }

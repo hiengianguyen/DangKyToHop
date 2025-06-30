@@ -1,17 +1,8 @@
 @import "breakpoints";
 
-.box-radius {
-  @include respond(phone-sm) {
-    margin: 0;
-  }
-}
-
 #master {
   padding: 25px;
   background-color: #29a9ef;
-  @include respond(phone-sm) {
-    padding: 45px 16px;
-  }
 }
 
 #all-content {
@@ -25,9 +16,6 @@
 
 img.profile-img-user {
   width: 12pc;
-  @include respond(phone-sm) {
-    width: 8pc;
-  }
 }
 
 .info-sub p {
@@ -41,9 +29,6 @@ img.profile-img-user {
 
 .info.profile-dad-name {
   margin: 0 3rem;
-  @include respond(phone-sm) {
-    margin: 0;
-  }
 }
 
 .profile-dad-name label {
@@ -52,20 +37,38 @@ img.profile-img-user {
 
 .card-body-profile {
   width: 80%;
-  @include respond(phone-sm) {
-    width: auto;
-  }
 }
 
 .btn-edit {
   justify-content: end;
-  @include respond(phone-sm) {
-    justify-content: center;
-  }
 }
 
-.btn-edit a {
-  @include respond(phone-sm) {
+@include respond(phone-sm) {
+  .box-radius {
+    margin: 0;
+  }
+
+  #master {
+    padding: 45px 16px;
+  }
+
+  img.profile-img-user {
+    width: 8pc;
+  }
+
+  .info.profile-dad-name {
+    margin: 0;
+  }
+
+  .card-body-profile {
+    width: auto;
+  }
+
+  .btn-edit {
+    justify-content: center;
+  }
+
+  .btn-edit a {
     font-size: 14px;
   }
 }

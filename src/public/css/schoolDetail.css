@@ -1,36 +1,18 @@
-@media (max-width: 430px) {
-  .box-radius {
-    margin: 0; } }
-
 .container-school {
   padding: 0;
   background-color: #fff; }
 
 .container-school > h4 {
   font-size: 24px; }
-  @media (max-width: 430px) {
-    .container-school > h4 {
-      font-size: 18px; } }
 
 .content-box.des p {
   font-size: 20px; }
-  @media (max-width: 430px) {
-    .content-box.des p {
-      font-size: 10px;
-      text-align: justify; } }
 
 .image-stack {
   width: 530px;
   height: 500px;
   margin-left: 24px;
   align-items: center; }
-  @media (max-width: 430px) {
-    .image-stack {
-      width: 100%;
-      flex-direction: column;
-      margin: 20px 0;
-      align-items: center;
-      height: auto; } }
 
 .image-stack img {
   max-width: 80%;
@@ -39,100 +21,90 @@
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease; }
-  @media (max-width: 430px) {
-    .image-stack img {
-      max-width: 40%; } }
 
 .image-stack div img {
   max-width: 90%;
   max-height: 90%;
   margin: 20px; }
-  @media (max-width: 430px) {
-    .image-stack div img {
-      margin: 5px;
-      margin-top: 20px; } }
-
-@media (max-width: 430px) {
-  .image-stack div {
-    display: flex;
-    align-items: center;
-    flex-direction: column; } }
 
 .image-stack img:hover {
   transform: scale(1.55); }
-  @media (max-width: 430px) {
-    .image-stack img:hover {
-      transform: scale(1.25); } }
 
 .container-school .content-box {
   width: 62pc; }
-  @media (max-width: 430px) {
-    .container-school .content-box {
-      width: 100%; } }
 
 .img-box img {
   width: 35pc; }
-  @media (max-width: 430px) {
-    .img-box img {
-      width: 100%; } }
 
 .img-box .first {
   margin-right: 24px; }
-  @media (max-width: 430px) {
-    .img-box .first {
-      margin-right: 0;
-      margin-bottom: 10px; } }
 
 .img-box {
   margin: 20px 0;
   justify-content: center; }
-  @media (max-width: 430px) {
-    .img-box {
-      flex-direction: column; } }
 
 .container-school .container-body {
   align-items: center;
   justify-content: center; }
-  @media (max-width: 430px) {
-    .container-school .container-body {
-      flex-direction: column;
-      margin-top: 24px; } }
 
 .container-school .container-body .content-box {
   width: 40pc;
   margin-right: 24px; }
-  @media (max-width: 430px) {
-    .container-school .container-body .content-box {
-      width: auto;
-      margin-right: 0; } }
-
-@media (max-width: 430px) {
-  .container-school .container-body h4 {
-    font-size: 13px; } }
-
-@media (max-width: 430px) {
-  .container-school .container-body p {
-    font-size: 12px;
-    text-align: justify; } }
-
-@media (max-width: 430px) {
-  .container-school .container-body ul {
-    font-size: 10px;
-    text-align: justify;
-    padding-left: 16px; } }
 
 .content-box {
   font-size: 20px; }
 
 @media (max-width: 430px) {
+  .box-radius {
+    margin: 0; }
+  .container-school > h4 {
+    font-size: 18px; }
+  .content-box.des p {
+    font-size: 10px;
+    text-align: justify; }
+  .image-stack {
+    width: 100%;
+    flex-direction: column;
+    margin: 20px 0;
+    align-items: center;
+    height: auto; }
+  .image-stack img {
+    max-width: 40%; }
+  .image-stack div img {
+    margin: 5px;
+    margin-top: 20px; }
+  .image-stack div {
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+  .image-stack img:hover {
+    transform: scale(1.25); }
+  .container-school .content-box {
+    width: 100%; }
+  .img-box img {
+    width: 100%; }
+  .img-box .first {
+    margin-right: 0;
+    margin-bottom: 10px; }
+  .img-box {
+    flex-direction: column; }
+  .container-school .container-body {
+    flex-direction: column;
+    margin-top: 24px; }
+  .container-school .container-body .content-box {
+    width: auto;
+    margin-right: 0; }
   .container-school .container-body h4 {
-    font-size: 20px; } }
-
-@media (max-width: 430px) {
+    font-size: 13px; }
+  .container-school .container-body p {
+    font-size: 12px;
+    text-align: justify; }
+  .container-school .container-body ul {
+    font-size: 16px;
+    text-align: justify;
+    padding-left: 16px; }
+  .container-school .container-body h4 {
+    font-size: 20px; }
   .container-school .container-body p {
     font-size: 16px;
     text-align: justify; } }
-
-@media (max-width: 430px) {
-  .container-school .container-body ul {
-    font-size: 16px; } }

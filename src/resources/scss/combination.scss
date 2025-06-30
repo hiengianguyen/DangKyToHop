@@ -83,9 +83,6 @@
 
 .modal-container.choose-school {
   padding: 15pc;
-  @include respond(phone-sm) {
-    padding: 0 30px;
-  }
 }
 
 .modal-content.choose-school {
@@ -119,34 +116,14 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.modal-containers {
-  width: 45pc;
-  @include respond(phone-sm) {
-    padding: 0 30px;
-  }
-}
-
 .modal-bodyy.combination {
   padding: 4pc;
   height: 32pc;
   overflow: overlay;
-  @include respond(phone-sm) {
-    padding: 2pc;
-  }
-}
-
-.modal-bodyy.combination .text,
-.modal-bodyy.combination p {
-  @include respond(phone-sm) {
-    text-align: justify;
-  }
 }
 
 .card-body.submit {
   padding: 16px;
-  @include respond(phone-sm) {
-    padding: 0;
-  }
 }
 
 .header-box {
@@ -168,5 +145,28 @@
   to {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+@include respond(phone-sm) {
+  .modal-container.choose-school {
+    padding: 0 30px;
+  }
+
+  .modal-containers {
+    padding: 0 30px;
+  }
+
+  .modal-bodyy.combination {
+    padding: 2pc;
+  }
+
+  .modal-bodyy.combination .text,
+  .modal-bodyy.combination p {
+    text-align: justify;
+  }
+
+  .card-body.submit {
+    padding: 0;
   }
 }

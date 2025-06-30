@@ -1,58 +1,20 @@
-@media (max-width: 430px) {
-  .box-radius {
-    margin: 0;
-    padding: 15px; } }
-
-@media (max-width: 430px) {
-  .card-body > .container {
-    padding: 0; } }
-
 legend {
   text-align: center; }
-  @media (max-width: 430px) {
-    legend {
-      font-size: 16px; } }
-
-@media (max-width: 430px) {
-  label {
-    font-size: 15px;
-    width: max-content;
-    margin-bottom: 5px; } }
 
 .full-name {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%; }
-  @media (max-width: 430px) {
-    .full-name {
-      flex-basis: auto; } }
 
 h4 {
   width: max-content;
   text-transform: capitalize; }
-  @media (max-width: 430px) {
-    h4 {
-      width: 100%;
-      font-weight: 600;
-      font-size: 20px; } }
-
-@media (max-width: 430px) {
-  .d-flex.box {
-    flex-direction: column; } }
 
 #resultImage {
   max-width: 200px; }
-  @media (max-width: 430px) {
-    #resultImage {
-      max-width: 135px;
-      margin: 0; } }
 
 .offical-avatar {
   align-items: start; }
-  @media (max-width: 430px) {
-    .offical-avatar {
-      align-items: center;
-      height: 200px; } }
 
 .offical-info {
   width: 100%; }
@@ -63,68 +25,21 @@ h4 {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%; }
-  @media (max-width: 430px) {
-    .offical-info .secondary-school,
-    .offical-info .place-birth,
-    .offical-info .current-place {
-      flex-basis: auto;
-      padding: 0 15px; } }
-
-@media (max-width: 430px) {
-  .offical-info .current-place b {
-    width: max-content; } }
-
-@media (max-width: 430px) {
-  b {
-    font-size: 16px;
-    margin-bottom: 6px;
-    width: 100%; } }
-
-@media (max-width: 430px) {
-  .col.combination-1,
-  .col.combination-2 {
-    margin-bottom: 10px; } }
 
 #info-parent {
   justify-content: space-between; }
-  @media (max-width: 430px) {
-    #info-parent {
-      justify-content: center; } }
-
-@media (max-width: 430px) {
-  #info-parent .col {
-    margin-bottom: 10px; } }
 
 #info-parent label {
   margin-right: 24px; }
-  @media (max-width: 430px) {
-    #info-parent label {
-      margin-right: 0; } }
-
-@media (max-width: 430px) {
-  #info-parent .detail {
-    flex-direction: column;
-    text-align: center; } }
 
 #info-parent .detail b {
   text-transform: capitalize; }
-  @media (max-width: 430px) {
-    #info-parent .detail b {
-      width: max-content; } }
 
 #info-parent .job-parent {
   margin: 0 auto; }
 
 #poin-offical {
   margin-top: 24px; }
-  @media (max-width: 430px) {
-    #poin-offical {
-      margin-top: 10px;
-      padding: 0; } }
-
-@media (max-width: 430px) {
-  #poin-offical > p {
-    margin-bottom: 5px; } }
 
 .poin-box {
   justify-content: space-around;
@@ -132,18 +47,6 @@ h4 {
 
 .poin-box .poin {
   font-size: 20px; }
-  @media (max-width: 430px) {
-    .poin-box .poin {
-      font-size: 12px; } }
-
-@media (max-width: 430px) {
-  label.table {
-    padding: 0; } }
-
-@media (max-width: 430px) {
-  .table-conduct,
-  .table-avg-poin {
-    overflow-x: scroll; } }
 
 .table-avg-poin .subject {
   padding: 0 15px; }
@@ -153,29 +56,83 @@ h4 {
 
 .table-conduct .type-graduate {
   padding: 0 15px; }
-  @media (max-width: 430px) {
-    .table-conduct .type-graduate {
-      padding: 0 5px; } }
-
-@media (max-width: 430px) {
-  tr {
-    font-size: 10px; } }
-
-@media (max-width: 430px) {
-  table.table-points {
-    width: max-content; } }
-
-@media (max-width: 430px) {
-  .combination-1-rep {
-    display: none; } }
 
 .combination-1 {
   display: none; }
-  @media (max-width: 430px) {
-    .combination-1 {
-      display: block; } }
 
 @media (max-width: 430px) {
+  .box-radius {
+    margin: 0;
+    padding: 15px; }
+  .card-body > .container {
+    padding: 0; }
+  label {
+    font-size: 15px;
+    width: max-content;
+    margin-bottom: 5px; }
+  legend {
+    font-size: 16px; }
+  .full-name {
+    flex-basis: auto; }
+  h4 {
+    width: 100%;
+    font-weight: 600;
+    font-size: 20px; }
+  .d-flex.box {
+    flex-direction: column; }
+  #resultImage {
+    max-width: 135px;
+    margin: 0; }
+  .offical-avatar {
+    align-items: center;
+    height: 200px; }
+  .offical-info .secondary-school,
+  .offical-info .place-birth,
+  .offical-info .current-place {
+    flex-basis: auto;
+    padding: 0 15px; }
+  .offical-info .current-place b {
+    width: max-content; }
+  b {
+    font-size: 16px;
+    margin-bottom: 6px;
+    width: 100%; }
+  .col.combination-1,
+  .col.combination-2 {
+    margin-bottom: 10px; }
+  #info-parent {
+    justify-content: center; }
+  #info-parent .col {
+    margin-bottom: 10px; }
+  #info-parent label {
+    margin-right: 0; }
+  #info-parent .detail {
+    flex-direction: column;
+    text-align: center; }
+  #info-parent .detail b {
+    width: max-content; }
+  #poin-offical {
+    margin-top: 10px;
+    padding: 0; }
+  #poin-offical > p {
+    margin-bottom: 5px; }
+  .poin-box .poin {
+    font-size: 12px; }
+  label.table {
+    padding: 0; }
+  .table-conduct,
+  .table-avg-poin {
+    overflow-x: scroll; }
+  .table-conduct .type-graduate {
+    padding: 0 5px; }
+  tr {
+    font-size: 10px; }
+  table.table-points {
+    width: max-content; }
+  .combination-1-rep {
+    display: none; }
+  .combination-1 {
+    display: block; }
   .btn-feature a,
   .btn-feature button {
     font-size: 12px; } }

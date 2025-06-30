@@ -1,13 +1,11 @@
 @import "breakpoints";
 
-.box-radius {
-  @include respond(phone-sm) {
+@include respond(phone-sm) {
+  .box-radius {
     margin: 0;
   }
-}
 
-h4 {
-  @include respond(phone-sm) {
+  h4 {
     font-size: 20px;
   }
 }

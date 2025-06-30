@@ -68,9 +68,6 @@
 
 .modal-container.choose-school {
   padding: 15pc; }
-  @media (max-width: 430px) {
-    .modal-container.choose-school {
-      padding: 0 30px; } }
 
 .modal-content.choose-school {
   height: 22pc; }
@@ -97,30 +94,13 @@
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.2); }
 
-.modal-containers {
-  width: 45pc; }
-  @media (max-width: 430px) {
-    .modal-containers {
-      padding: 0 30px; } }
-
 .modal-bodyy.combination {
   padding: 4pc;
   height: 32pc;
   overflow: overlay; }
-  @media (max-width: 430px) {
-    .modal-bodyy.combination {
-      padding: 2pc; } }
-
-@media (max-width: 430px) {
-  .modal-bodyy.combination .text,
-  .modal-bodyy.combination p {
-    text-align: justify; } }
 
 .card-body.submit {
   padding: 16px; }
-  @media (max-width: 430px) {
-    .card-body.submit {
-      padding: 0; } }
 
 .header-box {
   width: 100%;
@@ -138,3 +118,16 @@
   to {
     opacity: 1;
     transform: translateY(0px); } }
+
+@media (max-width: 430px) {
+  .modal-container.choose-school {
+    padding: 0 30px; }
+  .modal-containers {
+    padding: 0 30px; }
+  .modal-bodyy.combination {
+    padding: 2pc; }
+  .modal-bodyy.combination .text,
+  .modal-bodyy.combination p {
+    text-align: justify; }
+  .card-body.submit {
+    padding: 0; } }

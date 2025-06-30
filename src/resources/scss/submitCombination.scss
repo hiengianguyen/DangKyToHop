@@ -1,52 +1,11 @@
 @import "breakpoints";
 
-.box-radius {
-  @include respond(phone-sm) {
-    margin: 0;
-  }
-}
-
 #master {
   height: auto !important;
 }
 
-.box-radius.step {
-  @include respond(phone-sm) {
-    display: none;
-  }
-}
-.box-radius h4 {
-  @include respond(phone-sm) {
-    font-size: 20px;
-  }
-}
-
-.box-submit-1 div > .card-body {
-  @include respond(phone-sm) {
-    padding: 1.25rem 0;
-  }
-}
-
 .box-submit-1 button {
   margin-right: 24px;
-  @include respond(phone-sm) {
-    margin-right: 0;
-  }
-}
-
-.box-radius .title {
-  @include respond(phone-sm) {
-    flex-direction: column;
-    font-size: 20px;
-  }
-}
-
-.box-radius .title .button {
-  @include respond(phone-sm) {
-    margin-top: 20px;
-    justify-content: end;
-    width: 100%;
-  }
 }
 
 .box-submit-4 #btnSubmit,
@@ -54,235 +13,249 @@
 .box-submit-2 #btnNextStep,
 .box-submit-1 #btnNextStep {
   margin-right: 24px;
-  @include respond(phone-sm) {
-    margin-right: 0;
-  }
-}
-
-legend {
-  @include respond(phone-sm) {
-    font-size: 20px;
-  }
 }
 
 .box-submit-2 .avatar {
   align-items: start;
-  @include respond(phone-sm) {
-    align-items: center;
-  }
 }
 
 .box-submit-2 .avatar .avatar-img {
   align-items: start;
-  @include respond(phone-sm) {
-    align-items: center;
-  }
-}
-
-.box-submit-2 .row {
-  @include respond(phone-sm) {
-    flex-direction: column;
-  }
 }
 
 .box-submit-2 .school-result {
   align-items: center;
-  @include respond(phone-sm) {
-    flex-direction: column;
-    align-items: start;
-  }
-}
-
-.box-submit-2 .school-result button {
-  @include respond(phone-sm) {
-    margin: 10px 0;
-  }
-}
-
-.table-conduct,
-.table-avg-poin {
-  @include respond(phone-sm) {
-    overflow-x: scroll;
-    margin-right: -2px;
-    border: 1px solid #343a40;
-  }
 }
 
 .table-avg-poin .subject {
   padding: 0 15px;
-  @include respond(phone-sm) {
-  }
 }
 
 .table-conduct .class {
   padding: 0 20px;
-  @include respond(phone-sm) {
-  }
 }
 
 .table-conduct .type-graduate {
   padding: 0 15px;
-  @include respond(phone-sm) {
-    padding: 0 5px;
-  }
-}
-
-tr {
-  @include respond(phone-sm) {
-    font-size: 16px;
-  }
-}
-
-table.table-points {
-  @include respond(phone-sm) {
-    width: max-content;
-  }
-}
-
-table.combination {
-  @include respond(phone-sm) {
-    width: max-content;
-  }
 }
 
 .table-combination {
   display: block;
-  @include respond(phone-sm) {
-    display: none;
-  }
 }
 
 #combination-box-resp {
   display: none;
-  @include respond(phone-sm) {
-    display: block;
-  }
 }
 
 .box-choose-combination {
   align-items: center;
-  @include respond(phone-sm) {
-    align-items: start;
-    flex-direction: column;
-  }
 }
 
 .box-choose-combination .box-select-2,
 .box-choose-combination .box-select-1 {
   align-items: center;
-  @include respond(phone-sm) {
-    flex-direction: column;
-    align-items: start;
-    width: 100%;
-  }
-}
-
-.box-choose-combination .box-select-2 select,
-.box-choose-combination .box-select-1 select {
-  @include respond(phone-sm) {
-    margin-right: 0;
-  }
 }
 
 .avatar-info {
   align-items: start;
-  @include respond(phone-sm) {
-    align-items: center;
-  }
 }
 
 .full-name {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
-  @include respond(phone-sm) {
-    flex-basis: auto;
-  }
-}
-
-.combination-1-rep {
-  @include respond(phone-sm) {
-    display: none;
-  }
 }
 
 .combination-1 {
   display: none;
-  @include respond(phone-sm) {
-    display: block;
-  }
-}
-
-.col.combination-1,
-.col.combination-2 {
-  @include respond(phone-sm) {
-    margin-bottom: 16px;
-  }
 }
 
 .box-submit-4 .place-birth {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
-  @include respond(phone-sm) {
-    flex-basis: auto;
-    padding: 0 15px;
-  }
-}
-
-.box-submit-4 .info-parent {
-  @include respond(phone-sm) {
-    flex-direction: column;
-  }
-}
-
-.box-submit-4 .info-parent .detail {
-  @include respond(phone-sm) {
-    margin-bottom: 16px;
-  }
 }
 
 label.poin {
   margin-top: 24px;
-  @include respond(phone-sm) {
-    margin-top: 0;
-  }
-}
-
-.box-submit-4 .table-conduct td,
-.box-submit-4 .table-avg-poin td {
-  @include respond(phone-sm) {
-    padding: 0.375rem 0.75rem 0.375rem 0.75rem;
-  }
 }
 
 .table-avg-poin .subject {
   padding: 0 15px;
-  @include respond(phone-sm) {
-  }
 }
 
 .table-conduct .class {
   padding: 0 20px;
-  @include respond(phone-sm) {
-  }
 }
 
 .table-conduct .type-graduate {
   padding: 0 15px;
-  @include respond(phone-sm) {
+}
+
+@include respond(phone-sm) {
+  .box-radius {
+    margin: 0;
+  }
+
+  .box-radius.step {
+    display: none;
+  }
+  .box-radius h4 {
+    font-size: 20px;
+  }
+
+  .box-submit-1 div > .card-body {
+    padding: 1.25rem 0;
+  }
+
+  .box-submit-1 button {
+    margin-right: 0;
+  }
+
+  .box-radius .title {
+    flex-direction: column;
+    font-size: 20px;
+  }
+
+  .box-radius .title .button {
+    margin-top: 20px;
+    justify-content: end;
+    width: 100%;
+  }
+
+  .box-submit-4 #btnSubmit,
+  .box-submit-3 #btnNextStep,
+  .box-submit-2 #btnNextStep,
+  .box-submit-1 #btnNextStep {
+    margin-right: 0;
+  }
+
+  legend {
+    font-size: 20px;
+  }
+
+  .box-submit-2 .avatar {
+    align-items: center;
+  }
+
+  .box-submit-2 .avatar .avatar-img {
+    align-items: center;
+  }
+
+  .box-submit-2 .row {
+    flex-direction: column;
+  }
+
+  .box-submit-2 .school-result {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .box-submit-2 .school-result button {
+    margin: 10px 0;
+  }
+
+  .table-conduct,
+  .table-avg-poin {
+    overflow-x: scroll;
+    margin-right: -2px;
+    border: 1px solid #343a40;
+  }
+
+  .table-conduct .type-graduate {
     padding: 0 5px;
   }
-}
 
-table.table-points {
-  @include respond(phone-sm) {
+  tr {
+    font-size: 16px;
+  }
+
+  table.table-points {
     width: max-content;
   }
-}
 
-#form-submit-combination > .row {
-  @include respond(phone-sm) {
+  table.combination {
+    width: max-content;
+  }
+
+  .table-combination {
+    display: none;
+  }
+
+  #combination-box-resp {
+    display: block;
+  }
+
+  .box-choose-combination {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .box-choose-combination .box-select-2,
+  .box-choose-combination .box-select-1 {
+    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+  }
+
+  .box-choose-combination .box-select-2 select,
+  .box-choose-combination .box-select-1 select {
+    margin-right: 0;
+  }
+
+  .avatar-info {
+    align-items: center;
+  }
+
+  .full-name {
+    flex-basis: auto;
+  }
+
+  .combination-1-rep {
+    display: none;
+  }
+
+  .combination-1 {
+    display: block;
+  }
+
+  .col.combination-1,
+  .col.combination-2 {
+    margin-bottom: 16px;
+  }
+
+  .box-submit-4 .place-birth {
+    flex-basis: auto;
+    padding: 0 15px;
+  }
+
+  .box-submit-4 .info-parent {
+    flex-direction: column;
+  }
+
+  .box-submit-4 .info-parent .detail {
+    margin-bottom: 16px;
+  }
+
+  label.poin {
+    margin-top: 0;
+  }
+
+  .box-submit-4 .table-conduct td,
+  .box-submit-4 .table-avg-poin td {
+    padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+  }
+
+  .table-conduct .type-graduate {
+    padding: 0 5px;
+  }
+
+  table.table-points {
+    width: max-content;
+  }
+
+  #form-submit-combination > .row {
     flex-direction: column;
   }
 }
