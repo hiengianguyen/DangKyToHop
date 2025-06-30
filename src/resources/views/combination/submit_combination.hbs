@@ -1103,6 +1103,7 @@
         switch(currentPage) {
             case 1:
                 setActiveForSteps(currentPage);
+                setHeightContent();
                 break;
             case 2:
                 const inputPage2HaveAttNames = document.querySelectorAll('div.box-submit-2 input[name]');
@@ -1227,6 +1228,7 @@
                         }
                     }
                     setActiveForSteps(currentPage);
+                    setHeightContent();
                 }
             case 4:
                 const inputImage = document.getElementById('inputImage');
@@ -1336,8 +1338,10 @@
                         }
                     }
                     setActiveForSteps(currentPage);
+                    sideBar.style.height = master.clientHeight;
+                    master.parentElement.parentElement.style.height = master.clientHeight;
+                    return;
                 }
-                
                 break;
             case 3:
                 setActiveForSteps(currentPage);
@@ -1459,9 +1463,10 @@
                         }
                     }
                 }
-            break;
+                sideBar.style.height = master.clientHeight;
+                master.parentElement.parentElement.style.height = master.clientHeight;
+                break
         }
-        setHeightContent()
     }
     const btnNext = document.querySelector('#btnNextStep');
     const btnPrev = document.querySelector('#btnPrevStep');
