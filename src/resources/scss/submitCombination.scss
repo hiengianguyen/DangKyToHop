@@ -21,6 +21,12 @@
   }
 }
 
+.box-submit-1 div > .card-body {
+  @include respond(phone-sm) {
+    padding: 1.25rem 0;
+  }
+}
+
 .box-submit-1 button {
   margin-right: 24px;
   @include respond(phone-sm) {
