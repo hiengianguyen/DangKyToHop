@@ -149,7 +149,7 @@ class CombinationController {
         submitedCombinationDetail: data,
         role: req?.cookies?.role,
         userId: req?.cookies?.userId,
-        showToast: showToast
+        showToast: showToast || false
       });
     } else {
       return res.redirect("/");
