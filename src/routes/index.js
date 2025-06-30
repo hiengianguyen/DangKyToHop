@@ -12,6 +12,7 @@ function routes(app) {
   app.use("/combination", combinationRouter);
   app.use("/school", schoolRouter);
   app.use("/file", fileRouter);
+  app.get("/healthz", (req, res, next) => res.sendStatus(200));
 }
 
 module.exports = routes;
