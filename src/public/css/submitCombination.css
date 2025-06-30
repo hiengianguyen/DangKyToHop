@@ -13,6 +13,10 @@
   .box-radius h4 {
     font-size: 20px; } }
 
+@media (max-width: 430px) {
+  .box-submit-1 div > .card-body {
+    padding: 1.25rem 0; } }
+
 .box-submit-1 button {
   margin-right: 24px; }
   @media (max-width: 430px) {
