@@ -241,3 +241,18 @@
     width: 106%;
   }
 }
+
+.radios-fil .card.border-light {
+  width: max-content;
+  @include respond(phone-sm) {
+    width: 100%;
+  }
+}
+
+#radios-combination-1,
+#radios-combination-2 {
+  display: flex;
+  @include respond(phone-sm) {
+    flex-direction: column;
+  }
+}
