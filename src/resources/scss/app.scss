@@ -54,9 +54,6 @@ input {
   z-index: 3;
   transition: all 0.3s ease;
   box-shadow: 0 -5px 1rem #afafaf;
-  @include respond(phone-sm) {
-    display: none;
-  }
 }
 
 #sidebar.active {
@@ -91,15 +88,6 @@ input {
   display: flex;
   flex-direction: column;
   opacity: 1;
-  @include respond(phone-sm) {
-    font-size: 10px;
-  }
-}
-
-.tittle-sidebar .name {
-  @include respond(phone-sm) {
-    font-size: 14px;
-  }
 }
 
 #sidebar.active .home .tittle-sidebar {
@@ -268,23 +256,10 @@ input {
   background-color: #ffffff;
   display: none;
   border-bottom: 1px solid #ccc;
-  @include respond(phone-sm) {
-    display: block;
-  }
-}
-
-#header .nav-img img {
-  @include respond(phone-sm) {
-    height: 46px;
-    margin-left: 10px;
-  }
 }
 
 #all-content {
   display: flex;
-  @include respond(phone-sm) {
-    display: block;
-  }
 }
 
 #header .nav-bar-icon {
@@ -309,9 +284,6 @@ input {
   background-color: #ffffff;
   z-index: 1;
   transition: all 0.5s ease;
-  @include respond(phone-sm) {
-    display: block;
-  }
 }
 
 #nav-bar a {
@@ -334,17 +306,11 @@ input {
 
 #all-content .big-content {
   width: 100%;
-  @include respond(phone-sm) {
-    margin-top: 50px;
-  }
 }
 
 #loading h2,
 #loading-full h2 {
   color: #29a9ef;
-  @include respond(phone-sm) {
-    font-size: 22px;
-  }
 }
 
 #loading .spinner-border,
@@ -352,33 +318,83 @@ input {
   width: 3rem;
   height: 3rem;
   color: #29a9ef;
-  @include respond(phone-sm) {
-    width: 35px;
-    height: 35px;
-    font-size: 14px;
-  }
 }
 
 #loading #tittle-loading,
 #loading-full #tittle-loading {
   font-family: "Lexend", sans-serif;
   color: #29a9ef;
-  @include respond(phone-sm) {
-    font-size: 25px;
-  }
 }
 
 .school-info {
   position: relative;
   height: 20pc;
   display: flex;
-  @include respond(phone-sm) {
-    display: none;
-  }
 }
 
 .footer-text {
   @include respond(phone-sm) {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
+
+@include respond(phone-sm) {
+  #sidebar {
+    display: none;
+  }
+
+  .tittle-sidebar {
+    font-size: 10px;
+  }
+
+  .tittle-sidebar .name {
+    font-size: 14px;
+  }
+
+  #header {
+    display: block;
+  }
+
+  #header .nav-img img {
+    height: 46px;
+    margin-left: 10px;
+  }
+
+  #all-content {
+    display: block;
+  }
+
+  #nav-bar.active {
+    display: block;
+  }
+
+  #all-content .big-content {
+    margin-top: 50px;
+  }
+
+  #loading h2,
+  #loading-full h2 {
+    font-size: 22px;
+  }
+
+  #loading .spinner-border,
+  #loading-full .spinner-border {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  #loading #tittle-loading,
+  #loading-full #tittle-loading {
+    font-size: 25px;
+  }
+
+  .school-info {
+    display: none;
+  }
+
+  .footer-text {
     margin-top: 10px;
     font-size: 12px;
   }

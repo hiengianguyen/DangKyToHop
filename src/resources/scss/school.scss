@@ -19,10 +19,6 @@
   background-color: #29a9ef;
   padding: 10px;
   height: 100%;
-  @include respond(phone-sm) {
-    padding: 45px 16px;
-    height: auto !important;
-  }
 }
 
 .box-radius {
@@ -34,4 +30,11 @@
 
 .box-radius.step {
   padding: 15px;
+}
+
+@include respond(phone-sm) {
+  #master {
+    padding: 45px 16px;
+    height: auto !important;
+  }
 }
