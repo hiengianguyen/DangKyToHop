@@ -301,6 +301,10 @@
         document.querySelector('.card-body').style.display = 'block';
         sideBars.style.height = master.parentElement.clientHeight;
         master.style.height = master.parentElement.clientHeight;
+
+        if({{{showToast}}}) {
+            toastMessage("Thông báo", localStorage.getItem('textMessage'), "success", 6000, "✅", 1000);
+        }
     });
 
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
