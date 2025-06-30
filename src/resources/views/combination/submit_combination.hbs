@@ -1053,7 +1053,6 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" defer></script>
-<script src="/showToastMessage.js" defer></script>
 
 <script type="module">
     import { uploadImageToCloudinary } from '/uploadImageToCloudinary.js';
@@ -1327,8 +1326,8 @@
 
                             const result = await fetchAsync('/combination/submited', 'POST', data, null, true);
                             loading.style.display = 'none';
-                            toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
-                            const currentUrl = window.location.origin + `/combination/submited-detail/${result.userId}`;
+                            localStorage.setItem('textMessage', result.message);
+                            const currentUrl = window.location.origin + `/combination/submited-detail/${result.userId}?toastmessage=true`;
                             window.location.href = currentUrl;
                         }
                         else {
