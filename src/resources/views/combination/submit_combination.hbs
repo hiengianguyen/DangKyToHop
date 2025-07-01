@@ -1387,6 +1387,19 @@
 
                 const allTagSelectData = document.querySelectorAll('div.box-submit-4 .get-data-combination')
                 const allTagAddData = document.querySelectorAll('div.box-submit-4 input.input-get-data-combination')
+                if(selectCombination1.value !== '') {
+                    const optionsSelect2 = Array.from(selectCombination2.querySelectorAll('option'));
+                    optionsSelect2.shift();
+
+                    console.log(optionsSelect2)
+
+                    optionsSelect2.forEach((option) => {
+                        if(option.text === selectCombination1.value) {
+                            selectCombination2.removeChild(option);
+                        }
+                    })
+                    console.log(optionsSelect2)
+                }   
 
                 selectCombination1.onchange = () => {
                     const valueSelect1 = selectCombination1.value;
@@ -1413,7 +1426,6 @@
 
                 selectCombination2.onchange = () => {
                     const valueSelect2 = selectCombination2.value;
-
                     allTagSelectData[1].textContent = allTagAddData[1].value= valueSelect2;
                 }
 
