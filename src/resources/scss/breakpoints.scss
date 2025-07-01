@@ -2,7 +2,7 @@ $breakpoints: (
   phone-sm: 430px,
   phone: 767px,
   tablet: 768px,
-  tablet-lg: 930px,
+  tablet-lg: 935px,
   desktop: 1400px,
   screens-lg: 1920px
 );
@@ -15,5 +15,11 @@ $breakpoints: (
     @media (max-width: $value) {
       @content;
     }
+  }
+}
+
+@mixin mobile-landscape {
+  @media only screen and (max-width: 935px) and (orientation: landscape) {
+    @content;
   }
 }
