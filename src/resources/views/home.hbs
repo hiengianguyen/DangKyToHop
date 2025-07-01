@@ -20,7 +20,7 @@
     </div>
 
     <div class="container-center">
-      <div class="content-1 d-flex justify-content-center">
+      <div class="content-1 d-flex">
         <div class="content-box pe-0">
           <h2>Đăng ký nguyện vọng bằng giấy – bất tiện, dễ sai sót</h2>
           <p>
@@ -31,7 +31,7 @@
         </div>
         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749121954/register-3_wxevux.jpg" alt="">
       </div>
-      <div class="content-2 d-flex justify-content-center">
+      <div class="content-2 d-flex">
         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749121953/register-2_bw7lez.avif" alt="">
         <div class="content-box ps-0">
           <h2>Đăng ký nguyện vọng trực tuyến – nhanh chóng, chính xác</h2>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="img-box d-flex align-items-center mt-4">
-          <img class="me-4 rounded-3" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_38_sjlsqx.jpg" alt="">
+          <img class="first rounded-3" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_38_sjlsqx.jpg" alt="">
           <img class="rounded-3" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179568/BE_GIANG_DT_247_k6rm0i.jpg" alt="">
         </div>
       </div>
@@ -90,8 +90,8 @@
         <h4 class="fw-bold">Ngôi trường sẵn sàng chào đón bạn</h4>
         <p>Chúng tôi tin rằng mỗi học sinh là một hạt giống tiềm năng – chỉ cần được gieo trồng đúng nơi, sẽ có cơ hội phát triển mạnh mẽ. 
           Hãy để ngôi trường này trở thành nơi bắt đầu cho hành trình trưởng thành và thành công của bạn.</p>
-        <p>Bấm vào nút bên dưới để bắt đầu đăng ký tổ hợp vào lớp 10 và đồng hành cùng chúng tôi trong năm học tới!</p>
-        <button type="button" id="modal-login-btn" class="btn btn-primary position-absolute">Bắt đầu <i class="fa-solid fa-chevron-right"></i></button>
+        <p class="support">Bấm vào nút bên dưới để bắt đầu đăng ký tổ hợp vào lớp 10 và đồng hành cùng chúng tôi trong năm học tới!</p>
+        <button type="button" id="modal-login-btn" class="btn btn-primary">Bắt đầu <i class="fa-solid fa-chevron-right"></i></button>
       </div>
       <div class="img-box">
         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_48_hbhv1o.jpg" class="shadow" alt="">
@@ -124,7 +124,8 @@
               <div class="tab {{#if signupSuccess}}active{{else}}{{/if}}" onclick="switchTab('signin')">Đăng nhập</div>
               <div class="tab {{#if signupSuccess}}{{else}}active{{/if}}" onclick="switchTab('signup')">Đăng ký</div>
           </div>
-          <div id="signin" class="form-container {{#if signupSuccess}}active{{else}}{{/if}}">
+          <div class="box-login">
+            <div id="signin" class="form-container {{#if signupSuccess}}active{{else}}{{/if}}">
               <form class="form-sign-in" action="/auth/signin" method="POST">
                   <div class="form-group">
                       <label for="signin-phone">Số điện thoại:</label>
@@ -160,6 +161,7 @@
               </div>
               <button class="btn btn-primary form" type="submit">Đăng ký</button>
             </form>
+          </div>
           </div>
         </div>
       </div>

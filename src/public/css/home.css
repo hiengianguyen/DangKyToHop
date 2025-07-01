@@ -38,6 +38,10 @@
   padding: 5pc;
   width: 44pc; }
 
+.container-center .content-1,
+.container-center .content-2 {
+  justify-content: center; }
+
 .container-center .content-2 {
   margin-top: -70px; }
 
@@ -75,6 +79,9 @@
 
 .container-school .content-box {
   width: 62pc; }
+
+.img-box .first {
+  margin-right: 24px; }
 
 .container-school .box-2 img {
   width: 35pc; }
@@ -221,6 +228,89 @@ button.form:hover {
     backdrop-filter: blur(0); }
   to {
     backdrop-filter: blur(10px); } }
+
+@media only screen and (max-width: 935px) and (orientation: landscape) {
+  #header {
+    display: block; }
+  #header .nav-img img {
+    height: 46px;
+    margin-left: 10px; }
+  .tittle-sidebar {
+    font-size: 13px; }
+  .tittle-sidebar .name {
+    font-size: 16px; }
+  .container-start {
+    height: auto;
+    padding-top: 30px;
+    margin-top: 50px; }
+  .container-start > p {
+    font-size: 18px;
+    margin-bottom: 10px; }
+  .container-start .content-box {
+    padding: 20px;
+    width: 100%; }
+  .container-start .img-start img {
+    height: 8pc; }
+  .introduce-box {
+    flex-direction: column;
+    text-align: center; }
+  .introduce-box h2 {
+    font-size: 18px; }
+  .introduce-box p {
+    font-size: 15px; }
+  .container-center img {
+    width: 10pc;
+    height: 9pc; }
+  .container-center .content-box {
+    padding: 2pc;
+    width: 23pc;
+    margin: 0 13px; }
+  .container-center h2 {
+    font-size: 18px; }
+  .container-center p {
+    font-size: 15px;
+    text-align: justify; }
+  .container-center .content-1,
+  .container-center .content-2 {
+    margin: 0 3pc;
+    justify-content: space-between; }
+  .container-center .content-1 img {
+    margin-top: 15px; }
+  .container-center .content-2 {
+    align-items: center; }
+  .container-school > h4 {
+    font-size: 18px; }
+  .container-school .content-box {
+    width: 100%;
+    text-align: justify;
+    padding: 0 20px; }
+  .img-box {
+    flex-direction: column; }
+  .img-box .first {
+    margin-right: 0;
+    margin-bottom: 20px; }
+  .container-school .container-body {
+    margin-top: 30px;
+    flex-direction: column; }
+  .container-school .box-2 img {
+    width: 27pc; }
+  .image-stack img:hover {
+    transform: scale(1.25); }
+  .container-end {
+    padding: 2pc; }
+  .container-end img,
+  .container-end .content-box {
+    margin-top: 0;
+    margin-bottom: 0; }
+  .container-end .content-box {
+    margin-right: 2pc; }
+  .container-end img {
+    width: 18pc; }
+  .container-end .content-box p {
+    text-align: justify; }
+  .box-login {
+    overflow-y: scroll;
+    height: 10pc; } }
 
 @media (max-width: 1400px) {
   .container-start .img-start img {
