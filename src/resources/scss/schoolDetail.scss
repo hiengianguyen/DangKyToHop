@@ -70,6 +70,46 @@
   font-size: 20px;
 }
 
+@include mobile-all-landscape {
+  #header {
+    display: none;
+  }
+
+  .img-box .first {
+    margin-right: 0;
+  }
+
+  .image-stack img:hover {
+    transform: scale(1.25);
+  }
+}
+
+@include mobile-sm-landscape {
+  .img-box img {
+    width: 25pc;
+  }
+
+  .container-school .container-body h4 {
+    font-size: 18px;
+  }
+
+  .container-school .container-body p {
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  .container-school .container-body ul {
+    font-size: 16px;
+    text-align: justify;
+    padding-left: 16px;
+  }
+
+  .container-school .container-body .content-box {
+    width: 32pc;
+    margin-right: 0;
+  }
+}
+
 @include respond(phone-sm) {
   .box-radius {
     margin: 0;
