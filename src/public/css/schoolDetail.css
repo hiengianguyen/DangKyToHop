@@ -54,6 +54,30 @@
 .content-box {
   font-size: 20px; }
 
+@media (max-width: 955px) and (orientation: landscape) {
+  #header {
+    display: none; }
+  .img-box .first {
+    margin-right: 0; }
+  .image-stack img:hover {
+    transform: scale(1.25); } }
+
+@media only screen and (max-width: 792px) and (orientation: landscape) {
+  .img-box img {
+    width: 25pc; }
+  .container-school .container-body h4 {
+    font-size: 18px; }
+  .container-school .container-body p {
+    font-size: 16px;
+    text-align: justify; }
+  .container-school .container-body ul {
+    font-size: 16px;
+    text-align: justify;
+    padding-left: 16px; }
+  .container-school .container-body .content-box {
+    width: 32pc;
+    margin-right: 0; } }
+
 @media (max-width: 430px) {
   .box-radius {
     margin: 0; }
