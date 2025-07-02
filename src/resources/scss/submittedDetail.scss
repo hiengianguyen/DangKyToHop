@@ -79,7 +79,15 @@ h4 {
   display: none;
 }
 
-@include respond(phone-sm) {
+.place-box-rep {
+  display: none;
+}
+
+.place-birth.pic {
+  display: flex;
+}
+
+@include mobile-lg-landscape {
   .box-radius {
     margin: 0;
     padding: 15px;
@@ -89,6 +97,114 @@ h4 {
     padding: 0;
   }
 
+  #header {
+    display: none;
+  }
+
+  .table-conduct,
+  .table-avg-poin {
+    overflow-x: scroll;
+  }
+
+  .table-conduct td,
+  .table-avg-poin td {
+    padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+  }
+
+  .table-conduct .type-graduate {
+    padding: 0 5px;
+  }
+
+  label {
+    width: max-content;
+  }
+
+  .offical-avatar {
+    height: max-content;
+  }
+}
+
+@include mobile-sm-landscape {
+  #header {
+    display: none;
+  }
+
+  label {
+    width: max-content;
+  }
+
+  .offical-avatar {
+    height: max-content;
+  }
+
+  .combination-1-rep,
+  .place-birth.pic {
+    display: none;
+  }
+
+  .row.place-box {
+    display: none;
+  }
+
+  .combination-1 {
+    display: block;
+  }
+
+  .place-box-rep {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .place-box-rep > .row div {
+    padding: 0 15px;
+  }
+
+  .col.combination-1,
+  .col.combination-2 {
+    padding: 0 !important;
+  }
+
+  label.table {
+    padding: 0;
+  }
+
+  .table-conduct,
+  .table-avg-poin {
+    overflow-x: scroll;
+  }
+
+  .table-conduct .type-graduate {
+    padding: 0 5px;
+  }
+
+  tr {
+    font-size: 10px;
+  }
+
+  table.table-points {
+    width: max-content;
+  }
+
+  .table-conduct td,
+  .table-avg-poin td {
+    padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+  }
+
+  tr {
+    font-size: 16px;
+  }
+
+  #info-parent .detail {
+    flex-direction: column;
+  }
+
+  #poin-offical {
+    padding: 0;
+  }
+}
+
+@include respond(phone-sm) {
   label {
     font-size: 15px;
     width: max-content;

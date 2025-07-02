@@ -92,7 +92,7 @@ label.poin {
   padding: 0 15px;
 }
 
-@include mobile-landscape {
+@include mobile-all-landscape {
   #header {
     display: none;
   }
@@ -213,7 +213,39 @@ label.poin {
   }
 
   #form-submit-combination > .row {
+    flex-direction: row;
+  }
+
+  .offical-avatar {
+    height: max-content;
+  }
+
+  .combination-1-rep,
+  .place-birth.pic {
+    display: none;
+  }
+
+  .row.place-box {
+    display: none;
+  }
+
+  .combination-1 {
+    display: block;
+  }
+
+  .place-box-rep {
+    display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .place-box-rep > .row div {
+    padding: 0 15px;
+  }
+
+  .col.combination-1,
+  .col.combination-2 {
+    padding: 0 !important;
   }
 }
 

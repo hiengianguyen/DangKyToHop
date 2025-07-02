@@ -332,7 +332,7 @@ input {
   display: flex;
 }
 
-@include mobile-landscape {
+@include mobile-all-landscape {
   #sidebar {
     padding: 10px;
     position: absolute;

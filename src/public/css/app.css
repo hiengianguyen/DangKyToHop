@@ -272,7 +272,7 @@ input {
   height: 20pc;
   display: flex; }
 
-@media only screen and (max-width: 955px) and (orientation: landscape) {
+@media (max-width: 955px) and (orientation: landscape) {
   #sidebar {
     padding: 10px;
     position: absolute; }

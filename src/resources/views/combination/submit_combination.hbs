@@ -579,8 +579,8 @@
                 </div>
                 <form id="form-submit-combination">
                     <legend class="text-center mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
-                    <div class="row">
-                        <div class="avatar-info col col-md-2 mb-3 mx-3 d-flex flex-column ps-0">
+                    <div class="d-flex">
+                        <div class="avatar-info mb-3 mx-3 d-flex flex-column">
                             <label><b>Ảnh thẻ:</b></label>
                             <div class="row mb-3">
                                 <div class="d-flex align-items-start flex-column">
@@ -590,7 +590,7 @@
                             </div>
                         </div>
 
-                        <div class="col gy-3 m-0">
+                        <div class="offical-info gy-3 m-0">
                             <div class="row">
                                 <div class="full-name d-flex align-items-start flex-column">
                                     <label class="me-2">Họ và tên học sinh:</label>
@@ -616,7 +616,7 @@
                                     <input value="{{submitedDetail.dateOfBirth}}" type="text" class="input-get-data" name="dateOfBirth" style="display:none;">
                                 </div>
 
-                                <div class="place-birth d-flex align-items-start flex-column">
+                                <div class="place-birth pic d-flex align-items-start flex-column">
                                     <label>Nơi sinh: </label>
                                     <b class="mb-3 get-data" name="placeOfBirth" style="text-transform: capitalize;">{{submitedDetail.placeOfBirth}}</b>
                                     <input value="{{submitedDetail.placeOfBirth}}" type="text" class="input-get-data" name="placeOfBirth" style="display:none;">
@@ -631,7 +631,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row place-box">
                                 <div class="place-birth d-flex align-items-start flex-column">
                                     <label>Trường học cấp 2:</label> 
                                     <b class="mb-3 get-data-school" name="secondarySchool">{{submitedDetail.secondarySchool}}</b>
@@ -647,7 +647,8 @@
                                 <div class="col combination-1">
                                     <div class="d-flex align-items-start flex-column">
                                         <label>Nguyện vọng 1:</label>
-                                        <b style="text-transform: capitalize;">{{submitedDetail.combination1}}</b>                       
+                                        <b class="get-data-combination" name="combination1">{{submitedDetail.combination1}}</b>
+                                        <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
                                     </div>
                                 </div>
 
@@ -658,7 +659,46 @@
                                         <input value="{{submitedDetail.combination2}}" type="text" class="input-get-data-combination" name="combination2" style="display:none;">
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="place-box-rep">
+                        <div class="row">
+                            <div class="place-birth d-flex align-items-start flex-column">
+                                <label>Trường học cấp 2:</label> 
+                                <b class="mb-3 get-data-school" name="secondarySchool">{{submitedDetail.secondarySchool}}</b>
+                                <input value="{{submitedDetail.secondarySchool}}" type="text" class="input-get-data-shool" name="secondarySchool" style="display:none;">
+                            </div>
+
+                            <div class="place-birth d-flex align-items-start flex-column">
+                                <label>Nơi ở hiện tại:</label> 
+                                <b class="mb-3 get-data" name="currentPlace" style="text-transform: capitalize;">{{submitedDetail.currentPlace}}</b>
+                                <input value="{{submitedDetail.currentPlace}}" type="text" class="input-get-data" name="currentPlace" style="display:none;">
+                            </div>
+
+                            <div class="place-birth d-flex align-items-start flex-column">
+                                <label>Nơi sinh: </label>
+                                <b class="mb-3 get-data" name="placeOfBirth" style="text-transform: capitalize;">{{submitedDetail.placeOfBirth}}</b>
+                                <input value="{{submitedDetail.placeOfBirth}}" type="text" class="input-get-data" name="placeOfBirth" style="display:none;">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col combination-1">
+                                <div class="d-flex align-items-start flex-column">
+                                    <label>Nguyện vọng 1:</label>
+                                    <b class="get-data-combination" name="combination1">{{submitedDetail.combination1}}</b>
+                                    <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
+                                </div>
+                            </div>
+
+                            <div class="col combination-2">
+                                <div class="d-flex align-items-start flex-column">
+                                    <label>Nguyện vọng 2:</label>
+                                    <b class="get-data-combination" name="combination2">{{submitedDetail.combination2}}</b>
+                                    <input value="{{submitedDetail.combination2}}" type="text" class="input-get-data-combination" name="combination2" style="display:none;">
+                                </div>
                             </div>
                         </div>
                     </div>
