@@ -19,7 +19,7 @@ $breakpoints: (
 }
 
 @mixin mobile-landscape {
-  @media only screen and (max-width: 935px) and (orientation: landscape) {
+  @media only screen and (max-width: 955px) and (orientation: landscape) {
     @content;
   }
 }

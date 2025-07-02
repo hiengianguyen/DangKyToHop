@@ -229,7 +229,7 @@ button.form:hover {
   to {
     backdrop-filter: blur(10px); } }
 
-@media only screen and (max-width: 935px) and (orientation: landscape) {
+@media only screen and (max-width: 955px) and (orientation: landscape) {
   #header {
     display: block; }
   #header .nav-img img {
@@ -263,7 +263,7 @@ button.form:hover {
     height: 9pc; }
   .container-center .content-box {
     padding: 2pc;
-    width: 23pc;
+    width: 31pc;
     margin: 0 13px; }
   .container-center h2 {
     font-size: 18px; }
@@ -272,12 +272,14 @@ button.form:hover {
     text-align: justify; }
   .container-center .content-1,
   .container-center .content-2 {
-    margin: 0 3pc;
-    justify-content: space-between; }
+    margin: 0 3pc; }
   .container-center .content-1 img {
     margin-top: 15px; }
   .container-center .content-2 {
     align-items: center; }
+  .container-center img {
+    height: 14pc;
+    width: 17pc; }
   .container-school > h4 {
     font-size: 18px; }
   .container-school .content-box {
