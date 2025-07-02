@@ -332,10 +332,18 @@ input {
   display: flex;
 }
 
-.footer-text {
-  @include respond(phone-sm) {
-    margin-top: 10px;
-    font-size: 12px;
+@include mobile-landscape {
+  #sidebar {
+    padding: 10px;
+    position: absolute;
+  }
+
+  #sidebar.active {
+    width: 65px;
+  }
+
+  .school-info {
+    display: none;
   }
 }
 
