@@ -18,8 +18,20 @@ $breakpoints: (
   }
 }
 
-@mixin mobile-landscape {
-  @media only screen and (max-width: 955px) and (orientation: landscape) {
+@mixin mobile-sm-landscape {
+  @media only screen and (max-width: 792px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin mobile-lg-landscape {
+  @media only screen and (min-width: 792px) and (max-width: 955px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin mobile-all-landscape {
+  @media (max-width: 955px) and (orientation: landscape) {
     @content;
   }
 }

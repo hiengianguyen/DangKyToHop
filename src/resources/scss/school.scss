@@ -32,7 +32,7 @@
   padding: 15px;
 }
 
-@include mobile-landscape {
+@include mobile-all-landscape {
   #master {
     margin-left: 65px;
     height: auto !important;

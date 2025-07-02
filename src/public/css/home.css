@@ -229,7 +229,7 @@ button.form:hover {
   to {
     backdrop-filter: blur(10px); } }
 
-@media only screen and (max-width: 955px) and (orientation: landscape) {
+@media (max-width: 955px) and (orientation: landscape) {
   #header {
     display: block; }
   #header .nav-img img {

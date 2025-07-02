@@ -281,7 +281,7 @@ button.form:hover {
   }
 }
 
-@include mobile-landscape {
+@include mobile-all-landscape {
   #header {
     display: block;
   }
