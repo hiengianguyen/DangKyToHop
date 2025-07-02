@@ -43,6 +43,16 @@ img.profile-img-user {
   justify-content: end;
 }
 
+@include mobile-all-landscape {
+  #header {
+    display: none;
+  }
+
+  #master {
+    padding: 1px;
+  }
+}
+
 @include respond(phone-sm) {
   .box-radius {
     margin: 0;

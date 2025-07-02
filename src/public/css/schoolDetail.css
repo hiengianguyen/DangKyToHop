@@ -60,7 +60,9 @@
   .img-box .first {
     margin-right: 0; }
   .image-stack img:hover {
-    transform: scale(1.25); } }
+    transform: scale(1.25); }
+  #master {
+    padding: 1px; } }
 
 @media only screen and (max-width: 792px) and (orientation: landscape) {
   .img-box img {

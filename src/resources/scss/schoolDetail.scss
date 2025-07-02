@@ -82,6 +82,10 @@
   .image-stack img:hover {
     transform: scale(1.25);
   }
+
+  #master {
+    padding: 1px;
+  }
 }
 
 @include mobile-sm-landscape {
