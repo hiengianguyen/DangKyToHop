@@ -69,6 +69,77 @@ label.poin {
 .table-conduct .type-graduate {
   padding: 0 15px; }
 
+@media only screen and (max-width: 955px) and (orientation: landscape) {
+  #header {
+    display: none; }
+  #master {
+    padding: 0; }
+  .card-body.submit {
+    padding: 1px; }
+  .box-radius.step {
+    display: none; }
+  .box-submit-4 #btnSubmit,
+  .box-submit-3 #btnNextStep,
+  .box-submit-2 #btnNextStep,
+  .box-submit-1 #btnNextStep {
+    margin-right: 0; }
+  table.combination {
+    width: max-content; }
+  .table-combination {
+    display: none; }
+  #combination-box-resp {
+    display: block; }
+  .box-submit-2 .school-result {
+    flex-direction: column;
+    align-items: start; }
+  .modal-bodyy.combination {
+    height: 17pc; }
+  .table-conduct,
+  .table-avg-poin {
+    overflow-x: scroll;
+    margin-right: -2px;
+    border: 1px solid #343a40; }
+  table.table-points,
+  table.combination {
+    width: max-content; }
+  #input-name {
+    width: max-content; }
+  .box-choose-combination .box-select-2,
+  .box-choose-combination .box-select-1 {
+    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    width: 100%; }
+  .avatar-info {
+    align-items: center; }
+  .full-name {
+    flex-basis: auto; }
+  .combination-1-rep {
+    display: none; }
+  .combination-1 {
+    display: block; }
+  .col.combination-1,
+  .col.combination-2 {
+    margin-bottom: 16px; }
+  .box-submit-4 .place-birth {
+    flex-basis: auto;
+    padding: 0 15px; }
+  .box-submit-4 .info-parent {
+    flex-direction: column; }
+  .box-submit-4 .info-parent .detail {
+    margin-bottom: 16px; }
+  label.poin {
+    margin-top: 0; }
+  .box-submit-4 .table-conduct td,
+  .box-submit-4 .table-avg-poin td {
+    padding: 0.375rem 0.75rem 0.375rem 0.75rem; }
+  .table-conduct .type-graduate {
+    padding: 0 5px; }
+  table.table-points {
+    width: max-content; }
+  #form-submit-combination > .row {
+    flex-direction: column; } }
+
 @media (max-width: 430px) {
   .box-radius {
     margin: 0; }
@@ -114,8 +185,7 @@ label.poin {
     padding: 0 5px; }
   tr {
     font-size: 16px; }
-  table.table-points {
-    width: max-content; }
+  table.table-points,
   table.combination {
     width: max-content; }
   .table-combination {

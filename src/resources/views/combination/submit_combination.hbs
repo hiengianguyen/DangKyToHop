@@ -142,7 +142,7 @@
                 <div class="row">
                     <div class="col mb-3">
                         <div class="d-flex align-items-start flex-column">
-                            <label for="inputName"><b>Họ và tên học sinh:</b></label>
+                            <label id="input-name" for="inputName"><b>Họ và tên học sinh:</b></label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
                                 <input value="{{submitedDetail.fullName}}" id="inputName" type="text" class="form-control" placeholder="Họ và tên học sinh" aria-label="Họ và tên học sinh" name="fullName" aria-describedby="basic-addon1" style="text-transform: capitalize;">
@@ -1094,16 +1094,11 @@
         }
     }
 
-    function setHeightContent() {
-        sideBar.parentElement.style.height = banner.clientHeight + cardBody.clientHeight;
-    }
-
     function checkPageReturnScript(currentPage) {
         page = currentPage;
         switch(currentPage) {
             case 1:
                 setActiveForSteps(currentPage);
-                setHeightContent();
                 break;
             case 2:
                 const inputPage2HaveAttNames = document.querySelectorAll('div.box-submit-2 input[name]');
@@ -1228,7 +1223,6 @@
                         }
                     }
                     setActiveForSteps(currentPage);
-                    setHeightContent();
                 }
             case 4:
                 const inputImage = document.getElementById('inputImage');
@@ -1338,9 +1332,6 @@
                         }
                     }
                     setActiveForSteps(currentPage);
-                    sideBar.style.height = master.clientHeight;
-                    master.parentElement.parentElement.style.height = master.clientHeight;
-                    return;
                 }
                 break;
             case 3:
@@ -1475,10 +1466,10 @@
                         }
                     }
                 }
-                sideBar.style.height = master.clientHeight;
-                master.parentElement.parentElement.style.height = master.clientHeight;
-                break
+                break;
         }
+        sideBar.style.height = master.clientHeight;
+        master.parentElement.parentElement.style.height = master.clientHeight;
     }
     const btnNext = document.querySelector('#btnNextStep');
     const btnPrev = document.querySelector('#btnPrevStep');
