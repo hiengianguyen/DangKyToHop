@@ -31,6 +31,12 @@ img.profile-img-user {
 .btn-edit {
   justify-content: end; }
 
+@media (max-width: 955px) and (orientation: landscape) {
+  #header {
+    display: none; }
+  #master {
+    padding: 1px; } }
+
 @media (max-width: 430px) {
   .box-radius {
     margin: 0; }
