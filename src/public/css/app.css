@@ -279,7 +279,15 @@ input {
   #sidebar.active {
     width: 65px; }
   .school-info {
-    display: none; } }
+    display: none; }
+  #loading .spinner-border,
+  #loading-full .spinner-border {
+    width: 2rem;
+    height: 2rem;
+    font-size: 11px; }
+  #loading h2,
+  #loading-full h2 {
+    font-size: 22px; } }
 
 @media (max-width: 430px) {
   #sidebar {
