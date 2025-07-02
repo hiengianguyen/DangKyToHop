@@ -247,6 +247,10 @@ label.poin {
   .col.combination-2 {
     padding: 0 !important;
   }
+
+  .modal-container.choose-school {
+    padding: 0 2pc;
+  }
 }
 
 @include respond(phone-sm) {

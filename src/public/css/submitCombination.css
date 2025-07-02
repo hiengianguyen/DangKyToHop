@@ -156,7 +156,9 @@ label.poin {
     padding: 0 15px; }
   .col.combination-1,
   .col.combination-2 {
-    padding: 0 !important; } }
+    padding: 0 !important; }
+  .modal-container.choose-school {
+    padding: 0 2pc; } }
 
 @media (max-width: 430px) {
   .box-radius {
