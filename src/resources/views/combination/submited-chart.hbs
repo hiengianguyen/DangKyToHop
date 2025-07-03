@@ -88,6 +88,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script src="/renderChart.js"></script>
 
 <script>
     const sideBars = document.getElementById('sidebar');
@@ -135,55 +136,8 @@
 
     Chart.register(ChartDataLabels);
 
-    new Chart(chart1, {
-        type: 'bar',
-        data: {
-        labels: combination,
-        datasets: [{
-            label: 'Số người chọn tổ hợp',
-            data: countCombinaton1,
-            borderWidth: 1,
-            backgroundColor: [
-                '#2caffe',
-                ],
-        }]
-        },
-        options: {
-            scales: {
-                y: {
-                beginAtZero: true
-                }
-                
-            },
-            responsive: true,
-            maintainAspectRatio: false
-        }
-    });
-
-    new Chart(chart2, {
-        type: 'bar',
-        data: {
-        labels: combination,
-        datasets: [{
-            label: 'Số người chọn tổ hợp',
-            data: countCombinaton2,
-            borderWidth: 1,
-            backgroundColor: [
-                '#00e272'
-                ],
-        }]
-        },
-        options: {
-            scales: {
-                y: {
-                beginAtZero: true
-                }
-                
-            },
-            responsive: true,
-            maintainAspectRatio: false
-        }
-    });
+    renderChart(chart1, 'Số người chọn tổ hợp', combination, countCombinaton1, ['#2caffe']);
+    renderChart(chart2, 'Số người chọn tổ hợp', combination, countCombinaton2, ['#00e272']);
 
     new Chart(chart3, {
         type: 'bar',
