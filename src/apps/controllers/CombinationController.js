@@ -29,6 +29,7 @@ class CombinationController {
     this.saveDoc = this.saveDoc.bind(this);
     this.unsaveDoc = this.unsaveDoc.bind(this);
     this.savedSubmitted = this.savedSubmitted.bind(this);
+    this.chart = this.chart.bind(this);
   }
 
   async submited(req, res, next) {
@@ -284,6 +285,86 @@ class CombinationController {
       submitedListData: JSON.stringify(allDocSubmittedSaved),
       role: req?.cookies?.role,
       isSavedPage: true
+    });
+  }
+
+  async chart(req, res, next) {
+    let combinations = await this.combinationDbRef.getAllItems();
+    //sort by name (asc)
+    combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+    let classesCapacitys = combinations.map((combination) => combination.classesCapacity);
+    combinations = combinations.map((combination) => combination.name);
+
+    function checkCombinationAndCount(name, arr) {
+      switch (name) {
+        case "1":
+          arr[0] = arr[0] + 1;
+          break;
+        case "2":
+          arr[1] = arr[1] + 1;
+          break;
+        case "3":
+          arr[2] = arr[2] + 1;
+          break;
+        case "4":
+          arr[3] = arr[3] + 1;
+          break;
+        case "5":
+          arr[4] = arr[4] + 1;
+          break;
+        case "6":
+          arr[5] = arr[5] + 1;
+          break;
+      }
+    }
+
+    const countCombinaton1 = [0, 0, 0, 0, 0, 0];
+    const countCombinaton2 = [0, 0, 0, 0, 0, 0];
+    let data = await this.registeredCombinationsDbRef.getAllItems();
+    data = data.forEach((submit) => {
+      const combinationNubber1 = submit.combination1.split(" ")[2];
+      const combinationNubber2 = submit.combination2.split(" ")[2];
+      checkCombinationAndCount(combinationNubber1, countCombinaton1);
+      checkCombinationAndCount(combinationNubber2, countCombinaton2);
+    });
+
+    const mostChooseOfCombination1 = {};
+    const mostChooseOfCombination2 = {};
+    var max1 = 0;
+    var max2 = 0;
+
+    for (var i = 0; i < 6; i++) {
+      if (max1 < countCombinaton1[i]) {
+        max1 = countCombinaton1[i];
+        mostChooseOfCombination1.count = max1;
+        mostChooseOfCombination1.combination = `Tổ hợp ${i + 1}`;
+      }
+
+      if (max2 < countCombinaton2[i]) {
+        max2 = countCombinaton2[i];
+        mostChooseOfCombination2.count = max2;
+        mostChooseOfCombination2.combination = `Tổ hợp ${i + 1}`;
+      }
+    }
+
+    const combinationsInfo = combinations.map((combinationName, index) => {
+      return {
+        name: combinationName,
+        countCombinaton1: countCombinaton1[index],
+        countCombinaton2: countCombinaton2[index]
+      };
+    });
+
+    classesCapacitys = classesCapacitys.map((max, i) => max - countCombinaton1[i]);
+
+    return res.render("combination/submited_chart", {
+      countCombinaton1: JSON.stringify(countCombinaton1),
+      countCombinaton2: JSON.stringify(countCombinaton2),
+      classesCapacitys: JSON.stringify(classesCapacitys),
+      mostChooseOfCombination1: mostChooseOfCombination1,
+      mostChooseOfCombination2: mostChooseOfCombination2,
+      combinations: JSON.stringify(combinations),
+      combinationsInfo: combinationsInfo
     });
   }
 }
