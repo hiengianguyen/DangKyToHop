@@ -1,6 +1,5 @@
 const { FirestoreModel, RegisteredCombinationModel, UserModel } = require("../models");
 const { CollectionNameConstant } = require("../../constants");
-const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
 const { generateJWT } = require("../../utils/generateJWT");
 const { exportExcelFile } = require("../../utils/exportFile");
 const http = require("https");

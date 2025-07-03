@@ -1,10 +1,12 @@
+const { UserConstant } = require("../../constants");
+
 class UserModel {
   constructor(id, fullName, password, phone, avatar, role, isDeleted) {
     this.id = id;
     this.fullName = fullName;
     this.password = password;
     this.phone = phone;
-    this.avatar = avatar || "https://res.cloudinary.com/dwoymvppw/image/upload/v1743848084/default_user_avatar_dckymx.avif";
+    this.avatar = avatar || UserConstant.DefaultAvatarUrl;
     this.role = role || "student";
     this.isDeleted = isDeleted || false;
   }
