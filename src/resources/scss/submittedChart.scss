@@ -1,0 +1,57 @@
+table,
+.chart-box-capacity .box,
+.box-chart,
+.most-combination {
+  margin: 5px;
+  padding: 10px;
+  box-shadow:
+    0 13px 5px 0 rgba(0, 0, 0, 0.01),
+    0 7px 4px 0 rgba(0, 0, 0, 0.02),
+    0 3px 3px 0 rgba(0, 0, 0, 0.05),
+    0 1px 2px 0 rgba(0, 0, 0, 0.1),
+    0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 7px;
+}
+
+canvas {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.box-chart {
+  height: 336px;
+  width: 100%;
+}
+
+.most-combination .offical {
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+.most-combination .des {
+  font-weight: 400;
+}
+
+.most-combination-box {
+  flex-direction: column;
+}
+
+.box-chart-info {
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-body > .content {
+  margin-top: 2pc;
+}
+
+.chart-box-capacity .box {
+  width: 50%;
+  height: 20pc;
+}
+
+.chart-box-capacity > .content {
+  padding: 0 2pc;
+  width: 50%;
+}

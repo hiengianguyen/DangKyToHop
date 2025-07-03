@@ -1,0 +1,234 @@
+<head>
+    <title>Đăng Ký Tổ Hợp | Hồ Sơ Chi Tiết</title>
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/combination.css">
+    <link rel="stylesheet" href="/css/submittedChart.css">
+</head>
+
+<div id="master">
+    <div class="school-info">
+        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+        <div class="banner-container">
+            <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+            <div class="school-info-detail fs-5">
+                <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="box-radius shadow">
+        <div class="card-body" style="display: none;">
+            <div class="d-flex title">
+                <h3 class="text-center m-0">
+                    Biểu đồ biểu thị số lượng học sinh chọn các tổ hợp
+                </h3>
+            </div>
+            <div class="content">
+                <div class="row box-chart-info">
+                    <div class="col col-md-3 mt-4 d-flex most-combination-box">
+                        <div class="card most-combination text-center">
+                            <h4> Nguyện vọng 1</h4>
+                            <p class="offical" style="color: #2caffe;">{{mostChooseOfCombination1.count}}</p>
+                            <p class="des">Học sinh chọn {{mostChooseOfCombination1.combination}}</p>
+                        </div>
+                        <div class="card most-combination text-center">
+                            <h4> Nguyện vọng 2</h4>
+                            <p class="offical" style="color: #00e272;">{{mostChooseOfCombination2.count}}</p>
+                            <p class="des">Học sinh chọn {{mostChooseOfCombination2.combination}}</p>
+                        </div>
+                    </div>
+                    <div class="row col col-md-9 p-0">
+                        <div class="col flex-column align-items-center">
+                            <p class="fw-bold m-0 text-center">Số học sinh chọn tổ hợp cho nguyện vọng 1</p>
+                            <div class="box-chart"> 
+                                <canvas id="chart1"></canvas>
+                            </div>
+                        </div>
+                        <div class="col flex-column align-items-center">
+                            <p class="fw-bold m-0 text-center">Số học sinh chọn tổ hợp cho nguyện vọng 2</p>
+                            <div class="box-chart me-0"> 
+                                <canvas id="chart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-box-capacity d-flex">
+                    <div class="content">
+                        <h4>Biểu đồ số lượng học sinh đăng ký so với chỉ tiêu</h4>
+                        <p>Biểu đồ thể hiện số học sinh đăng ký vào từng tổ hợp môn so với số 
+                            lượng chỉ tiêu tối đa được phân bổ cho mỗi tổ hợp. Thông tin giúp 
+                            đánh giá mức độ quan tâm và phân bố nguyện vọng của học sinh.</p>
+                    </div>
+                   <div class="box"> 
+                        <canvas id="chart3"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="d-flex justify-content-center text-center">
+            <p class="footer-text mb-0">
+                © 2025 Trường THPT Duy Tân, Tam Kỳ, Quảng Nam.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="loading-full" class="position-fixed" style="display: flex;">
+    <div class="d-flex align-items-center flex-column">
+        <h2 id="tittle-loading">Đang tải dữ liệu...</h2>
+        <div class="spinner-border mt-4" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+<script>
+    const sideBars = document.getElementById('sidebar');
+    const master = document.getElementById('master');
+    window.addEventListener('load', function () {
+        document.getElementById('loading-full').style.display = 'none';
+        document.querySelector('.card-body').style.display = 'block';
+        sideBars.style.height = master.parentElement.clientHeight;
+        master.style.height = master.parentElement.clientHeight;
+    });
+
+    const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
+    litSidebars.pop();
+    litSidebars.pop();
+
+    let pageForStudent = true;
+    if(litSidebars[litSidebars.length - 1].textContent === 'Hồ sơ đã nộp') {
+        pageForStudent = false;
+    }
+
+    litSidebars.forEach((li) => {
+        if(li.getAttribute('value') === 'Biểu đồ') {
+            li.parentElement.classList.add('active');
+        } else {
+            li.parentElement.classList.remove('active');
+        }
+        li.parentElement.onclick = () => {
+        li.parentElement.classList.add('active')
+        litSidebars.forEach((liCheckClassActive) => {
+            if(liCheckClassActive !== li) {
+            liCheckClassActive.parentElement.classList.remove('active');
+            }
+        })
+        }
+    })
+
+    const combination = {{{combinations}}};
+    const countCombinaton1 = {{{countCombinaton1}}};
+    const countCombinaton2 = {{{countCombinaton2}}};
+    const classesCapacitys = {{{classesCapacitys}}};
+
+    const chart1 = document.getElementById('chart1');
+    const chart2 = document.getElementById('chart2');
+    const chart3 = document.getElementById('chart3');
+
+    Chart.register(ChartDataLabels);
+
+    new Chart(chart1, {
+        type: 'bar',
+        data: {
+        labels: combination,
+        datasets: [{
+            label: 'Số người chọn tổ hợp',
+            data: countCombinaton1,
+            borderWidth: 1,
+            backgroundColor: [
+                '#2caffe',
+                ],
+        }]
+        },
+        options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+                
+            },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    new Chart(chart2, {
+        type: 'bar',
+        data: {
+        labels: combination,
+        datasets: [{
+            label: 'Số người chọn tổ hợp',
+            data: countCombinaton2,
+            borderWidth: 1,
+            backgroundColor: [
+                '#00e272'
+                ],
+        }]
+        },
+        options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+                
+            },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    new Chart(chart3, {
+        type: 'bar',
+        data: {
+        labels: combination,
+        datasets: [{
+            label: 'Đã chọn',
+            data: countCombinaton1,
+            backgroundColor: 'rgba(54, 162, 235, 0.8)',
+            stack: 'stack1',
+            datalabels: {
+                color: '#000',
+                anchor: 'end',
+                align: 'top',
+                font: {
+                    weight: 'bold'
+                },
+                formatter: function(value) {
+                    return value; // hiện số lượng đã chọn
+                }
+            }
+        },
+        {
+            label: 'Còn trống',
+            data: classesCapacitys,
+            backgroundColor: 'rgba(200, 200, 200, 0.3)', // Màu nhạt phần trống
+            stack: 'stack1',
+             datalabels: {
+                display: false // không hiển thị trên phần "còn trống"
+            }
+        }]
+        },
+        options: {
+            scales: {
+            x: {
+                stacked: true
+            },
+            y: {
+                stacked: true,
+                beginAtZero: true,
+            }
+            },
+            responsive: true,
+            maintainAspectRatio: false
+        },
+         plugins: [ChartDataLabels]
+    });
+</script>
