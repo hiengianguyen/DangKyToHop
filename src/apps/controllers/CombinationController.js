@@ -127,7 +127,7 @@ class CombinationController {
         }
       });
 
-      return res.render("combination/submited_list", {
+      return res.render("combination/submited-list", {
         submitedList: data,
         submitedListData: JSON.stringify(data),
         role: req?.cookies?.role,
@@ -146,7 +146,7 @@ class CombinationController {
         userId: userId
       });
 
-      return res.render("combination/submited_detail", {
+      return res.render("combination/submited-detail", {
         submitedCombinationDetail: data,
         role: req?.cookies?.role,
         userId: req?.cookies?.userId,
@@ -200,7 +200,7 @@ class CombinationController {
         combination.optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
       });
 
-      return res.render("combination/submit_combination", {
+      return res.render("combination/submit-combination", {
         combinations: combinations,
         nations: nations,
         user: user,
@@ -280,7 +280,7 @@ class CombinationController {
       allDocSubmittedSaved = [];
     }
 
-    return res.render("combination/submited_list", {
+    return res.render("combination/submited-list", {
       submitedList: allDocSubmittedSaved,
       submitedListData: JSON.stringify(allDocSubmittedSaved),
       role: req?.cookies?.role,
@@ -357,7 +357,7 @@ class CombinationController {
 
     classesCapacitys = classesCapacitys.map((max, i) => max - countCombinaton1[i]);
 
-    return res.render("combination/submited_chart", {
+    return res.render("combination/submited-chart", {
       countCombinaton1: JSON.stringify(countCombinaton1),
       countCombinaton2: JSON.stringify(countCombinaton2),
       classesCapacitys: JSON.stringify(classesCapacitys),
