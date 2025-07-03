@@ -295,8 +295,8 @@ class CombinationController {
     let classesCapacitys = combinations.map((combination) => combination.classesCapacity);
     combinations = combinations.map((combination) => combination.name);
 
-    function checkCombinationAndCount(name, arr) {
-      switch (name) {
+    function checkCombinationAndCount(combinationNumber, arr) {
+      switch (combinationNumber) {
         case "1":
           arr[0] = arr[0] + 1;
           break;
