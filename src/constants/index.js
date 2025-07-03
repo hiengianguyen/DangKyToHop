@@ -1,3 +1,4 @@
 const CollectionNameConstant = require("./collectionNameConstants");
+const UserConstant = require("./userConstants");
 
-module.exports = { CollectionNameConstant };
+module.exports = { CollectionNameConstant, UserConstant };
