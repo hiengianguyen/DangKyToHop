@@ -16,7 +16,7 @@ class SchoolController {
         name: "Trường THPT Duy Tân"
       });
 
-      return res.render("school/school_detail", {
+      return res.render("school/school-detail", {
         highSchool: highSchool,
         signin: req?.cookies?.isLogin,
         userId: req?.cookies?.userId,
