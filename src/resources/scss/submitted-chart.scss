@@ -45,6 +45,16 @@ canvas {
   margin-top: 2pc;
 }
 
+.chart-box-1,
+.chart-box-2 {
+  display: flex;
+}
+
+.chart-box-1.unshow,
+.chart-box-2.unshow {
+  display: none;
+}
+
 .chart-box-capacity .box {
   width: 50%;
   height: 20pc;
@@ -53,4 +63,44 @@ canvas {
 .chart-box-capacity > .content {
   padding: 0 2pc;
   width: 50%;
+}
+
+.tab-container {
+  width: 600px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.tabs {
+  display: flex;
+  padding: 0;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  background: #ffffff;
+  border: none;
+  color: #00aef1;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tab:last-child {
+  border-right: none;
+}
+
+.tab:hover {
+  background: #35bbed;
+  color: #fff;
+}
+
+.tab.active {
+  color: white;
+  background: #00aef1;
+  border-bottom: none;
 }

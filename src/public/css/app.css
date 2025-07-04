@@ -272,6 +272,9 @@ input {
   height: 20pc;
   display: flex; }
 
+#footer {
+  padding: 2pc; }
+
 @media (max-width: 955px) and (orientation: landscape) {
   #sidebar {
     padding: 10px;
