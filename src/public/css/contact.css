@@ -1,6 +1,3 @@
-#all-content {
-  height: max-content; }
-
 @media (max-width: 955px) and (orientation: landscape) {
   #header {
     display: none; }

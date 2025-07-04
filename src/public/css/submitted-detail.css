@@ -66,9 +66,6 @@ h4 {
 .place-birth.pic {
   display: flex; }
 
-#all-content {
-  height: max-content; }
-
 @media only screen and (min-width: 792px) and (max-width: 955px) and (orientation: landscape) {
   .box-radius {
     margin: 0;
