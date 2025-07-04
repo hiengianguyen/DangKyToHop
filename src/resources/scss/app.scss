@@ -64,8 +64,16 @@ input {
   position: relative;
 }
 
+#sidebar.active .home .d-flex {
+  justify-content: center;
+}
+
+#sidebar .home .d-flex {
+  height: 48px;
+}
+
 #sidebar .home img {
-  width: 50px;
+  width: 40px;
 }
 
 #sidebar .home .fa-solid {
@@ -87,11 +95,11 @@ input {
 .tittle-sidebar {
   display: flex;
   flex-direction: column;
-  opacity: 1;
+  margin-left: 8px;
 }
 
 #sidebar.active .home .tittle-sidebar {
-  opacity: 0;
+  display: none;
 }
 
 #sidebar a {
