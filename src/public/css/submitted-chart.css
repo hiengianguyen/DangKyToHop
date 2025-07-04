@@ -39,3 +39,6 @@ canvas {
 .chart-box-capacity > .content {
   padding: 0 2pc;
   width: 50%; }
+
+#all-content {
+  height: max-content; }

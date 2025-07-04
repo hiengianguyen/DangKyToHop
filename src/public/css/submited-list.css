@@ -125,6 +125,12 @@
 #radios-combination-2 {
   display: flex; }
 
+#all-content {
+  height: max-content; }
+
+.not-data img {
+  width: 20pc; }
+
 @media (max-width: 955px) and (orientation: landscape) {
   .dash-height {
     display: none; }
@@ -226,4 +232,10 @@
     width: 100%; }
   #radios-combination-1,
   #radios-combination-2 {
-    flex-direction: column; } }
+    flex-direction: column; }
+  .not-data img {
+    width: 12pc; }
+  .not-data h3 {
+    font-size: 20px; }
+  .not-data p {
+    text-align: center; } }

@@ -246,6 +246,14 @@
                                     <i title="Lưu hồ sơ này" value="{{this.id}}" class="fa-solid fa-bookmark save-doc-icon {{#if this.favourite}}saved{{/if}}"></i>
                                 </div>
                             </div>
+                            {{else}}
+                             <div class="container not-data">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749548858/no-data_bitdab.avif" alt="Không có dữ liệu">
+                                    <h3>Chưa có dữ liệu...</h3>
+                                    <p>Hiện tại vẫn chưa có bản nào được lưu!</p>
+                                </div>
+                            </div>
                         {{/each}}
                     </div>
                     <div class="col d-flex justify-content-center p-0">
@@ -376,7 +384,6 @@
         } else {
             body.querySelector('.d-flex').style.height = banner.clientHeight + cardBody.clientHeight;
         }
-        sideBar.parentElement.style.height = master.parentElement.clientHeight;
     });
 
     const isSavedPage = {{{isSavedPage}}};
