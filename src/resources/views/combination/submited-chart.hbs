@@ -27,7 +27,7 @@
         <div class="card-body" style="display: none;">
             <div class="d-flex title">
                 <h3 class="text-center m-0">
-                    Biểu đồ biểu thị số lượng học sinh chọn các tổ hợp
+                    Biểu đồ thống kê số lượng học sinh chọn các tổ hợp
                 </h3>
             </div>
             <div class="content">
@@ -65,7 +65,7 @@
                         <canvas id="chart3"></canvas>
                     </div>
                     <div class="content">
-                        <p>Biểu đồ thể hiện số học sinh đăng ký vào từng tổ hợp so với số 
+                        <p>Biểu đồ thống kê số học sinh đăng ký vào từng tổ hợp so với số 
                             lượng chỉ tiêu tối đa được phân bổ cho mỗi tổ hợp. Thông tin giúp 
                             đánh giá mức độ quan tâm và phân bố nguyện vọng của học sinh.</p>
                     </div>
@@ -106,13 +106,8 @@
     litSidebars.pop();
     litSidebars.pop();
 
-    let pageForStudent = true;
-    if(litSidebars[litSidebars.length - 1].textContent === 'Hồ sơ đã nộp') {
-        pageForStudent = false;
-    }
-
     litSidebars.forEach((li) => {
-        if(li.getAttribute('value') === 'Biểu đồ') {
+        if(li.getAttribute('value') === 'Thống kê') {
             li.parentElement.classList.add('active');
         } else {
             li.parentElement.classList.remove('active');
@@ -204,13 +199,10 @@
             
             switch(valueTab) {
                 case 'chart-box-1': 
-                    title.textContent = "Biểu đồ biểu thị số lượng học sinh chọn các tổ hợp";
+                    title.textContent = "Biểu đồ thống kê số lượng học sinh chọn các tổ hợp";
                 break
                 case 'chart-box-2':
-                    title.textContent = "Biểu đồ số lượng học sinh đăng ký so với chỉ tiêu";
-                break
-                case 'chart-box-3':
-                    title.textContent = "Biểu đồ biểu thị xu hướng học sinh chọn các tổ hợp";
+                    title.textContent = "Biểu đồ thống kê số lượng học sinh đăng ký so với chỉ tiêu";
                 break
             }
         }
