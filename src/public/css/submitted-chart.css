@@ -52,7 +52,7 @@ canvas {
   width: 600px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 18px;
   border-bottom-right-radius: 10px; }
 
 .tabs {
@@ -81,3 +81,6 @@ canvas {
   color: white;
   background: #00aef1;
   border-bottom: none; }
+
+.box-radius {
+  padding: 25px 0; }
