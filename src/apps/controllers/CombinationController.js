@@ -140,7 +140,6 @@ class CombinationController {
 
   async submitedDetail(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      const showToast = req?.query?.toastmessage === "true";
       const userId = req?.params?.userId ?? req?.cookies?.userId;
       const data = await this.registeredCombinationsDbRef.getItemByFilter({
         userId: userId
@@ -150,7 +149,7 @@ class CombinationController {
         submitedCombinationDetail: data,
         role: req?.cookies?.role,
         userId: req?.cookies?.userId,
-        showToast: showToast || false
+        showToast: req?.query?.toastmessage === "true"
       });
     } else {
       return res.redirect("/");

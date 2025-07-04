@@ -91,8 +91,10 @@
 
 <script type="module">
     import { uploadImageToCloudinary } from '/uploadImageToCloudinary.js';
+    import { fetchAsync } from '/fetchAsync.js';
     // Gắn uploadImageToCloudinary vào window để gọi được từ HTML
     window.uploadImageToCloudinary = uploadImageToCloudinary;
+    window.fetchAsync = fetchAsync;
 
     var sideBar = document.getElementById('sidebar');
     const master = document.getElementById('master');
@@ -152,7 +154,20 @@
             }
         }
 
-        formUpdate.submit();
+        const formData = new FormData(formUpdate);
+        const data = Object.fromEntries(formData.entries());
+        const result = await fetchAsync('/me/profile/update', 'POST', data, null, true);
+
+        if (result.type === "success") {
+            localStorage.setItem('textMessage', result.message);
+            localStorage.setItem('typeToast', result.type);
+            localStorage.setItem('toastIcon', result.icon);
+            const currentUrl = window.location.origin + `/me/profile?toastmessage=true`;
+            window.location.href = currentUrl;
+        }
+        else {
+            toastMessage("Thông báo", result.message, "error", 6000, "❌", 1000);
+        }
     }
 
     inputChooseFileImg.addEventListener("change", async(event) => {

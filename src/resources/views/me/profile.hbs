@@ -51,6 +51,14 @@
 </div>
 
 <script>
+    window.addEventListener('load', () => {
+        if({{{showToast}}}) {
+            const textMessage = localStorage.getItem('textMessage')
+            const typeToast = localStorage.getItem('typeToast')
+            const toastIcon = localStorage.getItem('toastIcon')
+            toastMessage("Thông báo", textMessage, typeToast, 6000, toastIcon, 1000);
+        }
+    })
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
     litSidebars.pop();
 

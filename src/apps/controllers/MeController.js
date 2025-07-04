@@ -17,7 +17,8 @@ class MeController {
         user: user,
         signin: req?.cookies?.isLogin,
         role: req?.cookies?.role,
-        userId: req?.cookies?.userId
+        userId: req?.cookies?.userId,
+        showToast: req?.query?.toastmessage === "true"
       });
     } else {
       return res.redirect("/");
@@ -59,9 +60,21 @@ class MeController {
         await res.cookie("avatar", avatar, { maxAge: 604800000, httpOnly: true });
       }
 
-      await this.userDbRef.updateItem(req?.cookies?.userId, formData);
-      await res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true });
-      return res.redirect("/me/profile");
+      try {
+        await this.userDbRef.updateItem(req?.cookies?.userId, formData);
+        await res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true });
+        return res.json({
+          message: "Cập nhật trang cá nhân thành công",
+          type: "success",
+          icon: "✅"
+        });
+      } catch {
+        return res.json({
+          message: "Lỗi khi cập nhật trang cá nhân",
+          type: "error",
+          icon: "❌"
+        });
+      }
     } else {
       return res.redirect("/");
     }
