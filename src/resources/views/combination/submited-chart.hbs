@@ -91,13 +91,9 @@
 <script src="/renderChart.js"></script>
 
 <script>
-    const sideBars = document.getElementById('sidebar');
-    const master = document.getElementById('master');
     window.addEventListener('load', function () {
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body').style.display = 'block';
-        sideBars.style.height = master.parentElement.clientHeight;
-        master.style.height = master.parentElement.clientHeight;
     });
 
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
