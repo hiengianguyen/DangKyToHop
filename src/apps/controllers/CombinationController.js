@@ -358,6 +358,8 @@ class CombinationController {
     classesCapacitys = classesCapacitys.map((max, i) => max - countCombinaton1[i]);
 
     return res.render("combination/submited-chart", {
+      role: req?.cookies?.role,
+      userId: req?.cookies?.userId,
       countCombinaton1: JSON.stringify(countCombinaton1),
       countCombinaton2: JSON.stringify(countCombinaton2),
       classesCapacitys: JSON.stringify(classesCapacitys),
