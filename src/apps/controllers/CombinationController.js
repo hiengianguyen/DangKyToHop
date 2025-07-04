@@ -159,9 +159,6 @@ class CombinationController {
 
   async submitCombination(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      if (req?.query?.role === undefined) {
-        return res.redirect(`/combination/submit-combination?role=${req?.cookies?.role}`);
-      }
       let docSubmited;
 
       if (req?.query?.step) {

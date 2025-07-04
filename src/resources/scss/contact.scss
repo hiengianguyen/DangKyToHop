@@ -1,5 +1,16 @@
 @import "breakpoints";
 
+.card .img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .img-box img {
+  width: 14pc;
+  height: 14pc;
+}
+
 @include mobile-all-landscape {
   #header {
     display: none;
