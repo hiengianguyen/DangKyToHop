@@ -1422,14 +1422,11 @@
                     const optionsSelect2 = Array.from(selectCombination2.querySelectorAll('option'));
                     optionsSelect2.shift();
 
-                    console.log(optionsSelect2)
-
                     optionsSelect2.forEach((option) => {
                         if(option.text === selectCombination1.value) {
                             selectCombination2.removeChild(option);
                         }
                     })
-                    console.log(optionsSelect2)
                 }   
 
                 selectCombination1.onchange = () => {

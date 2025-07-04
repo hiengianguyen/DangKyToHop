@@ -9,9 +9,6 @@ class SchoolController {
 
   async index(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      if (req?.query?.role === undefined) {
-        return res.redirect(`/school?role=${req?.cookies?.role}`);
-      }
       const highSchool = await this.highSchoolDbRef.getItemByFilter({
         name: "Trường THPT Duy Tân"
       });
@@ -20,7 +17,7 @@ class SchoolController {
         highSchool: highSchool,
         signin: req?.cookies?.isLogin,
         userId: req?.cookies?.userId,
-        role: req?.query?.role
+        role: req?.cookies?.role
       });
     } else {
       return res.redirect("/");
@@ -29,13 +26,10 @@ class SchoolController {
 
   async contact(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      if (req?.query?.role === undefined) {
-        return res.redirect(`/school/contact?role=${req?.cookies?.role}`);
-      }
       return res.render("school/contact", {
         signin: req?.cookies?.isLogin,
         userId: req?.cookies?.userId,
-        role: req?.query?.role
+        role: req?.cookies?.role
       });
     } else {
       return res.redirect("/");

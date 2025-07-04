@@ -12,9 +12,6 @@ class MeController {
 
   async index(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      if (req?.query?.role === "") {
-        return res.redirect(`/me/profile?role=${req?.cookies?.role}`);
-      }
       const user = await this.userDbRef.getItemById(req?.cookies?.userId);
       return res.render("me/profile", {
         user: user,
@@ -29,14 +26,10 @@ class MeController {
 
   async edit(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      if (req?.query?.role === "") {
-        return res.redirect(`/me/profile/edit?role=${req?.cookies?.role}`);
-      }
-      const role = req?.query?.role;
       const user = await this.userDbRef.getItemById(req?.cookies?.userId);
 
       return res.render("me/edit-profile", {
-        role: role,
+        role: req?.cookies?.role,
         user: user,
         signin: req?.cookies?.isLogin,
         userId: req?.cookies?.userId
@@ -48,7 +41,6 @@ class MeController {
 
   async update(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      const role = req?.query?.role;
       const { fullName, phone, avatar } = req?.body;
       let formData = {
         fullName: fullName,
@@ -69,7 +61,7 @@ class MeController {
 
       await this.userDbRef.updateItem(req?.cookies?.userId, formData);
       await res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true });
-      return res.redirect(`/me/profile?role=${role}`);
+      return res.redirect("/me/profile");
     } else {
       return res.redirect("/");
     }

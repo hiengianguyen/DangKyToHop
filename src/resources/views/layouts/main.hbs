@@ -55,12 +55,12 @@
           <div class="dash my-3"></div>
           <div class="menu-bar">
             <ul class="boxs d-flex align-items-start flex-column p-0">
-              <a href="/" title="Trang chủ" class="p-0">
+              {{!-- <a href="/" title="Trang chủ" class="p-0">
                 <li class="box mb-1" value="Trang chủ">
                     <i class="fa-solid fa-house"></i>
                     <p class="text m-0">Trang chủ</p>
                 </li>
-              </a>
+              </a> --}}
               {{#if (eq role 'student')}}
                 <a href="/combination/submit-combination" title="Đăng ký tổ hợp"  class="p-0">
                   <li class="box my-1" value="Đăng ký tổ hợp">
@@ -119,7 +119,7 @@
             <a 
               title="Trang cá nhân"
               class="nav-profile p-0"
-              href='/me/profile?role={{role}}'
+              href='/me/profile'
             >
               <li class="box avatar" value="profile">
               <img
@@ -183,7 +183,7 @@
       {{/if}}
         <a 
           title="Trang cá nhân"
-          href='/me/profile?role={{role}}'
+          href='/me/profile'
         >
           <div class="avatar d-flex" value="profile">
             <img

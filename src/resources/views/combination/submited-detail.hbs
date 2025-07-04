@@ -270,7 +270,7 @@
                     </div>
                         <div class="d-flex justify-content-center btn-feature gap-3 mt-4">
                             {{#if (eq role 'student')}}
-                                <a href="/combination/submit-combination?role={{role}}&step=2" class="btn btn-secondary d-flex justify-content-center align-items-center">Chỉnh sửa thông tin</a>
+                                <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center">Chỉnh sửa thông tin</a>
                                 <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center">Xoá hồ sơ này</button>
                                 <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center" target="_blank">Xuất file PDF</a>
                             {{else}}
@@ -283,7 +283,7 @@
                     <div class="d-flex justify-content-center align-items-center flex-column">
                         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749548858/no-data_bitdab.avif" alt="Không có dữ liệu" style="width: 20pc;">
                         <h3>Chưa có dữ liệu...</h3>
-                        <p>Có lẽ bạn chưa đăng ký tổ hợp, hãy click <a href="/combination/submit-combination?role={{role}}">vào đây để chuyển sang trang đăng ký</a></p>
+                        <p>Có lẽ bạn chưa đăng ký tổ hợp, hãy click <a href="/combination/submit-combination">vào đây để chuyển sang trang đăng ký</a></p>
                     </div>
                 </div>
             {{/if}}

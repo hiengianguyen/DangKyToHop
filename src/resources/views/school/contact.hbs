@@ -23,8 +23,8 @@
                 <div class="contact-teacher d-flex align-items-center flex-column my-4">
                     <div class="card mb-3 mt-4" style="width: 80%;">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://i.postimg.cc/L5kG3dPS/463262217-1078496457073499-406486418262894798-n.jpg" class="img-fluid rounded-start" alt="..." style="max-width: 58%;">
+                            <div class="img-box col-md-4">
+                                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743848084/default_user_avatar_dckymx.avif" class="img-fluid" style="max-width: 58%;">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -47,10 +47,13 @@
 
                     <div class="card mb-3 mt-4" style="width: 80%;">
                         <div class="row g-0">
+                            <div class="img-box col-md-4 d-flex justify-content-center">
+                                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743848084/default_user_avatar_dckymx.avif" class="img-fluid" style="max-width: 58%;">
+                            </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <div class="card-title d-flex">
-                                        <p class="mb-0 me-2">Cô</p>
+                                        <p class="mb-0 me-2">Thầy</p>
                                         <h5 class="card-title">Trần Văn B</h5>
                                     </div>
                                     <div class="d-flex mb-4">
@@ -63,16 +66,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 d-flex justify-content-end">
-                                <img src="https://i.postimg.cc/L5kG3dPS/463262217-1078496457073499-406486418262894798-n.jpg" class="img-fluid rounded-end" alt="..." style="max-width: 58%;">
-                            </div>
                         </div>
                     </div>
 
                     <div class="card mb-3 mt-4" style="width: 80%;">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://i.postimg.cc/L5kG3dPS/463262217-1078496457073499-406486418262894798-n.jpg" class="img-fluid rounded-start" alt="..." style="max-width: 58%;">
+                            <div class="img-box col-md-4">
+                                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743848084/default_user_avatar_dckymx.avif" class="img-fluid" style="max-width: 58%;">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -126,16 +126,17 @@
     litSidebars.forEach((li) => {
         if(li.getAttribute('value') === 'Liên hệ') {
             li.parentElement.classList.add('active');
-        } else {
+        } 
+        else {
             li.parentElement.classList.remove('active');
         }
         li.parentElement.onclick = () => {
-        li.parentElement.classList.add('active')
-        litSidebars.forEach((liCheckClassActive) => {
-            if(liCheckClassActive !== li) {
-            liCheckClassActive.parentElement.classList.remove('active');
-            }
-        })
+            li.parentElement.classList.add('active');
+            litSidebars.forEach((liCheckClassActive) => {
+                if(liCheckClassActive !== li) {
+                    liCheckClassActive.parentElement.classList.remove('active');
+                }
+            })
         }
     })
 </script>

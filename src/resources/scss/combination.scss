@@ -137,6 +137,11 @@
   animation: modalFadeIn 1s;
 }
 
+.show-combination .modal-containers {
+  background-color: #fff;
+  padding: 0;
+}
+
 @keyframes modalFadeIn {
   from {
     opacity: 0.6;
