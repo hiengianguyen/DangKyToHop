@@ -16,7 +16,15 @@
         </div>
     </div>
 
-    <div class="box-radius shadow">
+
+    <div class="box-radius pt-0 shadow">
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab active" value="chart-box-1">Chọn tổ hợp</button>
+                <button class="tab" value="chart-box-2">Chỉ tiêu</button>
+                <button class="tab" value="chart-box-3">Xu hướng</button>
+            </div>
+        </div>
         <div class="card-body" style="display: none;">
             <div class="d-flex title">
                 <h3 class="text-center m-0">
@@ -24,7 +32,7 @@
                 </h3>
             </div>
             <div class="content">
-                <div class="row box-chart-info">
+                <div class="row box-chart-info chart-box-1">
                     <div class="col col-md-3 mt-4 d-flex most-combination-box">
                         <div class="card most-combination text-center">
                             <h4> Nguyện vọng 1</h4>
@@ -53,15 +61,14 @@
                     </div>
                 </div>
 
-                <div class="chart-box-capacity d-flex">
+                <div class="chart-box-capacity chart-box-2 flex-column align-items-center unshow">
+                   <div class="box mb-3"> 
+                        <canvas id="chart3"></canvas>
+                    </div>
                     <div class="content">
-                        <h4>Biểu đồ số lượng học sinh đăng ký so với chỉ tiêu</h4>
-                        <p>Biểu đồ thể hiện số học sinh đăng ký vào từng tổ hợp môn so với số 
+                        <p>Biểu đồ thể hiện số học sinh đăng ký vào từng tổ hợp so với số 
                             lượng chỉ tiêu tối đa được phân bổ cho mỗi tổ hợp. Thông tin giúp 
                             đánh giá mức độ quan tâm và phân bố nguyện vọng của học sinh.</p>
-                    </div>
-                   <div class="box"> 
-                        <canvas id="chart3"></canvas>
                     </div>
                 </div>
             </div>
@@ -181,4 +188,32 @@
         },
          plugins: [ChartDataLabels]
     });
+
+    const tabs = document.querySelectorAll('button.tab');
+    const title = document.querySelector('.card-body .title h3');
+    Array.from(tabs).forEach((tab) => {
+        tab.onclick = () => {
+            const valuePrevTab = document.querySelector('.tab.active').getAttribute('value');
+            const valueTab = tab.getAttribute('value');
+            if(valuePrevTab === valueTab) {
+                return;
+            }
+            Array.from(tabs).forEach((tab) => tab.classList.remove('active'));
+            tab.classList.add('active');
+            document.querySelector(`.${valueTab}`).classList.remove('unshow');
+            document.querySelector(`.${valuePrevTab}`).classList.add('unshow');
+            
+            switch(valueTab) {
+                case 'chart-box-1': 
+                    title.textContent = "Biểu đồ biểu thị số lượng học sinh chọn các tổ hợp";
+                break
+                case 'chart-box-2':
+                    title.textContent = "Biểu đồ số lượng học sinh đăng ký so với chỉ tiêu";
+                break
+                case 'chart-box-3':
+                    title.textContent = "Biểu đồ biểu thị xu hướng học sinh chọn các tổ hợp";
+                break
+            }
+        }
+    })
 </script>

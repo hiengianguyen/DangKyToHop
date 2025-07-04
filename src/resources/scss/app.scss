@@ -332,6 +332,10 @@ input {
   display: flex;
 }
 
+#footer {
+  padding: 2pc;
+}
+
 @include mobile-all-landscape {
   #sidebar {
     padding: 10px;
