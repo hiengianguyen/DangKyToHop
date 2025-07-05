@@ -249,7 +249,9 @@ button.form:hover {
   .container-start .img-start img {
     height: 8pc; }
   .introduce-box {
-    flex-direction: column;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex !important;
     text-align: center; }
   .introduce-box h2 {
     font-size: 18px; }
@@ -339,7 +341,7 @@ button.form:hover {
     width: 10pc;
     height: 9pc; }
   .container-center .content-box {
-    padding: 2pc;
+    padding: 1pc;
     width: 13pc;
     margin: 0 13px; }
   .container-center h2 {

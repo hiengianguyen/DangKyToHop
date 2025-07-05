@@ -316,7 +316,9 @@ button.form:hover {
   }
 
   .introduce-box {
-    flex-direction: column;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex !important;
     text-align: center;
   }
 
@@ -472,7 +474,7 @@ button.form:hover {
   }
 
   .container-center .content-box {
-    padding: 2pc;
+    padding: 1pc;
     width: 13pc;
     margin: 0 13px;
   }
