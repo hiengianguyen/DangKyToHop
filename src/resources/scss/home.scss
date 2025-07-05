@@ -57,6 +57,18 @@
   margin-top: -70px;
 }
 
+.container-center .content-1 .content-box {
+  padding-right: 0;
+}
+
+.container-center .content-2 .content-box {
+  padding-left: 0;
+}
+
+.container-center .content-2 img.img-2-rep {
+  display: none;
+}
+
 .container-school {
   padding: 17px;
   background-color: #b0d7ff;
@@ -331,12 +343,12 @@ button.form:hover {
   }
 
   .container-center img {
-    width: 10pc;
+    width: 11pc;
     height: 9pc;
   }
 
   .container-center .content-box {
-    padding: 2pc;
+    padding: 2pc 1pc;
     width: 31pc;
     margin: 0 13px;
   }
@@ -456,7 +468,9 @@ button.form:hover {
   }
 
   .introduce-box {
-    flex-direction: column;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex !important;
     text-align: center;
   }
 
@@ -469,7 +483,7 @@ button.form:hover {
   }
 
   .container-center img {
-    width: 10pc;
+    width: 11pc;
     height: 9pc;
   }
 
@@ -494,6 +508,7 @@ button.form:hover {
 
   .container-center .content-2 {
     align-items: center;
+    margin-top: 1px;
   }
 
   .container-school > h4 {
@@ -589,5 +604,63 @@ button.form:hover {
 
   .modal-container {
     padding: 0 40px;
+  }
+}
+
+@include respond(phone-v-sm) {
+  .container-center .content-1,
+  .container-center .content-2 {
+    -webkit-flex-direction: column !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .container-center .content-2 img.img-2-rep {
+    display: block;
+  }
+
+  .container-center .content-2 img.img-2 {
+    display: none;
+  }
+
+  .container-center .content-1 {
+    align-items: center;
+  }
+
+  .container-center .content-1 img {
+    margin-top: 0;
+  }
+
+  .container-center .content-2 {
+    margin-top: 1px;
+  }
+
+  .container-center .content-1 .content-box,
+  .container-center .content-2 .content-box {
+    padding: 1pc !important;
+    padding-bottom: 0 !important;
+    width: 100%;
+  }
+
+  .container-end {
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex !important;
+  }
+
+  .container-end .content-box {
+    margin: 0;
+    margin-top: 1pc;
+    width: 100%;
+  }
+
+  .container-end .img-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-end .img-box img {
+    margin: 0;
+    margin-bottom: 1pc;
   }
 }
