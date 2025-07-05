@@ -22,7 +22,7 @@ canvas {
 
 .box-chart {
   height: 336px;
-  width: 100%;
+  width: auto;
 }
 
 .most-combination .offical {
@@ -36,6 +36,7 @@ canvas {
 
 .most-combination-box {
   flex-direction: column;
+  padding-right: 0;
 }
 
 .box-chart-info {
@@ -116,6 +117,11 @@ canvas {
   padding: 25px 0;
 }
 
+.box-chart-info .chart .align-items-center {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
 @include respond(phone-sm) {
   .card-body > .content {
     margin-top: 1pc;
@@ -132,12 +138,13 @@ canvas {
     font-size: 20px;
   }
 
-  .box-chart-info {
+  .box-chart-info:not(.unshow) {
     flex-direction: column !important;
     display: flex !important;
   }
 
   .box-chart-info .chart {
+    -webkit-flex-direction: column !important;
     flex-direction: column !important;
     display: flex !important;
   }
@@ -148,6 +155,7 @@ canvas {
 
   .most-combination-box {
     margin-bottom: 20px;
+    padding-right: 15px;
   }
 
   .box-chart {
