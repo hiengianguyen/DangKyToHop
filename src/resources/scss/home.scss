@@ -289,6 +289,12 @@ button.form:hover {
   }
 }
 
+@include respond(desktop) {
+  .container-start .img-start img {
+    height: 88%;
+  }
+}
+
 @include mobile-all-landscape {
   #header {
     display: block;
@@ -323,8 +329,12 @@ button.form:hover {
     width: 100%;
   }
 
+  .container-start .img-start {
+    height: 304px;
+  }
+
   .container-start .img-start img {
-    height: 8pc;
+    height: 100%;
   }
 
   .introduce-box {
@@ -437,12 +447,6 @@ button.form:hover {
   .box-login {
     overflow-y: scroll;
     height: 10pc;
-  }
-}
-
-@include respond(desktop) {
-  .container-start .img-start img {
-    height: 88%;
   }
 }
 

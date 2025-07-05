@@ -235,6 +235,10 @@ button.form:hover {
   to {
     backdrop-filter: blur(10px); } }
 
+@media (max-width: 1400px) {
+  .container-start .img-start img {
+    height: 88%; } }
+
 @media (max-width: 955px) and (orientation: landscape) {
   #header {
     display: block; }
@@ -255,8 +259,10 @@ button.form:hover {
   .container-start .content-box {
     padding: 20px;
     width: 100%; }
+  .container-start .img-start {
+    height: 304px; }
   .container-start .img-start img {
-    height: 8pc; }
+    height: 100%; }
   .introduce-box {
     -webkit-flex-direction: column !important;
     flex-direction: column !important;
@@ -321,10 +327,6 @@ button.form:hover {
   .box-login {
     overflow-y: scroll;
     height: 10pc; } }
-
-@media (max-width: 1400px) {
-  .container-start .img-start img {
-    height: 88%; } }
 
 @media (max-width: 440px) {
   .container-start {
