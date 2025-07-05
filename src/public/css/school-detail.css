@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .container-school {
   padding: 0;
   background-color: #fff; }
@@ -53,6 +54,23 @@
 
 .content-box {
   font-size: 20px; }
+
+@media only screen and (min-width: 955px) and (max-width: 1200px) {
+  .image-stack img:hover {
+    transform: scale(1.35); }
+  .img-box img {
+    width: 27pc; } }
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .image-stack img:hover {
+    transform: scale(1.35); }
+  .img-box img {
+    width: 30pc; }
+  #all-content {
+    width: 100%;
+    max-width: 100vw;
+    /* ngăn vượt màn hình */
+    overflow-x: hidden; } }
 
 @media (max-width: 955px) and (orientation: landscape) {
   #header {

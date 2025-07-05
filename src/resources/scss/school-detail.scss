@@ -70,6 +70,32 @@
   font-size: 20px;
 }
 
+@include table {
+  .image-stack img:hover {
+    transform: scale(1.35);
+  }
+
+  .img-box img {
+    width: 27pc;
+  }
+}
+
+@include laptop {
+  .image-stack img:hover {
+    transform: scale(1.35);
+  }
+
+  .img-box img {
+    width: 30pc;
+  }
+
+  #all-content {
+    width: 100%;
+    max-width: 100vw; /* ngăn vượt màn hình */
+    overflow-x: hidden;
+  }
+}
+
 @include mobile-all-landscape {
   #header {
     display: none;
