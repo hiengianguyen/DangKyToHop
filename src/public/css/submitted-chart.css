@@ -99,7 +99,6 @@ canvas {
     border-bottom-right-radius: 0; }
   .title h3 {
     font-size: 20px; }
-  .box-chart-info .chart,
   .box-chart-info {
     flex-direction: column; }
   .box-chart-info .chart .first {
@@ -111,6 +110,13 @@ canvas {
   .chart-box-capacity .content {
     padding: 1pc;
     width: 100%;
-    text-align: justify; }
+    text-align: justify;
+    font-size: 14px; }
   .chart-box-capacity .box {
-    width: 100%; } }
+    width: 100%; }
+  .box-chart-info .chart {
+    flex-direction: column; }
+  .most-combination h4 {
+    font-size: 18px; }
+  .most-combination .offical {
+    font-size: 30px; } }
