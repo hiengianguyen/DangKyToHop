@@ -30,6 +30,18 @@ $breakpoints: (
   }
 }
 
+@mixin laptop {
+  @media only screen and (min-width: 1200px) and (max-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin table {
+  @media only screen and (min-width: 955px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
 @mixin mobile-all-landscape {
   @media (max-width: 955px) and (orientation: landscape) {
     @content;
