@@ -115,10 +115,6 @@
 }
 
 @include respond(phone-sm) {
-  .box-radius {
-    margin: 0;
-  }
-
   .container-school > h4 {
     font-size: 18px;
   }

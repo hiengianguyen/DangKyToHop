@@ -37,11 +37,11 @@ img.profile-img-user {
   #master {
     padding: 1px; } }
 
-@media (max-width: 430px) {
+@media (max-width: 440px) {
+  #all-content {
+    background-color: #29a9ef; }
   .box-radius {
     margin: 0; }
-  #master {
-    padding: 45px 16px; }
   img.profile-img-user {
     width: 8pc; }
   .info.profile-dad-name {

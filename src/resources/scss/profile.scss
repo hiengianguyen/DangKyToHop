@@ -54,12 +54,11 @@ img.profile-img-user {
 }
 
 @include respond(phone-sm) {
+  #all-content {
+    background-color: #29a9ef;
+  }
   .box-radius {
     margin: 0;
-  }
-
-  #master {
-    padding: 45px 16px;
   }
 
   img.profile-img-user {

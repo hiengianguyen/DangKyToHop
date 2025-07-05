@@ -254,10 +254,6 @@ label.poin {
 }
 
 @include respond(phone-sm) {
-  .box-radius {
-    margin: 0;
-  }
-
   .box-radius.step {
     display: none;
   }

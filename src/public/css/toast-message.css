@@ -78,7 +78,7 @@
   to {
     opacity: 0; } }
 
-@media (max-width: 430px) {
+@media (max-width: 440px) {
   #toast {
     width: 324px !important;
     top: 60px; }

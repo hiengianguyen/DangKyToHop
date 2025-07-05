@@ -131,7 +131,9 @@ h4 {
   #poin-offical {
     padding: 0; } }
 
-@media (max-width: 430px) {
+@media (max-width: 440px) {
+  .box-radius {
+    padding: 0; }
   label {
     font-size: 15px;
     width: max-content;

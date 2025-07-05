@@ -1,3 +1,5 @@
+@import "breakpoints";
+
 .chart-box-capacity .box,
 .box-chart,
 .most-combination {
@@ -55,6 +57,11 @@ canvas {
   display: none;
 }
 
+.chart-box-capacity {
+  flex-direction: column;
+  align-items: center;
+}
+
 .chart-box-capacity .box {
   width: 50%;
   height: 20pc;
@@ -107,4 +114,48 @@ canvas {
 
 .box-radius {
   padding: 25px 0;
+}
+
+@include respond(phone-sm) {
+  .card-body > .content {
+    margin-top: 1pc;
+  }
+
+  .tab-container {
+    width: 100%;
+    font-size: 13px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 0;
+  }
+
+  .title h3 {
+    font-size: 20px;
+  }
+
+  .box-chart-info .chart,
+  .box-chart-info {
+    flex-direction: column;
+  }
+
+  .box-chart-info .chart .first {
+    margin-bottom: 13px;
+  }
+
+  .most-combination-box {
+    margin-bottom: 20px;
+  }
+
+  .box-chart {
+    height: 280px;
+  }
+
+  .chart-box-capacity .content {
+    padding: 1pc;
+    width: 100%;
+    text-align: justify;
+  }
+
+  .chart-box-capacity .box {
+    width: 100%;
+  }
 }
