@@ -100,7 +100,11 @@ canvas {
   .title h3 {
     font-size: 20px; }
   .box-chart-info {
-    flex-direction: column; }
+    flex-direction: column !important;
+    display: flex !important; }
+  .box-chart-info .chart {
+    flex-direction: column !important;
+    display: flex !important; }
   .box-chart-info .chart .first {
     margin-bottom: 13px; }
   .most-combination-box {
@@ -114,8 +118,6 @@ canvas {
     font-size: 14px; }
   .chart-box-capacity .box {
     width: 100%; }
-  .box-chart-info .chart {
-    flex-direction: column; }
   .most-combination h4 {
     font-size: 18px; }
   .most-combination .offical {

@@ -133,7 +133,13 @@ canvas {
   }
 
   .box-chart-info {
-    flex-direction: column;
+    flex-direction: column !important;
+    display: flex !important;
+  }
+
+  .box-chart-info .chart {
+    flex-direction: column !important;
+    display: flex !important;
   }
 
   .box-chart-info .chart .first {
@@ -157,10 +163,6 @@ canvas {
 
   .chart-box-capacity .box {
     width: 100%;
-  }
-
-  .box-chart-info .chart {
-    flex-direction: column;
   }
 
   .most-combination h4 {
