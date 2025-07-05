@@ -160,9 +160,7 @@ label.poin {
   .modal-container.choose-school {
     padding: 0 2pc; } }
 
-@media (max-width: 430px) {
-  .box-radius {
-    margin: 0; }
+@media (max-width: 440px) {
   .box-radius.step {
     display: none; }
   .box-radius h4 {

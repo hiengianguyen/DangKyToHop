@@ -315,7 +315,7 @@ button.form:hover {
   .container-start .img-start img {
     height: 88%; } }
 
-@media (max-width: 430px) {
+@media (max-width: 440px) {
   .container-start {
     height: auto;
     padding-top: 30px;
