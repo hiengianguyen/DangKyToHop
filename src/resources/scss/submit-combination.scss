@@ -15,62 +15,34 @@
   margin-right: 24px;
 }
 
+.avatar-info,
+.box-submit-2 .avatar .avatar-img,
 .box-submit-2 .avatar {
   align-items: start;
-}
-
-.box-submit-2 .avatar .avatar-img {
-  align-items: start;
-}
-
-.box-submit-2 .school-result {
-  align-items: center;
-}
-
-.table-avg-poin .subject {
-  padding: 0 15px;
 }
 
 .table-conduct .class {
   padding: 0 20px;
 }
 
-.table-conduct .type-graduate {
-  padding: 0 15px;
-}
-
 .table-combination {
   display: block;
 }
 
+.combination-1,
 #combination-box-resp {
   display: none;
 }
 
-.box-choose-combination {
-  align-items: center;
-}
-
+.box-submit-2 .school-result,
+.box-choose-combination,
 .box-choose-combination .box-select-2,
 .box-choose-combination .box-select-1 {
   align-items: center;
 }
 
-.avatar-info {
-  align-items: start;
-}
-
+.box-submit-4 .place-birth,
 .full-name {
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
-}
-
-.combination-1 {
-  display: none;
-}
-
-.box-submit-4 .place-birth {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
@@ -80,19 +52,19 @@ label.poin {
   margin-top: 24px;
 }
 
+.table-avg-poin .subject,
+.table-conduct .type-graduate,
 .table-avg-poin .subject {
   padding: 0 15px;
 }
 
-.table-conduct .class {
-  padding: 0 20px;
-}
-
-.table-conduct .type-graduate {
-  padding: 0 15px;
-}
-
 @include mobile-all-landscape {
+  .combination-1-rep,
+  .row.place-box,
+  .combination-1-rep,
+  .place-birth.pic,
+  .box-radius.step,
+  .table-combination,
   #header {
     display: none;
   }
@@ -105,10 +77,6 @@ label.poin {
     padding: 1px;
   }
 
-  .box-radius.step {
-    display: none;
-  }
-
   .box-submit-4 #btnSubmit,
   .box-submit-3 #btnNextStep,
   .box-submit-2 #btnNextStep,
@@ -118,14 +86,6 @@ label.poin {
 
   table.combination {
     width: max-content;
-  }
-
-  .table-combination {
-    display: none;
-  }
-
-  #combination-box-resp {
-    display: block;
   }
 
   .box-submit-2 .school-result {
@@ -168,11 +128,7 @@ label.poin {
   .full-name {
     flex-basis: auto;
   }
-
-  .combination-1-rep {
-    display: none;
-  }
-
+  #combination-box-resp,
   .combination-1 {
     display: block;
   }
@@ -219,20 +175,6 @@ label.poin {
   .offical-avatar {
     height: max-content;
   }
-
-  .combination-1-rep,
-  .place-birth.pic {
-    display: none;
-  }
-
-  .row.place-box {
-    display: none;
-  }
-
-  .combination-1 {
-    display: block;
-  }
-
   .place-box-rep {
     display: flex;
     flex-direction: column;
@@ -254,9 +196,6 @@ label.poin {
 }
 
 @include respond(phone-sm) {
-  .box-radius.step {
-    display: none;
-  }
   .box-radius h4 {
     font-size: 20px;
   }
@@ -291,16 +230,10 @@ label.poin {
     font-size: 20px;
   }
 
+  .avatar-info,
+  .box-submit-2 .avatar .avatar-img,
   .box-submit-2 .avatar {
     align-items: center;
-  }
-
-  .box-submit-2 .avatar .avatar-img {
-    align-items: center;
-  }
-
-  .box-submit-2 .row {
-    flex-direction: column;
   }
 
   .box-submit-2 .school-result {
@@ -327,15 +260,13 @@ label.poin {
     font-size: 16px;
   }
 
+  .box-submit-4 label,
   table.table-points,
   table.combination {
     width: max-content;
   }
 
-  .table-combination {
-    display: none;
-  }
-
+  .combination-1,
   #combination-box-resp {
     display: block;
   }
@@ -358,20 +289,15 @@ label.poin {
     margin-right: 0;
   }
 
-  .avatar-info {
-    align-items: center;
-  }
-
   .full-name {
     flex-basis: auto;
   }
 
+  .box-radius.step,
+  .table-combination,
+  .place-box-rep,
   .combination-1-rep {
     display: none;
-  }
-
-  .combination-1 {
-    display: block;
   }
 
   .col.combination-1,
@@ -382,10 +308,6 @@ label.poin {
   .box-submit-4 .place-birth {
     flex-basis: auto;
     padding: 0 15px;
-  }
-
-  .box-submit-4 .info-parent {
-    flex-direction: column;
   }
 
   .box-submit-4 .info-parent .detail {
@@ -405,24 +327,11 @@ label.poin {
     padding: 0 5px;
   }
 
-  table.table-points {
-    width: max-content;
-  }
-
+  .box-submit-2 .row,
+  .box-submit-4 .info-parent,
+  #form-submit-combination > .offical-info,
   #form-submit-combination > .row {
     flex-direction: column;
-  }
-
-  #form-submit-combination > .offical-info {
-    flex-direction: column;
-  }
-
-  .place-box-rep {
-    display: none;
-  }
-
-  .box-submit-4 label {
-    width: max-content;
   }
 
   .box-submit-4 label.point {

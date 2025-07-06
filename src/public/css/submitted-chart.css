@@ -104,10 +104,8 @@ canvas {
     border-bottom-right-radius: 0; }
   .title h3 {
     font-size: 20px; }
+  .box-chart-info .chart,
   .box-chart-info:not(.unshow) {
-    flex-direction: column !important;
-    display: flex !important; }
-  .box-chart-info .chart {
     -webkit-flex-direction: column !important;
     flex-direction: column !important;
     display: flex !important; }

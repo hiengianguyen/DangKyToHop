@@ -8,6 +8,7 @@
   height: 70pc;
 }
 
+.container-center .content-2 img.img-2-rep,
 .modal-body::-webkit-scrollbar {
   display: none;
 }
@@ -63,10 +64,6 @@
 
 .container-center .content-2 .content-box {
   padding-left: 0;
-}
-
-.container-center .content-2 img.img-2-rep {
-  display: none;
 }
 
 .container-school {
@@ -344,10 +341,6 @@ button.form:hover {
     text-align: center;
   }
 
-  .introduce-box h2 {
-    font-size: 18px;
-  }
-
   .introduce-box p {
     font-size: 15px;
   }
@@ -363,6 +356,8 @@ button.form:hover {
     margin: 0 13px;
   }
 
+  .introduce-box h2,
+  .container-school > h4,
   .container-center h2 {
     font-size: 18px;
   }
@@ -388,10 +383,6 @@ button.form:hover {
   .container-center img {
     height: 14pc;
     width: 17pc;
-  }
-
-  .container-school > h4 {
-    font-size: 18px;
   }
 
   .container-school .content-box {
@@ -612,6 +603,7 @@ button.form:hover {
 }
 
 @include respond(phone-v-sm) {
+  .container-end,
   .container-center .content-1,
   .container-center .content-2 {
     -webkit-flex-direction: column !important;
@@ -644,12 +636,6 @@ button.form:hover {
     padding: 1pc !important;
     padding-bottom: 0 !important;
     width: 100%;
-  }
-
-  .container-end {
-    -webkit-flex-direction: column !important;
-    flex-direction: column !important;
-    display: flex !important;
   }
 
   .container-end .content-box {

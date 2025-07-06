@@ -64,6 +64,7 @@ input {
   position: relative;
 }
 
+#sidebar.active a,
 #sidebar.active .home .d-flex {
   justify-content: center;
 }
@@ -116,10 +117,7 @@ input {
   margin-top: 10px;
 }
 
-#sidebar.active a {
-  justify-content: center;
-}
-
+#sidebar.active .end-box i,
 #sidebar.active a i {
   margin: 0;
 }
@@ -149,14 +147,6 @@ input {
   background-color: #ff1c60;
   color: #fff;
   text-decoration: none;
-}
-
-#sidebar .end-box {
-  width: 100%;
-}
-
-#sidebar.active .end-box i {
-  margin: 0;
 }
 
 #sidebar .end-box img {
@@ -312,6 +302,7 @@ input {
   background-color: #d4d0d1;
 }
 
+#sidebar .end-box,
 #all-content .big-content {
   width: 100%;
 }
@@ -372,6 +363,7 @@ input {
 }
 
 @include respond(phone-sm) {
+  .school-info,
   #sidebar {
     display: none;
   }
@@ -393,11 +385,8 @@ input {
     margin-left: 10px;
   }
 
+  #nav-bar.active,
   #all-content {
-    display: block;
-  }
-
-  #nav-bar.active {
     display: block;
   }
 
@@ -420,10 +409,6 @@ input {
   #loading #tittle-loading,
   #loading-full #tittle-loading {
     font-size: 25px;
-  }
-
-  .school-info {
-    display: none;
   }
 
   .footer-text {

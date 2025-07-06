@@ -44,11 +44,8 @@ img.profile-img-user {
 }
 
 @include laptop {
+  #master,
   #all-content {
-    height: auto !important;
-  }
-
-  #master {
     height: auto !important;
   }
 }
@@ -67,6 +64,7 @@ img.profile-img-user {
   #all-content {
     background-color: #29a9ef;
   }
+  .info.profile-dad-name,
   .box-radius {
     margin: 0;
   }
@@ -74,11 +72,6 @@ img.profile-img-user {
   img.profile-img-user {
     width: 8pc;
   }
-
-  .info.profile-dad-name {
-    margin: 0;
-  }
-
   .card-body-profile {
     width: auto;
   }

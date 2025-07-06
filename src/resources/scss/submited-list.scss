@@ -124,6 +124,7 @@
   max-width: 89% !important;
 }
 
+#container-submitted .card .img-box,
 .radios-fil {
   align-items: start;
 }
@@ -140,20 +141,13 @@
   margin-left: 20px;
 }
 
-#container-submitted .card .img-box {
-  align-items: start;
-}
-
-.row > .col-md-8 .nation {
-  display: flex;
-}
-
 .radios-fil .card.border-light {
   width: max-content;
 }
 
 #radios-combination-1,
-#radios-combination-2 {
+#radios-combination-2,
+.row > .col-md-8 .nation {
   display: flex;
 }
 
