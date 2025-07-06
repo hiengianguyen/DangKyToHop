@@ -30,6 +30,8 @@ class CombinationController {
     this.unsaveDoc = this.unsaveDoc.bind(this);
     this.savedSubmitted = this.savedSubmitted.bind(this);
     this.chart = this.chart.bind(this);
+    this.table = this.table.bind(this);
+    this.updateCombination = this.updateCombination.bind(this);
   }
 
   async submited(req, res, next) {
@@ -364,6 +366,47 @@ class CombinationController {
       combinations: JSON.stringify(combinations),
       combinationsInfo: combinationsInfo
     });
+  }
+
+  async table(req, res, next) {
+    const subjects = await this.subjectDbRef.getAllItems();
+    subjects.map((subject) => {
+      return subject.docs;
+    });
+    const combinations = await this.combinationDbRef.getAllItems();
+    //sort by name (asc)
+    combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+
+    combinations.forEach((combination) => {
+      const compulsorySubjects = combination.compulsorySubjects;
+      const optionalSubjects = combination.optionalSubjects;
+
+      combination.compulsorySubjects = subjects.filter((subject) => compulsorySubjects.includes(subject.name));
+      combination.optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
+    });
+    return res.render("combination/combination-table", {
+      combinations: combinations
+    });
+  }
+
+  async updateCombination(req, res, next) {
+    const combinationId = req?.params?.id;
+    const data = req?.body;
+
+    data.classesCapacity = data.classesCount * 40;
+
+    const ok = await this.combinationDbRef.updateItem(combinationId, data);
+    if (ok) {
+      return res.json({
+        message: "Cập nhật thông tin tổ hợp thành công",
+        type: "success"
+      });
+    } else {
+      return res.json({
+        message: "Cập nhật thông tin tổ hợp không thành công",
+        type: "error"
+      });
+    }
   }
 }
 
