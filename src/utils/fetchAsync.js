@@ -11,7 +11,6 @@ export async function fetchAsync(url, method, body, headers, isParseJson = false
     }
     case "POST": {
       try {
-        console.log(url, method, headers, body, isParseJson);
         const response = await fetch(url, {
           method: method,
           headers: headers
