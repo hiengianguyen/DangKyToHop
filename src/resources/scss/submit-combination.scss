@@ -412,4 +412,20 @@ label.poin {
   #form-submit-combination > .row {
     flex-direction: column;
   }
+
+  #form-submit-combination > .offical-info {
+    flex-direction: column;
+  }
+
+  .place-box-rep {
+    display: none;
+  }
+
+  .box-submit-4 label {
+    width: max-content;
+  }
+
+  .box-submit-4 label.point {
+    width: 100%;
+  }
 }
