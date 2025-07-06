@@ -736,7 +736,7 @@
                             </div>
                             <div class="d-flex">
                                 <label for="inputGroupSelect01" class="me-4">Số điện thoại mẹ:</label>
-                                <b class="get-data" name="phoneOfMon" style="text-transform: capitalize;">{{submitedDetail.phoneOfMom}}</b>
+                                <b class="get-data" name="phoneOfMom" style="text-transform: capitalize;">{{submitedDetail.phoneOfMom}}</b>
                                 <input value="{{submitedDetail.phoneOfMom}}" type="text" class="input-get-data" name="phoneOfMom" style="display:none;">
                             </div>
                         </div>
@@ -1143,32 +1143,31 @@
             case 2:
                 const inputPage2HaveAttNames = document.querySelectorAll('div.box-submit-2 input[name]');
                 const selectPage2HaveAttNames = document.querySelectorAll('div.box-submit-2 select[name]');
-                const inputPage4HaveAttNames = document.querySelectorAll('div.box-submit-4 b.get-data');
-                const selectPage4HaveAttNames = document.querySelectorAll('div.box-submit-4 b.get-data-select');
-                const inputAddDatasPage4 = document.querySelectorAll('div.box-submit-4 input.input-get-data');
-                const selectAddDatasPage4 = document.querySelectorAll('div.box-submit-4 input.input-get-data-select');
 
                 const allTagPage2HaveAttName = [...inputPage2HaveAttNames, ...selectPage2HaveAttNames];
-                const allTagPage4HaveAttName = [...inputPage4HaveAttNames, ...selectPage4HaveAttNames];
-                const allTagAddDatasPage4 = [...inputAddDatasPage4, ...selectAddDatasPage4];
-
                 const allTagForCheck = allTagPage2HaveAttName;
 
-
                 allTagPage2HaveAttName.shift();
-                allTagPage2HaveAttName.sort((a, b) => (a.name > b.name ? 1 : -1));
-                allTagAddDatasPage4.sort((a, b) => (a.name > b.name ? 1 : -1));
-                allTagPage4HaveAttName.sort((a, b) => (a.getAttribute('name') > b.getAttribute('name') ? 1 : -1));
 
-                allTagPage2HaveAttName.forEach((tag, index) => {
+                allTagPage2HaveAttName.forEach((tag) => {
                     tag.onchange = () => {
-                        allTagPage4HaveAttName[index].textContent = allTagAddDatasPage4[index].value = tag.value;
+                        const value = tag.value;
+                        const inpName = tag.name;
+                        const tagBaddData = document.querySelectorAll(`div.box-submit-4 b[name='${inpName}']`);
+                        const tagInputaddData = document.querySelectorAll(`div.box-submit-4 input[name='${inpName}']`);
+                        if(tagBaddData.length > 1) {
+                            Array.from(tagBaddData).forEach((b) => b.innerHTML = value);
+                            Array.from(tagInputaddData).forEach((input) => input.value = value);
+                        } else {
+                            Array.from(tagBaddData)[0].innerHTML = value;
+                            Array.from(tagInputaddData)[0].value = value;
+                        }
                     }
                 })
 
                 function checkAllInputHadValue(inputs) {
                     let ok = true;
-                    inputs.forEach((tag) => {
+                    inputs.forEach((tag, index) => {
                         if(tag.value === '') {
                             ok = false;
                             return;
