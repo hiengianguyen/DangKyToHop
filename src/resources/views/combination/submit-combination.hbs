@@ -67,7 +67,7 @@
                         <div class="content-box">
                             <p class="fw-bolder mb-2">Đối tượng đăng ký</p>
                             <ul>
-                                <li>Học sinh lớp 9 chuẩn bị lên lớp 10 tại <b>TP. Tam Kỳ, tỉnh Quảng Nam</b>.</li>
+                                <li>Học sinh lớp 9 lên lớp 10 tại các xã/phường như: <b>Phường Quảng Phú, phường Tam Kỳ, phường Hương Trà, phường Bàn Thạch, xã Tam Xuân, ...</b>.</li>
                                 <li>Học sinh đang học tại các trường THCS công lập, ngoài công lập hoặc tương đương.</li>
                             </ul>
                         </div>
@@ -886,7 +886,7 @@
     <div id="footer">
         <div class="d-flex justify-content-center text-center">
             <p class="footer-text mb-0">
-                © 2025 Trường THPT Duy Tân, Tam Kỳ, Quảng Nam.
+                © 2025 Trường THPT Duy Tân, Phường Quảng Phú, TP. Đà Nẵng.
             </p>
         </div>
     </div>
@@ -920,18 +920,18 @@
       <div class="modal-body">
         <div class="container">
             <div class="form-group">
-                <label for="inputName"><b>Địa bàn trên tỉnh Quảng Nam:</b></label>
+                <label for="inputName"><b>Bạn ở xã/phường nào?</b></label>
                 <select class="form-select form-select-district" name="schoolDistrict" aria-label="Default select example">
-                    <option selected value="">-- Bạn ở đâu trên địa bàn tỉnh Quảng Nam --</option>
+                    <option selected value="">-- Chọn xã/phường --</option>
                     {{#each districts}}
                         <option value="{{this.districtName}}">{{this.districtName}}</option>
                     {{/each}}
                 </select>
             </div>
             <div class="form-group">
-                <label for="inputName"><b>Trường học cấp 2:</b></label>
+                <label for="inputName"><b>Trường cấp 2 của bạn là gì?</b></label>
                 <select class="form-select form-select-school" name="secondarySchoolName" aria-label="Default select example" disabled>
-                    <option selected value="">-- Trường học cấp 2 của bạn là --</option>
+                    <option selected value="">-- Chọn trường --</option>
                 </select>
             </div>
         </div>
@@ -1214,7 +1214,7 @@
                             return doc.districtName === districtName;
                         })[0];
                         if(result) {
-                            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
+                            selectSchool.innerHTML = "<option selected value=''>-- Chọn trường --</option>";
                             const secondarySchools = result.schools;
                             secondarySchools.forEach((school) => {
                                 const option = document.createElement('option');
@@ -1223,7 +1223,7 @@
                                 selectSchool.appendChild(option);
                             })
                         } else {
-                            selectSchool.innerHTML = "<option selected value=''>-- Trường học cấp 2 của bạn là --</option>";
+                            selectSchool.innerHTML = "<option selected value=''>-- Chọn trường --</option>";
                             selectSchool.disabled = true;
                         }   
                     }
