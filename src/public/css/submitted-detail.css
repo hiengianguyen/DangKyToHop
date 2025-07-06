@@ -88,17 +88,16 @@ h4 {
     height: max-content; } }
 
 @media only screen and (max-width: 792px) and (orientation: landscape) {
-  #header {
+  #header,
+  .row.place-box,
+  .combination-1-rep,
+  .place-birth.pic {
     display: none; }
+  table.table-points,
   label {
     width: max-content; }
   .offical-avatar {
     height: max-content; }
-  .combination-1-rep,
-  .place-birth.pic {
-    display: none; }
-  .row.place-box {
-    display: none; }
   .combination-1 {
     display: block; }
   .place-box-rep {
@@ -119,8 +118,6 @@ h4 {
     padding: 0 5px; }
   tr {
     font-size: 10px; }
-  table.table-points {
-    width: max-content; }
   .table-conduct td,
   .table-avg-poin td {
     padding: 0.375rem 0.75rem 0.375rem 0.75rem; }
@@ -132,6 +129,7 @@ h4 {
     padding: 0; } }
 
 @media (max-width: 440px) {
+  label.table,
   .box-radius {
     padding: 0; }
   label {
@@ -159,8 +157,6 @@ h4 {
   .offical-info .current-place {
     flex-basis: auto;
     padding: 0 15px; }
-  .offical-info .current-place b {
-    width: max-content; }
   b {
     font-size: 16px;
     margin-bottom: 6px;
@@ -177,6 +173,8 @@ h4 {
   #info-parent .detail {
     flex-direction: column;
     text-align: center; }
+  .offical-info .current-place b,
+  table.table-points,
   #info-parent .detail b {
     width: max-content; }
   #poin-offical {
@@ -186,8 +184,6 @@ h4 {
     margin-bottom: 5px; }
   .poin-box .poin {
     font-size: 12px; }
-  label.table {
-    padding: 0; }
   .table-conduct,
   .table-avg-poin {
     overflow-x: scroll; }
@@ -195,8 +191,6 @@ h4 {
     padding: 0 5px; }
   tr {
     font-size: 10px; }
-  table.table-points {
-    width: max-content; }
   .combination-1-rep {
     display: none; }
   .combination-1 {

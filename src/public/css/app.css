@@ -51,6 +51,7 @@ input {
 #sidebar .home {
   position: relative; }
 
+#sidebar.active a,
 #sidebar.active .home .d-flex {
   justify-content: center; }
 
@@ -95,9 +96,7 @@ input {
   list-style: none;
   margin-top: 10px; }
 
-#sidebar.active a {
-  justify-content: center; }
-
+#sidebar.active .end-box i,
 #sidebar.active a i {
   margin: 0; }
 
@@ -122,12 +121,6 @@ input {
   background-color: #ff1c60;
   color: #fff;
   text-decoration: none; }
-
-#sidebar .end-box {
-  width: 100%; }
-
-#sidebar.active .end-box i {
-  margin: 0; }
 
 #sidebar .end-box img {
   margin-right: 8px; }
@@ -255,6 +248,7 @@ input {
 #nav-bar a:hover {
   background-color: #d4d0d1; }
 
+#sidebar .end-box,
 #all-content .big-content {
   width: 100%; }
 
@@ -299,6 +293,7 @@ input {
     font-size: 22px; } }
 
 @media (max-width: 440px) {
+  .school-info,
   #sidebar {
     display: none; }
   .tittle-sidebar {
@@ -310,9 +305,8 @@ input {
   #header .nav-img img {
     height: 35px;
     margin-left: 10px; }
+  #nav-bar.active,
   #all-content {
-    display: block; }
-  #nav-bar.active {
     display: block; }
   #all-content .big-content {
     margin-top: 50px; }
@@ -327,8 +321,6 @@ input {
   #loading #tittle-loading,
   #loading-full #tittle-loading {
     font-size: 25px; }
-  .school-info {
-    display: none; }
   .footer-text {
     margin-top: 10px;
     font-size: 12px; } }

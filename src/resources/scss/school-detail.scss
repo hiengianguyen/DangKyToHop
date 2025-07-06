@@ -9,6 +9,7 @@
   font-size: 24px;
 }
 
+.content-box,
 .content-box.des p {
   font-size: 20px;
 }
@@ -64,10 +65,6 @@
 .container-school .container-body .content-box {
   width: 40pc;
   margin-right: 24px;
-}
-
-.content-box {
-  font-size: 20px;
 }
 
 @include table {
@@ -177,11 +174,8 @@
     transform: scale(1.25);
   }
 
+  .img-box img,
   .container-school .content-box {
-    width: 100%;
-  }
-
-  .img-box img {
     width: 100%;
   }
 

@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center; }
 
+.contact-of-parent,
 .table-points {
   width: 100%; }
 
@@ -45,9 +46,6 @@
 .box-choose-combination .box-select-1 {
   margin-right: 10px; }
 
-.contact-of-parent {
-  width: 100%; }
-
 .glass-overlay.active {
   position: fixed;
   top: 0;
@@ -83,9 +81,6 @@
   background-color: transparent;
   cursor: pointer; }
 
-.modal-contents {
-  background-color: #fff; }
-
 .modal {
   justify-content: center;
   align-items: center; }
@@ -111,6 +106,7 @@
 .show-combination {
   animation: modalFadeIn 1s; }
 
+.modal-contents,
 .show-combination .modal-containers {
   background-color: #fff;
   padding: 0; }
@@ -124,9 +120,8 @@
     transform: translateY(0px); } }
 
 @media (max-width: 440px) {
+  .modal-containers,
   .modal-container.choose-school {
-    padding: 0 30px; }
-  .modal-containers {
     padding: 0 30px; }
   .modal-bodyy.combination {
     padding: 2pc; }

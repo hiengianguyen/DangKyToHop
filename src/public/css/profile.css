@@ -32,9 +32,8 @@ img.profile-img-user {
   justify-content: end; }
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  #master,
   #all-content {
-    height: auto !important; }
-  #master {
     height: auto !important; } }
 
 @media (max-width: 955px) and (orientation: landscape) {
@@ -46,12 +45,11 @@ img.profile-img-user {
 @media (max-width: 440px) {
   #all-content {
     background-color: #29a9ef; }
+  .info.profile-dad-name,
   .box-radius {
     margin: 0; }
   img.profile-img-user {
     width: 8pc; }
-  .info.profile-dad-name {
-    margin: 0; }
   .card-body-profile {
     width: auto; }
   .btn-edit {
