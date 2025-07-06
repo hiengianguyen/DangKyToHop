@@ -171,7 +171,10 @@ class CombinationController {
       const step = Number(req?.query?.step) || 1;
       const user = await this.userDbRef.getItemById(req?.cookies?.userId);
 
-      const secondarySchools = await this.secondarySchoolDbRef.getAllItems();
+      const secondarySchools = await this.secondarySchoolDbRef.getAllItems({
+        fieldName: "order",
+        type: "asc"
+      });
       const districts = secondarySchools.map((doc) => {
         return {
           districtId: doc.districtId,
