@@ -12,6 +12,7 @@ class FirestoreModel {
       let snapshot = this.collectionRef.where("isDeleted", "==", false);
 
       if (orderBy) {
+        // orderBy.type: "asc" | "desc"
         snapshot = snapshot.orderBy(orderBy.fieldName, orderBy.type);
       }
 
@@ -76,6 +77,7 @@ class FirestoreModel {
       }
 
       if (orderBy) {
+        // orderBy.type: "asc" | "desc"
         snapshot = snapshot.orderBy(orderBy.fieldName, orderBy.type);
       }
 
