@@ -1,0 +1,259 @@
+<head>
+    <title>Đăng Ký Tổ Hợp | Tổ hợp</title>
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/combination.css">
+    <link rel="stylesheet" href="/css/combination-table.css">
+    <link rel="stylesheet" href="/css/submitted-detail.css">
+</head>
+
+<div id="master">
+    <div class="school-info">
+        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+        <div class="banner-container">
+            <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+            <div class="school-info-detail fs-5">
+                <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="box-radius shadow">
+        <div class="card-body pic" style="display: none;">
+            <h3 class="mb-4">
+                Chỉnh sửa tổ hợp
+            </h3>
+            <div class="table-combination">
+                <table class="table table-bordered combination">
+                    <thead>
+                        <tr>
+                        <th scope="col">Tổ hợp</th>
+                        <th scope="col" colspan="4">Môn lựa chọn (04 môn)</th>
+                        <th scope="col" colspan="3">Cụm chuyên đề (03 môn)</th>
+                        <th scope="col">Số lớp</th>
+                        <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each combinations}}
+                            <tr>
+                                <td scope="row">{{this.name}}</td>
+                                {{#each optionalSubjects}}
+                                    <td>{{this.name}}</td>
+                                {{/each}}
+                                {{#each compulsorySubjects}}
+                                    <td>{{this.name}}</td>
+                                {{/each}}
+                                <td>{{this.classesCount}}</td>
+                                <td>
+                                    <div id-modal="{{this.id}}" class="btn-show-modal btn btn-Secondary"><p class="m-0 text-white">Chỉnh sửa tổ hợp</p></div>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="combination-box-resp">
+                {{#each combinations}}
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            {{this.name}}
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">Môn lựa chọn (04 môn)</h6>
+                            <ul>
+                                {{#each optionalSubjects}}
+                                    <li>{{this.name}}</li>
+                                {{/each}}
+                            </ul>
+                            <h6 class="card-title">Cụm chuyên đề (03 môn)</h6>
+                            <ul>
+                                {{#each compulsorySubjects}}
+                                    <li>{{this.name}}</li>
+                                {{/each}}
+                            </ul>
+                            <h6 class="card-title">Số lớp: {{this.classesCount}}</h6>
+                            <div id-modal="{{this.id}}" class="btn-show-modal btn btn-Secondary"><p class="m-0 text-white">Chỉnh sửa tổ hợp</p></div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end p-4">
+            <p>Vui lòng <a href="" id="reload-page">tải lại trang <i class="fa-solid fa-arrow-rotate-left"></i></a> nếu vẫn chưa thấy dữ liệu được cập nhật</p>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="d-flex justify-content-center text-center">
+            <p class="footer-text mb-0">
+                © 2025 Trường THPT Duy Tân, Tam Kỳ, Quảng Nam.
+            </p>
+        </div>
+    </div>
+</div>
+
+{{#each combinations}}
+<div id="{{this.id}}" class="modal show-combination" style="display: none;">
+    <div class="modal-containers container mx-auto">
+        <form action="/combination/update/{{this.id}}" method="post">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Chỉnh sửa thông tin tổ hợp</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-bodyy combination pb-0">
+                <h4 class="mb-3">{{this.name}}</h4>
+                <h6 class="card-title">Môn lựa chọn (04 môn)</h6>
+                <ol>
+                    {{#each optionalSubjects}}
+                        <li><input type="text" value="{{this.name}}" name="optionalSubjects"></li>
+                    {{/each}}
+                </ol>
+                <h6 class="card-title">Cụm chuyên đề (03 môn)</h6>
+                <ol>
+                    {{#each compulsorySubjects}}
+                        <li><input type="text" value="{{this.name}}" name="compulsorySubjects"></li>
+                    {{/each}}
+                </ol>
+                <div class="d-flex align-items-center">
+                    <h6 class="card-title class-count">Số lớp: </h6>
+                    <input type="number" value="{{this.classesCount}}" step="1" min="1" name="classesCount">
+                </div>
+            </div>  
+            <div class="d-flex justify-content-end p-4 pt-0">
+                <button type="button" class="btn btn-Secondary btn-update-combination">Cập nhật</button>
+            </div>
+        </form>
+        <div id="loading" class="position-fixed" style="display: none;">
+            <div class="d-flex align-items-center flex-column">
+                <h2 style="font-family: 'Lexend', sans-serif;">Đang cập nhật dữ liệu...</h2>
+                <div class="spinner-border mt-4" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+{{/each}}
+
+<div class="glass-overlay"></div>
+
+<div id="loading-full" class="position-fixed" style="display: flex;">
+    <div class="d-flex align-items-center flex-column">
+        <h2 style="font-family: 'Lexend', sans-serif;">Đang tải dữ liệu...</h2>
+        <div class="spinner-border mt-4" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import { fetchAsync } from '/fetchAsync.js';
+    // Gắn fetchAsync vào window để gọi được từ HTML
+    window.fetchAsync = fetchAsync;
+
+    window.addEventListener('load', function () {
+        document.getElementById('loading-full').style.display = 'none';
+        document.querySelector('.card-body').style.display = 'block';
+    });
+
+    const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
+    litSidebars.pop();
+    litSidebars.pop();
+
+    let pageForStudent = true;
+    if(litSidebars[litSidebars.length - 1].textContent === 'Tổ hợp') {
+        pageForStudent = false;
+    }
+
+    litSidebars.forEach((li) => {
+        if(li.getAttribute('value') === 'Tổ hợp') {
+            li.parentElement.classList.add('active');
+        } else {
+            li.parentElement.classList.remove('active');
+        }
+        li.parentElement.onclick = () => {
+        li.parentElement.classList.add('active')
+        litSidebars.forEach((liCheckClassActive) => {
+            if(liCheckClassActive !== li) {
+            liCheckClassActive.parentElement.classList.remove('active');
+            }
+        })
+        }
+    })
+
+    const glassOverlay = document.querySelector('.glass-overlay');
+    const btnShows = document.querySelectorAll('.btn-show-modal');
+
+    btnShows.forEach((btnShow) => {
+        btnShow.onclick = () => {
+            const modalId = btnShow.getAttribute('id-modal');
+            const modalCombinationDetail = document.getElementById(modalId);
+            modalCombinationDetail.style.display = 'flex';
+            const modalChild = modalCombinationDetail.querySelector('.modal-containers');
+            const btnClose = modalCombinationDetail.querySelector('.btn-close');
+            const body = document.getElementsByTagName('body')[0];
+
+            body.style.overflowY = 'hidden';
+            glassOverlay.classList.add('active');
+            btnClose.onclick = () => {
+                body.style.overflowY = 'auto';
+                modalCombinationDetail.style.display = 'none';
+                glassOverlay.classList.remove('active');
+            }
+
+            modalChild.onclick = (e) => {
+                e.stopPropagation();
+            }
+        }
+    })
+
+    function checkValueInputs(inputs) {
+        let ok = true;
+        inputs.forEach((input) => {
+            if(input.value === "" || input.value === '0') {
+                ok = false;
+            }
+        })
+        return ok;
+    }
+
+    const loading = document.getElementById('loading');
+
+    const btnUpdateCombination = document.querySelectorAll('.btn-update-combination');
+    btnUpdateCombination.forEach((btn) => {
+        btn.onclick = async () => {
+            loading.style.display = "flex";
+            const formUpdate = btn.parentElement.parentElement;
+            let inputs = formUpdate.querySelectorAll('input');
+            if(checkValueInputs(inputs)) {
+                inputs = Array.from(inputs).map((input) => input.value.trim());
+                const optionalSubjects = [inputs[0], inputs[1], inputs[2], inputs[3]];
+                const compulsorySubjects = [inputs[4], inputs[5], inputs[6]];
+                const formData = new FormData(formUpdate);
+                const data = Object.fromEntries(formData.entries());
+                data.compulsorySubjects = compulsorySubjects;
+                data.optionalSubjects = optionalSubjects;
+                const combinationId = formUpdate.action.split('/update/')[1];
+                const result = await fetchAsync(`/combination/update/${combinationId}`, 'POST', data, null, true);
+                loading.style.display = "none";
+                if(result !== undefined && result.type === "success") {
+                    toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
+                } else {
+                    toastMessage("Thông báo", result.message, "error", 6000, "❌", 1000);
+                }
+
+            } else {
+                toastMessage("Thông báo", "Vui lòng nhập đủ thông tin hoặc kiểm tra các biến số tránh là 0 trước khi cập nhật", "error", 6000, "❌", 1000);
+            }
+        }
+    })
+
+    const reloadPage = document.getElementById('reload-page');
+
+    reloadPage.onclick = (e) => {
+        e.preventDefault();
+        location.reload();
+    }
+</script>

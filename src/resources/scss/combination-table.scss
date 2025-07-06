@@ -1,0 +1,58 @@
+@import "breakpoints";
+
+#combination-box-resp {
+  display: none;
+}
+
+.modal-containers.container {
+  position: relative !important;
+}
+
+.modal-containers.container .modal-header {
+  z-index: 2;
+  position: relative !important;
+}
+
+.modal-bodyy.combination li {
+  padding: 15px 0;
+}
+
+#loading {
+  z-index: 1;
+  position: absolute !important;
+}
+
+.modal-bodyy.combination h6.class-count {
+  width: 4pc;
+}
+
+.card-body.pic {
+  padding: 0;
+}
+
+@include respond(phone-sm) {
+  .table-combination {
+    display: none;
+  }
+  #combination-box-resp {
+    display: block;
+  }
+
+  .modal-bodyy.combination {
+    height: max-content;
+    overflow-y: scroll;
+    height: 23pc;
+  }
+
+  .modal-bodyy.combination h6 {
+    width: 100%;
+  }
+
+  .modal-bodyy.combination h6.class-count {
+    width: 36%;
+  }
+
+  .card-body.pic {
+    padding: 20px;
+  }
+}

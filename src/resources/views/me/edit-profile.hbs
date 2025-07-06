@@ -156,6 +156,7 @@
 
         const formData = new FormData(formUpdate);
         const data = Object.fromEntries(formData.entries());
+        
         const result = await fetchAsync('/me/profile/update', 'POST', data, null, true);
 
         if (result.type === "success") {
