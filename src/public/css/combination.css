@@ -122,12 +122,15 @@
 @media (max-width: 440px) {
   .modal-containers,
   .modal-container.choose-school {
-    padding: 0 30px;
-    width: 18pc; }
+    padding: 0;
+    width: 19pc; }
   .modal-bodyy.combination {
     padding: 2pc; }
   .modal-bodyy.combination .text,
   .modal-bodyy.combination p {
     text-align: justify; }
   .card-body.submit {
-    padding: 0; } }
+    padding: 0; }
+  .modal-content {
+    border-radius: unset;
+    border: 0; } }

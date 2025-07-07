@@ -150,8 +150,8 @@
 @include respond(phone-sm) {
   .modal-containers,
   .modal-container.choose-school {
-    padding: 0 30px;
-    width: 18pc;
+    padding: 0;
+    width: 19pc;
   }
 
   .modal-bodyy.combination {
@@ -165,5 +165,10 @@
 
   .card-body.submit {
     padding: 0;
+  }
+
+  .modal-content {
+    border-radius: unset;
+    border: 0;
   }
 }
