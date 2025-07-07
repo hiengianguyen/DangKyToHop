@@ -15,12 +15,16 @@
 .box-submit-2 .avatar {
   align-items: start; }
 
+.avatar-info {
+  margin-right: 30px; }
+
 .table-conduct .class {
   padding: 0 20px; }
 
 .table-combination {
   display: block; }
 
+.place-box-rep,
 .combination-1,
 #combination-box-resp {
   display: none; }
@@ -45,6 +49,12 @@ label.poin {
 .table-avg-poin .subject {
   padding: 0 15px; }
 
+.offical-info {
+  width: 100%; }
+
+.info-parent {
+  margin-bottom: 15px; }
+
 @media (max-width: 955px) and (orientation: landscape) {
   .combination-1-rep,
   .row.place-box,
@@ -63,8 +73,6 @@ label.poin {
   .box-submit-2 #btnNextStep,
   .box-submit-1 #btnNextStep {
     margin-right: 0; }
-  table.combination {
-    width: max-content; }
   .box-submit-2 .school-result {
     flex-direction: column;
     align-items: start; }
@@ -75,10 +83,9 @@ label.poin {
     overflow-x: scroll;
     margin-right: -2px;
     border: 1px solid #343a40; }
+  #input-name,
   table.table-points,
   table.combination {
-    width: max-content; }
-  #input-name {
     width: max-content; }
   .box-choose-combination .box-select-2,
   .box-choose-combination .box-select-1 {
