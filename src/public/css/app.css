@@ -275,6 +275,15 @@ input {
 #footer {
   padding: 2pc; }
 
+#glass.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999; }
+
 @media (max-width: 955px) and (orientation: landscape) {
   #sidebar {
     padding: 10px;
@@ -321,6 +330,11 @@ input {
   #loading #tittle-loading,
   #loading-full #tittle-loading {
     font-size: 25px; }
+  #footer {
+    padding: 1pc 0;
+    display: flex;
+    justify-content: center; }
   .footer-text {
     margin-top: 10px;
-    font-size: 12px; } }
+    width: max-content;
+    font-size: 11px; } }
