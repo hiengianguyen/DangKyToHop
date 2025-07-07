@@ -281,9 +281,18 @@
     flex-direction: column;
   }
 
+  .container-submited-list .title h3 {
+    font-size: 20px;
+  }
+
   .container-submited-list .title .btn-group {
     margin: 20px 0;
     margin-left: auto;
+  }
+
+  .dropdown-menu.show {
+    left: 60px;
+    top: 39px;
   }
 
   .filter-box {
