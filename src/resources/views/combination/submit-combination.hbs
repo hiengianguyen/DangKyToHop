@@ -219,7 +219,7 @@
                     <div class="col d-flex align-items-start flex-column">
                         <label for="inputName"><b>Trường học cấp 2:</b></label>
                         <div class="d-flex school-result">
-                            <b class="secondary-school-choosen me-4" style="display: {{#if submitedDetail}}block{{else}}none{{/if}};">{{submitedDetail.secondarySchool}}</b>
+                            <b class="secondary-school-choosen me-4" style="display: {{#if submitedDetail}}block{{else}}none{{/if}};">{{submitedDetail.secondarySchool}}, {{submitedDetail.schoolDistrict}}</b>
                             <button type="button" class="btn btn-primary btn-show-modal-school">
                             Chọn trường cấp 2
                             </button>
@@ -1252,7 +1252,8 @@
                         btnConfirm.onclick = () => {
                             if(selectSchool.value != '') {
                                 body.style.overflowY = 'auto';
-                                textShowSchool.textContent = selectSchool.value;
+                                const resultSecondarySchool = selectSchool.value + ', ' + selectDistrict.value;
+                                textShowSchool.textContent = tagShowSchool.textContent = resultSecondarySchool;
                                 modalChooseSchool.style.display = 'none';
                                 textShowSchool.style.display = 'block';
                                 glassOverlay.classList.remove('active');
@@ -1260,11 +1261,11 @@
                                 const allBSecondarySchool = document.querySelectorAll("div.box-submit-4 b[name='secondarySchool']");
                                 if(allInputSecondarySchool.length > 1) {
                                     allInputSecondarySchool.forEach((input) => input.value = selectSchool.value);
-                                    allBSecondarySchool.forEach((b) => b.innerHTML = selectSchool.value);
+                                    allBSecondarySchool.forEach((b) => b.innerHTML = resultSecondarySchool);
                                 } else {
-                                    allInputSecondarySchool[0].value = allBSecondarySchool[0].innerHTML = selectSchool.value;
+                                    allInputSecondarySchool[0].value = selectSchool.value;
+                                    allBSecondarySchool[0].innerHTML = resultSecondarySchool;
                                 }
-                                tagShowSchool.textContent = selectSchool.value;
                             } else {
                                 toastMessage("Thông báo", "Hãy chọn giá trị theo thứ tự và đầy đủ trước khi bấm \"Xác nhận\".", "error", 6000, "❌", 1000);
                             }
