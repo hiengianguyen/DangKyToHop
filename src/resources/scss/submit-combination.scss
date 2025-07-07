@@ -21,6 +21,10 @@
   align-items: start;
 }
 
+.avatar-info {
+  margin-right: 30px;
+}
+
 .table-conduct .class {
   padding: 0 20px;
 }
@@ -29,6 +33,7 @@
   display: block;
 }
 
+.place-box-rep,
 .combination-1,
 #combination-box-resp {
   display: none;
@@ -58,6 +63,14 @@ label.poin {
   padding: 0 15px;
 }
 
+.offical-info {
+  width: 100%;
+}
+
+.info-parent {
+  margin-bottom: 15px;
+}
+
 @include mobile-all-landscape {
   .combination-1-rep,
   .row.place-box,
@@ -84,10 +97,6 @@ label.poin {
     margin-right: 0;
   }
 
-  table.combination {
-    width: max-content;
-  }
-
   .box-submit-2 .school-result {
     flex-direction: column;
     align-items: start;
@@ -104,12 +113,9 @@ label.poin {
     border: 1px solid #343a40;
   }
 
+  #input-name,
   table.table-points,
   table.combination {
-    width: max-content;
-  }
-
-  #input-name {
     width: max-content;
   }
 

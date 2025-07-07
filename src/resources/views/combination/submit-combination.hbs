@@ -579,7 +579,7 @@
                 <form id="form-submit-combination">
                     <legend class="text-center mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
                     <div class="d-flex offical-info">
-                        <div class="avatar-info mb-3 mx-3 d-flex flex-column">
+                        <div class="avatar-info mb-3 ms-3 d-flex flex-column">
                             <label><b>Ảnh thẻ:</b></label>
                             <div class="row mb-3">
                                 <div class="d-flex align-items-start flex-column">
@@ -1180,7 +1180,6 @@
                     const inputChooseAvatar = document.querySelector('div.box-submit-2 input[name="avatarLink"]');
                     const btnShowModalSchool = document.querySelector('div.box-submit-2 button.btn-show-modal-school');
                     const tagShowSchool = document.querySelector('div.box-submit-4 .get-data-school');
-                    const inputGetDataShool = document.querySelector('div.box-submit-4 input.input-get-data-shool');
                     const selectDistrict = document.querySelector(".form-select-district");
                     const selectSchool = document.querySelector(".form-select-school");
                     const inputDistrict = document.querySelector('div.box-submit-4 input.input-get-data-district');
@@ -1207,6 +1206,9 @@
                     selectDistrict.onchange = (e) => {
                         selectSchool.disabled = false;
                         inputDistrict.value = selectDistrict.value;
+                        const selectName = selectDistrict.name;
+                        const inputGetDataSchoolDistrict = document.querySelector(`div.box-submit-4 input[name='${selectName}']`);
+                        inputGetDataSchoolDistrict.value = selectDistrict.value;
                         selectSchool.innerHTML = "";
                         const districtName = e.target.value;
                         const data = {{{secondarySchools}}};
@@ -1254,7 +1256,15 @@
                                 modalChooseSchool.style.display = 'none';
                                 textShowSchool.style.display = 'block';
                                 glassOverlay.classList.remove('active');
-                                tagShowSchool.textContent = inputGetDataShool.value = selectSchool.value;
+                                const allInputSecondarySchool = document.querySelectorAll("div.box-submit-4 input[name='secondarySchool']");
+                                const allBSecondarySchool = document.querySelectorAll("div.box-submit-4 b[name='secondarySchool']");
+                                if(allInputSecondarySchool.length > 1) {
+                                    allInputSecondarySchool.forEach((input) => input.value = selectSchool.value);
+                                    allBSecondarySchool.forEach((b) => b.innerHTML = selectSchool.value);
+                                } else {
+                                    allInputSecondarySchool[0].value = allBSecondarySchool[0].innerHTML = selectSchool.value;
+                                }
+                                tagShowSchool.textContent = selectSchool.value;
                             } else {
                                 toastMessage("Thông báo", "Hãy chọn giá trị theo thứ tự và đầy đủ trước khi bấm \"Xác nhận\".", "error", 6000, "❌", 1000);
                             }
