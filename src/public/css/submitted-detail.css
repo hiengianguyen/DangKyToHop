@@ -116,8 +116,6 @@ h4 {
     overflow-x: scroll; }
   .table-conduct .type-graduate {
     padding: 0 5px; }
-  tr {
-    font-size: 10px; }
   .table-conduct td,
   .table-avg-poin td {
     padding: 0.375rem 0.75rem 0.375rem 0.75rem; }
@@ -190,7 +188,9 @@ h4 {
   .table-conduct .type-graduate {
     padding: 0 5px; }
   tr {
-    font-size: 10px; }
+    font-size: 16px; }
+  td {
+    padding: 0.375rem 0.75rem 0.375rem 0.75rem; }
   .combination-1-rep {
     display: none; }
   .combination-1 {
