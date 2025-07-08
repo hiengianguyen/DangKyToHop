@@ -57,6 +57,8 @@ label.poin {
   margin-top: 24px;
 }
 
+.box-submit-4 .full-name,
+.box-submit-4 .place-birth,
 .table-avg-poin .subject,
 .table-conduct .type-graduate,
 .table-avg-poin .subject {
@@ -256,6 +258,10 @@ label.poin {
     overflow-x: scroll;
     margin-right: -2px;
     border: 1px solid #343a40;
+  }
+
+  .table-conduct {
+    margin-bottom: 30px;
   }
 
   .table-conduct .type-graduate {
