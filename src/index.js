@@ -3,6 +3,8 @@ const route = require("./routes");
 const express = require("express");
 const handlebars = require("express-handlebars");
 const cookieParser = require("cookie-parser");
+const compression = require("compression");
+const helmet = require("helmet");
 const app = express();
 
 require("dotenv").config();
@@ -16,6 +18,11 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
+
+//Optimize performance & security
+app.disable('x-powered-by');
+app.use(compression());
+app.use(helmet());
 
 //Static file
 app.use(express.static(path.join(__dirname, "public")));
