@@ -4,6 +4,10 @@
   display: block !important;
 }
 
+.home-container {
+  margin-top: 60px;
+}
+
 .combination-list {
   padding: 10px 30px;
 }
@@ -436,6 +440,10 @@ button.form:hover {
 }
 
 @include respond(phone-sm) {
+  .home-container {
+    margin-top: 50px;
+  }
+
   .container-start {
     height: auto;
     padding-top: 30px;
