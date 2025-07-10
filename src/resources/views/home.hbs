@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="/css/home.css">
 </head>
 
-<div class="p-0">
+<div class="p-0" style="margin-top: 60px;">
   <div class="containers">
     <div class="container-start">
       <p class="text-center fw-bold">Về trang web Đăng ký tổ hợp</p>
@@ -208,4 +208,14 @@
     glass.classList.remove('active');
     body.style.overflowY = 'auto';
   }
+
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
+        header.classList.add('shadow');
+        subNav.classList.remove('active');
+    } else {
+        header.classList.remove('shadow');
+    }
+  });
 </script>
