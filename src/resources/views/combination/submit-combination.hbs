@@ -316,7 +316,7 @@
                             <th class="class">7</th>
                             <th class="class">8</th>
                             <th class="class">9</th>
-                            <th rowspan="2" class="type-graduate">Xếp loại tốt nghiệp THCS</th>
+                            <th class="type-graduate">Xếp loại tốt nghiệp THCS</th>
                         </tr>
                         
                         <tr>
@@ -357,6 +357,14 @@
                                     <option {{#if (eq 'Chưa Đạt' submitedDetail.conduct9)}} selected {{/if}} value="Chưa Đạt">Chưa Đạt</option>
                                 </select>
                             </td>
+                            <td rowspan="2">
+                                <select class="form-select" id="inputGroupSelect01" name="graduationRating" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
+                                    <option {{#if (eq 'Giỏi' submitedDetail.graduationRating)}} selected {{/if}} value="Giỏi">Giỏi</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.graduationRating)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Trung Bình' submitedDetail.graduationRating)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
+                                </select>
+                            </td>
                         </tr>
                         
                         <tr>
@@ -391,14 +399,6 @@
                                     <option {{#if (eq 'Giỏi' submitedDetail.academicRating9)}} selected {{/if}} value="Giỏi">Giỏi</option>
                                     <option {{#if (eq 'Khá' submitedDetail.academicRating9)}} selected {{/if}} value="Khá">Khá</option>
                                     <option {{#if (eq 'Trung Bình' submitedDetail.academicRating9)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="graduationRating" aria-label="Default select example">
-                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
-                                    <option {{#if (eq 'Giỏi' submitedDetail.graduationRating)}} selected {{/if}} value="Giỏi">Giỏi</option>
-                                    <option {{#if (eq 'Khá' submitedDetail.graduationRating)}} selected {{/if}} value="Khá">Khá</option>
-                                    <option {{#if (eq 'Trung Bình' submitedDetail.graduationRating)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
                                 </select>
                             </td>
                         </tr>
@@ -768,7 +768,7 @@
                                 <th class="class">7</th>
                                 <th class="class">8</th>
                                 <th class="class">9</th>
-                                <th rowspan="2" class="type-graduate">Xếp loại tốt nghiệp THCS</th>
+                                <th class="type-graduate">Xếp loại tốt nghiệp THCS</th>
                             </tr>
                             
                             <tr>
@@ -789,6 +789,10 @@
                                     <b class="get-data-select" name="conduct9">{{submitedDetail.conduct9}}</b>
                                     <input value="{{submitedDetail.conduct9}}" type="text" class="input-get-data-select" name="conduct9" style="display:none;">
                                 </td>
+                                <td rowspan="2">
+                                    <b class="get-data-select" name="graduationRating">{{submitedDetail.graduationRating}}</b>
+                                    <input value="{{submitedDetail.graduationRating}}" type="text" class="input-get-data-select" name="graduationRating" style="display:none;">
+                                </td>
                             </tr>
                             
                             <tr>
@@ -808,10 +812,6 @@
                                 <td>
                                     <b class="get-data-select" name="academicRating9">{{submitedDetail.academicRating9}}</b>
                                     <input value="{{submitedDetail.academicRating9}}" type="text" class="input-get-data-select" name="academicRating9" style="display:none;">
-                                </td>
-                                <td>
-                                    <b class="get-data-select" name="graduationRating">{{submitedDetail.graduationRating}}</b>
-                                    <input value="{{submitedDetail.graduationRating}}" type="text" class="input-get-data-select" name="graduationRating" style="display:none;">
                                 </td>
                             </tr>
                         </table>
