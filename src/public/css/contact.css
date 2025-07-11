@@ -14,8 +14,20 @@
     padding: 1px; } }
 
 @media (max-width: 440px) {
+  .box-radius {
+    padding: 25px 15px;
+    margin: 0; }
   h4 {
-    font-size: 20px; }
+    font-size: 18px; }
   .card .img-box img {
-    width: 11pc;
-    height: 11pc; } }
+    width: 8pc;
+    height: 8pc; }
+  .card-title.name {
+    font-size: 18px; }
+  p.info {
+    display: flex;
+    flex-direction: column; }
+  .contact-teacher .card {
+    width: 90% !important; }
+  .contact-teacher .card .card-body {
+    padding: 18px; } }
