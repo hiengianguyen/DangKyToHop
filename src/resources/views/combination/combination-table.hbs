@@ -184,6 +184,7 @@
     btnShows.forEach((btnShow) => {
         btnShow.onclick = () => {
             body.style.overflowY = 'hidden';
+            body.style.position = 'fixed';
             const modalId = btnShow.getAttribute('id-modal');
             const modalCombinationDetail = document.getElementById(modalId);
             modalCombinationDetail.style.display = 'flex';
@@ -192,6 +193,7 @@
 
             glassOverlay.classList.add('active');
             btnClose.onclick = () => {
+                body.style.position = '';
                 body.style.overflowY = 'auto';
                 modalCombinationDetail.style.display = 'none';
                 glassOverlay.classList.remove('active');
