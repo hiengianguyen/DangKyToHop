@@ -22,6 +22,8 @@
   padding: 0; }
 
 @media (max-width: 440px) {
+  body {
+    -webkit-overflow-scrolling: touch; }
   .table-combination {
     display: none; }
   #combination-box-resp {

@@ -31,6 +31,10 @@
 }
 
 @include respond(phone-sm) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
   .table-combination {
     display: none;
   }
