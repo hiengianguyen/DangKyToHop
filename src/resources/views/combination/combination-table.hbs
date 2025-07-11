@@ -45,7 +45,7 @@
                                 {{/each}}
                                 <td>{{this.classesCount}}</td>
                                 <td>
-                                    <div id-modal="{{this.id}}" class="btn-show-modal btn btn-Secondary"><p class="m-0 text-white">Chỉnh sửa tổ hợp</p></div>
+                                    <div id-modal="{{this.id}}" class="btn-show-modal btn btn-Secondary"><p class="m-0 text-white">Chỉnh sửa</p></div>
                                 </td>
                             </tr>
                         {{/each}}
@@ -73,7 +73,7 @@
                                 {{/each}}
                             </ul>
                             <h6 class="card-title">Số lớp: {{this.classesCount}}</h6>
-                            <div id-modal="{{this.id}}" class="btn-show-modal btn btn-Secondary"><p class="m-0 text-white">Chỉnh sửa tổ hợp</p></div>
+                            <div id-modal="{{this.id}}" class="btn-show-modal btn btn-Secondary"><p class="m-0 text-white">Chỉnh sửa</p></div>
                         </div>
                     </div>
                 {{/each}}
@@ -94,8 +94,8 @@
 <div id="{{this.id}}" class="modal show-combination" style="display: none;">
     <div class="modal-containers container mx-auto">
         <form action="/combination/update/{{this.id}}" method="post">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Chỉnh sửa thông tin tổ hợp</h1>
+            <div class="modal-header align-items-center">
+                <h4 class="modal-title" id="exampleModalLabel">Chỉnh sửa thông tin tổ hợp</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-bodyy combination pb-0">
@@ -118,7 +118,7 @@
                 </div>
             </div>  
             <div class="d-flex justify-content-end p-4 pt-0">
-                <button type="button" class="btn btn-Secondary btn-update-combination">Cập nhật</button>
+                <button type="button" class="btn btn-Success btn-update-combination">Cập nhật</button>
             </div>
         </form>
         <div id="loading" class="position-fixed" style="display: none;">
@@ -187,17 +187,17 @@
 
     const glassOverlay = document.querySelector('.glass-overlay');
     const btnShows = document.querySelectorAll('.btn-show-modal');
+    const body = document.getElementsByTagName('body')[0];
 
     btnShows.forEach((btnShow) => {
         btnShow.onclick = () => {
+            body.style.overflowY = 'hidden';
             const modalId = btnShow.getAttribute('id-modal');
             const modalCombinationDetail = document.getElementById(modalId);
             modalCombinationDetail.style.display = 'flex';
             const modalChild = modalCombinationDetail.querySelector('.modal-containers');
             const btnClose = modalCombinationDetail.querySelector('.btn-close');
-            const body = document.getElementsByTagName('body')[0];
 
-            body.style.overflowY = 'hidden';
             glassOverlay.classList.add('active');
             btnClose.onclick = () => {
                 body.style.overflowY = 'auto';
