@@ -79,10 +79,6 @@
                 {{/each}}
             </div>
         </div>
-
-        <div class="d-flex justify-content-end p-4">
-            <p>Vui lòng <a href="" id="reload-page">tải lại trang <i class="fa-solid fa-arrow-rotate-left"></i></a> nếu vẫn chưa thấy dữ liệu được cập nhật</p>
-        </div>
     </div>
 
     <div id="footer">
@@ -156,6 +152,12 @@
     window.addEventListener('load', function () {
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body').style.display = 'block';
+        if({{{showToast}}}) {
+            const textMessage = localStorage.getItem('textMessage')
+            const typeToast = localStorage.getItem('typeToast')
+            const toastIcon = localStorage.getItem('toastIcon')
+            toastMessage("Thông báo", textMessage, typeToast, 6000, toastIcon, 1000);
+        }
     });
 
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
@@ -238,22 +240,14 @@
                 const combinationId = formUpdate.action.split('/update/')[1];
                 const result = await fetchAsync(`/combination/update/${combinationId}`, 'POST', data, null, true);
                 loading.style.display = "none";
-                if(result !== undefined && result.type === "success") {
-                    toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
-                } else {
-                    toastMessage("Thông báo", result.message, "error", 6000, "❌", 1000);
-                }
-
+                localStorage.setItem('textMessage', result.message);
+                localStorage.setItem('typeToast', result.type);
+                localStorage.setItem('toastIcon', result.icon);
+                const currentUrl = window.location.origin + `/combination/table?toastmessage=true`;
+                window.location.href = currentUrl;
             } else {
                 toastMessage("Thông báo", "Vui lòng nhập đủ thông tin hoặc kiểm tra các biến số tránh là 0 trước khi cập nhật", "error", 6000, "❌", 1000);
             }
         }
     })
-
-    const reloadPage = document.getElementById('reload-page');
-
-    reloadPage.onclick = (e) => {
-        e.preventDefault();
-        location.reload();
-    }
 </script>

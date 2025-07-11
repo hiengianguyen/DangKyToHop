@@ -388,7 +388,8 @@ class CombinationController {
       combination.optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
     });
     return res.render("combination/combination-table", {
-      combinations: combinations
+      combinations: combinations,
+      showToast: req?.query?.toastmessage === "true"
     });
   }
 
@@ -402,12 +403,14 @@ class CombinationController {
     if (ok) {
       return res.json({
         message: "Cập nhật thông tin tổ hợp thành công",
-        type: "success"
+        type: "success",
+        icon: "✅"
       });
     } else {
       return res.json({
         message: "Cập nhật thông tin tổ hợp không thành công",
-        type: "error"
+        type: "error",
+        icon: "❌"
       });
     }
   }
