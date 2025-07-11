@@ -121,14 +121,6 @@
                 <button type="button" class="btn btn-Success btn-update-combination">Cập nhật</button>
             </div>
         </form>
-        <div id="loading" class="position-fixed" style="display: none;">
-            <div class="d-flex align-items-center flex-column">
-                <h2 style="font-family: 'Lexend', sans-serif;">Đang cập nhật dữ liệu...</h2>
-                <div class="spinner-border mt-4" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        </div>
     </div>    
 </div>
 {{/each}}
@@ -137,7 +129,7 @@
 
 <div id="loading-full" class="position-fixed" style="display: flex;">
     <div class="d-flex align-items-center flex-column">
-        <h2 style="font-family: 'Lexend', sans-serif;">Đang tải dữ liệu...</h2>
+        <h2 id="title" style="font-family: 'Lexend', sans-serif;">Đang tải dữ liệu...</h2>
         <div class="spinner-border mt-4" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
@@ -221,11 +213,13 @@
         return ok;
     }
 
-    const loading = document.getElementById('loading');
+    const loading = document.getElementById('loading-full');
+    const loadingTitle = loading.querySelector('#title');
 
     const btnUpdateCombination = document.querySelectorAll('.btn-update-combination');
     btnUpdateCombination.forEach((btn) => {
         btn.onclick = async () => {
+            loadingTitle.innerHTML = 'Đang cập nhật dữ liệu...';
             loading.style.display = "flex";
             const formUpdate = btn.parentElement.parentElement;
             let inputs = formUpdate.querySelectorAll('input');
