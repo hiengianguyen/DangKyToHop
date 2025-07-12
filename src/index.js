@@ -17,7 +17,7 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-//Static file
+// Static file
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "utils")));
 
@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
-//template engine
+// Template engine
 app.engine(
   "hbs",
   handlebars.engine({
