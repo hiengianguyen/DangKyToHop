@@ -5,8 +5,10 @@ const schoolRouter = require("./schoolRoute");
 const combinationRouter = require("./combinationRoute");
 const fileRouter = require("./fileRoute");
 const errorRouter = require("./errorRoute");
+const maintenanceRouter = require("./maintenanceRoute");
 
 function routes(app) {
+  app.use(maintenanceRouter);
   app.use("/", homeRouter);
   app.use("/me", meRouter);
   app.use("/auth", authRouter);
