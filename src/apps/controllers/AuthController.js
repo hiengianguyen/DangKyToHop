@@ -54,6 +54,10 @@ class AuthController {
     res.locals.isLogin = false;
     return res.redirect("/");
   }
+
+  async forgotPassword(req, res, next) {
+    return res.render("orther/forgot-password");
+  }
 }
 
 module.exports = new AuthController();

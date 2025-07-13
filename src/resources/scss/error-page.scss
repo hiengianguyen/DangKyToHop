@@ -1,5 +1,20 @@
 @import "breakpoints";
 
+.forgot-password p {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.forgot-password p i {
+  color: #3cd244;
+}
+
+.forgot-password img {
+  width: 30px;
+  height: 30px;
+}
+
 @include respond(phone-sm) {
   #all-content {
     width: 100%;
@@ -15,5 +30,13 @@
 
   body {
     align-items: start !important;
+  }
+
+  .content.forgot-password {
+    padding: 25px;
+  }
+
+  .content.forgot-password h3 {
+    font-size: 20px;
   }
 }
