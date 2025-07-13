@@ -56,7 +56,7 @@ class AuthController {
   }
 
   async forgotPassword(req, res, next) {
-    return res.render("orther/forgot-password");
+    return res.render("other/forgot-password");
   }
 }
 
