@@ -17,17 +17,7 @@ class HomeController {
         return res.redirect("/combination/submit-combination");
       }
     } else {
-      let signupSuccess = false;
-      let messageError;
-      if (req?.query?.signup) {
-        signupSuccess = true;
-      } else if (req?.query?.signinError === "incorrect-phone-password") {
-        messageError = "Số điện thoại hoặc mật khẩu sai";
-        signupSuccess = true;
-      }
       return res.render("home", {
-        signupSuccess: signupSuccess,
-        messageError: messageError,
         isNotHomePage: false
       });
     }

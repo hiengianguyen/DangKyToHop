@@ -8,6 +8,51 @@ class AuthController {
     this.signUp = this.signUp.bind(this);
   }
 
+  async renderLogin(req, res, next) {
+    if (req?.cookies?.isLogin === "true") {
+      if (req?.cookies?.role === "manager") {
+        return res.redirect("/combination/submited-list");
+      } else {
+        return res.redirect("/combination/submit-combination");
+      }
+    } else {
+      let signupSuccess = false;
+      let messageError;
+      if (req?.query?.signup) {
+        signupSuccess = true;
+      } else if (req?.query?.signinError === "incorrect-phone-password") {
+        messageError = "Số điện thoại hoặc mật khẩu sai!";
+      }
+      return res.render("auth/signin", {
+        layout: false,
+        signupSuccess: signupSuccess,
+        messageError: messageError,
+        showToast: req?.query?.toastmessage === "true"
+      });
+    }
+  }
+
+  async renderSignUp(req, res, next) {
+    if (req?.cookies?.isLogin === "true") {
+      if (req?.cookies?.role === "manager") {
+        return res.redirect("/combination/submited-list");
+      } else {
+        return res.redirect("/combination/submit-combination");
+      }
+    } else {
+      let signupSuccess = false;
+      let messageError;
+      if (req?.query?.signupError === "existed-phone") {
+        messageError = "Số điện thoại tồn tại!";
+      }
+      return res.render("auth/signup", {
+        layout: false,
+        signupSuccess: signupSuccess,
+        messageError: messageError
+      });
+    }
+  }
+
   async signIn(req, res, next) {
     const { phone, password } = req?.body;
 
@@ -31,7 +76,7 @@ class AuthController {
         return res.redirect("/combination/submit-combination");
       }
     } else {
-      return res.redirect("/?signinError=incorrect-phone-password");
+      return res.redirect("/auth/login/?signinError=incorrect-phone-password");
     }
   }
 
@@ -40,11 +85,11 @@ class AuthController {
     const existedPhone = await this.userDbRef.getItemByFilter({ phone: phone });
 
     if (existedPhone) {
-      return res.redirect("/?signupError=existed-phone");
+      return res.redirect("/auth/sign-up/?signupError=existed-phone");
     } else {
       const userModel = new UserModel(undefined, fullName, password, phone, undefined, undefined, undefined);
       await this.userDbRef.addItem(userModel);
-      return res.redirect("/?signup=success");
+      return res.redirect("/auth/login?toastmessage=true");
     }
   }
 
@@ -52,7 +97,7 @@ class AuthController {
     // save isLogin to cookie in 1 week
     res.cookie("isLogin", false, { maxAge: 604800000, httpOnly: true });
     res.locals.isLogin = false;
-    return res.redirect("/");
+    return res.redirect("/auth/login");
   }
 
   async forgotPassword(req, res, next) {
