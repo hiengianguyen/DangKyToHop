@@ -139,6 +139,7 @@ input {
 
 #footer:not(.large) {
   position: absolute;
+  color: #000;
 }
 
 #footer.large {
@@ -147,6 +148,10 @@ input {
 
 #footer p {
   font-size: 11px;
+}
+
+#footer:not(.large) p {
+  font-size: 15px;
 }
 
 @include laptop {
