@@ -112,7 +112,11 @@ input {
 
 #footer:not(.large) {
   position: absolute;
-  color: #000; }
+  color: #000;
+  padding: 2pc; }
+
+#footer:not(.large) .footer-text {
+  font-size: 16px; }
 
 #footer.large {
   display: none; }
