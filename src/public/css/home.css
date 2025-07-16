@@ -4,6 +4,9 @@
 .home-container {
   margin-top: 60px; }
 
+#all-content {
+  transform: unset !important; }
+
 .combination-list {
   padding: 10px 30px; }
 
