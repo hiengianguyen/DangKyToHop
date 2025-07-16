@@ -50,6 +50,7 @@
 
 <script>
     window.addEventListener('load', () => {
+        document.getElementById('body-app').style.overflowY = 'auto';
         if({{{showToast}}}) {
             const textMessage = localStorage.getItem('textMessage')
             const typeToast = localStorage.getItem('typeToast')

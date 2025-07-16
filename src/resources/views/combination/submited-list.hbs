@@ -378,6 +378,7 @@
         const cardBody = document.getElementById('card-body');
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body').style.display = 'block';
+        document.getElementById('body-app').style.overflowY = 'auto';
         if(body.clientHeight > (banner.clientHeight + cardBody.clientHeight)) {
             body.querySelector('.d-flex').style.height = body.clientHeight;
         } else {

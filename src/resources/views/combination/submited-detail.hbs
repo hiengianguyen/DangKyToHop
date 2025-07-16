@@ -332,6 +332,7 @@
     window.addEventListener('load', function () {
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body').style.display = 'block';
+        document.getElementById('body-app').style.overflowY = 'auto';
 
         if({{{showToast}}}) {
             toastMessage("Thông báo", localStorage.getItem('textMessage'), "success", 6000, "✅", 1000);
