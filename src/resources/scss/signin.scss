@@ -9,6 +9,7 @@
 .master {
   height: 100vh;
   display: flex;
+  padding-bottom: 0;
 }
 
 label {
@@ -23,6 +24,8 @@ label {
 
 .box-login > .box {
   padding: 80px 40px;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .box-img {
@@ -50,7 +53,7 @@ label {
 }
 
 .title-box p {
-  font-size: 20px;
+  font-size: 18px;
   color: #2a2b32;
 }
 
@@ -110,6 +113,7 @@ input {
   font-weight: 800;
   margin: 0;
   margin-top: 20px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .box-img p {
@@ -126,22 +130,50 @@ input {
   font-family: "Lexend", sans-serif;
 }
 
+#footer {
+  padding: 1pc;
+  padding-top: 2pc;
+}
+
+#footer.large {
+  display: none;
+}
+
+#footer p {
+  font-size: 11px;
+}
+
 @include respond(phone-sm) {
   .master {
     display: block !important;
-    padding: 4pc 20px;
+    padding: 40px 20px;
+    padding-bottom: 20px;
     height: max-content;
   }
 
+  #footer.large,
   .box-login {
     display: block;
   }
 
+  #footer:not(.large),
   .box-img {
     display: none;
   }
 
   .box-login > .box {
     padding: 0;
+  }
+
+  .title-box h2 {
+    margin: 10px 0;
+  }
+
+  .title-box p {
+    font-size: 15px;
+  }
+
+  #footer {
+    padding-top: 1pc;
   }
 }

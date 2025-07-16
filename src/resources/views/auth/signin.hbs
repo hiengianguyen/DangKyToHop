@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/signin.css">
     <link rel="stylesheet" href="/css/toast-message.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/fontawesome-free-6.7.2-web/css/all.min.css">
     <link
@@ -16,7 +17,7 @@
     />
 </head>
 
-<body style="font-family: 'Times New Roman', Times, serif;">
+<body style="font-family: 'Lexend', sans-serif;">
     <div id="toast"></div>
     <div class="master" style="display:none;">
         <div class="box-login">
@@ -43,12 +44,19 @@
                             </div>
                             
                             <a id="forgot-password" href="/auth/forgot-password">Quên mật khẩu?</a>
-                            <button class="btn btn-primary form" type="submit">TIẾP TỤC</button>
+                            <button class="btn btn-primary form" type="submit">ĐĂNG NHẬP</button>
                             <div class="login-comment">
                                 <p>Bạn chưa có tài khoản?</p>
-                                <a href="/auth/sign-up">Đăng ký</a>
+                                <a href="/auth/signup">Đăng ký</a>
                             </div>
                         </form>
+                    </div>
+                </div>
+                <div id="footer">
+                    <div class="d-flex justify-content-center text-center">
+                        <p class="footer-text mb-0">
+                            © 2025 Trường THPT Duy Tân, Phường Quảng Phú, TP. Đà Nẵng.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -62,6 +70,14 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="footer" class="large">
+      <div class="d-flex justify-content-center text-center">
+        <p class="footer-text mb-0">
+            © 2025 Trường THPT Duy Tân, Phường Quảng Phú, TP. Đà Nẵng.
+        </p>
+      </div>
     </div>
 
     <div id="loading-full" class="position-fixed" style="display: flex;">
