@@ -295,6 +295,13 @@ input {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999; }
 
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  #master {
+    margin-left: 80px; }
+  #sidebar {
+    position: absolute;
+    height: 100%; } }
+
 @media (max-width: 955px) and (orientation: landscape) {
   #sidebar {
     padding: 10px;
