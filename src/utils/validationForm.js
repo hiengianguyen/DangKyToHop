@@ -35,6 +35,10 @@ function varidator(selector, option = {}) {
       return function (value) {
         return value.length === Number(length) ? undefined : `Vui lòng nhập đúng ${length} kí tự!`;
       };
+    },
+
+    same: function (value) {
+      return value === option.passwordValue() ? undefined : "Vui lòng nhập lại đúng mật khẩu!";
     }
   };
 

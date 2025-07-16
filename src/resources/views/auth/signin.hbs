@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/signin.css">
+    <link rel="stylesheet" href="/css/toast-message.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/fontawesome-free-6.7.2-web/css/all.min.css">
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dwoymvppw/image/upload/e_background_removal/f_png/v1752584090/logo-offical-duytan_remrkf.jpg"
+      type="image/x-icon"
+    />
+</head>
+
+<body style="font-family: 'Times New Roman', Times, serif;">
+    <div id="toast"></div>
+    <div class="master" style="display:none;">
+        <div class="box-login">
+            <div class="box">
+                <div class="title-box">
+                    <img src="https://res.cloudinary.com/dwoymvppw/image/upload/e_background_removal/f_png/v1752584090/logo-offical-duytan_remrkf.jpg" alt="Duy Tân">
+                    <div class="content">
+                        <h2>Chào mừng!</h2>
+                        <p>Đăng nhập vào hệ thống để tiếp tục</p>
+                    </div>
+                </div>
+                <div class="login-container">
+                    <div id="signin" class="form-container">
+                        <form class="form-sign-in" action="/auth/signin" method="POST">
+                            <div class="form-group">
+                                <label for="signin-phone">Số điện thoại:</label>
+                                <input type="text" id="signin-phone" name="phone" class="login__input" rules="required|number|length:10" placeholder="Số điện thoại" {{#if messageError}}style="border: 1px solid red;"{{else}}{{/if}}>
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group form-group-password">
+                                <label for="signin-password">Mật khẩu:</label>
+                                <input type="password" id="signin-password" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu" {{#if messageError}}style="border: 1px solid red;"{{else}}{{/if}}>
+                                <span class="form-message" {{#if messageError}}style="color: red;"{{/if}}>{{messageError}}</span>
+                            </div>
+                            
+                            <a id="forgot-password" href="/auth/forgot-password">Quên mật khẩu?</a>
+                            <button class="btn btn-primary form" type="submit">TIẾP TỤC</button>
+                            <div class="login-comment">
+                                <p>Bạn chưa có tài khoản?</p>
+                                <a href="/auth/sign-up">Đăng ký</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-img justify-content-center align-items-center">
+            <div class="content d-flex align-items-start">
+                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/e_background_removal/f_png/v1752584090/logo-offical-duytan_remrkf.jpg" alt="">
+                <div class="text">
+                    <h2>ĐĂNG KÝ TỔ HỢP</h2>
+                    <p class="m-0">Trường THPT Duy Tân</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-full" class="position-fixed" style="display: flex;">
+        <div class="d-flex align-items-center flex-column">
+            <h2 id="tittle-loading">Đang tải dữ liệu...</h2>
+            <div class="spinner-border mt-4" role="status">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/validationForm.js" onload="varidator('.form-sign-in')"></script>
+<script src="/showToastMessage.js" defer></script>
+<script>
+    window.addEventListener('load', function () {
+        document.getElementById('loading-full').style.display = 'none';
+        document.querySelector('.master').style.display = 'flex';
+
+        if({{{showToast}}}) {
+            toastMessage("Thông báo", "Đăng ký thành công", "success", 6000, "✅", 1000);
+        }
+    });
+</script>
+</html>
