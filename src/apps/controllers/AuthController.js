@@ -85,7 +85,7 @@ class AuthController {
     const existedPhone = await this.userDbRef.getItemByFilter({ phone: phone });
 
     if (existedPhone) {
-      return res.redirect("/auth/sign-up/?signupError=existed-phone");
+      return res.redirect("/auth/signup?signupError=existed-phone");
     } else {
       const userModel = new UserModel(undefined, fullName, password, phone, undefined, undefined, undefined);
       await this.userDbRef.addItem(userModel);
