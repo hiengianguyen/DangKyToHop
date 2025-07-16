@@ -82,6 +82,7 @@ input {
 .box-img {
   display: flex;
   color: #fff;
+  position: relative;
   pointer-events: none;
   user-select: none; }
 
@@ -105,7 +106,11 @@ input {
 
 #footer {
   padding: 1pc;
-  padding-top: 2pc; }
+  padding-top: 2pc;
+  bottom: 0; }
+
+#footer:not(.large) {
+  position: absolute; }
 
 #footer.large {
   display: none; }
@@ -115,7 +120,15 @@ input {
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
   .box-login {
-    flex-basis: 45%; } }
+    flex-basis: 45%; }
+  .box-img h2 {
+    font-size: 40px; }
+  .box-img p {
+    font-size: 15px; }
+  .box-img img {
+    width: 8pc;
+    height: 8pc;
+    margin-right: 20px; } }
 
 @media (max-width: 440px) {
   .master {
