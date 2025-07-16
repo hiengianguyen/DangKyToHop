@@ -104,6 +104,7 @@ input {
 .box-img {
   display: flex;
   color: #fff;
+  position: relative;
   pointer-events: none;
   user-select: none;
 }
@@ -133,6 +134,11 @@ input {
 #footer {
   padding: 1pc;
   padding-top: 2pc;
+  bottom: 0;
+}
+
+#footer:not(.large) {
+  position: absolute;
 }
 
 #footer.large {
@@ -146,6 +152,20 @@ input {
 @include laptop {
   .box-login {
     flex-basis: 45%;
+  }
+
+  .box-img h2 {
+    font-size: 40px;
+  }
+
+  .box-img p {
+    font-size: 15px;
+  }
+
+  .box-img img {
+    width: 8pc;
+    height: 8pc;
+    margin-right: 20px;
   }
 }
 
