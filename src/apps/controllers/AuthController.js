@@ -76,7 +76,7 @@ class AuthController {
         return res.redirect("/combination/submit-combination");
       }
     } else {
-      return res.redirect("/auth/login/?signinError=incorrect-phone-password");
+      return res.redirect("/auth/signin?signinError=incorrect-phone-password");
     }
   }
 
@@ -89,7 +89,7 @@ class AuthController {
     } else {
       const userModel = new UserModel(undefined, fullName, password, phone, undefined, undefined, undefined);
       await this.userDbRef.addItem(userModel);
-      return res.redirect("/auth/login?toastmessage=true");
+      return res.redirect("/auth/signin?toastmessage=true");
     }
   }
 
@@ -97,7 +97,7 @@ class AuthController {
     // save isLogin to cookie in 1 week
     res.cookie("isLogin", false, { maxAge: 604800000, httpOnly: true });
     res.locals.isLogin = false;
-    return res.redirect("/auth/login");
+    return res.redirect("/auth/signin");
   }
 
   async forgotPassword(req, res, next) {
