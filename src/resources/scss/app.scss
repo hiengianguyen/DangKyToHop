@@ -358,6 +358,17 @@ input {
   z-index: 999;
 }
 
+@include laptop {
+  #master {
+    margin-left: 80px;
+  }
+
+  #sidebar {
+    position: absolute;
+    height: 100%;
+  }
+}
+
 @include mobile-all-landscape {
   #sidebar {
     padding: 10px;
