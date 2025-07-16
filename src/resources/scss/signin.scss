@@ -143,6 +143,12 @@ input {
   font-size: 11px;
 }
 
+@include laptop {
+  .box-login {
+    flex-basis: 45%;
+  }
+}
+
 @include respond(phone-sm) {
   .master {
     display: block !important;
