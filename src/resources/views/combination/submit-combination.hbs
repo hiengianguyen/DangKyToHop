@@ -1001,9 +1001,12 @@
 <script>
     var sideBar = document.getElementById('sidebar');
     const master = document.getElementById('master');
+    var loading = document.getElementById('loading-full');
+    var bodyApp = document.getElementById('body-app');
     window.addEventListener('load', function () {
         const content = document.querySelector('.content');
-        document.getElementById('loading-full').style.display = 'none';
+        bodyApp.style.overflowY = 'auto';
+        loading.style.display = 'none';
         content.style.display = 'block';
         sideBar.style.height = master.clientHeight;
     });

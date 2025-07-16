@@ -31,12 +31,13 @@ input {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(255, 255, 255, 1);
   z-index: 9999;
   display: none;
   justify-content: center;
   align-items: center;
+  transform: translateY(0px) !important;
 }
 
 .box.active p {
@@ -259,6 +260,12 @@ input {
 
 #all-content {
   display: flex;
+  transform: translateY(0);
+  transition: all 0.5s ease;
+}
+
+#all-content.translate {
+  transform: translateY(-30px);
 }
 
 #header img {
@@ -409,6 +416,10 @@ input {
 
   #all-content .big-content {
     margin-top: 50px;
+  }
+
+  #all-content {
+    transform: unset !important;
   }
 
   #loading h2,

@@ -97,6 +97,7 @@
     var sideBar = document.getElementById('sidebar');
     const master = document.getElementById('master');
     window.addEventListener('load', function () {
+        document.getElementById('body-app').style.overflowY = 'auto';
         sideBar.parentElement.style.height = '100%';
         master.style.height = master.parentElement.clientHeight;
     })
