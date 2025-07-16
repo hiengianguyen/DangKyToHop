@@ -23,7 +23,8 @@ label {
 
 .box-img {
   width: 100%;
-  background-color: #0994d8; }
+  background: #00ffd9;
+  background: linear-gradient(90deg, #00ffd9 0%, #038ace 89%, #005885 100%); }
 
 .form-container {
   display: block; }
