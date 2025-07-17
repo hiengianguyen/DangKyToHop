@@ -98,16 +98,61 @@
     display: none;
   }
 
+  .school-info {
+    display: flex;
+    height: 12pc;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .school-info-detail {
+    top: 12px;
+    left: 8px;
+  }
+
+  .stack-first {
+    margin-bottom: 0 !important;
+  }
+
+  .img-box {
+    -webkit-flex-direction: column !important;
+    flex-direction: column;
+  }
+
   .img-box .first {
     margin-right: 0;
+    margin-bottom: 20px;
   }
 
   .image-stack img:hover {
     transform: scale(1.25);
   }
 
+  .image-stack .ms-2 img {
+    margin-top: 30px !important;
+  }
+
+  .image-stack {
+    -webkit-flex-direction: column !important;
+    flex-direction: column;
+    height: max-content;
+  }
+
   #master {
     padding: 1px;
+  }
+
+  #map-iframe {
+    width: 100%;
+    height: 22pc;
+  }
+
+  .content-box {
+    text-align: justify;
+  }
+
+  #loading-full {
+    transform: translateY(30px) !important;
   }
 }
 
