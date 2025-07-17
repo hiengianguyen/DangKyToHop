@@ -30,8 +30,14 @@ label {
 
 .box-img {
   width: 100%;
-  background: #00ffd9;
-  background: linear-gradient(90deg, rgba(0, 255, 217, 1) 0%, rgba(3, 138, 206, 1) 89%, rgba(0, 88, 133, 1) 100%);
+  background: #4ffffc;
+  background: linear-gradient(
+    90deg,
+    rgba(79, 255, 252, 1) 0%,
+    rgba(59, 205, 235, 1) 36%,
+    rgba(38, 139, 222, 1) 59%,
+    rgba(30, 43, 138, 1) 100%
+  );
 }
 
 .form-container {
