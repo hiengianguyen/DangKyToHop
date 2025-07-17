@@ -94,6 +94,10 @@ canvas {
   flex-basis: 0;
   flex-grow: 1; }
 
+@media (max-width: 955px) and (orientation: landscape) {
+  #sidebar {
+    height: 100%; } }
+
 @media (max-width: 440px) {
   .card-body > .content {
     margin-top: 1pc; }

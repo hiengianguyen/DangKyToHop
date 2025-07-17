@@ -59,6 +59,15 @@ img.profile-img-user {
   #master {
     padding: 1px !important;
   }
+
+  #all-content,
+  .big-content {
+    height: max-content;
+  }
+
+  #sidebar {
+    height: 100%;
+  }
 }
 
 @include respond(phone-sm) {

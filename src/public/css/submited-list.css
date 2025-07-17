@@ -132,6 +132,8 @@
     display: none; }
   #header {
     display: none; }
+  #sidebar {
+    height: 100%; }
   #master {
     padding: 1px; }
   #container-submitted {
