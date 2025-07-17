@@ -29,7 +29,9 @@ body {
     height: 100vh !important; }
   .modal-containers.container {
     height: 26pc;
-    overflow-y: scroll; } }
+    overflow-y: scroll; }
+  #sidebar {
+    height: 100%; } }
 
 @media (max-width: 440px) {
   body {

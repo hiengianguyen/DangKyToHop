@@ -122,6 +122,12 @@ canvas {
   flex-grow: 1;
 }
 
+@include mobile-all-landscape {
+  #sidebar {
+    height: 100%;
+  }
+}
+
 @include respond(phone-sm) {
   .card-body > .content {
     margin-top: 1pc;

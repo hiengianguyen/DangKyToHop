@@ -43,6 +43,10 @@ body {
     height: 26pc;
     overflow-y: scroll;
   }
+
+  #sidebar {
+    height: 100%;
+  }
 }
 
 @include respond(phone-sm) {
