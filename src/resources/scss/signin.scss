@@ -46,6 +46,8 @@ label {
 .title-box {
   text-align: center;
   margin-bottom: 35px;
+  pointer-events: none;
+  user-select: none;
 }
 
 .title-box h2 {
