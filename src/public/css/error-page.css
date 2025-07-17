@@ -1,3 +1,6 @@
+#loading-full {
+  transform: translateY(30px) !important; }
+
 @media (max-width: 440px) {
   #all-content {
     width: 100%; }

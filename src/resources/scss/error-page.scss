@@ -1,5 +1,9 @@
 @import "breakpoints";
 
+#loading-full {
+  transform: translateY(30px) !important;
+}
+
 @include respond(phone-sm) {
   #all-content {
     width: 100%;
