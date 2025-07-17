@@ -26,7 +26,7 @@
                             Danh Sách Đã Đăng Ký
                         {{/if}}
                     </h3>
-                    <div class="btn-group dropstart">
+                    <div id="box-export-excel" class="btn-group dropstart">
                         <button type="button" class="btn btn-info dropdown-toggle" id="btn-export-excel" data-bs-toggle="dropdown" aria-expanded="false">
                             Xuất file Excel
                         </button>
@@ -364,6 +364,19 @@
     // Gắn fetchAsync vào window để gọi được từ HTML
     window.fetchAsync = fetchAsync;
     window.filterSubmittedList = filterSubmittedList;
+
+    const boxExportExcel = document.getElementById('box-export-excel');
+    function updateClass() {
+        if (window.innerWidth <= 767) {
+            boxExportExcel.className = "btn-group dropdown";
+        } else {
+            boxExportExcel.className = "btn-group dropstart";
+        }
+    }
+
+    // Gọi khi load và khi resize
+    updateClass();
+    window.addEventListener("resize", updateClass);
 
     const data = {{{submitedListData}}};
     const btnSearchName = document.getElementById('search-name-btn');

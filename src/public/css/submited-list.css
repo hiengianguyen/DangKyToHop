@@ -219,8 +219,9 @@
     margin: 20px 0;
     margin-left: auto; }
   .dropdown-menu.show {
-    left: 60px;
-    top: 39px; }
+    top: 40px;
+    right: -109px;
+    left: auto; }
   .filter-box {
     flex-direction: column; }
   .search-name-div {
