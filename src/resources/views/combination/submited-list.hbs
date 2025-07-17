@@ -197,6 +197,43 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="sort-box sort-box-rep" style="display:none;">
+                    <div id="sort-title">
+                        <p class="m-0">
+                            Sắp xếp theo <i class="fa-solid fa-chevron-down" id="sort-icon-title" style="font-size: 13px;"></i>
+                        </p>
+                    </div>
+                    <div id="sort-content">
+                        <ul class="list-sort p-0">
+                            <li class="sub-li-type title">Họ và tên <i style="font-size: 20px;"></i>
+                            </li>
+                            <li class="active sub-li-type type py-0">
+                                <ul class="ps-3">
+                                    <li class="p-2 type-sort" data-value="asc">Tăng dần <i class="ms-1 fa-solid"></i></li>
+                                    <li class="p-2 type-sort" data-value="desc">Giảm dần <i class="ms-1 fa-solid"></i></li>
+                                </ul>
+                            </li>
+                            <li class="title sub-li-type">Ngày đăng ký <i class="ms-1 title fa-solid fa-arrow-up-wide-short" style="font-size: 20px;"></i>
+                            </li>
+                            <li class="active sub-li-type type py-0">
+                                <ul class="ps-3">
+                                    <li class="p-2 type-sort" data-value="asc">Trước đó <i class="ms-1 fa-solid fa-check"></i></li>
+                                    <li class="p-2 type-sort" data-value="desc">Gần đây <i class="ms-1 fa-solid"></i></li>
+                                </ul>
+                            </li>
+                            <li class="title sub-li-type" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào <i style="font-size: 20px;"></i>
+                            </li>
+                            <li class="active sub-li-type type py-0">
+                                <ul class="ps-3">
+                                    <li class="p-2 type-sort" data-value="asc">Cao nhất <i class="ms-1 fa-solid"></i></li>
+                                    <li class="p-2 type-sort" data-value="desc">Thấp nhất <i class="ms-1 fa-solid"></i></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="row" style="width: 100%;">
                     <div id="container-submitted" class="col-11 g-0" style="padding: 0;">
                         {{#each submitedList}}
@@ -255,7 +292,7 @@
                             </div>
                         {{/each}}
                     </div>
-                    <div class="col d-flex justify-content-center p-0">
+                    <div class="col sort-box-dad d-flex justify-content-center p-0">
                         <div class="sort-box">
                             <div id="sort-title">
                                 <p class="m-0">

@@ -262,10 +262,38 @@
     display: none;
   }
 
+  .sort-box-dad {
+    display: none !important;
+  }
+
   .sort-box {
     width: 100%;
     text-align: start;
     width: 78%;
+  }
+
+  .sort-box-rep {
+    display: block !important;
+    position: relative;
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .sort-box-rep #sort-content {
+    position: absolute;
+    z-index: 10;
+    max-height: max-content;
+    width: 100%;
+  }
+
+  .sort-box #sort-title {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .sort-box .list-sort > li:not(.active) {
+    height: max-content;
+    border-bottom: 2px solid #ccc;
   }
 
   .save-doc-icon {
