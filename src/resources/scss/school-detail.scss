@@ -150,6 +150,10 @@
   .content-box {
     text-align: justify;
   }
+
+  #loading-full {
+    transform: translateY(30px) !important;
+  }
 }
 
 @include mobile-sm-landscape {
