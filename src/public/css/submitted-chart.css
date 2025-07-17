@@ -41,9 +41,19 @@ canvas {
 .chart-box-2.unshow {
   display: none; }
 
+.chart-box-1 .chart {
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%; }
+
 .chart-box-capacity {
   flex-direction: column;
   align-items: center; }
+
+.chart-box-1 .most-combination-box {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%; }
 
 .chart-box-capacity .box {
   width: 50%;
@@ -96,7 +106,29 @@ canvas {
 
 @media (max-width: 955px) and (orientation: landscape) {
   #sidebar {
-    height: 100%; } }
+    height: 100%; }
+  .chart-box-1 .chart {
+    -ms-flex: auto;
+    flex: auto;
+    max-width: 100%;
+    font-size: 14px; }
+  .box-chart-info {
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex; }
+  .chart-box-1 .most-combination-box {
+    flex-direction: unset;
+    -ms-flex: auto;
+    flex: auto;
+    max-width: 100%;
+    padding: 0 15px; }
+  .most-combination-box .most-combination {
+    width: 100%; }
+  .card-body > .content {
+    margin-top: 15px; }
+  .chart-box-capacity > .content,
+  .chart-box-capacity .box {
+    width: 85%; } }
 
 @media (max-width: 440px) {
   .card-body > .content {
