@@ -147,6 +147,20 @@
   }
 }
 
+@include mobile-all-landscape {
+  .school-info {
+    display: flex;
+    height: 12pc;
+    margin: 0;
+    width: 100%;
+  }
+
+  .school-info-detail {
+    top: 12px;
+    left: 8px;
+  }
+}
+
 @include respond(phone-sm) {
   .modal-containers,
   .modal-container.choose-school {

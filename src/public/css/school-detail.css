@@ -97,15 +97,13 @@
     -webkit-flex-direction: column !important;
     flex-direction: column;
     height: max-content; }
-  #master {
-    padding: 1px; }
   #map-iframe {
     width: 100%;
     height: 22pc; }
   .content-box {
     text-align: justify; }
-  #loading-full {
-    transform: translateY(30px) !important; } }
+  #sidebar {
+    height: 100%; } }
 
 @media only screen and (max-width: 792px) and (orientation: landscape) {
   .img-box img {

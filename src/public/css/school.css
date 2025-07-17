@@ -28,7 +28,8 @@
 @media (max-width: 955px) and (orientation: landscape) {
   #master {
     margin-left: 65px;
-    height: auto !important; } }
+    height: auto !important;
+    padding: 0 !important; } }
 
 @media (max-width: 440px) {
   #master {

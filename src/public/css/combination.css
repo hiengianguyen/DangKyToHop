@@ -119,6 +119,16 @@
     opacity: 1;
     transform: translateY(0px); } }
 
+@media (max-width: 955px) and (orientation: landscape) {
+  .school-info {
+    display: flex;
+    height: 12pc;
+    margin: 0;
+    width: 100%; }
+  .school-info-detail {
+    top: 12px;
+    left: 8px; } }
+
 @media (max-width: 440px) {
   .modal-containers,
   .modal-container.choose-school {
