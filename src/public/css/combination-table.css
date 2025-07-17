@@ -24,6 +24,13 @@ body {
 .card-body.pic {
   padding: 0; }
 
+@media (max-width: 955px) and (orientation: landscape) {
+  .modal {
+    height: 100vh !important; }
+  .modal-containers.container {
+    height: 26pc;
+    overflow-y: scroll; } }
+
 @media (max-width: 440px) {
   body {
     -webkit-overflow-scrolling: touch; }
