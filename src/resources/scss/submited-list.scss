@@ -14,7 +14,7 @@
   background-color: #ccc;
 }
 
-.sort-box #sort-title {
+.sort-box .sort-title {
   background-color: #8dfff5;
   padding: 10px;
   padding-left: 25px;
@@ -62,14 +62,14 @@
   list-style: none;
 }
 
-#sort-content {
+.sort-content {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transition: all 0.5s ease;
 }
 
-#sort-content.active {
+.sort-content.active {
   opacity: 1;
   max-height: 100%;
   transition: all 0.5s ease;
@@ -279,14 +279,14 @@
     margin-bottom: 20px;
   }
 
-  .sort-box-rep #sort-content {
+  .sort-box-rep .sort-content {
     position: absolute;
     z-index: 10;
     max-height: max-content;
     width: 100%;
   }
 
-  .sort-box #sort-title {
+  .sort-box .sort-title {
     text-align: center;
     padding-left: 0;
   }
