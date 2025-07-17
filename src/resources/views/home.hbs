@@ -90,7 +90,7 @@
         <p>Chúng tôi tin rằng mỗi học sinh là một hạt giống tiềm năng – chỉ cần được gieo trồng đúng nơi, sẽ có cơ hội phát triển mạnh mẽ. 
           Hãy để ngôi trường này trở thành nơi bắt đầu cho hành trình trưởng thành và thành công của bạn.</p>
         <p class="support">Bấm vào nút bên dưới để bắt đầu đăng ký tổ hợp vào lớp 10 và đồng hành cùng chúng tôi trong năm học tới!</p>
-        <a href="auth/signin" class="btn btn-primary">Bắt đầu <i class="fa-solid fa-chevron-right"></i></a>
+        <a href="auth/signin" id="btn-start" class="btn btn-primary">Bắt đầu <i class="fa-solid fa-chevron-right"></i></a> 
       </div>
       <div class="img-box">
         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_48_hbhv1o.jpg" class="shadow" alt="">
@@ -109,4 +109,21 @@
 
 <script>
    document.getElementById('body-app').style.overflowY = 'auto';
+   const btnStart = document.getElementById('btn-start');
+   btnStart.onclick = (e) => {
+    e.preventDefault();
+    let height = btnStart.clientHeight
+    let width = btnStart.clientWidth
+
+    btnStart.innerHTML = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>`;
+
+    Object.assign(btnStart.style, {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: height,
+      width: width
+    })
+    window.location.href = btnStart.href;
+   }
 </script>
