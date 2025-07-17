@@ -136,7 +136,8 @@ input {
   text-decoration: none; }
 
 #sidebar .nav-profile img {
-  width: 35px; }
+  width: 35px;
+  border-radius: 50%; }
 
 .dash {
   width: 100%;
@@ -168,7 +169,8 @@ input {
   display: none; }
 
 #sidebar.active .box i {
-  margin-right: 0; }
+  margin-right: 0;
+  transition: all 0.5s ease; }
 
 #sidebar .show-sidebar #btn-push-sidebar {
   background-color: #6c757d;
@@ -254,7 +256,8 @@ input {
 
 #nav-bar .avatar img {
   width: 25px;
-  margin-right: 8px; }
+  margin-right: 8px;
+  border-radius: 50%; }
 
 #nav-bar a:hover {
   background-color: #d4d0d1; }

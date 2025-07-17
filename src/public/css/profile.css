@@ -10,7 +10,8 @@
   font-weight: 600; }
 
 img.profile-img-user {
-  width: 12pc; }
+  width: 12pc;
+  border-radius: 50%; }
 
 .info-sub p {
   font-size: 18px; }
