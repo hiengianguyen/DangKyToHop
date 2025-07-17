@@ -401,6 +401,10 @@ input {
   #loading-full h2 {
     font-size: 22px;
   }
+
+  #loading-full {
+    transform: translateY(30px) !important;
+  }
 }
 
 @include respond(phone-sm) {

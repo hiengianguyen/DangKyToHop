@@ -41,7 +41,7 @@ img.profile-img-user {
   #header {
     display: none; }
   #master {
-    padding: 1px; } }
+    padding: 1px !important; } }
 
 @media (max-width: 440px) {
   #all-content {

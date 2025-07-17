@@ -323,7 +323,9 @@ input {
     font-size: 11px; }
   #loading h2,
   #loading-full h2 {
-    font-size: 22px; } }
+    font-size: 22px; }
+  #loading-full {
+    transform: translateY(30px) !important; } }
 
 @media (max-width: 440px) {
   .school-info,
