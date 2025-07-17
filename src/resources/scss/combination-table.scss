@@ -34,6 +34,17 @@ body {
   padding: 0;
 }
 
+@include mobile-all-landscape {
+  .modal {
+    height: 100vh !important;
+  }
+
+  .modal-containers.container {
+    height: 26pc;
+    overflow-y: scroll;
+  }
+}
+
 @include respond(phone-sm) {
   body {
     -webkit-overflow-scrolling: touch;
