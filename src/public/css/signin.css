@@ -140,6 +140,27 @@ input {
     height: 8pc;
     margin-right: 20px; } }
 
+@media (max-width: 955px) and (orientation: landscape) {
+  .box-login {
+    flex-basis: 55%;
+    height: 100%; }
+  .box-login > .box {
+    padding: 40px 20px; }
+  .box-img h2 {
+    font-size: 30px; }
+  .box-img p {
+    font-size: 15px; }
+  .box-img img {
+    width: 6pc;
+    height: 6pc;
+    margin-right: 20px; }
+  .footer-text {
+    font-size: 13px !important; }
+  .login-comment {
+    -webkit-flex-direction: column !important;
+    flex-direction: column;
+    align-items: start; } }
+
 @media (max-width: 440px) {
   .master {
     display: block !important;
