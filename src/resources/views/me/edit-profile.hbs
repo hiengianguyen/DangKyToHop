@@ -82,7 +82,7 @@
 
 <div id="loading-full" class="position-fixed" style="display: none;">
     <div class="d-flex align-items-center flex-column">
-        <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang tải ảnh lên...</h2>
+        <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang tải dữ liệu...</h2>
         <div class="spinner-border mt-4" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
@@ -204,7 +204,7 @@
     btnUpdate.onclick = async () => {
         const url = imgProfile.src;
         if(url) {
-            loadingText.textContent = 'Đang tải ảnh lên...';
+            loadingText.textContent = 'Đang cập nhật dữ liệu...';
             loading.style.display = 'flex';
 
             const uploaded = await uploadImageToCloudinary(url, 'users');
