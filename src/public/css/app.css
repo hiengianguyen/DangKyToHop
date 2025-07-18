@@ -309,6 +309,13 @@ input {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999; }
 
+#lightbox .lb-image {
+  max-width: 90vw !important;
+  max-height: 90vh !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain; }
+
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
   #master {
     margin-left: 80px; }

@@ -25,7 +25,9 @@
                     <div class="d-flex box">
                         <div class="offical-avatar me-4 mb-3 d-flex flex-column">
                             <label class="avatar"><b>Ảnh thẻ:</b></label>
-                            <img id="resultImage" src="{{submitedCombinationDetail.avatarLink}}" class="col col-md-2">
+                            <a href="{{submitedCombinationDetail.avatarLink}}" data-lightbox="student" data-title="Ảnh thẻ của {{submitedCombinationDetail.fullName}}">
+                                <img id="resultImage" src="{{submitedCombinationDetail.avatarLink}}" class="col col-md-2">
+                            </a>
                         </div>
 
                         <div class="offical-info gy-3 m-0">
