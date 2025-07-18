@@ -16,6 +16,18 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px; }
 
+.sort-box .sort-title:hover {
+  background-color: #b2fff9;
+  cursor: pointer; }
+
+.sort-content {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px; }
+
+.sort-box .sort-content:hover {
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; }
+
 .sort-box .list-sort {
   list-style: none; }
 
@@ -70,6 +82,10 @@
   left: 96px;
   margin: 0px;
   transform: translate3d(-108px, 0px, 0px); }
+
+.dropdown-menu.show:hover {
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; }
 
 .dropdown-menu li {
   text-align: center;

@@ -199,11 +199,11 @@
                 <div class="sort-box sort-box-rep" style="display:none;">
                     <div class="sort-title">
                         <p class="m-0">
-                            Sắp xếp theo <i class="fa-solid fa-chevron-down" id="sort-icon-title" style="font-size: 13px;"></i>
+                            Sắp xếp theo <i class="fa-solid fa-chevron-down sort-icon-title" style="font-size: 13px;"></i>
                         </p>
                     </div>
                     <div class="sort-content">
-                        <ul class="list-sort p-0">
+                        <ul class="list-sort p-0 m-0">
                             <li class="sub-li-type title">Họ và tên <i style="font-size: 20px;"></i>
                             </li>
                             <li class="active sub-li-type type py-0">
@@ -220,7 +220,7 @@
                                     <li class="p-2 type-sort" data-value="desc">Mới nhất <i class="ms-1 fa-solid"></i></li>
                                 </ul>
                             </li>
-                            <li class="title sub-li-type" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào <i style="font-size: 20px;"></i>
+                            <li class="title sub-li-type">Điểm đầu vào <i style="font-size: 20px;"></i>
                             </li>
                             <li class="active sub-li-type type py-0">
                                 <ul class="ps-3">
@@ -294,11 +294,11 @@
                         <div class="sort-box">
                             <div class="sort-title">
                                 <p class="m-0">
-                                    Sắp xếp theo <i class="fa-solid fa-chevron-down" id="sort-icon-title" style="font-size: 13px;"></i>
+                                    Sắp xếp theo <i class="fa-solid fa-chevron-down sort-icon-title" style="font-size: 13px;"></i>
                                 </p>
                             </div>
                             <div class="sort-content">
-                                <ul class="list-sort p-0">
+                                <ul class="list-sort p-0 m-0">
                                     <li class="sub-li-type title">Họ và tên <i style="font-size: 20px;"></i>
                                     </li>
                                     <li class="active sub-li-type type py-0">
@@ -315,7 +315,7 @@
                                             <li class="p-2 type-sort" data-value="desc">Gần đây <i class="ms-1 fa-solid"></i></li>
                                         </ul>
                                     </li>
-                                    <li class="title sub-li-type" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào <i style="font-size: 20px;"></i>
+                                    <li class="title sub-li-type">Điểm đầu vào <i style="font-size: 20px;"></i>
                                     </li>
                                     <li class="active sub-li-type type py-0">
                                         <ul class="ps-3">
@@ -444,7 +444,7 @@
 
     const sortTitles = document.querySelectorAll('.sort-title');
     const sortContents = document.querySelectorAll('.sort-content');
-    const iconSortTitle = document.getElementById('sort-icon-title');
+    const iconSortTitles = document.querySelectorAll('.sort-title .sort-icon-title');
     const tagLisSort = document.querySelectorAll('.sort-content li:not(.type-sort)');
     const typeSortI = document.querySelectorAll('.sort-content .type-sort i');
 
@@ -487,6 +487,8 @@
                 switch(index) {
                     case 0:
                     case 1:
+                    case 6:
+                    case 7:
                         result.sort((a, b) => {
                             function getLastName(fullName) {
                                 const parts = fullName.trim().split(" ");
@@ -507,6 +509,8 @@
                         break
                     case 2:
                     case 3:
+                    case 8:
+                    case 9:
                         result.sort((a, b) => {
                             if(valueTypeSort === 'asc') {
                                 return convertVietnameseDatetimeToDate(a.registeredAt) - convertVietnameseDatetimeToDate(b.registeredAt);
@@ -519,6 +523,8 @@
                         break
                     case 4:
                     case 5:
+                    case 10:
+                    case 11:
                         result.sort((a, b) => {
                             const totalA = Number(a.mathScore || '0') + Number(a.literatureScore || '0') + Number(a.englishScore || '0');
                             const totalB = Number(b.mathScore || '0') + Number(b.literatureScore || '0') + Number(b.englishScore || '0');
@@ -542,9 +548,9 @@
             sortContents.forEach((sortContent) => {
                 sortContent.classList.toggle('active');
                 if(sortContent.className.includes('active')) {
-                    iconSortTitle.className = "fa-solid fa-chevron-up";
+                    iconSortTitles.forEach((icon) => icon.className = "fa-solid fa-chevron-up")
                 } else {
-                    iconSortTitle.className = "fa-solid fa-chevron-down";
+                    iconSortTitles.forEach((icon) => icon.className = "fa-solid fa-chevron-down")
                 }
             })
         }
