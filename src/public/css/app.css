@@ -105,7 +105,8 @@ input {
   margin-right: 16px; }
 
 #sidebar .menu-bar a.active {
-  background-color: #29a9ef;
+  background: #00d4ff;
+  background: linear-gradient(90deg, #00d4ff 0%, #29a9ef 80%, #1193d4 100%);
   color: #ffffff;
   text-decoration: none; }
 
@@ -119,7 +120,8 @@ input {
   text-decoration: none; }
 
 #sidebar .end-box a:not(.nav-profile):hover {
-  background-color: #ff1c60;
+  background: #ff1c60;
+  background: linear-gradient(90deg, #ff1c60 0%, #ff1c60 31%, #ff1c3e 71%, #ff3c3c 100%);
   color: #fff;
   text-decoration: none; }
 
@@ -173,7 +175,8 @@ input {
   transition: all 0.5s ease; }
 
 #sidebar .show-sidebar #btn-push-sidebar {
-  background-color: #6c757d;
+  background: #6c757d;
+  background: linear-gradient(90deg, #6c757d 0%, #6f7a80 20%, #4f4f4f 100%);
   color: #ffffff;
   padding: 0;
   width: 100%;
@@ -184,7 +187,12 @@ input {
   border-radius: 5px;
   height: 50px;
   list-style: none;
-  margin-top: 10px; }
+  margin-top: 10px;
+  transition: all 0.5s ease; }
+
+#sidebar.active .show-sidebar #btn-push-sidebar {
+  background: #6c757d;
+  transition: all 0.5s ease; }
 
 #sidebar .show-sidebar #btn-push-sidebar:hover {
   cursor: pointer; }
