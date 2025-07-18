@@ -128,7 +128,8 @@ input {
 }
 
 #sidebar .menu-bar a.active {
-  background-color: #29a9ef;
+  background: #00d4ff;
+  background: linear-gradient(90deg, rgba(0, 212, 255, 1) 0%, rgba(41, 169, 239, 1) 80%, rgba(17, 147, 212, 1) 100%);
   color: #ffffff;
   text-decoration: none;
 }
@@ -145,7 +146,8 @@ input {
 }
 
 #sidebar .end-box a:not(.nav-profile):hover {
-  background-color: #ff1c60;
+  background: #ff1c60;
+  background: linear-gradient(90deg, rgba(255, 28, 96, 1) 0%, rgba(255, 28, 96, 1) 31%, rgba(255, 28, 62, 1) 71%, rgb(255, 60, 60) 100%);
   color: #fff;
   text-decoration: none;
 }
@@ -213,7 +215,8 @@ input {
 }
 
 #sidebar .show-sidebar #btn-push-sidebar {
-  background-color: #6c757d;
+  background: #6c757d;
+  background: linear-gradient(90deg, rgba(108, 117, 125, 1) 0%, rgba(111, 122, 128, 1) 20%, rgba(79, 79, 79, 1) 100%);
   color: #ffffff;
   padding: 0;
   width: 100%;
@@ -225,6 +228,12 @@ input {
   height: 50px;
   list-style: none;
   margin-top: 10px;
+  transition: all 0.5s ease;
+}
+
+#sidebar.active .show-sidebar #btn-push-sidebar {
+  background: #6c757d;
+  transition: all 0.5s ease;
 }
 
 #sidebar .show-sidebar #btn-push-sidebar:hover {
