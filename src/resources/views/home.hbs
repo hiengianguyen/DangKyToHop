@@ -64,33 +64,42 @@
           </a>
         </div>
       </div>
+    </div>
 
-      <div class="container-body d-flex">
-        <div class="content-box">
-          <h4 class="fw-bold text-center">Thành tích nổi bật – Niềm tự hào của nhà trường</h4>
-          <p>
-            Năm học vừa qua, trường chúng tôi đã bồi dưỡng và đưa nhiều học sinh tham gia các kỳ thi học sinh giỏi cấp thành phố. 
-            Kết quả đạt được vô cùng ấn tượng:
-          </p>
-          <ul>
-            <li>Nhiều giải Nhất, Nhì, Ba, Khuyến khích ở các môn Toán, Văn, Anh, Lý, Hóa, Địa...(01 giải Nhất; 02 giải Nhì, 08 giải Ba và 08 giải Khuyến khích)</li>
-            <li>Học sinh không chỉ giỏi kiến thức mà còn được rèn luyện tư duy và kỹ năng làm bài chuyên sâu.</li>
-            <li>Thành tích này là minh chứng rõ ràng cho chất lượng giảng dạy và sự đầu tư đúng hướng của nhà trường trong suốt thời gian qua.</li>
-          </ul>
-        </div>
-        <div class="image-stack d-flex">
-            <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong2_hrmmg7.jpg" data-lightbox="school" data-title="Ảnh khen thưởng">
-              <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong2_hrmmg7.jpg" alt="Ảnh khen thưởng">
+    <div class="trophi-container">
+      <div class="title text-center">
+        <h3 class="fw-bold">Thành tích nổi bật – Niềm tự hào của nhà trường</h3>
+        <p>
+          Năm học vừa qua, trường chúng tôi đã bồi dưỡng và đưa nhiều học sinh tham gia các kỳ thi học sinh giỏi cấp thành phố. 
+          Kết quả đạt được vô cùng ấn tượng:
+        </p>
+      </div>
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1752849838/cap_tinh_1_dp84fo.jpg" data-lightbox="school" data-title="Ảnh khen thưởng">
+              <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752849838/cap_tinh_1_dp84fo.jpg" alt="Ảnh khen thưởng">
             </a>
-            <div class="ms-2">
-              <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179322/9999_copy_cqmuuu.jpg" data-lightbox="school" data-title="Ảnh khen thưởng">
-                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179322/9999_copy_cqmuuu.jpg" alt="Ảnh khen thưởng">
-              </a>
-              <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong1_kjqr9m.jpg" data-lightbox="school" data-title="Ảnh khen thưởng">
-                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong1_kjqr9m.jpg" alt="Ảnh khen thưởng">
-              </a>
-            </div>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1752849838/cap_tinh_1_dp84fo.jpg" data-lightbox="school" data-title="Ảnh khen thưởng">
+              <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752849838/cap_tinh_1_dp84fo.jpg" alt="Ảnh khen thưởng">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1752849838/cap_tinh_1_dp84fo.jpg" data-lightbox="school" data-title="Ảnh khen thưởng">
+              <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752849838/cap_tinh_1_dp84fo.jpg" alt="Ảnh khen thưởng">
+            </a>
+          </div>
         </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
     </div>
 
@@ -119,6 +128,28 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
    document.getElementById('body-app').style.overflowY = 'auto';
+
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    loop: true,
+    
+    autoplay: {
+      delay: 5000, // chuyển slide mỗi 3 giây
+      disableOnInteraction: false, // không tắt autoplay khi người dùng vuốt
+    },
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 </script>
