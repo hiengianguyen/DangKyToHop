@@ -204,7 +204,7 @@
     btnUpdate.onclick = async () => {
         const url = imgProfile.src;
         if(url) {
-            loadingText.textContent = 'Đang tải ảnh lên...';
+            loadingText.textContent = 'Đang cập nhật dữ liệu...';
             loading.style.display = 'flex';
 
             const uploaded = await uploadImageToCloudinary(url, 'users');
