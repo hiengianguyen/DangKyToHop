@@ -261,6 +261,19 @@
   justify-content: end;
 }
 
+.img-activity-container.main-school .text {
+  background: linear-gradient(to right, #faf1e2 45%, transparent);
+}
+
+.img-activity-container.main-school .img-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 4;
+}
+
 .box-content-4 .swiper-button-next,
 .box-content-4 .swiper-button-prev {
   color: #887717;
