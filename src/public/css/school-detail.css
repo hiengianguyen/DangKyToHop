@@ -156,6 +156,12 @@
   width: 5px;
   background-color: #494545; }
 
+.dash-width {
+  height: 1px;
+  width: 100%;
+  background-color: #494545;
+  display: none; }
+
 .trophi-container ul li {
   display: flex;
   flex-direction: column;
@@ -174,6 +180,9 @@
   width: 100%;
   height: 35pc;
   overflow: hidden; }
+
+.img-activity-container-rep {
+  display: none; }
 
 .img-activity-container .text {
   flex: 1;
@@ -367,68 +376,108 @@
     margin-right: 0; } }
 
 @media (max-width: 440px) {
+  #master {
+    padding: 0; }
+  .card-body {
+    padding: 0 10px !important; }
+  .big-content {
+    width: 100% !important; }
   .box-radius {
     padding: 20px;
     margin: 0; }
-  .container-school > h4 {
-    font-size: 18px; }
   .content-box.des p {
     font-size: 10px;
     text-align: justify; }
-  .image-stack {
-    width: 100%;
-    flex-direction: column;
-    margin: 20px 0;
-    align-items: center;
-    height: auto; }
-  .card-title {
-    font-size: 15px;
-    font-weight: 700; }
-  .image-stack img {
-    max-width: 40%; }
-  .image-stack div img {
-    margin: 5px;
-    margin-top: 20px; }
-  .image-stack div {
-    display: flex;
-    align-items: center;
-    flex-direction: column; }
-  .image-stack img:hover {
-    transform: scale(1.25); }
   .content-box {
     font-size: 15px;
     text-align: justify; }
-  .img-box img,
-  .container-school .content-box {
+  .img-box img {
     width: 100%; }
   .img-box .first {
     margin-right: 0;
     margin-bottom: 10px; }
   .img-box {
     flex-direction: column; }
-  .container-school .container-body {
-    flex-direction: column;
-    margin-top: 24px; }
-  .container-school .container-body .content-box {
-    width: auto;
-    margin-right: 0; }
-  .container-school .container-body h4 {
-    font-size: 13px; }
-  .container-school .container-body p {
-    font-size: 12px;
-    text-align: justify; }
-  .container-school .container-body ul {
-    font-size: 15px;
-    text-align: justify;
-    padding-left: 16px; }
-  .container-school .container-body h4 {
-    font-size: 15px;
-    text-align: start !important; }
-  .container-school .container-body p {
-    font-size: 15px;
-    text-align: justify; }
   #map-iframe {
-    width: 360px;
+    width: 100%;
     height: 300px; }
-  #map-title {
-    font-size: 14px; } }
+  .img-activity-container-rep {
+    display: flex !important;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    align-items: center; }
+  .box-content-2,
+  .box-content-3,
+  .box-content-1,
+  .box-content-5,
+  .box-content-4,
+  .box-content-6 {
+    padding: 15px; }
+  .box-content-1 p,
+  .box-content-2 p,
+  .box-content-3 p,
+  .box-content-5 p,
+  .box-content-6 p,
+  .box-content-4 p {
+    font-size: 16px;
+    text-align: justify; }
+  .swiper {
+    width: 100% !important;
+    margin: 0;
+    height: max-content !important; }
+  .swiper img {
+    height: auto;
+    width: 88%; }
+  .box-content-info .title {
+    margin-bottom: 1pc; }
+  .box-content-info .ds-data {
+    gap: 0;
+    font-size: 15px;
+    flex-direction: column; }
+  .box-content-info .ds-data h2 {
+    font-size: 30px; }
+  .box-content-info .ds-data p {
+    margin-bottom: 0; }
+  .swiper-button-prev,
+  .swiper-button-next,
+  .img-activity-container,
+  .dash-height,
+  .swiper-pagination {
+    display: none; }
+  .box-content-2 > .container,
+  .box-content-4 > .container {
+    padding: 0; }
+  .trophi-container {
+    padding-bottom: 0; }
+  .trophi-container .title p {
+    font-size: 18px;
+    text-align: justify; }
+  .swiper-wrapper {
+    align-items: center; }
+  .trophi-container .title h4,
+  .box-content-1 h3,
+  #map-title,
+  .box-content-info h4,
+  .box-content-5 h3,
+  .box-content-4 h4,
+  .box-content-4 h3 {
+    font-size: 20px; }
+  .dash-width {
+    display: block;
+    margin: 2pc 0; }
+  .trophi-container .title ul {
+    padding: 0;
+    display: flex !important;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    gap: 0; }
+  .trophi-container ul li::before {
+    margin: 0;
+    margin-bottom: 10px; }
+  .lb-dataContainer,
+  .lb-outerContainer {
+    height: 100% !important;
+    width: 100% !important; }
+  .box-content-5 .list_link .btn-sm {
+    min-height: 40px;
+    padding: 8px 16px; } }
