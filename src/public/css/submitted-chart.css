@@ -132,7 +132,11 @@ canvas {
 
 @media (max-width: 440px) {
   .card-body > .content {
-    margin-top: 1pc; }
+    margin-top: 1pc;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex !important;
+    align-items: center; }
   .tab-container {
     width: 100%;
     font-size: 13px;
@@ -144,12 +148,15 @@ canvas {
   .box-chart-info:not(.unshow) {
     -webkit-flex-direction: column !important;
     flex-direction: column !important;
-    display: flex !important; }
+    display: flex !important;
+    max-width: 100%;
+    padding: 0; }
   .box-chart-info .chart .first {
     margin-bottom: 13px; }
   .most-combination-box {
     margin-bottom: 20px;
-    padding-right: 15px; }
+    padding: 0;
+    max-width: 100% !important; }
   .box-chart {
     height: 280px; }
   .chart-box-capacity .content {
