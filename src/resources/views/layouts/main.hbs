@@ -211,9 +211,10 @@
 {{#if (showSideBar isNotHomePage isNotSideBar)}}
   <script>
     var sideBar = document.getElementById('sidebar');
-    const mainSideBar = document.getElementById('sidebar');
-    const btnPushSidebar = document.getElementById('btn-push-sidebar');
-    const iconBtnSidebar = btnPushSidebar.getElementsByTagName('i')[0];
+    var mainSideBar = document.getElementById('sidebar');
+    var btnPushSidebar = document.getElementById('btn-push-sidebar');
+    var iconBtnSidebar = btnPushSidebar.getElementsByTagName('i')[0];
+    var bigContent = document.querySelector('.big-content');
     const containerSubmitted = document.getElementById('container-submitted');
     const app = document.getElementById('all-content');
     
@@ -222,11 +223,18 @@
         if(containerSubmitted) {
           containerSubmitted.style.maxWidth = '88%';
         }
+
+        if(bigContent) {
+          bigContent.classList.remove('active');
+        }
         btnPushSidebar.title = 'Phóng to bảng điều hướng';
         iconBtnSidebar.className = 'fa-solid fa-arrow-right';
       } else {
         if(containerSubmitted) {
           containerSubmitted.style.maxWidth = '85%';
+        }
+        if(bigContent) {
+          bigContent.classList.add('active');
         }
       }
       app.classList.remove('translate');
@@ -249,11 +257,17 @@
         if(containerSubmitted) {
           containerSubmitted.style.maxWidth = '88%';
         }
+        if(bigContent) {
+          bigContent.classList.remove('active');
+        }
         localStorage.setItem('isActive', true);
         btnPushSidebar.setAttribute("title", "Phóng to bảng điều hướng");
       } else {
         if(containerSubmitted) {
           containerSubmitted.style.maxWidth = '85%';
+        }
+        if(bigContent) {
+          bigContent.classList.add('active');
         }
         localStorage.setItem('isActive', false)
         btnPushSidebar.setAttribute("title", "Thu nhỏ bảng điều hướng");
