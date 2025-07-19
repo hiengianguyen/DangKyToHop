@@ -205,6 +205,11 @@
   font-size: 20px;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  color: #887717;
+}
+
 @keyframes brul {
   from {
     backdrop-filter: blur(0);
@@ -366,6 +371,26 @@
   .box-login {
     overflow-y: scroll;
     height: 10pc;
+  }
+
+  .swiper {
+    height: max-content;
+  }
+
+  .swiper img {
+    height: auto;
+    width: 100%;
+  }
+
+  .swiper .swiper-slide {
+    text-align: center;
+    padding: 2pc;
+  }
+
+  .lb-dataContainer,
+  .lb-outerContainer {
+    height: 100% !important;
+    width: 100% !important;
   }
 }
 
