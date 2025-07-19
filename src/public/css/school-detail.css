@@ -143,10 +143,30 @@
 
 .trophi-container .title p {
   font-size: 23px;
-  color: #555252; }
+  color: #272727; }
 
 .trophi-container .title ul {
-  font-size: 20px; }
+  display: flex;
+  font-size: 20px;
+  list-style: none;
+  gap: 3pc; }
+
+.dash-height {
+  height: 175px;
+  width: 5px;
+  background-color: #494545; }
+
+.trophi-container ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify; }
+
+.trophi-container ul li::before {
+  content: "✔";
+  color: #4ba0d8;
+  font-weight: bold;
+  margin-right: 8px; }
 
 .img-activity-container {
   display: flex;
@@ -230,6 +250,53 @@
 .box-content-4 .swiper-button-next,
 .box-content-4 .swiper-button-prev {
   color: #887717; }
+
+.box-content-info {
+  padding: 2pc 0;
+  background-color: #f1f8ff; }
+
+.box-content-info .title {
+  margin-bottom: 3pc; }
+
+.box-content-info .ds-data {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  gap: 3pc; }
+
+.box-content-info .ds-data li {
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px; }
+
+.box-content-info .ds-data h2 {
+  font-size: 40px; }
+
+.box-content-5 .content {
+  margin-bottom: 3pc; }
+
+.box-content-5 .list_link {
+  display: flex;
+  flex-wrap: wrap; }
+
+.box-content-5 .list_link .btn-sm {
+  height: min-content;
+  min-height: 48px;
+  border-radius: 24px;
+  padding: 12px 24px;
+  margin-bottom: 12px;
+  margin-right: 8px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 0 0 1px #0a66c2; }
+
+.box-content-5 .list_link .btn-sm:hover {
+  cursor: pointer;
+  text-decoration-line: none;
+  background-color: rgba(112, 181, 249, 0.1); }
 
 @media only screen and (min-width: 955px) and (max-width: 1200px) {
   .image-stack img:hover {
