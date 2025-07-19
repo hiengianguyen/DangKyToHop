@@ -1,5 +1,5 @@
-class ErrorController {
-  async handleErrorRoute(req, res, next) {
+class NotfoundController {
+  async handleNotfound(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
       return res.status(404).render("notfound/notfound-user");
     } else {
@@ -8,4 +8,4 @@ class ErrorController {
   }
 }
 
-module.exports = new ErrorController();
+module.exports = new NotfoundController();
