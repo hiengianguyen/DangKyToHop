@@ -176,6 +176,10 @@ canvas {
 @include respond(phone-sm) {
   .card-body > .content {
     margin-top: 1pc;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex !important;
+    align-items: center;
   }
 
   .tab-container {
@@ -194,6 +198,8 @@ canvas {
     -webkit-flex-direction: column !important;
     flex-direction: column !important;
     display: flex !important;
+    max-width: 100%;
+    padding: 0;
   }
 
   .box-chart-info .chart .first {
@@ -202,7 +208,8 @@ canvas {
 
   .most-combination-box {
     margin-bottom: 20px;
-    padding-right: 15px;
+    padding: 0;
+    max-width: 100% !important;
   }
 
   .box-chart {
