@@ -1,8 +1,26 @@
 @import "breakpoints";
 
+#master {
+  background-color: #ffffff;
+}
+
+.big-content {
+  width: calc(100% - 80px) !important;
+}
+
+.big-content.active {
+  width: calc(100% - 280px) !important;
+  transition: width 0.3s ease;
+}
+
 .container-school {
   padding: 0;
   background-color: #fff;
+}
+
+.school-info {
+  margin: -10px;
+  margin-bottom: 0;
 }
 
 .container-school > h4 {
@@ -12,6 +30,10 @@
 .content-box,
 .content-box.des p {
   font-size: 20px;
+}
+
+.content-box {
+  margin: 0 -10px;
 }
 
 .image-stack {
@@ -46,6 +68,7 @@
 
 .img-box img {
   width: 35pc;
+  transition: all 0.3s ease;
 }
 
 .img-box .first {
@@ -65,6 +88,176 @@
 .container-school .container-body .content-box {
   width: 40pc;
   margin-right: 24px;
+}
+
+.img-box img:hover {
+  opacity: 0.9;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease;
+}
+
+.box-content-1,
+.box-content-2,
+.box-content-3,
+.box-content-5,
+.box-content-6 {
+  padding: 2pc;
+}
+
+.box-content-1 p,
+.box-content-2 p,
+.box-content-3 p,
+.box-content-5 p,
+.box-content-6 p,
+.box-content-4 p {
+  font-size: 20px;
+}
+
+.box-content-1 {
+  background-color: #faf1e2;
+}
+.box-content-2 {
+  background-color: #fff;
+}
+.box-content-3 {
+  background-color: #b4dbff;
+}
+.box-content-5 {
+  background-color: #ffeea1;
+}
+.box-content-4 {
+  background-color: papayawhip;
+  padding-top: 2pc;
+}
+
+.swiper {
+  width: 100%;
+  height: 33pc;
+}
+
+.swiper img {
+  height: 95%;
+  border-radius: 10px;
+  transform: translateY(0);
+  transition: all 0.5s ease;
+}
+
+.swiper img:hover {
+  opacity: 0.9;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-10px);
+  transition: all 0.5s ease;
+}
+
+.swiper .swiper-slide {
+  text-align: center;
+  padding: 2pc 0;
+}
+
+.trophi-container .title h4 {
+  font-size: 24px;
+}
+
+.trophi-container {
+  color: #000;
+  padding-top: 17px;
+  padding-bottom: 5pc;
+  background-color: #ffeaaa;
+}
+
+.trophi-container .title {
+  margin-bottom: 3pc;
+}
+
+.trophi-container .title h4 {
+  margin-bottom: 30px;
+}
+
+.trophi-container .title p {
+  font-size: 23px;
+  color: #555252;
+}
+
+.trophi-container .title ul {
+  font-size: 20px;
+}
+
+.img-activity-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 35pc;
+  overflow: hidden;
+}
+
+.img-activity-container .text {
+  flex: 1;
+  padding: 40px;
+  width: 45%;
+  z-index: 2;
+  background: linear-gradient(to left, papayawhip 45%, transparent);
+}
+
+.img-activity-container.camp .text {
+  background: linear-gradient(to right, papayawhip 45%, transparent);
+}
+
+.img-activity-container .text-child {
+  width: 45%;
+  > h3 {
+    text-shadow: 0px 5px 5px #999999;
+  }
+  > p {
+    text-align: justify;
+    text-shadow: 1px 1px 2px #37454b;
+  }
+}
+
+#student-dance-imgBox {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  z-index: 3;
+  width: 50%;
+}
+
+#student-dance-imgBox.camp {
+  right: unset;
+  left: 10px;
+  width: 50%;
+}
+
+.img-activity-container .img-act-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background-image: url("https://res.cloudinary.com/dwoymvppw/image/upload/v1752897679/481707532_1107512801180243_6137096559433062400_n.jpg_z8bvt2.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6; /* Làm mờ ảnh */
+  z-index: 1;
+}
+
+.img-activity-container .img-act-box.camp {
+  background-image: url("https://res.cloudinary.com/dwoymvppw/image/upload/v1752898322/485822269_1122180993046757_2924633607541318652_n.jpg_ufydea.jpg");
+  left: unset;
+  right: 0;
+}
+
+.img-activity-container .img-act-box.activity {
+  background-image: url("https://res.cloudinary.com/dwoymvppw/image/upload/v1752897977/483103651_1113421323922724_4627461808748182634_n.jpg_pk9kyg.jpg");
+}
+
+.img-activity-container.camp .text {
+  display: flex;
+  justify-content: end;
+}
+
+.box-content-4 .swiper-button-next,
+.box-content-4 .swiper-button-prev {
+  color: #887717;
 }
 
 @include table {

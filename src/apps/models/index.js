@@ -7,7 +7,7 @@ const UserModel = require("../models/UserModel");
 const NationModel = require("../models/NationModel");
 const RegisteredCombinationModel = require("../models/RegisteredCombinationModel");
 const FavouriteSubmittedModel = require("../models/FavouriteSubmittedModel");
-const StudentAchievementModel = require("../models/StudentAchievementModel");
+const ImageActivityModel = require("./ImageActivityModel");
 
 module.exports = {
   FirestoreModel,
@@ -19,5 +19,5 @@ module.exports = {
   NationModel,
   RegisteredCombinationModel,
   FavouriteSubmittedModel,
-  StudentAchievementModel
+  ImageActivityModel
 };
