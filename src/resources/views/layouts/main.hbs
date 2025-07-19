@@ -210,16 +210,15 @@
 
 {{#if (showSideBar isNotHomePage isNotSideBar)}}
   <script>
-    var sideBar = document.getElementById('sidebar');
-    var mainSideBar = document.getElementById('sidebar');
-    var btnPushSidebar = document.getElementById('btn-push-sidebar');
-    var iconBtnSidebar = btnPushSidebar.getElementsByTagName('i')[0];
-    var bigContent = document.querySelector('.big-content');
+    const mainSideBar = document.getElementById('sidebar');
+    const btnPushSidebar = document.getElementById('btn-push-sidebar');
+    const iconBtnSidebar = btnPushSidebar.getElementsByTagName('i')[0];
+    const bigContent = document.querySelector('.big-content');
     const containerSubmitted = document.getElementById('container-submitted');
     const app = document.getElementById('all-content');
     
      window.addEventListener('load', function () {
-      if(sideBar.className === 'active') {
+      if(mainSideBar.className === 'active') {
         if(containerSubmitted) {
           containerSubmitted.style.maxWidth = '88%';
         }
@@ -240,11 +239,11 @@
       app.classList.remove('translate');
      })
 
-    if(sideBar) {
+    if(mainSideBar) {
       if(localStorage.getItem('isActive') === 'true') {
-        sideBar.classList.add('active');
+        mainSideBar.classList.add('active');
       } else {
-        sideBar.classList.remove('active');
+        mainSideBar.classList.remove('active');
       }
     }
 
