@@ -76,7 +76,6 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
   transition: all 0.3s ease; }
 
-.box-content-1,
 .box-content-2,
 .box-content-3,
 .box-content-5,
@@ -192,7 +191,7 @@
   left: 0;
   width: 60%;
   height: 100%;
-  background-image: url("https://res.cloudinary.com/dwoymvppw/image/upload/v1752897679/481707532_1107512801180243_6137096559433062400_n.jpg_z8bvt2.jpg");
+  background-image: url("https://res.cloudinary.com/dwoymvppw/image/upload/v1749179561/BE_GIANG_DT_22_lhjusl.jpg");
   background-size: cover;
   background-position: center;
   opacity: 0.6;
@@ -207,6 +206,12 @@
 .img-activity-container .img-act-box.activity {
   background-image: url("https://res.cloudinary.com/dwoymvppw/image/upload/v1752897977/483103651_1113421323922724_4627461808748182634_n.jpg_pk9kyg.jpg"); }
 
+.img-activity-container .img-act-box.main-school {
+  background-image: url("https://res.cloudinary.com/dwoymvppw/image/upload/v1752893673/73141113_730983574035387_2818179285607514112_n.jpg_plvcef.jpg");
+  left: unset;
+  right: 0; }
+
+.img-activity-container.main-school .text,
 .img-activity-container.camp .text {
   display: flex;
   justify-content: end; }
