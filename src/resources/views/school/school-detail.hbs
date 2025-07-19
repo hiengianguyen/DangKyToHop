@@ -31,7 +31,22 @@
                                 </p>
                             </div>
                         </div>
-
+                        <div class="img-box d-flex align-items-center flex-column mt-4">
+                            <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1752892084/phoca_thumb_l_img_0188_ucfe6j.jpg" data-lightbox="school" title="Trường học giai đoạn đầu" data-title="Trường học giai đoạn đầu">
+                                <img class="rounded-3" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752892084/phoca_thumb_l_img_0188_ucfe6j.jpg" alt="">
+                            </a>
+                            <p class="text-center mt-2">Trường học giai đoạn đầu</p>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="text-child rep-box-1">
+                            <h3 class="fw-bold">Thông tin trường học</h3>
+                            <p>
+                                Trường Trung học phổ thông (THPT) Duy Tân là một cơ sở giáo dục công lập tọa lạc tại Phường Quảng Phú, TP. Đà Nẵng. 
+                                Được thành lập vào năm 2010 theo Quyết định số 1119/QĐ-UBND của UBND tỉnh Quảng Nam (cũ), trường nhằm tạo điều kiện thuận lợi 
+                                cho việc học tập của học sinh tại các xã phường như: Phường Quảng Phú, phường Tam Kỳ, phường Hương Trà, phường Bàn Thạch, xã Thăng Trường, xã Tam Xuân.
+                            </p>
+                        </div>
                         <div class="img-box d-flex align-items-center flex-column mt-4">
                             <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1752892084/phoca_thumb_l_img_0188_ucfe6j.jpg" data-lightbox="school" title="Trường học giai đoạn đầu" data-title="Trường học giai đoạn đầu">
                                 <img class="rounded-3" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752892084/phoca_thumb_l_img_0188_ucfe6j.jpg" alt="">
@@ -47,9 +62,7 @@
                             Đến tháng 8 năm 2016, trường mới chuyển về cơ sở mới tại thôn Ngọc Mỹ, xã Tam Phú (cũ).
                         </p>
                         <div class="swiper">
-                        <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
-                            <!-- Slides -->
                                 <div class="swiper-slide">
                                     <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1752893681/phoca_thumb_l_19_jmu4ho.jpg" data-lightbox="duy-tan" data-title="Sân trường THPT Duy Tân">
                                         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752893681/phoca_thumb_l_19_jmu4ho.jpg" alt="Sân trường THPT Duy Tân" title="Sân trường THPT Duy Tân">
@@ -75,10 +88,7 @@
                                     <p class="text-center mt-2">Trường THPT Duy Tân từ trên cao</p>
                                 </div>
                             </div>
-                            <!-- If we need pagination -->
                             <div class="swiper-pagination"></div>
-
-                            <!-- If we need navigation buttons -->
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
                         </div>
@@ -124,11 +134,8 @@
                                 </p>
                             </div>
                         </div>
-
                         <div id="student-dance-imgBox" class="swiper">
-                            <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
-                            <!-- Slides -->
                             {{#each imgStudentDancings}}
                                 <div class="swiper-slide">
                                     <a href="{{this.imgUrl}}" data-lightbox="dance" data-title="{{this.description}}">
@@ -138,14 +145,38 @@
                                 </div>
                             {{/each}}
                             </div>
-                            <!-- If we need pagination -->
                             <div class="swiper-pagination"></div>
-
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
                         </div>
                     </div>
-
+                    <div class="img-activity-container-rep">
+                        <div class="text text-center">
+                            <div class="text-child">
+                                <h3 class="fw-bold">Nghệ thuật</h3>
+                                <p>
+                                    Hoạt động văn nghệ là điểm nhấn nổi bật trong đời sống học đường tại Trường THPT Duy Tân. Hàng năm, 
+                                    nhà trường tổ chức nhiều chương trình biểu diễn như Hội diễn chào mừng năm học mới, Văn nghệ tri ân thầy cô 20/11, và Tết xuân yêu thương. 
+                                    Các tiết mục do chính học sinh biên tập và thể hiện, từ múa, hát, nhạc kịch đến biểu diễn nhạc cụ dân tộc và hiện đại.
+                                </p>
+                            </div>
+                        </div>
+                        <div id="student-dance-imgBox" class="swiper" style="position: unset;">
+                            <div class="swiper-wrapper">
+                            {{#each imgStudentDancings}}
+                                <div class="swiper-slide">
+                                    <a href="{{this.imgUrl}}" data-lightbox="dance" data-title="{{this.description}}">
+                                        <img src="{{this.imgUrl}}" alt="{{this.description}}" title="{{this.description}}">
+                                    </a>
+                                    <p class="text-center mt-2">{{this.description}}</p>
+                                </div>
+                            {{/each}}
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
                     <div class="img-activity-container camp">
                         <div class="text text-center">
                             <div class="text-child">
@@ -160,11 +191,8 @@
                         </div>
                         <div class="img-act-box camp">
                         </div>
-
                         <div id="student-dance-imgBox" class="swiper camp">
-                            <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
-                            <!-- Slides -->
                             {{#each imgStudentCampings}}
                                 <div class="swiper-slide">
                                     <a href="{{this.imgUrl}}" data-lightbox="camp" data-title="{{this.description}}">
@@ -174,14 +202,40 @@
                                 </div>
                             {{/each}}
                             </div>
-                            <!-- If we need pagination -->
                             <div class="swiper-pagination"></div>
-
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
                         </div>
                     </div>
+                    <div class="img-activity-container-rep camp">
+                        <div class="text text-center">
+                            <div class="text-child">
+                                <h3 class="fw-bold">Hội trại truyền thống</h3>
+                                <p>
+                                    Tuy không diễn ra thường niên, nhưng mỗi kỳ hội trại tại Trường THPT Duy Tân luôn để lại dấu ấn sâu đậm trong lòng học sinh. 
+                                    Được tổ chức vào những dịp đặc biệt như kỷ niệm thành lập trường, Ngày Thành lập Đoàn 26/3 hoặc các sự kiện trọng đại, 
+                                    hội trại là cơ hội để học sinh được hòa mình vào không khí sôi động với các hoạt động: dựng trại theo chủ đề, trò chơi dân gian, 
+                                    nét đẹp doàn viên và đêm lửa trại đầy cảm xúc.
+                                </p>
+                            </div>
+                        </div>
 
+                        <div id="student-dance-imgBox" class="swiper camp" style="position: unset;">
+                            <div class="swiper-wrapper">
+                            {{#each imgStudentCampings}}
+                                <div class="swiper-slide">
+                                    <a href="{{this.imgUrl}}" data-lightbox="camp" data-title="{{this.description}}">
+                                        <img src="{{this.imgUrl}}" alt="{{this.description}}" title="{{this.description}}">
+                                    </a>
+                                    <p class="text-center mt-2">{{this.description}}</p>
+                                </div>
+                            {{/each}}
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
                     <div class="img-activity-container activity">
                         <div class="img-act-box activity">
                         </div>
@@ -197,9 +251,7 @@
                         </div>
 
                         <div id="student-dance-imgBox" class="swiper activity">
-                            <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
-                            <!-- Slides -->
                             {{#each imgStudentActivitys}}
                                 <div class="swiper-slide">
                                     <a href="{{this.imgUrl}}" data-lightbox="activity" data-title="{{this.description}}">
@@ -209,9 +261,35 @@
                                 </div>
                             {{/each}}
                             </div>
-                            <!-- If we need pagination -->
                             <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                    <div class="img-activity-container-rep activity">
+                        <div class="text text-center">
+                            <div class="text-child">
+                                <h3 class="fw-bold">Những hoạt động khác</h3>
+                                <p>
+                                    Ngoài văn nghệ và hội trại, Trường THPT Duy Tân còn tổ chức nhiều hoạt động ngoại khóa đa dạng nhằm phát triển kỹ năng mềm và nuôi dưỡng tinh thần trách nhiệm 
+                                    trong học sinh. Các chương trình tiêu biểu có thể kể đến như: các câu lạc bộ học thuật – thể thao, cuộc thi hùng biện, sáng tạo khoa học, 
+                                    các buổi sinh hoạt chuyên đề kỹ năng sống, và các chương trình thiện nguyện vì cộng đồng.
+                                </p>
+                            </div>
+                        </div>
 
+                        <div id="student-dance-imgBox" class="swiper activity" style="position: unset;">
+                            <div class="swiper-wrapper">
+                            {{#each imgStudentActivitys}}
+                                <div class="swiper-slide">
+                                    <a href="{{this.imgUrl}}" data-lightbox="activity" data-title="{{this.description}}">
+                                        <img src="{{this.imgUrl}}" alt="{{this.description}}" title="{{this.description}}">
+                                    </a>
+                                    <p class="text-center mt-2">{{this.description}}</p>
+                                </div>
+                            {{/each}}
+                            </div>
+                            <div class="swiper-pagination"></div>
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
                         </div>
@@ -227,15 +305,15 @@
                         <ul class="text-start">
                             <li>Nhiều giải Nhất, Nhì, Ba, Khuyến khích ở các môn Toán, Văn, Anh, Lý, Hóa, Địa...(01 giải Nhất; 02 giải Nhì, 08 giải Ba và 08 giải Khuyến khích)</li>
                             <div class="dash-height"></div>
+                            <div class="dash-width"></div>
                             <li>Học sinh không chỉ giỏi kiến thức mà còn được rèn luyện tư duy và kỹ năng làm bài chuyên sâu.</li>
                             <div class="dash-height"></div>
+                            <div class="dash-width"></div>
                             <li>Thành tích này là minh chứng rõ ràng cho chất lượng giảng dạy và sự đầu tư đúng hướng của nhà trường trong suốt thời gian qua.</li>
                         </ul>
                     </div>
                     <div class="swiper">
-                        <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
-                        <!-- Slides -->
                         {{#each studentAchievements}}
                             <div class="swiper-slide">
                                 <a href="{{this.imgUrl}}" data-lightbox="studentAchievements" data-title="{{this.description}}">
@@ -245,7 +323,6 @@
                             </div>
                         {{/each}}
                         </div>
-                        <!-- If we need pagination -->
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
@@ -255,7 +332,6 @@
                         <div class="title">
                             <h4 class="fw-bold">Môi trường học tập năng động – Nền tảng vững chắc cho tương lai</h4>
                         </div>
-
                         <div class="info">
                             <ul class="ds-data">
                                 <li class="data">
@@ -264,18 +340,21 @@
                                         <p>Học sinh xuất sắc, giỏi</p>
                                     </div>
                                 </li>
+                                <div class="dash-width"></div>
                                 <li class="data">
                                     <div class="content">
                                         <h2>+75</h2>
                                         <p>Cán bộ, giáo viên</p>
                                     </div>
                                 </li>
+                                <div class="dash-width"></div>
                                 <li class="data">
                                     <div class="content">
                                         <h2>+1250</h2>
                                         <p>Học sinh đang theo học</p>
                                     </div>
                                 </li>
+                                <div class="dash-width"></div>
                                 <li class="data">
                                     <div class="content">
                                         <h2>32</h2>
@@ -324,7 +403,7 @@
                         <p>Các thông tin liên quan:</p>
                         <div class="list_link">
                             <a class="btn-sm" target="_blank" href="http://thptduytan.edu.vn">Website Trường THPT Duy Tân</a>
-                            <a class="btn-sm" target="_blank" href="https://www.facebook.com/duytantk">Trang Facebook Trường THPT Duy Tân</a>
+                            <a class="btn-sm" target="_blank" href="https://www.facebook.com/duytantk">Fanpage Trường THPT Duy Tân</a>
                             <a class="btn-sm" href="tel:02353841942">Hotline: 0235.3841.942</a>
                         </div>
                     </div>
