@@ -109,16 +109,18 @@ class CombinationController {
   async submitedList(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
       const userId = req?.cookies?.userId;
-      let data = await this.registeredCombinationsDbRef.getAllItems();
+      let data, allIdDocSaved;
+
+      await Promise.all([
+        (data = await this.registeredCombinationsDbRef.getAllItems()),
+        (allIdDocSaved = await this.favouriteSubmittedDbRef.getItemsByFilter({
+          userId: userId
+        }))
+      ]);
 
       data = data.sort((a, b) => {
         return convertVietnameseDatetimeToDate(a.registeredAt) - convertVietnameseDatetimeToDate(b.registeredAt);
       });
-
-      let allIdDocSaved = await this.favouriteSubmittedDbRef.getItemsByFilter({
-        userId: userId
-      });
-
       allIdDocSaved = allIdDocSaved.map((docSaved) => docSaved.submittedId);
 
       Array.from(data).forEach((doc) => {
@@ -160,20 +162,28 @@ class CombinationController {
 
   async submitCombination(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      let docSubmited;
-
-      if (req?.query?.step) {
-        docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
-          userId: req?.cookies?.userId
-        });
-      }
-
       const step = Number(req?.query?.step) || 1;
-      const user = await this.userDbRef.getItemById(req?.cookies?.userId);
+      let docSubmited, user, secondarySchools, nations, subjects, combinations;
 
-      const secondarySchools = await this.secondarySchoolDbRef.getAllItems({
-        fieldName: "order",
-        type: "asc"
+      await Promise.all([
+        (docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
+          userId: req?.cookies?.userId
+        })),
+        (user = await this.userDbRef.getItemById(req?.cookies?.userId)),
+        (secondarySchools = await this.secondarySchoolDbRef.getAllItems({
+          fieldName: "order",
+          type: "asc"
+        })),
+        (nations = await this.nationDbRef.getAllItems()),
+        (subjects = await this.subjectDbRef.getAllItems()),
+        (combinations = await this.combinationDbRef.getAllItems())
+      ]);
+
+      //sort by name (asc)
+      nations.sort((a, b) => (a.name > b.name ? 1 : -1));
+      combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+      subjects.map((subject) => {
+        return subject.docs;
       });
       const districts = secondarySchools.map((doc) => {
         return {
@@ -181,17 +191,6 @@ class CombinationController {
           districtName: doc.districtName
         };
       });
-
-      const nations = await this.nationDbRef.getAllItems();
-      nations.sort((a, b) => (a.name > b.name ? 1 : -1));
-
-      const subjects = await this.subjectDbRef.getAllItems();
-      subjects.map((subject) => {
-        return subject.docs;
-      });
-      const combinations = await this.combinationDbRef.getAllItems();
-      //sort by name (asc)
-      combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
 
       combinations.forEach((combination) => {
         const compulsorySubjects = combination.compulsorySubjects;
@@ -290,12 +289,6 @@ class CombinationController {
   }
 
   async chart(req, res, next) {
-    let combinations = await this.combinationDbRef.getAllItems();
-    //sort by name (asc)
-    combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
-    let classesCapacitys = combinations.map((combination) => combination.classesCapacity);
-    combinations = combinations.map((combination) => combination.name);
-
     function checkCombinationAndCount(combinationNumber, arr) {
       switch (combinationNumber) {
         case "1":
@@ -321,7 +314,15 @@ class CombinationController {
 
     const countCombinaton1 = [0, 0, 0, 0, 0, 0];
     const countCombinaton2 = [0, 0, 0, 0, 0, 0];
-    let data = await this.registeredCombinationsDbRef.getAllItems();
+    let data, combinations;
+    //sort by name (asc)
+    await Promise.all([
+      (data = await this.registeredCombinationsDbRef.getAllItems()),
+      (combinations = await this.combinationDbRef.getAllItems())
+    ]);
+    combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+    let classesCapacitys = combinations.map((combination) => combination.classesCapacity);
+    combinations = combinations.map((combination) => combination.name);
     data = data.forEach((submit) => {
       const combinationNubber1 = submit.combination1.split(" ")[2];
       const combinationNubber2 = submit.combination2.split(" ")[2];
@@ -372,11 +373,12 @@ class CombinationController {
   }
 
   async table(req, res, next) {
-    const subjects = await this.subjectDbRef.getAllItems();
+    let subjects, combinations;
+    await Promise.all([(subjects = await this.subjectDbRef.getAllItems()), (combinations = await this.combinationDbRef.getAllItems())]);
+
     subjects.map((subject) => {
       return subject.docs;
     });
-    const combinations = await this.combinationDbRef.getAllItems();
     //sort by name (asc)
     combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
 

@@ -28,7 +28,6 @@ class MeController {
   async edit(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
       const user = await this.userDbRef.getItemById(req?.cookies?.userId);
-
       return res.render("me/edit-profile", {
         role: req?.cookies?.role,
         user: user,
@@ -61,8 +60,10 @@ class MeController {
       }
 
       try {
-        await this.userDbRef.updateItem(req?.cookies?.userId, formData);
-        await res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true });
+        await Promise.all([
+          await this.userDbRef.updateItem(req?.cookies?.userId, formData),
+          await res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true })
+        ]);
         return res.json({
           message: "Cập nhật trang cá nhân thành công",
           type: "success",
