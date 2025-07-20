@@ -10,24 +10,26 @@ class SchoolController {
 
   async index(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      const highSchool = await this.highSchoolDbRef.getItemByFilter({
-        name: "Trường THPT Duy Tân"
-      });
+      let highSchool, imgStudentDancings, imgStudentCampings, imgStudentActivitys, imgStudentAchievements;
 
-      const imgStudentDancings = await this.imageActivityDbRef.getItemsByFilter({
-        type: "dance"
-      });
+      await Promise.all([
+        (highSchool = await this.highSchoolDbRef.getItemByFilter({
+          name: "Trường THPT Duy Tân"
+        })),
+        (imgStudentDancings = await this.imageActivityDbRef.getItemsByFilter({
+          type: "dance"
+        })),
+        (imgStudentCampings = await this.imageActivityDbRef.getItemsByFilter({
+          type: "camp"
+        })),
+        (imgStudentActivitys = await this.imageActivityDbRef.getItemsByFilter({
+          type: "activity"
+        })),
+        (imgStudentAchievements = await this.imageActivityDbRef.getItemsByFilter({
+          type: "achievement"
+        }))
+      ]);
 
-      const imgStudentCampings = await this.imageActivityDbRef.getItemsByFilter({
-        type: "camp"
-      });
-
-      const imgStudentActivitys = await this.imageActivityDbRef.getItemsByFilter({
-        type: "activity"
-      });
-      const imgStudentAchievements = await this.imageActivityDbRef.getItemsByFilter({
-        type: "achievement"
-      });
       const studentAchievementsSorted = imgStudentAchievements.sort((a, b) => {
         const stringNumberFirstA = a.imgUrl.split("cap_tinh_")[1];
         const stringNumberFirstB = b.imgUrl.split("cap_tinh_")[1];
