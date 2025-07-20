@@ -330,12 +330,40 @@
     overflow-x: hidden; } }
 
 @media (max-width: 955px) and (orientation: landscape) {
+  .box-content-info .dash-width,
+  .dash-height,
+  .swiper-pagination,
+  .swiper-button-prev,
+  .swiper-button-next,
+  .img-activity-container,
   #header {
     display: none; }
+  .rep-box-1 {
+    padding: 2pc 0;
+    display: block; }
+  .swiper .swiper-slide {
+    padding-bottom: 0; }
+  .big-content {
+    width: calc(100% - 65px) !important; }
+  .swiper {
+    width: 100% !important;
+    margin: 0;
+    height: max-content !important; }
+  .swiper img {
+    height: auto;
+    width: 88%; }
+  .img-activity-container-rep {
+    padding: 0 2pc;
+    display: flex !important;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    align-items: center; }
+  .big-content {
+    width: 100% !important; }
   .school-info {
     display: flex;
     height: 12pc;
-    margin-bottom: 20px;
+    margin: 0;
     width: 100%; }
   .school-info-detail {
     top: 12px;
@@ -360,9 +388,33 @@
     width: 100%;
     height: 22pc; }
   .content-box {
-    text-align: justify; }
+    margin-left: 0px;
+    text-align: justify;
+    width: 100%; }
   #sidebar {
-    height: 100%; } }
+    height: 100%; }
+  .trophi-container .title ul {
+    padding: 0;
+    display: block !important;
+    gap: 0; }
+  .trophi-container ul li {
+    display: flex !important;
+    align-items: center; }
+  .trophi-container ul li::before {
+    margin-right: 22px; }
+  .dash-width {
+    display: block;
+    margin: 2pc 0; }
+  .box-content-info .title {
+    margin-bottom: 1pc; }
+  .box-content-info .ds-data {
+    font-size: 15px; }
+  .box-content-info .ds-data li {
+    margin-right: 0; }
+  .box-content-info .ds-data h2 {
+    font-size: 30px; }
+  .box-content-info .ds-data p {
+    margin-bottom: 0; } }
 
 @media only screen and (max-width: 792px) and (orientation: landscape) {
   .img-box img {
