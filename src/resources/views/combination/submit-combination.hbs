@@ -1246,25 +1246,21 @@
                     function showModalChooseSchool() {
                         const modalChooseSchool = document.querySelector('#modal-choose-school');
                         var glassOverlay = document.querySelector('.glass-overlay');
-                        var body = document.getElementsByTagName('body')[0];
                         const textShowSchool = document.querySelector('div.box-submit-2 .secondary-school-choosen');
                         const selectSchool = modalChooseSchool.querySelector('.form-select-school');
                         const btnConfirm = modalChooseSchool.querySelector('.confirm');
                         const btnClose = modalChooseSchool.querySelector('.close');
 
                         glassOverlay.classList.add('active');
-                        body.style.overflowY = 'hidden';
                         modalChooseSchool.style.display = 'flex';
 
                         btnClose.onclick = () => {
-                            body.style.overflowY = 'auto';
                             modalChooseSchool.style.display = 'none';
                             glassOverlay.classList.remove('active');
                         }
 
                         btnConfirm.onclick = () => {
                             if(selectSchool.value != '') {
-                                body.style.overflowY = 'auto';
                                 const resultSecondarySchool = selectSchool.value + ', ' + selectDistrict.value;
                                 textShowSchool.textContent = tagShowSchool.textContent = resultSecondarySchool;
                                 modalChooseSchool.style.display = 'none';
