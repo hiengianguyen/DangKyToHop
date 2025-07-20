@@ -1,4 +1,4 @@
-const NotfoundController = require("../apps/controllers/NotfoundController");
+const { NotfoundController } = require("../apps/controllers/index");
 const express = require("express");
 const router = express.Router();
 

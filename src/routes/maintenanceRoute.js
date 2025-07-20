@@ -1,4 +1,4 @@
-const MaintenanceController = require("../apps/controllers/MaintenanceController");
+const { MaintenanceController } = require("../apps/controllers/index");
 const express = require("express");
 const router = express.Router();
 
