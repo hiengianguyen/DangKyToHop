@@ -110,6 +110,7 @@
 .box-content-6 p,
 .box-content-4 p {
   font-size: 20px;
+  text-align: justify;
 }
 
 .box-content-1 {
@@ -370,6 +371,10 @@
   background-color: rgba(112, 181, 249, 0.1);
 }
 
+.box-content-4 .swiper-slide p {
+  font-size: 14px;
+}
+
 @include table {
   .image-stack img:hover {
     transform: scale(1.35);
@@ -564,6 +569,10 @@
     width: 88%;
   }
 
+  .swiper .swiper-slide {
+    padding: 1pc 0;
+  }
+
   .box-content-info .title {
     margin-bottom: 1pc;
   }
@@ -644,5 +653,9 @@
   .box-content-5 .list_link .btn-sm {
     min-height: 40px;
     padding: 8px 16px;
+  }
+
+  .rep-box-1 {
+    display: block;
   }
 }
