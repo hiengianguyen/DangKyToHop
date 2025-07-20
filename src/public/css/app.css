@@ -49,6 +49,10 @@ input {
 #sidebar.active {
   width: 80px; }
 
+#sidebar .sidebar-content {
+  position: sticky;
+  top: 16px; }
+
 #sidebar .home {
   position: relative; }
 
