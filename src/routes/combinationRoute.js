@@ -1,4 +1,4 @@
-const CombinationController = require("../apps/controllers/CombinationController");
+const { CombinationController } = require("../apps/controllers/index");
 const express = require("express");
 const router = express.Router();
 
