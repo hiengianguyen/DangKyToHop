@@ -59,6 +59,11 @@
 .container-center .content-2 .content-box {
   padding-left: 0; }
 
+.dash-height {
+  height: 175px;
+  width: 5px;
+  background-color: #494545; }
+
 .dash-width {
   height: 1px;
   width: 100%;
@@ -170,6 +175,12 @@
   font-size: 20px;
   list-style: none;
   gap: 3pc; }
+
+.trophi-container ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify; }
 
 .trophi-container ul li::before {
   content: "✔";
@@ -369,7 +380,8 @@
     display: flex;
     align-items: center; }
   .container-center h2 {
-    font-size: 17px; }
+    font-size: 17px;
+    font-weight: 600; }
   .container-center p {
     display: none; }
   .container-center .content-2 {
@@ -449,6 +461,7 @@
   .swiper {
     width: 100%;
     height: 16pc; }
+  .dash-height,
   .swiper-button-next,
   .swiper-button-prev {
     display: none; }

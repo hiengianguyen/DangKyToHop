@@ -309,12 +309,13 @@
   text-align: center;
   font-size: 16px;
   font-weight: 600;
-  box-shadow: 0 0 0 1px #0a66c2; }
+  box-shadow: 3px 3px #9e9e9e;
+  background-color: #cfebff; }
 
 .box-content-5 .list_link .btn-sm:hover {
   cursor: pointer;
   text-decoration-line: none;
-  background-color: rgba(112, 181, 249, 0.1); }
+  background-color: #e1ecf4; }
 
 .box-content-4 .swiper-slide p {
   font-size: 14px; }

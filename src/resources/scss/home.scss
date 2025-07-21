@@ -78,6 +78,12 @@
   padding-left: 0;
 }
 
+.dash-height {
+  height: 175px;
+  width: 5px;
+  background-color: #494545;
+}
+
 .dash-width {
   height: 1px;
   width: 100%;
@@ -214,6 +220,13 @@
   font-size: 20px;
   list-style: none;
   gap: 3pc;
+}
+
+.trophi-container ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
 }
 
 .trophi-container ul li::before {
@@ -660,6 +673,7 @@
     height: 16pc;
   }
 
+  .dash-height,
   .swiper-button-next,
   .swiper-button-prev {
     display: none;
