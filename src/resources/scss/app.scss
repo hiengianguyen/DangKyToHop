@@ -236,6 +236,7 @@ input {
   list-style: none;
   margin-top: 10px;
   transition: all 0.5s ease;
+  box-shadow: 3px 3px #9e9e9e;
 }
 
 #sidebar.active .show-sidebar #btn-push-sidebar {
@@ -404,9 +405,9 @@ input {
   display: none;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background 0.2s;
+  box-shadow: 3px 3px #9e9e9e;
 }
 
 #btn-scroll-top:hover {
