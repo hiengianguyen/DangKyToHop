@@ -271,7 +271,7 @@
   background-image: url("https://res.cloudinary.com/dwoymvppw/image/upload/v1749179561/BE_GIANG_DT_22_lhjusl.jpg");
   background-size: cover;
   background-position: center;
-  opacity: 0.6; /* Làm mờ ảnh */
+  opacity: 0.3;
   z-index: 1;
 }
 
@@ -406,13 +406,27 @@
 
   #all-content {
     width: 100%;
-    max-width: 100vw; /* ngăn vượt màn hình */
+    min-height: 100vh;
+    max-width: 100vw;
     overflow-x: hidden;
   }
 
   .big-content.active,
   .big-content {
     width: 100% !important;
+  }
+
+  .img-activity-container {
+    height: 29pc;
+  }
+
+  .box-content-4 .swiper img {
+    height: 73%;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
   }
 }
 
