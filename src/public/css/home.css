@@ -58,9 +58,16 @@
 .container-center .content-2 .content-box {
   padding-left: 0; }
 
+.dash-width {
+  height: 1px;
+  width: 100%;
+  background-color: #494545;
+  display: none; }
+
 .container-school {
   padding: 17px;
-  background-color: #b0d7ff; }
+  background-color: #b0d7ff;
+  padding-bottom: 5pc; }
 
 .trophi-container .title h4,
 .container-school > h4 {
@@ -163,6 +170,37 @@
 .swiper-button-next,
 .swiper-button-prev {
   color: #887717; }
+
+.box-content-info {
+  padding: 2pc 0;
+  background-color: #f1f8ff; }
+
+.box-content-info .info {
+  text-align: end; }
+
+.box-content-info .info > i {
+  font-style: italic;
+  color: #777; }
+
+.box-content-info .title {
+  margin-bottom: 3pc; }
+
+.box-content-info .ds-data {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  padding-bottom: 1pc;
+  margin: 0;
+  gap: 3pc; }
+
+.box-content-info .ds-data li {
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px; }
+
+.box-content-info .ds-data h2 {
+  font-size: 40px; }
 
 @keyframes brul {
   from {
@@ -271,7 +309,17 @@
   .lb-dataContainer,
   .lb-outerContainer {
     height: 100% !important;
-    width: 100% !important; } }
+    width: 100% !important; }
+  .box-content-info .title {
+    margin-bottom: 1pc; }
+  .box-content-info .ds-data {
+    font-size: 15px; }
+  .box-content-info .ds-data li {
+    margin-right: 0; }
+  .box-content-info .ds-data h2 {
+    font-size: 30px; }
+  .box-content-info .ds-data p {
+    margin-bottom: 0; } }
 
 @media (max-width: 440px) {
   .home-container {
@@ -368,7 +416,20 @@
   .lb-dataContainer,
   .lb-outerContainer {
     height: 100% !important;
-    width: 100% !important; } }
+    width: 100% !important; }
+  .box-content-info .title {
+    margin-bottom: 1pc; }
+  .box-content-info .ds-data {
+    gap: 0;
+    font-size: 15px;
+    flex-direction: column; }
+  .box-content-info .ds-data h2 {
+    font-size: 30px; }
+  .box-content-info .ds-data p {
+    margin-bottom: 0; }
+  .dash-width {
+    display: block;
+    margin: 2pc 0; } }
 
 @media (max-width: 345px) {
   .container-end,
