@@ -410,4 +410,7 @@ input {
   .footer-text {
     margin-top: 10px;
     width: max-content;
-    font-size: 11px; } }
+    font-size: 11px; }
+  #btn-scroll-top {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    right: 18px; } }
