@@ -409,6 +409,11 @@
     max-width: 100vw; /* ngăn vượt màn hình */
     overflow-x: hidden;
   }
+
+  .big-content.active,
+  .big-content {
+    width: 100% !important;
+  }
 }
 
 @include mobile-all-landscape {
