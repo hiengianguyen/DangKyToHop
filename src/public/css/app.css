@@ -320,6 +320,28 @@ input {
   height: auto !important;
   object-fit: contain; }
 
+#btn-scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+  background: #29a9ef;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background 0.2s; }
+
+#btn-scroll-top:hover {
+  background: #007bbd; }
+
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
   #master {
     margin-left: 80px; }
