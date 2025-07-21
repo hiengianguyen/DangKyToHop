@@ -39,7 +39,8 @@ input {
   transition: box-shadow 0.3s ease; }
 
 #sidebar {
-  width: 280px;
+  width: 100%;
+  max-width: 280px;
   padding: 16px;
   background-color: #ffffff;
   z-index: 100;
@@ -112,7 +113,8 @@ input {
   background: #00d4ff;
   background: linear-gradient(90deg, #00d4ff 0%, #29a9ef 80%, #1193d4 100%);
   color: #ffffff;
-  text-decoration: none; }
+  text-decoration: none;
+  box-shadow: 3px 3px #9e9e9e; }
 
 #sidebar .end-box a,
 #sidebar .menu-bar a {
