@@ -33,6 +33,12 @@
   transform: translateX(0);
 }
 
+.hidden.content-3 {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 1.5s ease;
+}
+
 .hidden.first {
   opacity: 0;
   transform: translateX(-50px);

@@ -13,6 +13,84 @@
   transition: width 0.3s ease;
 }
 
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.5s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden.content-1 {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1.5s ease;
+}
+
+.hidden.img-1 {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1.5s ease;
+}
+
+.show.img-1,
+.show.content-1 {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 1.5s ease;
+}
+
+.hidden.content-3 {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 1.5s ease;
+}
+
+.show.content-3 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden.first {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1.5s ease;
+}
+
+.hidden.second {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1.5s ease;
+}
+
+.show.second,
+.show.first {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hidden.content-2 {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1.5s ease;
+}
+
+.hidden.img-2 {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1.5s ease;
+}
+
+.show.img-2,
+.show.content-2 {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 1.5s ease;
+}
+
 .container-school {
   padding: 0;
   background-color: #fff;
@@ -604,6 +682,10 @@
     padding: 0;
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   .card-body {
     padding: 0 10px !important;
   }
@@ -770,5 +852,35 @@
 
   .rep-box-1 {
     display: block;
+  }
+
+  .hidden.img-2,
+  .hidden.content-2,
+  .hidden.img-1,
+  .hidden.content-1 {
+    transform: translateY(30px);
+  }
+
+  .show.img-1,
+  .show.content-1 {
+    transform: translateY(0);
+  }
+
+  .hidden.first {
+    transform: translateY(-30px);
+  }
+
+  .hidden.second {
+    transform: translateY(30px);
+  }
+
+  .show.second,
+  .show.first {
+    transform: translateY(0);
+  }
+
+  .show.img-2,
+  .show.content-2 {
+    transform: translateY(0);
   }
 }
