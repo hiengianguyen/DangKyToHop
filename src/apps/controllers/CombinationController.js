@@ -132,6 +132,7 @@ class CombinationController {
       });
 
       return res.render("combination/submited-list", {
+        avatar: req?.cookies?.avatar,
         submitedList: data,
         submitedListData: JSON.stringify(data),
         role: req?.cookies?.role,
@@ -150,6 +151,7 @@ class CombinationController {
       });
 
       return res.render("combination/submited-detail", {
+        avatar: req?.cookies?.avatar,
         submitedCombinationDetail: data,
         role: req?.cookies?.role,
         userId: req?.cookies?.userId,
@@ -204,6 +206,7 @@ class CombinationController {
         combinations: combinations,
         nations: nations,
         user: user,
+        avatar: user.avatar,
         subjects: subjects,
         districts: districts,
         secondarySchools: JSON.stringify(secondarySchools),
@@ -281,6 +284,7 @@ class CombinationController {
     }
 
     return res.render("combination/submited-list", {
+      avatar: req?.cookies?.avatar,
       submitedList: allDocSubmittedSaved,
       submitedListData: JSON.stringify(allDocSubmittedSaved),
       role: req?.cookies?.role,
@@ -360,6 +364,7 @@ class CombinationController {
     classesCapacitys = classesCapacitys.map((max, i) => max - countCombinaton1[i]);
 
     return res.render("combination/submited-chart", {
+      avatar: req?.cookies?.avatar,
       role: req?.cookies?.role,
       userId: req?.cookies?.userId,
       countCombinaton1: JSON.stringify(countCombinaton1),
@@ -390,6 +395,7 @@ class CombinationController {
       combination.optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
     });
     return res.render("combination/combination-table", {
+      avatar: req?.cookies?.avatar,
       combinations: combinations,
       showToast: req?.query?.toastmessage === "true"
     });

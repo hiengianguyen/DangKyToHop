@@ -15,6 +15,7 @@ class MeController {
       const user = await this.userDbRef.getItemById(req?.cookies?.userId);
       return res.render("me/profile", {
         user: user,
+        avatar: user.avatar,
         signin: req?.cookies?.isLogin,
         role: req?.cookies?.role,
         userId: req?.cookies?.userId,
@@ -31,6 +32,7 @@ class MeController {
       return res.render("me/edit-profile", {
         role: req?.cookies?.role,
         user: user,
+        avatar: user.avatar,
         signin: req?.cookies?.isLogin,
         userId: req?.cookies?.userId
       });
