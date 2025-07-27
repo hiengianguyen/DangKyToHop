@@ -90,6 +90,11 @@ h4 {
   width: 38pc;
 }
 
+.btn-feature a,
+.btn-feature button {
+  box-shadow: 3px 3px #9e9e9e;
+}
+
 @include mobile-lg-landscape {
   .box-radius {
     padding: 15px;
@@ -321,7 +326,8 @@ h4 {
 
   .btn-feature a,
   .btn-feature button {
-    font-size: 12px;
+    font-size: 11px;
+    padding: 11px;
   }
 
   .btn-feature {

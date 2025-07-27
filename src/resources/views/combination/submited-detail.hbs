@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="place-birth d-flex align-items-start flex-column">
-                                <label class="fw-bold">Nơi sinh: </label>
+                                <label class="fw-bold">Nơi sinh:</label>
                                 <p style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.placeOfBirth}}</p>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                     <div id="info-parent-rep" class="row">
                         <div class="d-flex col align-items-start flex-column">
                             <div class="d-flex detail justify-content-center">
-                                <label class="fw-bold" for="">Họ và tên cha</label>
+                                <label class="fw-bold" for="">Họ và tên cha:</label>
                                 <div style="width: 135px;overflow-x:scroll;">
                                     <p class="m-0">{{submitedCombinationDetail.fullNameDad}}</p>
                                 </div>
@@ -315,11 +315,11 @@
                         <div class="row btn-feature justify-content-center gap-3 mt-4 mx-auto">
                             {{#if (eq role 'student')}}
 
-                                <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center col" style="box-shadow: 3px 3px #9e9e9e;">Chỉnh sửa thông tin</a>
-                                <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center col" style="box-shadow: 3px 3px #9e9e9e;">Xoá hồ sơ</button>
-                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank" style="box-shadow: 3px 3px #9e9e9e;">Xuất file PDF</a>
+                                <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center col">Chỉnh sửa</a>
+                                <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center col">Xoá hồ sơ</button>
+                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank">Hồ sơ PDF</a>
                             {{else}}
-                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col man" target="_blank" style="box-shadow: 3px 3px #9e9e9e; max-width: max-content;">Xuất file PDF</a>
+                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col man" target="_blank" style="max-width: max-content;">Hồ sơ PDF</a>
                             {{/if}}
                         </div>
                 </div>
