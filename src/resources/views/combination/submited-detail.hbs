@@ -48,7 +48,7 @@
 
                             <div class="row">
                                 <div class="col d-flex align-items-start flex-column">
-                                        <label class="fw-bold">Ngày tháng năm sinh: </label>
+                                    <label class="fw-bold">Ngày tháng năm sinh: </label>
                                     <p style="text-transform: capitalize;" class="mb-3">{{submitedCombinationDetail.dateOfBirth}}</p>
                                 </div>
 
@@ -134,7 +134,7 @@
                     <div id="info-parent" class="row">
                         <div class="d-flex col align-items-start flex-column">
                             <div class="d-flex detail justify-content-center">
-                                <label class="fw-bold" for="">Họ và tên cha</label>
+                                <label class="fw-bold" for="">Họ và tên cha:</label>
                                 <p class="m-0">{{submitedCombinationDetail.fullNameDad}}</p>
                             </div>
                             <div class="d-flex detail">
@@ -168,11 +168,15 @@
                         <div class="d-flex col align-items-start flex-column">
                             <div class="d-flex detail justify-content-center">
                                 <label class="fw-bold" for="">Họ và tên cha</label>
-                                <p class="m-0">{{submitedCombinationDetail.fullNameDad}}</p>
+                                <div style="width: 135px;overflow-x:scroll;">
+                                    <p class="m-0">{{submitedCombinationDetail.fullNameDad}}</p>
+                                </div>
                             </div>
                             <div class="d-flex detail">
                                 <label class="fw-bold" for="">Nghề nghiệp:</label>
-                                <p class="m-0">{{submitedCombinationDetail.jobOfDad}}</p>
+                                <div style="width: 135px;overflow-x:scroll;">
+                                    <p class="m-0">{{submitedCombinationDetail.jobOfDad}}</p>
+                                </div>
                             </div>
                             <div class="d-flex detail">
                                 <label class="fw-bold" for="">Số điện thoại:</label>
@@ -182,11 +186,15 @@
                         <div class="d-flex col align-items-start flex-column job-parent">
                             <div class="d-flex detail">
                                 <label class="fw-bold" for="">Họ và tên mẹ:</label>
-                                <p class="m-0">{{submitedCombinationDetail.fullNameMom}}</p>
+                                <div style="width: 135px;overflow-x:scroll;">
+                                    <p class="m-0">{{submitedCombinationDetail.fullNameMom}}</p>
+                                </div>
                             </div>
                             <div class="d-flex detail">
                                 <label class="fw-bold" for="">Nghề nghiệp:</label>
-                                <p class="m-0">{{submitedCombinationDetail.jobOfMom}}</p>
+                                <div style="width: 135px;overflow-x:scroll;">
+                                    <p class="m-0">{{submitedCombinationDetail.jobOfMom}}</p>
+                                </div>
                             </div>
                             <div class="d-flex detail">
                                 <label class="fw-bold" for="inputGroupSelect01">Số điện thoại:</label>
