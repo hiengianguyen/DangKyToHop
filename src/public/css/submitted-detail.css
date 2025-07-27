@@ -65,6 +65,9 @@ h4 {
 .place-birth.pic {
   display: flex; }
 
+.btn-feature {
+  width: 38pc; }
+
 @media only screen and (min-width: 792px) and (max-width: 955px) and (orientation: landscape) {
   .box-radius {
     padding: 15px; }
@@ -202,4 +205,8 @@ h4 {
     display: block; }
   .btn-feature a,
   .btn-feature button {
-    font-size: 12px; } }
+    font-size: 12px; }
+  .btn-feature {
+    width: 100%; }
+  .btn-feature a.man {
+    max-width: 100% !important; } }
