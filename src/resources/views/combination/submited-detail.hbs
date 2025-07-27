@@ -304,13 +304,14 @@
                             </tbody>
                         </table>
                     </div>
-                        <div class="d-flex justify-content-center btn-feature gap-3 mt-4">
+                        <div class="row btn-feature gap-3 mt-4 mx-auto">
                             {{#if (eq role 'student')}}
-                                <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center" style="box-shadow: 3px 3px #9e9e9e;">Chỉnh sửa thông tin</a>
-                                <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center" style="box-shadow: 3px 3px #9e9e9e;">Xoá hồ sơ</button>
-                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center" target="_blank" style="box-shadow: 3px 3px #9e9e9e;">Xuất file PDF</a>
+
+                                <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center col" style="box-shadow: 3px 3px #9e9e9e;">Chỉnh sửa thông tin</a>
+                                <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center col" style="box-shadow: 3px 3px #9e9e9e;">Xoá hồ sơ</button>
+                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank" style="box-shadow: 3px 3px #9e9e9e;">Xuất file PDF</a>
                             {{else}}
-                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center" target="_blank" style="box-shadow: 3px 3px #9e9e9e;">Xuất file PDF</a>
+                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank" style="box-shadow: 3px 3px #9e9e9e;">Xuất file PDF</a>
                             {{/if}}
                         </div>
                 </div>
