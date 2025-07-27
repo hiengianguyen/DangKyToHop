@@ -6,7 +6,8 @@
 .master {
   height: 100vh;
   display: flex;
-  padding-bottom: 0; }
+  padding-bottom: 0;
+  overflow-y: hidden; }
 
 label {
   font-size: 20px; }
@@ -15,7 +16,7 @@ label {
   background-color: #fff;
   width: 100%;
   flex-basis: 33.3%;
-  padding-top: 2pc; }
+  padding: 2pc 0; }
 
 .box-login > .btn-home-page {
   padding: 0 40px; }
