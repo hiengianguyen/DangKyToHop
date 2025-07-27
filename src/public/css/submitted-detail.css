@@ -207,4 +207,6 @@ h4 {
   .btn-feature button {
     font-size: 12px; }
   .btn-feature {
-    width: 100%; } }
+    width: 100%; }
+  .btn-feature a.man {
+    max-width: 100% !important; } }
