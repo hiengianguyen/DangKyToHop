@@ -30,14 +30,9 @@ label {
 
 .box-img {
   width: 100%;
-  background: #4ffffc;
-  background: linear-gradient(
-    90deg,
-    rgba(79, 255, 252, 1) 0%,
-    rgba(59, 205, 235, 1) 36%,
-    rgba(38, 139, 222, 1) 59%,
-    rgba(30, 43, 138, 1) 100%
-  );
+  background-image: url(https://res.cloudinary.com/dwoymvppw/image/upload/v1753606888/rwizislo9lhfuvctsvvj.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .form-container {
