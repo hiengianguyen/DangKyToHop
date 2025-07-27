@@ -20,10 +20,15 @@ label {
   background-color: #fff;
   width: 100%;
   flex-basis: 33.3%;
+  padding-top: 2pc;
+}
+
+.box-login > .btn-home-page {
+  padding: 0 40px;
 }
 
 .box-login > .box {
-  padding: 80px 40px;
+  padding: 50px 40px;
   height: 100%;
   overflow-y: scroll;
 }
@@ -236,8 +241,17 @@ input {
     display: none;
   }
 
+  .box-login {
+    padding: 0;
+  }
+
+  .box-login > .btn-home-page {
+    padding: 0;
+  }
+
   .box-login > .box {
     padding: 0;
+    padding-top: 35px;
   }
 
   .title-box h2 {
