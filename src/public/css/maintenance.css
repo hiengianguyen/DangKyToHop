@@ -1,0 +1,16 @@
+#header {
+  display: block; }
+
+.content {
+  margin-top: 10pc; }
+
+.content h2 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 45px;
+  font-weight: 700; }
+
+@media (max-width: 440px) {
+  .content {
+    margin-top: 6pc; }
+  .content h2 {
+    font-size: 20px; } }

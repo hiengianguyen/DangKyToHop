@@ -1,5 +1,5 @@
 <head>
-    <title>Đăng Ký Tổ Hợp | Tổ hợp</title>
+    <title>Đăng Ký Tổ Hợp | Tổ Hợp</title>
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/combination.css">
     <link rel="stylesheet" href="/css/combination-table.css">
@@ -8,7 +8,7 @@
 
 <div id="master">
     <div class="school-info">
-        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752812401/school_banner_second_new_un0i6r.png">
         <div class="banner-container">
             <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
             <div class="school-info-detail fs-5">
@@ -45,7 +45,7 @@
                                 {{/each}}
                                 <td>{{this.classesCount}}</td>
                                 <td>
-                                    <div id-modal="{{this.id}}" class="btn-show-modal btn btn-Secondary"><p class="m-0 text-white">Chỉnh sửa tổ hợp</p></div>
+                                    <div id-modal="{{this.id}}" class="btn-show-modal btn btn-Secondary"><p class="m-0 text-white">Chỉnh sửa</p></div>
                                 </td>
                             </tr>
                         {{/each}}
@@ -73,15 +73,11 @@
                                 {{/each}}
                             </ul>
                             <h6 class="card-title">Số lớp: {{this.classesCount}}</h6>
-                            <div id-modal="{{this.id}}" class="btn-show-modal btn btn-Secondary"><p class="m-0 text-white">Chỉnh sửa tổ hợp</p></div>
+                            <div id-modal="{{this.id}}" class="btn-show-modal btn btn-Secondary"><p class="m-0 text-white">Chỉnh sửa</p></div>
                         </div>
                     </div>
                 {{/each}}
             </div>
-        </div>
-
-        <div class="d-flex justify-content-end p-4">
-            <p>Vui lòng <a href="" id="reload-page">tải lại trang <i class="fa-solid fa-arrow-rotate-left"></i></a> nếu vẫn chưa thấy dữ liệu được cập nhật</p>
         </div>
     </div>
 
@@ -98,8 +94,8 @@
 <div id="{{this.id}}" class="modal show-combination" style="display: none;">
     <div class="modal-containers container mx-auto">
         <form action="/combination/update/{{this.id}}" method="post">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Chỉnh sửa thông tin tổ hợp</h1>
+            <div class="modal-header align-items-center">
+                <h4 class="modal-title" id="exampleModalLabel">Chỉnh sửa thông tin tổ hợp</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-bodyy combination pb-0">
@@ -122,17 +118,9 @@
                 </div>
             </div>  
             <div class="d-flex justify-content-end p-4 pt-0">
-                <button type="button" class="btn btn-Secondary btn-update-combination">Cập nhật</button>
+                <button type="button" class="btn btn-Success btn-update-combination">Cập nhật</button>
             </div>
         </form>
-        <div id="loading" class="position-fixed" style="display: none;">
-            <div class="d-flex align-items-center flex-column">
-                <h2 style="font-family: 'Lexend', sans-serif;">Đang cập nhật dữ liệu...</h2>
-                <div class="spinner-border mt-4" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        </div>
     </div>    
 </div>
 {{/each}}
@@ -141,7 +129,7 @@
 
 <div id="loading-full" class="position-fixed" style="display: flex;">
     <div class="d-flex align-items-center flex-column">
-        <h2 style="font-family: 'Lexend', sans-serif;">Đang tải dữ liệu...</h2>
+        <h2 id="title" style="font-family: 'Lexend', sans-serif;">Đang tải dữ liệu...</h2>
         <div class="spinner-border mt-4" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
@@ -156,6 +144,13 @@
     window.addEventListener('load', function () {
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body').style.display = 'block';
+        document.getElementById('body-app').style.overflowY = 'auto';
+        if({{{showToast}}}) {
+            const textMessage = localStorage.getItem('textMessage')
+            const typeToast = localStorage.getItem('typeToast')
+            const toastIcon = localStorage.getItem('toastIcon')
+            toastMessage("Thông báo", textMessage, typeToast, 6000, toastIcon, 1000);
+        }
     });
 
     const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
@@ -185,19 +180,21 @@
 
     const glassOverlay = document.querySelector('.glass-overlay');
     const btnShows = document.querySelectorAll('.btn-show-modal');
+    const body = document.getElementsByTagName('body')[0];
 
     btnShows.forEach((btnShow) => {
         btnShow.onclick = () => {
+            body.style.overflowY = 'hidden';
+            body.style.position = 'fixed';
             const modalId = btnShow.getAttribute('id-modal');
             const modalCombinationDetail = document.getElementById(modalId);
             modalCombinationDetail.style.display = 'flex';
             const modalChild = modalCombinationDetail.querySelector('.modal-containers');
             const btnClose = modalCombinationDetail.querySelector('.btn-close');
-            const body = document.getElementsByTagName('body')[0];
 
-            body.style.overflowY = 'hidden';
             glassOverlay.classList.add('active');
             btnClose.onclick = () => {
+                body.style.position = '';
                 body.style.overflowY = 'auto';
                 modalCombinationDetail.style.display = 'none';
                 glassOverlay.classList.remove('active');
@@ -219,11 +216,13 @@
         return ok;
     }
 
-    const loading = document.getElementById('loading');
+    const loading = document.getElementById('loading-full');
+    const loadingTitle = loading.querySelector('#title');
 
     const btnUpdateCombination = document.querySelectorAll('.btn-update-combination');
     btnUpdateCombination.forEach((btn) => {
         btn.onclick = async () => {
+            loadingTitle.innerHTML = 'Đang cập nhật dữ liệu...';
             loading.style.display = "flex";
             const formUpdate = btn.parentElement.parentElement;
             let inputs = formUpdate.querySelectorAll('input');
@@ -238,22 +237,14 @@
                 const combinationId = formUpdate.action.split('/update/')[1];
                 const result = await fetchAsync(`/combination/update/${combinationId}`, 'POST', data, null, true);
                 loading.style.display = "none";
-                if(result !== undefined && result.type === "success") {
-                    toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
-                } else {
-                    toastMessage("Thông báo", result.message, "error", 6000, "❌", 1000);
-                }
-
+                localStorage.setItem('textMessage', result.message);
+                localStorage.setItem('typeToast', result.type);
+                localStorage.setItem('toastIcon', result.icon);
+                const currentUrl = window.location.origin + `/combination/table?toastmessage=true`;
+                window.location.href = currentUrl;
             } else {
                 toastMessage("Thông báo", "Vui lòng nhập đủ thông tin hoặc kiểm tra các biến số tránh là 0 trước khi cập nhật", "error", 6000, "❌", 1000);
             }
         }
     })
-
-    const reloadPage = document.getElementById('reload-page');
-
-    reloadPage.onclick = (e) => {
-        e.preventDefault();
-        location.reload();
-    }
 </script>

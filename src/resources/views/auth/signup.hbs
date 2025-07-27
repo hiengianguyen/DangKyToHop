@@ -1,0 +1,110 @@
+<head>
+    <title>Đăng Ký Tổ Hợp | Đăng Ký</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/signin.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/fontawesome-free-6.7.2-web/css/all.min.css">
+</head>
+
+<body style="font-family: 'Lexend', sans-serif;">
+    <div class="master" style="display: none;">
+        <div class="box-login">
+            <div class="box">
+                <a href="/" title="Trang chủ"  class="pb-3"><i class="fa-solid fa-house"></i> Trang chủ</a>
+                <div class="title-box">
+                    <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png" alt="Duy Tân">
+                    <div class="content">
+                        <h2>Chào mừng!</h2>
+                        <p>Tạo tài khoản để đăng ký tổ hợp</p>
+                    </div>
+                </div>
+                <div id="signup" class="form-container">
+                    <form class="form-sign-up" action="/auth/signup" method="POST">
+                    <div class="register-form">
+                        <div class="form-group">
+                            <label for="signin-password">Họ và tên:</label>
+                            <input type="text" class="login__input" name="fullName" rules="required" placeholder="Họ và tên">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group form-group-phone">
+                            <label for="signin-phone">Số điện thoại:</label>
+                            <input type="text" class="login__input" name="phone" rules="required|number|length:10" placeholder="Số điện thoại liên hệ" {{#if messageError}}style="border: 1px solid red;"{{/if}}>
+                            <span class="form-message">{{messageError}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="signin-password">Mật khẩu:</label>
+                            <input type="password" class="login__input" id="password" name="password" rules="required|min:8" placeholder="Mật khẩu">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="signin-password">Xác nhận mật khẩu:</label>
+                            <input type="password" class="login__input" id="re-password" rules="required|same" name="rePassword" placeholder="Nhập lại mật khẩu">
+                            <span class="form-message"></span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary form" type="submit">ĐĂNG KÝ</button>
+                    <div class="login-comment">
+                        <p>Bạn đã có tài khoản?</p>
+                        <a href="/auth/signin">Đăng nhập</a>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="box-img justify-content-center align-items-center">
+            <div class="content d-flex align-items-center">
+                <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png" alt="">
+                <div class="text">
+                    <h2>ĐĂNG KÝ TỔ HỢP</h2>
+                    <p class="m-0">Trường THPT Duy Tân</p>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="d-flex justify-content-center text-center">
+                    <p class="footer-text mb-0">
+                        © 2025 Trường THPT Duy Tân, Phường Quảng Phú, TP. Đà Nẵng.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer" class="large">
+      <div class="d-flex justify-content-center text-center">
+        <p class="footer-text mb-0">
+            © 2025 Trường THPT Duy Tân, Phường Quảng Phú, TP. Đà Nẵng.
+        </p>
+      </div>
+    </div>
+    <div id="loading-full" class="position-fixed" style="display: flex;">
+        <div class="d-flex align-items-center flex-column">
+            <h2 id="tittle-loading">Đang tải dữ liệu...</h2>
+            <div class="spinner-border mt-4" role="status">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    window.addEventListener('load', function () {
+        document.getElementById('loading-full').style.display = 'none';
+        document.querySelector('.master').style.display = 'flex';
+    });
+
+    function initValidator() {
+        varidator('.form-sign-up', {
+            passwordValue: () => {
+                return document.querySelector(".form-sign-up input[name='password']").value;
+            }
+        })
+    }
+</script>
+<script src="/validationForm.js" onload="initValidator()"></script>

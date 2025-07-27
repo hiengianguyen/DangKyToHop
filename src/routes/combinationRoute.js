@@ -1,11 +1,11 @@
-const CombinationController = require("../apps/controllers/CombinationController");
+const { CombinationController } = require("../apps/controllers/index");
 const express = require("express");
 const router = express.Router();
 
 router.post("/submited", CombinationController.submited);
 router.post("/save", CombinationController.saveDoc);
 router.post("/unsave", CombinationController.unsaveDoc);
-router.get("/submitted-chart", CombinationController.chart);
+router.get("/analytics", CombinationController.chart);
 router.get("/table", CombinationController.table);
 router.post("/update/:id", CombinationController.updateCombination);
 router.get("/submited-list", CombinationController.submitedList);

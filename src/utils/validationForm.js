@@ -35,11 +35,18 @@ function varidator(selector, option = {}) {
       return function (value) {
         return value.length === Number(length) ? undefined : `Vui lòng nhập đúng ${length} kí tự!`;
       };
+    },
+
+    same: function (value) {
+      return value === option.passwordValue() ? undefined : "Vui lòng nhập lại đúng mật khẩu!";
     }
   };
 
   //lấy form element trong dom
   var formElement = document.querySelector(selector);
+  //lấy btn
+  const btnSubmit = formElement.getElementsByTagName("button")[0];
+  const btnText = btnSubmit.innerText;
 
   // chỉ xữ lí khi có form element
   if (formElement) {
@@ -113,6 +120,9 @@ function varidator(selector, option = {}) {
 
     formElement.onsubmit = function (event) {
       event.preventDefault();
+      btnSubmit.disable = true;
+      btnSubmit.innerHTML = `
+      <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>`;
       var inputs = formElement.querySelectorAll("[name][rules]");
       var isValid = true;
       for (var input of inputs) {
@@ -120,9 +130,11 @@ function varidator(selector, option = {}) {
           isValid = false;
         }
       }
-
       if (isValid) {
         formElement.submit();
+      } else {
+        btnSubmit.disable = false;
+        btnSubmit.innerText = btnText;
       }
     };
   }

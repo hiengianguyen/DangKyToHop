@@ -7,7 +7,7 @@
 
 <div id="master">
     <div id="banner" class="school-info">
-        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752812401/school_banner_second_new_un0i6r.png">
         <div class="banner-container">
             <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
             <div class="school-info-detail fs-5">
@@ -26,13 +26,13 @@
                             Danh Sách Đã Đăng Ký
                         {{/if}}
                     </h3>
-                    <div class="btn-group dropstart">
+                    <div id="box-export-excel" class="btn-group dropdown">
                         <button type="button" class="btn btn-info dropdown-toggle" id="btn-export-excel" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-cloud-arrow-up me-2"></i> Xuất file Excel
+                            Xuất file Excel
                         </button>
                         <ul id="dropdown-menu" class="dropdown-menu p-0">
-                            <li class="all-doc"><a href="/file/excel/submited-list" class="dropdown-item">Tất cả các hồ sơ</a></li>
-                            <li class="filter">Các hồ sơ đã được lọc</li>
+                            <li class="all-doc"><a href="/file/excel/submited-list" class="dropdown-item">Tất cả hồ sơ</a></li>
+                            <li class="filter">Hồ sơ đã lọc</li>
                         </ul>
                     </div>
                 </div>
@@ -135,8 +135,6 @@
                         </div>
                     </div>
 
-                    
-
                     <div class="dash-height mx-3"></div>
                     <div class="card border-light mb-3">
                         <div class="card-header">Nguyện vọng 2:</div>
@@ -197,6 +195,43 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="sort-box sort-box-rep" style="display:none;">
+                    <div class="sort-title">
+                        <p class="m-0">
+                            Sắp xếp theo <i class="fa-solid fa-chevron-down sort-icon-title" style="font-size: 13px;"></i>
+                        </p>
+                    </div>
+                    <div class="sort-content">
+                        <ul class="list-sort p-0 m-0">
+                            <li class="sub-li-type title">Họ và tên <i style="font-size: 20px;"></i>
+                            </li>
+                            <li class="active sub-li-type type py-0">
+                                <ul class="ps-3">
+                                    <li class="p-2 type-sort" data-value="asc">Tăng dần (A-Z) <i class="ms-1 fa-solid"></i></li>
+                                    <li class="p-2 type-sort" data-value="desc">Giảm dần (Z-A) <i class="ms-1 fa-solid"></i></li>
+                                </ul>
+                            </li>
+                            <li class="title sub-li-type">Ngày đăng ký <i class="ms-1 title fa-solid fa-arrow-up-wide-short" style="font-size: 20px;"></i>
+                            </li>
+                            <li class="active sub-li-type type py-0">
+                                <ul class="ps-3">
+                                    <li class="p-2 type-sort" data-value="asc">Cũ nhất <i class="ms-1 fa-solid fa-check"></i></li>
+                                    <li class="p-2 type-sort" data-value="desc">Mới nhất <i class="ms-1 fa-solid"></i></li>
+                                </ul>
+                            </li>
+                            <li class="title sub-li-type">Điểm đầu vào <i style="font-size: 20px;"></i>
+                            </li>
+                            <li class="active sub-li-type type py-0">
+                                <ul class="ps-3">
+                                    <li class="p-2 type-sort" data-value="asc">Cao nhất <i class="ms-1 fa-solid"></i></li>
+                                    <li class="p-2 type-sort" data-value="desc">Thấp nhất <i class="ms-1 fa-solid"></i></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="row" style="width: 100%;">
                     <div id="container-submitted" class="col-11 g-0" style="padding: 0;">
                         {{#each submitedList}}
@@ -255,15 +290,15 @@
                             </div>
                         {{/each}}
                     </div>
-                    <div class="col d-flex justify-content-center p-0">
+                    <div class="col sort-box-dad d-flex justify-content-center p-0">
                         <div class="sort-box">
-                            <div id="sort-title">
+                            <div class="sort-title">
                                 <p class="m-0">
-                                    Sắp xếp theo <i class="fa-solid fa-chevron-down" id="sort-icon-title" style="font-size: 13px;"></i>
+                                    Sắp xếp theo <i class="fa-solid fa-chevron-down sort-icon-title" style="font-size: 13px;"></i>
                                 </p>
                             </div>
-                            <div id="sort-content">
-                                <ul class="list-sort p-0">
+                            <div class="sort-content">
+                                <ul class="list-sort p-0 m-0">
                                     <li class="sub-li-type title">Họ và tên <i style="font-size: 20px;"></i>
                                     </li>
                                     <li class="active sub-li-type type py-0">
@@ -280,7 +315,7 @@
                                             <li class="p-2 type-sort" data-value="desc">Gần đây <i class="ms-1 fa-solid"></i></li>
                                         </ul>
                                     </li>
-                                    <li class="title sub-li-type" style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">Điểm đầu vào <i style="font-size: 20px;"></i>
+                                    <li class="title sub-li-type">Điểm đầu vào <i style="font-size: 20px;"></i>
                                     </li>
                                     <li class="active sub-li-type type py-0">
                                         <ul class="ps-3">
@@ -378,6 +413,7 @@
         const cardBody = document.getElementById('card-body');
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body').style.display = 'block';
+        document.getElementById('body-app').style.overflowY = 'auto';
         if(body.clientHeight > (banner.clientHeight + cardBody.clientHeight)) {
             body.querySelector('.d-flex').style.height = body.clientHeight;
         } else {
@@ -406,11 +442,11 @@
         }
     })
 
-    const sortTitle = document.getElementById('sort-title');
-    const sortContent = document.getElementById('sort-content');
-    const iconSortTitle = document.getElementById('sort-icon-title');
-    const tagLisSort = sortContent.querySelectorAll('li:not(.type-sort)');
-    const typeSortI = sortContent.querySelectorAll('.type-sort i');
+    const sortTitles = document.querySelectorAll('.sort-title');
+    const sortContents = document.querySelectorAll('.sort-content');
+    const iconSortTitles = document.querySelectorAll('.sort-title .sort-icon-title');
+    const tagLisSort = document.querySelectorAll('.sort-content li:not(.type-sort)');
+    const typeSortI = document.querySelectorAll('.sort-content .type-sort i');
 
     Array.from(tagLisSort).forEach((li, index) => {
         if(index%2 === 0 && li.querySelector('i').className) {
@@ -451,6 +487,8 @@
                 switch(index) {
                     case 0:
                     case 1:
+                    case 6:
+                    case 7:
                         result.sort((a, b) => {
                             function getLastName(fullName) {
                                 const parts = fullName.trim().split(" ");
@@ -471,6 +509,8 @@
                         break
                     case 2:
                     case 3:
+                    case 8:
+                    case 9:
                         result.sort((a, b) => {
                             if(valueTypeSort === 'asc') {
                                 return convertVietnameseDatetimeToDate(a.registeredAt) - convertVietnameseDatetimeToDate(b.registeredAt);
@@ -483,6 +523,8 @@
                         break
                     case 4:
                     case 5:
+                    case 10:
+                    case 11:
                         result.sort((a, b) => {
                             const totalA = Number(a.mathScore || '0') + Number(a.literatureScore || '0') + Number(a.englishScore || '0');
                             const totalB = Number(b.mathScore || '0') + Number(b.literatureScore || '0') + Number(b.englishScore || '0');
@@ -501,14 +543,18 @@
         }
     })
 
-    sortTitle.onclick = () => {
-        sortContent.classList.toggle('active');
-        if(sortContent.className.includes('active')) {
-            iconSortTitle.className = "fa-solid fa-chevron-up";
-        } else {
-            iconSortTitle.className = "fa-solid fa-chevron-down";
+    sortTitles.forEach((sortBtnTiltle) => {
+        sortBtnTiltle.onclick = () => {
+            sortContents.forEach((sortContent) => {
+                sortContent.classList.toggle('active');
+                if(sortContent.className.includes('active')) {
+                    iconSortTitles.forEach((icon) => icon.className = "fa-solid fa-chevron-up")
+                } else {
+                    iconSortTitles.forEach((icon) => icon.className = "fa-solid fa-chevron-down")
+                }
+            })
         }
-    }
+    })
 
     function getParentLi(element, className) {
        while(element.parentElement) {

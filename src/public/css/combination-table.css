@@ -1,3 +1,6 @@
+body {
+  width: 100%; }
+
 #combination-box-resp {
   display: none; }
 
@@ -21,7 +24,18 @@
 .card-body.pic {
   padding: 0; }
 
+@media (max-width: 955px) and (orientation: landscape) {
+  .modal {
+    height: 100vh !important; }
+  .modal-containers.container {
+    height: 26pc;
+    overflow-y: scroll; }
+  #sidebar {
+    height: 100%; } }
+
 @media (max-width: 440px) {
+  body {
+    -webkit-overflow-scrolling: touch; }
   .table-combination {
     display: none; }
   #combination-box-resp {
@@ -35,4 +49,6 @@
   .modal-bodyy.combination h6.class-count {
     width: 36%; }
   .card-body.pic {
-    padding: 20px; } }
+    padding: 20px; }
+  .modal-title {
+    font-size: 16px; } }

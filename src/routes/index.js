@@ -4,8 +4,11 @@ const meRouter = require("./meRoute");
 const schoolRouter = require("./schoolRoute");
 const combinationRouter = require("./combinationRoute");
 const fileRouter = require("./fileRoute");
+const notfoundRouter = require("./notfoundRoute");
+const maintenanceRouter = require("./maintenanceRoute");
 
 function routes(app) {
+  app.use(maintenanceRouter);
   app.use("/", homeRouter);
   app.use("/me", meRouter);
   app.use("/auth", authRouter);
@@ -13,6 +16,7 @@ function routes(app) {
   app.use("/school", schoolRouter);
   app.use("/file", fileRouter);
   app.get("/healthz", (req, res, next) => res.sendStatus(200));
+  app.use(notfoundRouter);
 }
 
 module.exports = routes;

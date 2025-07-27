@@ -1,9 +1,7 @@
 <head>
     <title>Đăng Ký Tổ Hợp | Trang Cá Nhân</title>
-    <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/profile.css">
-    <link rel="stylesheet" href="/css/combination.css">
 </head>
 
 <div id="master">
@@ -14,25 +12,27 @@
         <div class="mb-3 d-flex justify-content-center align-items-center">
             <div class="card-body-profile my-4">
                 <div class="info-top containers mb-3 d-flex justify-content-center align-items-center">
-                    <img
-                    class="profile-img-user mt-2"
-                    src="{{user.avatar}}"
-                    alt="User"
-                    />
+                    <a href="{{user.avatar}}" data-lightbox="user" data-title="Ảnh đại diện cá nhân">
+                        <img
+                        class="profile-img-user mt-2"
+                        src="{{user.avatar}}"
+                        alt="User"
+                        />
+                    </a>
                 </div>
                 <div class="info profile-dad-name">
                     <div class="info-sub mt-10 containers">
-                    <div class="profile-dad-name mb-2">
-                        <label for="profile-name-input" class="form-label-profile">Họ và Tên:</label>
-                        <h4 class="profile-name-user">
-                        {{user.fullName}}
-                        </h4>
-                    </div>
-                    <div class="info-bt mb-3">
-                        <label for="profile-phone-input" class="form-label-profile">Số điện
-                        thoại:</label>
-                        <p class="profile-phone-user mb-2">{{user.phone}}</p>
-                    </div>
+                        <div class="profile-dad-name mb-2">
+                            <label for="profile-name-input" class="form-label-profile">Họ và Tên:</label>
+                            <h4 class="profile-name-user">
+                            {{user.fullName}}
+                            </h4>
+                        </div>
+                        <div class="info-bt mb-3">
+                            <label for="profile-phone-input" class="form-label-profile">Số điện
+                            thoại:</label>
+                            <p class="profile-phone-user mb-2">{{user.phone}}</p>
+                        </div>
                     </div>
                     <div class="btn-edit d-flex">
                         <a href="/me/profile/edit" class="btn btn-secondary btn-lg">Chỉnh sửa</a>
@@ -52,6 +52,7 @@
 
 <script>
     window.addEventListener('load', () => {
+        document.getElementById('body-app').style.overflowY = 'auto';
         if({{{showToast}}}) {
             const textMessage = localStorage.getItem('textMessage')
             const typeToast = localStorage.getItem('typeToast')

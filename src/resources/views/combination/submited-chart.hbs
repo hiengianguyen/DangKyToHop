@@ -1,5 +1,5 @@
 <head>
-    <title>Đăng Ký Tổ Hợp | Thống kê</title>
+    <title>Đăng Ký Tổ Hợp | Thống Kê</title>
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/combination.css">
     <link rel="stylesheet" href="/css/submitted-chart.css">
@@ -7,7 +7,7 @@
 
 <div id="master">
     <div class="school-info">
-        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752812401/school_banner_second_new_un0i6r.png">
         <div class="banner-container">
             <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
             <div class="school-info-detail fs-5">
@@ -32,7 +32,7 @@
             </div>
             <div class="content">
                 <div class="row box-chart-info chart-box-1">
-                    <div class="col col-md-3 mt-4 d-flex most-combination-box">
+                    <div class="col mt-4 d-flex most-combination-box">
                         <div class="card most-combination text-center">
                             <h4> Nguyện vọng 1</h4>
                             <p class="offical" style="color: #2caffe;">{{mostChooseOfCombination1.count}}</p>
@@ -44,7 +44,7 @@
                             <p class="des">Học sinh chọn {{mostChooseOfCombination2.combination}}</p>
                         </div>
                     </div>
-                    <div class="d-flex col chart col-md-9">
+                    <div class="d-flex col chart">
                         <div class="flex-column first align-items-center">
                             <p class="fw-bold m-0 text-center">Số học sinh chọn tổ hợp cho nguyện vọng 1</p>
                             <div class="box-chart"> 
@@ -99,6 +99,7 @@
 <script>
     window.addEventListener('load', function () {
         document.getElementById('loading-full').style.display = 'none';
+        document.getElementById('body-app').style.overflowY = 'auto';
         document.querySelector('.card-body').style.display = 'block';
     });
 

@@ -1,5 +1,9 @@
 @import "breakpoints";
 
+body {
+  width: 100%;
+}
+
 #combination-box-resp {
   display: none;
 }
@@ -30,7 +34,26 @@
   padding: 0;
 }
 
+@include mobile-all-landscape {
+  .modal {
+    height: 100vh !important;
+  }
+
+  .modal-containers.container {
+    height: 26pc;
+    overflow-y: scroll;
+  }
+
+  #sidebar {
+    height: 100%;
+  }
+}
+
 @include respond(phone-sm) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
   .table-combination {
     display: none;
   }
@@ -54,5 +77,9 @@
 
   .card-body.pic {
     padding: 20px;
+  }
+
+  .modal-title {
+    font-size: 16px;
   }
 }

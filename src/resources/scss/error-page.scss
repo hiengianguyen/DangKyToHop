@@ -1,0 +1,23 @@
+@import "breakpoints";
+
+#loading-full {
+  transform: translateY(30px) !important;
+}
+
+@include respond(phone-sm) {
+  #all-content {
+    width: 100%;
+  }
+
+  #master {
+    height: 100% !important;
+  }
+
+  #title-not-found {
+    font-size: 21px;
+  }
+
+  body {
+    align-items: start !important;
+  }
+}

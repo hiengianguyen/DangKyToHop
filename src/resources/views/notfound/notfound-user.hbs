@@ -1,0 +1,59 @@
+<head>
+    <title>Đăng Ký Tổ Hợp</title>
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/error-page.css">
+</head>
+
+<div id="master">
+    <div class="school-info">
+        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752812401/school_banner_second_new_un0i6r.png">
+        <div class="banner-container">
+            <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+            <div class="school-info-detail fs-5">
+                <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="box-radius shadow">
+        <div class="card-body p-0">
+            <div class="container d-flex justify-content-center flex-column">
+                <img id="not-found-img" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752156401/03e37d4ad8919d7b_mqo06a.svg" style="height: 300px;" alt="Không có dữ liệu">
+                <div class="text-center">
+                    <h4 id="title-not-found">Không tìm thấy trang</h4>
+                    <p>Hiện tại đường dẫn này không có trên hệ thống.</p>
+                    <a href="/" class="btn btn-primary">Về trang chủ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="d-flex justify-content-center text-center">
+            <p class="footer-text mb-0">
+                © 2025 Trường THPT Duy Tân, Phường Quảng Phú, TP. Đà Nẵng.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="loading-full" class="position-fixed" style="display: flex;">
+    <div class="d-flex align-items-center flex-column">
+        <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang tải dữ liệu...</h2>
+        <div class="spinner-border mt-4" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('load', function () {
+        document.getElementById('loading-full').style.display = 'none';
+        document.getElementById('body-app').style.overflowY = 'auto';
+    });
+
+    const width = window.innerWidth;
+    if(width <= 440) {
+        const img = document.getElementById('not-found-img');
+        img.src = 'https://res.cloudinary.com/dwoymvppw/image/upload/v1752162309/error_xpgplu.png';
+        img.style.height = '100%';
+    }
+</script>

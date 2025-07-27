@@ -41,9 +41,19 @@ canvas {
 .chart-box-2.unshow {
   display: none; }
 
+.chart-box-1 .chart {
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%; }
+
 .chart-box-capacity {
   flex-direction: column;
   align-items: center; }
+
+.chart-box-1 .most-combination-box {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%; }
 
 .chart-box-capacity .box {
   width: 50%;
@@ -79,7 +89,7 @@ canvas {
   border-right: none; }
 
 .tab:hover {
-  background: #35bbed;
+  background: #6ed8ff;
   color: #fff; }
 
 .tab.active {
@@ -94,9 +104,39 @@ canvas {
   flex-basis: 0;
   flex-grow: 1; }
 
+@media (max-width: 955px) and (orientation: landscape) {
+  #sidebar {
+    height: 100%; }
+  .chart-box-1 .chart {
+    -ms-flex: auto;
+    flex: auto;
+    max-width: 100%;
+    font-size: 14px; }
+  .box-chart-info {
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex; }
+  .chart-box-1 .most-combination-box {
+    flex-direction: unset;
+    -ms-flex: auto;
+    flex: auto;
+    max-width: 100%;
+    padding: 0 15px; }
+  .most-combination-box .most-combination {
+    width: 100%; }
+  .card-body > .content {
+    margin-top: 15px; }
+  .chart-box-capacity > .content,
+  .chart-box-capacity .box {
+    width: 85%; } }
+
 @media (max-width: 440px) {
   .card-body > .content {
-    margin-top: 1pc; }
+    margin-top: 1pc;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex !important;
+    align-items: center; }
   .tab-container {
     width: 100%;
     font-size: 13px;
@@ -108,12 +148,15 @@ canvas {
   .box-chart-info:not(.unshow) {
     -webkit-flex-direction: column !important;
     flex-direction: column !important;
-    display: flex !important; }
+    display: flex !important;
+    max-width: 100%;
+    padding: 0; }
   .box-chart-info .chart .first {
     margin-bottom: 13px; }
   .most-combination-box {
     margin-bottom: 20px;
-    padding-right: 15px; }
+    padding: 0;
+    max-width: 100% !important; }
   .box-chart {
     height: 280px; }
   .chart-box-capacity .content {

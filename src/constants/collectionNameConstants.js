@@ -8,7 +8,8 @@ const CollectionNameConstant = {
   Subjects: "subjects",
   Nations: "nations",
   RegisteredCombinations: "registeredCombinations",
-  FavouriteSubmitted: "favouriteSubmitted"
+  FavouriteSubmitted: "favouriteSubmitted",
+  ImageActivity: "imageActivity"
 };
 
 module.exports = CollectionNameConstant;

@@ -1,11 +1,10 @@
 <head>
     <title>Đăng Ký Tổ Hợp | Chỉnh Sửa Trang Cá Nhân</title>
-    <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/profile.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/combination.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
 </head>
 
 <div id="master">
@@ -30,7 +29,13 @@
                     />
                 </div>
                 <div class="container d-flex justify-content-center">
-                    <input class="choose-file-input" type="file" id="formFile" />
+                    <div class="row mb-3">
+                        <div class="d-flex flex-column avatar-img">
+                            <input type="file" class="mt-3" id="inputImage" accept="image/*" required>
+                            <button id="recropBtn" class="mt-4 btn btn-primary" type="button" style="display:none;">Cắt lại</button>
+                        </div>
+                        <input id="input-get-data" type="text" value="{{submitedDetail.avatarLink}}" name="avatarLink" style="display: none;">
+                    </div>
                     <input id="avatar-input" name="avatar" type="text" style="display:none" />
                 </div>
                 <div class="profile-dad-name info mt-8 flex-column-reverse">
@@ -77,17 +82,24 @@
 
 <div id="loading-full" class="position-fixed" style="display: none;">
     <div class="d-flex align-items-center flex-column">
-        <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang tải ảnh lên...</h2>
+        <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang tải dữ liệu...</h2>
         <div class="spinner-border mt-4" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
 </div>
 
+<div id="cropperContainer" style="display:none; position:fixed; inset:0; background:#000a; z-index:9998; justify-content:center; align-items:center;">
+    <img id="preview" style="max-height:90vh;" />
+    <button id="cropBtn" type="button" style="position:absolute; bottom:20px;">Cắt ảnh</button>
+</div>
+
 <script
   src="/validationForm.js"
   onload="varidator('#form-edit-profile')"
 ></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" defer></script>
 
 <script type="module">
     import { uploadImageToCloudinary } from '/uploadImageToCloudinary.js';
@@ -99,6 +111,7 @@
     var sideBar = document.getElementById('sidebar');
     const master = document.getElementById('master');
     window.addEventListener('load', function () {
+        document.getElementById('body-app').style.overflowY = 'auto';
         sideBar.parentElement.style.height = '100%';
         master.style.height = master.parentElement.clientHeight;
     })
@@ -122,26 +135,79 @@
         }
     })
 
+    const inputImage = document.getElementById('inputImage');
+    const hiddenAvatarInput = document.getElementById("avatar-input");
+    const preview = document.getElementById('preview');
+    const cropBtn = document.getElementById('cropBtn');
+    const cropperContainer = document.getElementById('cropperContainer');
+
+    let cropper;
+
+    const recropBtn = document.getElementById('recropBtn');
+    let lastImageURL = '';
+
+    inputImage.addEventListener('change', () => {
+        const file = inputImage.files[0];
+        if (file) {
+            lastImageURL = URL.createObjectURL(file);
+            showCropper(lastImageURL);
+        }
+    });
+
+    cropBtn.addEventListener('click',  () => {
+        const canvas = cropper.getCroppedCanvas({ width: 300 });
+        const dataUrl = canvas.toDataURL('image/jpeg');
+        hiddenAvatarInput.value = dataUrl;
+
+        imgProfile.src = dataUrl;
+        imgProfile.style.display = 'block';
+        recropBtn.style.display = 'inline-block';
+
+        cropper.destroy();
+        cropper = null;
+        cropperContainer.style.display = 'none';
+    });
+
+    recropBtn.addEventListener('click', () => {
+        if(lastImageURL != '') {
+            showCropper(lastImageURL);
+        }
+    });
+
+    function showCropper(imageUrl) {
+        preview.src = imageUrl;
+        cropperContainer.style.display = 'flex';
+
+        preview.onload = function () {
+            if (cropper) cropper.destroy();
+            cropper = new Cropper(preview, {
+                aspectRatio: 1,
+                viewMode: 1,
+                dragMode: 'move',
+                cropBoxResizable: false,
+                cropBoxMovable: false,
+                movable: true,
+                zoomable: true,
+                ready() {
+                    cropper.setCropBoxData({ width: 300, height: 400 });
+                }
+            });
+        };
+    }
+
     const formUpdate = document.querySelector('#form-edit-profile');
     const btnUpdate = document.querySelector('#btn-update-profile');
-    const inputChooseFileImg = document.getElementById("formFile");
     const imgProfile = document.getElementById("profile-img");
-    const hiddenAvatarInput = document.getElementById("avatar-input");
     const loading = document.getElementById('loading-full');
     const loadingText = loading.querySelector('h2');
 
     btnUpdate.onclick = async () => {
-        const file = inputChooseFileImg.files[0];
-        if(file) {
-            loadingText.textContent = 'Đang tải ảnh lên...';
+        const url = imgProfile.src;
+        if(url) {
+            loadingText.textContent = 'Đang cập nhật dữ liệu...';
             loading.style.display = 'flex';
-            const reader = new FileReader();
 
-            reader.onload = function (e) {
-                imgProfile.src = e.target.result;
-            };
-
-            const uploaded = await uploadImageToCloudinary(file, 'users');
+            const uploaded = await uploadImageToCloudinary(url, 'users');
             loading.style.display = 'none';
             if (uploaded.data) {
                 imgProfile.src = uploaded.data; 
@@ -169,13 +235,4 @@
             toastMessage("Thông báo", result.message, "error", 6000, "❌", 1000);
         }
     }
-
-    inputChooseFileImg.addEventListener("change", async(event) => {
-        loadingText.textContent = 'Đang cập nhật hồ sơ...';
-        loading.style.display = 'flex';
-        const file = event.target.files[0];
-
-        imgProfile.src = await URL.createObjectURL(file);
-        loading.style.display = 'none';
-    });
 </script>

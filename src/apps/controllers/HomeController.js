@@ -1,4 +1,4 @@
-const { FirestoreModel, HighSchoolModel, CombinationModel, SubjectModel } = require("../models");
+const { FirestoreModel, HighSchoolModel, CombinationModel, SubjectModel, ImageActivityModel } = require("../models");
 const { CollectionNameConstant } = require("../../constants");
 
 class HomeController {
@@ -6,6 +6,7 @@ class HomeController {
     this.highSchoolDbRef = new FirestoreModel(CollectionNameConstant.HighSchools, HighSchoolModel);
     this.combinationDbRef = new FirestoreModel(CollectionNameConstant.Combinations, CombinationModel);
     this.subjectDbRef = new FirestoreModel(CollectionNameConstant.Subjects, SubjectModel);
+    this.imageActivityDbRef = new FirestoreModel(CollectionNameConstant.ImageActivity, ImageActivityModel);
     this.homePage = this.homePage.bind(this);
   }
 
@@ -17,18 +18,18 @@ class HomeController {
         return res.redirect("/combination/submit-combination");
       }
     } else {
-      let signupSuccess = false;
-      let messageError;
-      if (req?.query?.signup) {
-        signupSuccess = true;
-      } else if (req?.query?.signinError === "incorrect-phone-password") {
-        messageError = "Số điện thoại hoặc mật khẩu sai";
-        signupSuccess = true;
-      }
+      const studentAchievements = await this.imageActivityDbRef.getItemsByFilter({
+        type: "achievement"
+      });
+      const studentAchievementsSorted = studentAchievements.sort((a, b) => {
+        const stringNumberFirstA = a.imgUrl.split("cap_tinh_")[1];
+        const stringNumberFirstB = b.imgUrl.split("cap_tinh_")[1];
+
+        return parseInt(stringNumberFirstA) - parseInt(stringNumberFirstB);
+      });
       return res.render("home", {
-        signupSuccess: signupSuccess,
-        messageError: messageError,
-        isHomePage: true
+        studentAchievements: studentAchievementsSorted,
+        isNotHomePage: false
       });
     }
   }

@@ -31,12 +31,13 @@ input {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(255, 255, 255, 1);
   z-index: 9999;
   display: none;
   justify-content: center;
   align-items: center;
+  transform: translateY(0px) !important;
 }
 
 .box.active p {
@@ -48,16 +49,22 @@ input {
 }
 
 #sidebar {
-  width: 280px;
+  width: 100%;
+  max-width: 280px;
   padding: 16px;
   background-color: #ffffff;
-  z-index: 3;
+  z-index: 100;
   transition: all 0.3s ease;
   box-shadow: 0 -5px 1rem #afafaf;
 }
 
 #sidebar.active {
   width: 80px;
+}
+
+#sidebar .sidebar-content {
+  position: sticky;
+  top: 16px;
 }
 
 #sidebar .home {
@@ -127,9 +134,11 @@ input {
 }
 
 #sidebar .menu-bar a.active {
-  background-color: #29a9ef;
+  background: #00d4ff;
+  background: linear-gradient(90deg, rgba(0, 212, 255, 1) 0%, rgba(41, 169, 239, 1) 80%, rgba(17, 147, 212, 1) 100%);
   color: #ffffff;
   text-decoration: none;
+  box-shadow: 3px 3px #9e9e9e;
 }
 
 #sidebar .end-box a,
@@ -144,7 +153,8 @@ input {
 }
 
 #sidebar .end-box a:not(.nav-profile):hover {
-  background-color: #ff1c60;
+  background: #ff1c60;
+  background: linear-gradient(90deg, rgba(255, 28, 96, 1) 0%, rgba(255, 28, 96, 1) 31%, rgba(255, 28, 62, 1) 71%, rgb(255, 60, 60) 100%);
   color: #fff;
   text-decoration: none;
 }
@@ -166,6 +176,7 @@ input {
 
 #sidebar .nav-profile img {
   width: 35px;
+  border-radius: 50%;
 }
 
 .dash {
@@ -207,10 +218,12 @@ input {
 
 #sidebar.active .box i {
   margin-right: 0;
+  transition: all 0.5s ease;
 }
 
 #sidebar .show-sidebar #btn-push-sidebar {
-  background-color: #6c757d;
+  background: #6c757d;
+  background: linear-gradient(90deg, rgba(108, 117, 125, 1) 0%, rgba(111, 122, 128, 1) 20%, rgba(79, 79, 79, 1) 100%);
   color: #ffffff;
   padding: 0;
   width: 100%;
@@ -222,6 +235,13 @@ input {
   height: 50px;
   list-style: none;
   margin-top: 10px;
+  transition: all 0.5s ease;
+  box-shadow: 3px 3px #9e9e9e;
+}
+
+#sidebar.active .show-sidebar #btn-push-sidebar {
+  background: #6c757d;
+  transition: all 0.5s ease;
 }
 
 #sidebar .show-sidebar #btn-push-sidebar:hover {
@@ -248,16 +268,28 @@ input {
 #header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  height: 50px;
+  height: 60px;
   z-index: 1000;
-  background-color: #ffffff;
   display: none;
+  background-color: #ffffff;
   border-bottom: 1px solid #ccc;
 }
 
 #all-content {
   display: flex;
+  transform: translateY(0);
+  transition: all 0.5s ease;
+}
+
+#all-content.translate {
+  transform: translateY(-30px);
+}
+
+#header img {
+  height: 40px;
+  margin-left: 20px;
 }
 
 #header .nav-bar-icon {
@@ -280,7 +312,7 @@ input {
   position: fixed;
   width: 100%;
   background-color: #ffffff;
-  z-index: 1;
+  z-index: 5;
   transition: all 0.5s ease;
 }
 
@@ -296,6 +328,7 @@ input {
 #nav-bar .avatar img {
   width: 25px;
   margin-right: 8px;
+  border-radius: 50%;
 }
 
 #nav-bar a:hover {
@@ -335,6 +368,10 @@ input {
   padding: 2pc;
 }
 
+.footer-text {
+  font-size: 16px;
+}
+
 #glass.active {
   position: fixed;
   top: 0;
@@ -343,6 +380,49 @@ input {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
+}
+
+#lightbox .lb-image {
+  max-width: 90vw !important;
+  max-height: 90vh !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+#btn-scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+  background: #29a9ef;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 3px 3px #9e9e9e;
+}
+
+#btn-scroll-top:hover {
+  background: #007bbd;
+}
+
+@include laptop {
+  #master {
+    margin-left: 80px;
+  }
+
+  #sidebar {
+    position: absolute;
+    height: 100%;
+  }
 }
 
 @include mobile-all-landscape {
@@ -370,6 +450,10 @@ input {
   #loading-full h2 {
     font-size: 22px;
   }
+
+  #loading-full {
+    transform: translateY(30px) !important;
+  }
 }
 
 @include respond(phone-sm) {
@@ -388,6 +472,7 @@ input {
 
   #header {
     display: block;
+    height: 50px;
   }
 
   #header .nav-img img {
@@ -402,6 +487,10 @@ input {
 
   #all-content .big-content {
     margin-top: 50px;
+  }
+
+  #all-content {
+    transform: unset !important;
   }
 
   #loading h2,
@@ -431,5 +520,10 @@ input {
     margin-top: 10px;
     width: max-content;
     font-size: 11px;
+  }
+
+  #btn-scroll-top {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    right: 18px;
   }
 }

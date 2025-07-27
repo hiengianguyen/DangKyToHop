@@ -29,6 +29,11 @@ h4 {
 #info-parent {
   justify-content: space-between; }
 
+.combination-1,
+.place-box-rep,
+#info-parent-rep {
+  display: none; }
+
 #info-parent label {
   margin-right: 24px; }
 
@@ -57,18 +62,11 @@ h4 {
 .table-conduct .type-graduate {
   padding: 0 15px; }
 
-.combination-1 {
-  display: none; }
-
-.place-box-rep {
-  display: none; }
-
 .place-birth.pic {
   display: flex; }
 
 @media only screen and (min-width: 792px) and (max-width: 955px) and (orientation: landscape) {
   .box-radius {
-    margin: 0;
     padding: 15px; }
   .card-body > .container {
     padding: 0; }
@@ -135,7 +133,7 @@ h4 {
     width: max-content;
     margin-bottom: 5px; }
   legend {
-    font-size: 16px; }
+    font-size: 18px; }
   .full-name {
     flex-basis: auto; }
   h4 {
@@ -162,15 +160,23 @@ h4 {
   .col.combination-1,
   .col.combination-2 {
     margin-bottom: 10px; }
+  .combination-1-rep,
+  #info-parent {
+    display: none; }
+  #info-parent-rep,
   #info-parent {
     justify-content: center; }
+  #info-parent-rep .col,
   #info-parent .col {
     margin-bottom: 10px; }
+  #info-parent-rep label,
   #info-parent label {
     margin-right: 0; }
+  #info-parent-rep .detail,
   #info-parent .detail {
-    flex-direction: column;
+    gap: 2pc;
     text-align: center; }
+  #info-parent-rep .detail b,
   .offical-info .current-place b,
   table.table-points,
   #info-parent .detail b {
@@ -191,8 +197,7 @@ h4 {
     font-size: 16px; }
   td {
     padding: 0.375rem 0.75rem 0.375rem 0.75rem; }
-  .combination-1-rep {
-    display: none; }
+  #info-parent-rep,
   .combination-1 {
     display: block; }
   .btn-feature a,

@@ -24,12 +24,13 @@ input {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: white;
   z-index: 9999;
   display: none;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  transform: translateY(0px) !important; }
 
 .box.active p {
   opacity: 0; }
@@ -38,15 +39,20 @@ input {
   transition: box-shadow 0.3s ease; }
 
 #sidebar {
-  width: 280px;
+  width: 100%;
+  max-width: 280px;
   padding: 16px;
   background-color: #ffffff;
-  z-index: 3;
+  z-index: 100;
   transition: all 0.3s ease;
   box-shadow: 0 -5px 1rem #afafaf; }
 
 #sidebar.active {
   width: 80px; }
+
+#sidebar .sidebar-content {
+  position: sticky;
+  top: 16px; }
 
 #sidebar .home {
   position: relative; }
@@ -104,9 +110,11 @@ input {
   margin-right: 16px; }
 
 #sidebar .menu-bar a.active {
-  background-color: #29a9ef;
+  background: #00d4ff;
+  background: linear-gradient(90deg, #00d4ff 0%, #29a9ef 80%, #1193d4 100%);
   color: #ffffff;
-  text-decoration: none; }
+  text-decoration: none;
+  box-shadow: 3px 3px #9e9e9e; }
 
 #sidebar .end-box a,
 #sidebar .menu-bar a {
@@ -118,7 +126,8 @@ input {
   text-decoration: none; }
 
 #sidebar .end-box a:not(.nav-profile):hover {
-  background-color: #ff1c60;
+  background: #ff1c60;
+  background: linear-gradient(90deg, #ff1c60 0%, #ff1c60 31%, #ff1c3e 71%, #ff3c3c 100%);
   color: #fff;
   text-decoration: none; }
 
@@ -135,7 +144,8 @@ input {
   text-decoration: none; }
 
 #sidebar .nav-profile img {
-  width: 35px; }
+  width: 35px;
+  border-radius: 50%; }
 
 .dash {
   width: 100%;
@@ -167,10 +177,12 @@ input {
   display: none; }
 
 #sidebar.active .box i {
-  margin-right: 0; }
+  margin-right: 0;
+  transition: all 0.5s ease; }
 
 #sidebar .show-sidebar #btn-push-sidebar {
-  background-color: #6c757d;
+  background: #6c757d;
+  background: linear-gradient(90deg, #6c757d 0%, #6f7a80 20%, #4f4f4f 100%);
   color: #ffffff;
   padding: 0;
   width: 100%;
@@ -181,7 +193,13 @@ input {
   border-radius: 5px;
   height: 50px;
   list-style: none;
-  margin-top: 10px; }
+  margin-top: 10px;
+  transition: all 0.5s ease;
+  box-shadow: 3px 3px #9e9e9e; }
+
+#sidebar.active .show-sidebar #btn-push-sidebar {
+  background: #6c757d;
+  transition: all 0.5s ease; }
 
 #sidebar .show-sidebar #btn-push-sidebar:hover {
   cursor: pointer; }
@@ -203,15 +221,25 @@ input {
 #header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  height: 50px;
+  height: 60px;
   z-index: 1000;
-  background-color: #ffffff;
   display: none;
+  background-color: #ffffff;
   border-bottom: 1px solid #ccc; }
 
 #all-content {
-  display: flex; }
+  display: flex;
+  transform: translateY(0);
+  transition: all 0.5s ease; }
+
+#all-content.translate {
+  transform: translateY(-30px); }
+
+#header img {
+  height: 40px;
+  margin-left: 20px; }
 
 #header .nav-bar-icon {
   height: 100%;
@@ -230,7 +258,7 @@ input {
   position: fixed;
   width: 100%;
   background-color: #ffffff;
-  z-index: 1;
+  z-index: 5;
   transition: all 0.5s ease; }
 
 #nav-bar a {
@@ -243,7 +271,8 @@ input {
 
 #nav-bar .avatar img {
   width: 25px;
-  margin-right: 8px; }
+  margin-right: 8px;
+  border-radius: 50%; }
 
 #nav-bar a:hover {
   background-color: #d4d0d1; }
@@ -275,6 +304,9 @@ input {
 #footer {
   padding: 2pc; }
 
+.footer-text {
+  font-size: 16px; }
+
 #glass.active {
   position: fixed;
   top: 0;
@@ -283,6 +315,42 @@ input {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999; }
+
+#lightbox .lb-image {
+  max-width: 90vw !important;
+  max-height: 90vh !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain; }
+
+#btn-scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+  background: #29a9ef;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 3px 3px #9e9e9e; }
+
+#btn-scroll-top:hover {
+  background: #007bbd; }
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  #master {
+    margin-left: 80px; }
+  #sidebar {
+    position: absolute;
+    height: 100%; } }
 
 @media (max-width: 955px) and (orientation: landscape) {
   #sidebar {
@@ -299,7 +367,9 @@ input {
     font-size: 11px; }
   #loading h2,
   #loading-full h2 {
-    font-size: 22px; } }
+    font-size: 22px; }
+  #loading-full {
+    transform: translateY(30px) !important; } }
 
 @media (max-width: 440px) {
   .school-info,
@@ -310,7 +380,8 @@ input {
   .tittle-sidebar .name {
     font-size: 14px; }
   #header {
-    display: block; }
+    display: block;
+    height: 50px; }
   #header .nav-img img {
     height: 35px;
     margin-left: 10px; }
@@ -319,6 +390,8 @@ input {
     display: block; }
   #all-content .big-content {
     margin-top: 50px; }
+  #all-content {
+    transform: unset !important; }
   #loading h2,
   #loading-full h2 {
     font-size: 22px; }
@@ -337,4 +410,7 @@ input {
   .footer-text {
     margin-top: 10px;
     width: max-content;
-    font-size: 11px; } }
+    font-size: 11px; }
+  #btn-scroll-top {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    right: 18px; } }

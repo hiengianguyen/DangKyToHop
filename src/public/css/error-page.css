@@ -1,0 +1,12 @@
+#loading-full {
+  transform: translateY(30px) !important; }
+
+@media (max-width: 440px) {
+  #all-content {
+    width: 100%; }
+  #master {
+    height: 100% !important; }
+  #title-not-found {
+    font-size: 21px; }
+  body {
+    align-items: start !important; } }

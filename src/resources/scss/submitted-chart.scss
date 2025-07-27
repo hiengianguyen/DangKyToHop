@@ -58,9 +58,21 @@ canvas {
   display: none;
 }
 
+.chart-box-1 .chart {
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
 .chart-box-capacity {
   flex-direction: column;
   align-items: center;
+}
+
+.chart-box-1 .most-combination-box {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
 }
 
 .chart-box-capacity .box {
@@ -103,7 +115,7 @@ canvas {
 }
 
 .tab:hover {
-  background: #35bbed;
+  background: #6ed8ff;
   color: #fff;
 }
 
@@ -122,9 +134,52 @@ canvas {
   flex-grow: 1;
 }
 
+@include mobile-all-landscape {
+  #sidebar {
+    height: 100%;
+  }
+
+  .chart-box-1 .chart {
+    -ms-flex: auto;
+    flex: auto;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .box-chart-info {
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex;
+  }
+
+  .chart-box-1 .most-combination-box {
+    flex-direction: unset;
+    -ms-flex: auto;
+    flex: auto;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .most-combination-box .most-combination {
+    width: 100%;
+  }
+
+  .card-body > .content {
+    margin-top: 15px;
+  }
+  .chart-box-capacity > .content,
+  .chart-box-capacity .box {
+    width: 85%;
+  }
+}
+
 @include respond(phone-sm) {
   .card-body > .content {
     margin-top: 1pc;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+    display: flex !important;
+    align-items: center;
   }
 
   .tab-container {
@@ -143,6 +198,8 @@ canvas {
     -webkit-flex-direction: column !important;
     flex-direction: column !important;
     display: flex !important;
+    max-width: 100%;
+    padding: 0;
   }
 
   .box-chart-info .chart .first {
@@ -151,7 +208,8 @@ canvas {
 
   .most-combination-box {
     margin-bottom: 20px;
-    padding-right: 15px;
+    padding: 0;
+    max-width: 100% !important;
   }
 
   .box-chart {

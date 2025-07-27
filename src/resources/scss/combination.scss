@@ -62,7 +62,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
@@ -147,11 +147,30 @@
   }
 }
 
+@include mobile-all-landscape {
+  .school-info {
+    display: flex;
+    height: 12pc;
+    margin: 0;
+    width: 100%;
+  }
+
+  .school-info-detail {
+    top: 12px;
+    left: 8px;
+  }
+}
+
 @include respond(phone-sm) {
   .modal-containers,
   .modal-container.choose-school {
     padding: 0;
     width: 19pc;
+  }
+
+  .box-radius {
+    padding: 25px 15px;
+    margin: 0;
   }
 
   .modal-bodyy.combination {

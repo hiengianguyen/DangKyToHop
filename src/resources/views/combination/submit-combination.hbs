@@ -9,7 +9,7 @@
 
 <div id="master">
     <div id="banner" class="school-info">
-        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963405/school_banner_second_nbdpyd.png">
+        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752812401/school_banner_second_new_un0i6r.png">
         <div class="banner-container">
             <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
             <div class="school-info-detail fs-5">
@@ -27,7 +27,7 @@
                             <li class="progress_bar-step active">
                                 <span>1</span>
                                 <div class="step-label">
-                                    <p id="tittle-step-1">Đọc thông tin về việc chọn tổ hợp</p>
+                                    <p id="tittle-step-1">Đọc thông tin</p>
                                 </div>
                             </li>
                             <li class="progress_bar-step">
@@ -55,7 +55,7 @@
 
             <div class="box-radius shadow box-submit-1" style="display: {{#if (includes 'box-submit-1' step)}}block{{else}}none{{/if}};">
                 <div class="title d-flex align-items-between justify-content-start">
-                    <h4 class="mb-0 me-auto">Đọc thông tin về việc chọn tổ hợp</h4>
+                    <h4 class="mb-0 me-auto">Đọc thông tin đăng ký tổ hợp</h4>
                     <div class="button d-flex">
                         <button type="button" class="btn btn-primary ms-auto" id="btnNextStep" data-bs-toggle="modal" data-bs-target="#exampleModalLive" disabled>
                             Tiếp tục
@@ -89,7 +89,7 @@
                         <div class="content-box">
                             <p class="fw-bolder mb-2">Tổ hợp môn xét tuyển</p>
                             <ul>
-                                <li>Mỗi trường có thể có tổ hợp môn riêng (Toán - Văn - Anh, Toán - Lý - Hóa, v.v...).</li>
+                                <li>Mỗi trường có thể có tổ hợp môn riêng (Toán - Văn - Anh, Toán - Lý - Hóa,...).</li>
                                 <li>Cần tìm hiểu kỹ trước khi chọn nguyện vọng.</li>
                             </ul>
                         </div>
@@ -104,7 +104,7 @@
                         <div class="mt-4 d-flex justify-content-center">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="checkReaded">
-                                <label class="form-check-label" for="checkReaded" style="cursor:pointer;"><i>Tôi đã đọc và đồng ý với các lưu ý trên</i></label>
+                                <label class="form-check-label" for="checkReaded" style="cursor:pointer;"><span>Tôi đã đọc và đồng ý với các lưu ý trên</span></label>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                         </button>
                     </div>
                 </div>
-                <legend class="text-center mb-4">Phiếu đăng ký thông tin vào lớp 10 - Trường THPT Duy Tân</legend>
+                <legend class="text-center fw-bold mb-4 title">HỒ SƠ ĐĂNG KÝ VÀO LỚP 10</legend>
 
                 <div class="col col-md-4 avatar mb-3 d-flex flex-column ps-0">
                     <label><b>Chọn ảnh thẻ:</b></label>
@@ -309,18 +309,18 @@
 
                 <label for="inputName"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
                 <div class="table-conduct">
-                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered my-3">
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered m-3">
                         <tr>
                             <th rowspan="1">Lớp</th>
                             <th class="class">6</th>
                             <th class="class">7</th>
                             <th class="class">8</th>
                             <th class="class">9</th>
-                            <th rowspan="2" class="type-graduate">Xếp loại tốt nghiệp THCS</th>
+                            <th class="type-graduate">Xếp loại tốt nghiệp THCS</th>
                         </tr>
                         
                         <tr>
-                            <td>Hạnh kiểm</td>
+                            <td><b>Hạnh kiểm</b></td>
                             <td>
                                 <select class="form-select" id="inputGroupSelect01" name="conduct6" aria-label="Default select example">
                                     <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Hạnh kiểm</option>
@@ -357,10 +357,18 @@
                                     <option {{#if (eq 'Chưa Đạt' submitedDetail.conduct9)}} selected {{/if}} value="Chưa Đạt">Chưa Đạt</option>
                                 </select>
                             </td>
+                            <td rowspan="2">
+                                <select class="form-select" id="inputGroupSelect01" name="graduationRating" aria-label="Default select example">
+                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
+                                    <option {{#if (eq 'Giỏi' submitedDetail.graduationRating)}} selected {{/if}} value="Giỏi">Giỏi</option>
+                                    <option {{#if (eq 'Khá' submitedDetail.graduationRating)}} selected {{/if}} value="Khá">Khá</option>
+                                    <option {{#if (eq 'Trung Bình' submitedDetail.graduationRating)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
+                                </select>
+                            </td>
                         </tr>
                         
                         <tr>
-                            <td>Học lực</td>
+                            <td><b>Học lực</b></td>
                             <td>
                                 <select class="form-select" id="inputGroupSelect01" name="academicRating6" aria-label="Default select example">
                                     <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
@@ -393,21 +401,13 @@
                                     <option {{#if (eq 'Trung Bình' submitedDetail.academicRating9)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
                                 </select>
                             </td>
-                            <td>
-                                <select class="form-select" id="inputGroupSelect01" name="graduationRating" aria-label="Default select example">
-                                    <option {{#if submitedDetail}} {{else}} selected {{/if}} value="">Xếp loại</option>
-                                    <option {{#if (eq 'Giỏi' submitedDetail.graduationRating)}} selected {{/if}} value="Giỏi">Giỏi</option>
-                                    <option {{#if (eq 'Khá' submitedDetail.graduationRating)}} selected {{/if}} value="Khá">Khá</option>
-                                    <option {{#if (eq 'Trung Bình' submitedDetail.graduationRating)}} selected {{/if}} value="Trung Bình">Trung Bình</option>
-                                </select>
-                            </td>
                         </tr>
                     </table>
                 </div>
 
                 <label for="inputName"><b>Điểm trung bình các môn học rèn luyện cấp THCS:</b></label>
                 <div class="table-avg-poin">
-                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered my-3">
+                    <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered m-3">
                         <tr>
                             <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
                         </tr>
@@ -577,7 +577,7 @@
                     </div>
                 </div>
                 <form id="form-submit-combination">
-                    <legend class="text-center mb-4">Hồ sơ học sinh đăng ký vào lớp 10</legend>
+                    <legend class="text-center fw-bold mb-4 title">HỒ SƠ ĐĂNG KÝ VÀO LỚP 10</legend>
                     <div class="d-flex offical-info">
                         <div class="avatar-info mb-3 ms-3 d-flex flex-column">
                             <label><b>Ảnh thẻ:</b></label>
@@ -592,39 +592,39 @@
                         <div class="offical-info gy-3 m-0">
                             <div class="row">
                                 <div class="full-name d-flex align-items-start flex-column">
-                                    <label class="me-2">Họ và tên học sinh:</label>
-                                    <h4 class="mb-3"><b class="get-data" name="fullName" style="text-transform: capitalize;">{{submitedDetail.fullName}}</b></h4>
+                                    <label class="fw-bold me-2">Họ và tên học sinh:</label>
+                                    <h4 class="mb-3"><b class="get-data fw-normal" name="fullName" style="text-transform: capitalize;">{{submitedDetail.fullName}}</b></h4>
                                     <input value="{{submitedDetail.fullName}}" type="text" class="input-get-data" name="fullName" style="display:none;">
                                 </div>
                                 <div class="col d-flex align-items-start flex-column">
-                                    <label >Giới tính: </label>
-                                    <b class="mb-3 get-data-select" name="gender">{{submitedDetail.gender}}</b>
+                                    <label class="fw-bold">Giới tính: </label>
+                                    <b class="mb-3 fw-normal get-data-select" name="gender">{{submitedDetail.gender}}</b>
                                     <input value="{{submitedDetail.gender}}" type="text" class="input-get-data-select" name="gender" style="display:none;">
                                 </div>
                                 <div class="col d-flex align-items-start flex-column">
-                                    <label>Dân tộc: </label>
-                                    <b class="mb-3 get-data-select" name="nation">{{submitedDetail.nation}}</b>
+                                    <label class="fw-bold">Dân tộc: </label>
+                                    <b class="mb-3 fw-normal get-data-select" name="nation">{{submitedDetail.nation}}</b>
                                     <input value="{{submitedDetail.nation}}" type="text" class="input-get-data-select" name="nation" style="display:none;">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col d-flex align-items-start flex-column">
-                                    <label>Ngày tháng năm sinh: </label>
-                                    <b class="mb-3 get-data" name="dateOfBirth" style="text-transform: capitalize;">{{submitedDetail.dateOfBirth}}</b>
+                                    <label class="fw-bold">Ngày tháng năm sinh: </label>
+                                    <b class="mb-3 fw-normal get-data" name="dateOfBirth" style="text-transform: capitalize;">{{submitedDetail.dateOfBirth}}</b>
                                     <input value="{{submitedDetail.dateOfBirth}}" type="text" class="input-get-data" name="dateOfBirth" style="display:none;">
                                 </div>
 
                                 <div class="place-birth pic d-flex align-items-start flex-column">
-                                    <label>Nơi sinh: </label>
-                                    <b class="mb-3 get-data" name="placeOfBirth" style="text-transform: capitalize;">{{submitedDetail.placeOfBirth}}</b>
+                                    <label class="fw-bold">Nơi sinh: </label>
+                                    <b class="mb-3 fw-normal get-data" name="placeOfBirth" style="text-transform: capitalize;">{{submitedDetail.placeOfBirth}}</b>
                                     <input value="{{submitedDetail.placeOfBirth}}" type="text" class="input-get-data" name="placeOfBirth" style="display:none;">
                                 </div>
 
                                 <div class="col combination-1-rep">
                                     <div class="d-flex align-items-start flex-column">
-                                        <label>Nguyện vọng 1:</label>
-                                        <b class="get-data-combination" name="combination1">{{submitedDetail.combination1}}</b>
+                                        <label class="fw-bold">Nguyện vọng 1:</label>
+                                        <b class="get-data-combination fw-normal" name="combination1">{{submitedDetail.combination1}}</b>
                                         <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
                                     </div>
                                 </div>
@@ -638,23 +638,23 @@
                                 </div>
 
                                 <div class="place-birth d-flex align-items-start flex-column">
-                                    <label>Nơi ở hiện tại:</label> 
-                                    <b class="mb-3 get-data" name="currentPlace" style="text-transform: capitalize;">{{submitedDetail.currentPlace}}</b>
+                                    <label class="fw-bold">Nơi ở hiện tại:</label> 
+                                    <b class="mb-3 fw-normal get-data" name="currentPlace" style="text-transform: capitalize;">{{submitedDetail.currentPlace}}</b>
                                     <input value="{{submitedDetail.currentPlace}}" type="text" class="input-get-data" name="currentPlace" style="display:none;">
                                 </div>
 
                                 <div class="col combination-1">
                                     <div class="d-flex align-items-start flex-column">
-                                        <label>Nguyện vọng 1:</label>
-                                        <b class="get-data-combination" name="combination1">{{submitedDetail.combination1}}</b>
+                                        <label class="fw-bold">Nguyện vọng 1:</label>
+                                        <b class="get-data-combination fw-normal" name="combination1">{{submitedDetail.combination1}}</b>
                                         <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
                                     </div>
                                 </div>
 
                                 <div class="col combination-2">
                                     <div class="d-flex align-items-start flex-column">
-                                        <label>Nguyện vọng 2:</label>
-                                        <b class="get-data-combination" name="combination2">{{submitedDetail.combination2}}</b>
+                                        <label class="fw-bold">Nguyện vọng 2:</label>
+                                        <b class="get-data-combination fw-normal" name="combination2">{{submitedDetail.combination2}}</b>
                                         <input value="{{submitedDetail.combination2}}" type="text" class="input-get-data-combination" name="combination2" style="display:none;">
                                     </div>
                                 </div>
@@ -671,13 +671,13 @@
                             </div>
 
                             <div class="place-birth d-flex align-items-start flex-column">
-                                <label>Nơi ở hiện tại:</label> 
+                                <label class="fw-bold">Nơi ở hiện tại:</label> 
                                 <b class="mb-3 get-data" name="currentPlace" style="text-transform: capitalize;">{{submitedDetail.currentPlace}}</b>
                                 <input value="{{submitedDetail.currentPlace}}" type="text" class="input-get-data" name="currentPlace" style="display:none;">
                             </div>
 
                             <div class="place-birth d-flex align-items-start flex-column">
-                                <label>Nơi sinh: </label>
+                                <label class="fw-bold">Nơi sinh: </label>
                                 <b class="mb-3 get-data" name="placeOfBirth" style="text-transform: capitalize;">{{submitedDetail.placeOfBirth}}</b>
                                 <input value="{{submitedDetail.placeOfBirth}}" type="text" class="input-get-data" name="placeOfBirth" style="display:none;">
                             </div>
@@ -686,16 +686,16 @@
                         <div class="row">
                             <div class="col combination-1">
                                 <div class="d-flex align-items-start flex-column">
-                                    <label>Nguyện vọng 1:</label>
-                                    <b class="get-data-combination" name="combination1">{{submitedDetail.combination1}}</b>
+                                    <label class="fw-bold">Nguyện vọng 1:</label>
+                                    <b class="get-data-combination fw-normal" name="combination1">{{submitedDetail.combination1}}</b>
                                     <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
                                 </div>
                             </div>
 
                             <div class="col combination-2">
                                 <div class="d-flex align-items-start flex-column">
-                                    <label>Nguyện vọng 2:</label>
-                                    <b class="get-data-combination" name="combination2">{{submitedDetail.combination2}}</b>
+                                    <label class="fw-bold">Nguyện vọng 2:</label>
+                                    <b class="get-data-combination fw-normal" name="combination2">{{submitedDetail.combination2}}</b>
                                     <input value="{{submitedDetail.combination2}}" type="text" class="input-get-data-combination" name="combination2" style="display:none;">
                                 </div>
                             </div>
@@ -705,113 +705,112 @@
                     <div class="d-flex justify-content-around info-parent">
                         <div class="d-flex detail align-items-start flex-column">
                             <div class="d-flex justify-content-center">
-                                <label for="" class="me-4">Họ và tên cha:</label>
-                                <b class="get-data" name="fullNameDad" style="text-transform: capitalize;">{{submitedDetail.fullNameDad}}</b>
+                                <label for="" class="me-4 fw-bold">Họ và tên cha:</label>
+                                <b class="get-data fw-normal" name="fullNameDad" style="text-transform: capitalize;">{{submitedDetail.fullNameDad}}</b>
                                 <input value="{{submitedDetail.fullNameDad}}" type="text" class="input-get-data" name="fullNameDad" style="display:none;">
                             </div>
                             <div class="d-flex">
-                                <label for="" class="me-4">Họ và tên mẹ:</label>
-                                <b class="get-data" name="fullNameMom" style="text-transform: capitalize;">{{submitedDetail.fullNameMom}}</b>
+                                <label for="" class="me-4 fw-bold">Họ và tên mẹ:</label>
+                                <b class="get-data fw-normal" name="fullNameMom" style="text-transform: capitalize;">{{submitedDetail.fullNameMom}}</b>
                                 <input value="{{submitedDetail.fullNameMom}}" type="text" class="input-get-data" name="fullNameMom" style="display:none;">
                             </div>
                         </div>
                         <div class="d-flex detail align-items-start flex-column">
                             <div class="d-flex">
-                                <label for="" class="me-4">Nghề nghiệp cha:</label>
-                                <b class="get-data" name="jobOfDad" style="text-transform: capitalize;">{{submitedDetail.jobOfDad}}</b>
+                                <label for="" class="me-4 fw-bold">Nghề nghiệp cha:</label>
+                                <b class="get-data fw-normal" name="jobOfDad" style="text-transform: capitalize;">{{submitedDetail.jobOfDad}}</b>
                                 <input value="{{submitedDetail.jobOfDad}}" type="text" class="input-get-data" name="jobOfDad" style="display:none;">
                             </div>
                             <div class="d-flex">
-                                <label for="" class="me-4">Nghề nghiệp mẹ:</label>
-                                <b class="get-data" name="jobOfMom" style="text-transform: capitalize;">{{submitedDetail.jobOfMom}}</b>
+                                <label for="" class="me-4 fw-bold">Nghề nghiệp mẹ:</label>
+                                <b class="get-data fw-normal" name="jobOfMom" style="text-transform: capitalize;">{{submitedDetail.jobOfMom}}</b>
                                 <input value="{{submitedDetail.jobOfMom}}" type="text" class="input-get-data" name="jobOfMom" style="display:none;">
                             </div>
                         </div>
                         <div class="d-flex detail align-items-start flex-column">
                             <div class="d-flex">
-                                <label for="" class="me-4">Số điện thoại cha:</label>
-                                <b class="get-data" name="phoneOfDad" style="text-transform: capitalize;">{{submitedDetail.phoneOfDad}}</b>
+                                <label for="" class="me-4 fw-bold">Số điện thoại cha:</label>
+                                <b class="get-data fw-normal" name="phoneOfDad" style="text-transform: capitalize;">{{submitedDetail.phoneOfDad}}</b>
                                 <input value="{{submitedDetail.phoneOfDad}}" type="text" class="input-get-data" name="phoneOfDad" style="display:none;">
                             </div>
                             <div class="d-flex">
-                                <label for="inputGroupSelect01" class="me-4">Số điện thoại mẹ:</label>
-                                <b class="get-data" name="phoneOfMom" style="text-transform: capitalize;">{{submitedDetail.phoneOfMom}}</b>
+                                <label for="inputGroupSelect01" class="me-4 fw-bold">Số điện thoại mẹ:</label>
+                                <b class="get-data fw-normal" name="phoneOfMom" style="text-transform: capitalize;">{{submitedDetail.phoneOfMom}}</b>
                                 <input value="{{submitedDetail.phoneOfMom}}" type="text" class="input-get-data" name="phoneOfMom" style="display:none;">
                             </div>
                         </div>
                     </div>
-
                     <label class="point"><b>Điểm thi xét tuyển Trung học phổ thông năm học 2025–2026:</b></label>
                     <div class="d-flex justify-content-around text-center">
                         <div class="my-2">
-                            <label><b>Toán: <b class="get-data" name="mathScore">{{submitedDetail.mathScore}}</b></b></label>
+                            <label><b>Toán: <b class="get-data fw-normal" name="mathScore">{{submitedDetail.mathScore}}</b></b></label>
                             <input value="{{submitedDetail.mathScore}}" type="text" class="input-get-data" name="mathScore" style="display:none;">
                         </div>
 
                         <div class="my-2">
-                            <label><b>Văn: <b class="get-data" name="literatureScore">{{submitedDetail.literatureScore}}</b></b></label>
+                            <label><b>Văn: <b class="get-data fw-normal" name="literatureScore">{{submitedDetail.literatureScore}}</b></b></label>
                             <input value="{{submitedDetail.literatureScore}}" type="text" class="input-get-data" name="literatureScore" style="display:none;">
                         </div>
 
                         <div class="my-2">
-                            <label><b>Anh: <b class="get-data" name="englishScore">{{submitedDetail.englishScore}}</b></b></label>
+                            <label><b>Anh: <b class="get-data fw-normal" name="englishScore">{{submitedDetail.englishScore}}</b></b></label>
                             <input value="{{submitedDetail.englishScore}}" type="text" class="input-get-data" name="englishScore" style="display:none;">
                         </div>
                     </div>
 
                     <label class="point"><b>Kết quả học tập và rèn luyện cấp THCS:</b></label>
                     <div class="table-conduct">
-                        <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered my-3">
+                        <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered m-3">
                             <tr>
                                 <th rowspan="1">Lớp</th>
                                 <th class="class">6</th>
                                 <th class="class">7</th>
                                 <th class="class">8</th>
                                 <th class="class">9</th>
-                                <th rowspan="2" class="type-graduate">Xếp loại tốt nghiệp THCS</th>
+                                <th class="type-graduate">Xếp loại tốt nghiệp THCS</th>
                             </tr>
                             
                             <tr>
-                                <td>Hạnh kiểm</td>
+                                <td><b>Hạnh kiểm</b></td>
                                 <td>
-                                    <b class="get-data-select" name="conduct6">{{submitedDetail.conduct6}}</b>
+                                    <b class="get-data fw-normal-select fw-normal" name="conduct6">{{submitedDetail.conduct6}}</b>
                                     <input value="{{submitedDetail.conduct6}}" type="text" class="input-get-data-select" name="conduct6" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data-select" name="conduct7">{{submitedDetail.conduct7}}</b>
+                                    <b class="get-data fw-normal-select fw-normal" name="conduct7">{{submitedDetail.conduct7}}</b>
                                     <input value="{{submitedDetail.conduct7}}" type="text" class="input-get-data-select" name="conduct7" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data-select" name="conduct8">{{submitedDetail.conduct8}}</b>
+                                    <b class="get-data fw-normal-select fw-normal" name="conduct8">{{submitedDetail.conduct8}}</b>
                                     <input value="{{submitedDetail.conduct8}}" type="text" class="input-get-data-select" name="conduct8" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data-select" name="conduct9">{{submitedDetail.conduct9}}</b>
+                                    <b class="get-data fw-normal-select fw-normal" name="conduct9">{{submitedDetail.conduct9}}</b>
                                     <input value="{{submitedDetail.conduct9}}" type="text" class="input-get-data-select" name="conduct9" style="display:none;">
+                                </td>
+                                <td rowspan="2">
+                                    <b class="get-data fw-normal-select fw-normal" name="graduationRating">{{submitedDetail.graduationRating}}</b>
+                                    <input value="{{submitedDetail.graduationRating}}" type="text" class="input-get-data-select" name="graduationRating" style="display:none;">
                                 </td>
                             </tr>
                             
                             <tr>
-                                <td>Học lực</td>
+                                <td><b>Học lực</b></td>
                                 <td>
-                                    <b class="get-data-select" name="academicRating6">{{submitedDetail.academicRating6}}</b>
+                                    <b class="get-data fw-normal-select fw-normal" name="academicRating6">{{submitedDetail.academicRating6}}</b>
                                     <input value="{{submitedDetail.academicRating6}}" type="text" class="input-get-data-select" name="academicRating6" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data-select" name="academicRating7">{{submitedDetail.academicRating7}}</b>
+                                    <b class="get-data fw-normal-select fw-normal" name="academicRating7">{{submitedDetail.academicRating7}}</b>
                                     <input value="{{submitedDetail.academicRating7}}" type="text" class="input-get-data-select" name="academicRating7" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data-select" name="academicRating8">{{submitedDetail.academicRating8}}</b>
+                                    <b class="get-data fw-normal-select fw-normal" name="academicRating8">{{submitedDetail.academicRating8}}</b>
                                     <input value="{{submitedDetail.academicRating8}}" type="text" class="input-get-data-select" name="academicRating8" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data-select" name="academicRating9">{{submitedDetail.academicRating9}}</b>
+                                    <b class="get-data fw-normal-select fw-normal" name="academicRating9">{{submitedDetail.academicRating9}}</b>
                                     <input value="{{submitedDetail.academicRating9}}" type="text" class="input-get-data-select" name="academicRating9" style="display:none;">
-                                </td>
-                                <td>
-                                    <b class="get-data-select" name="graduationRating">{{submitedDetail.graduationRating}}</b>
-                                    <input value="{{submitedDetail.graduationRating}}" type="text" class="input-get-data-select" name="graduationRating" style="display:none;">
                                 </td>
                             </tr>
                         </table>
@@ -819,7 +818,7 @@
 
                     <label class="point"><b>Điểm trung bình các môn học rèn luyện cấp THCS:</b></label>
                     <div class="table-avg-poin">
-                        <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered my-3">
+                        <table border="1" cellspacing="0" cellpadding="3" class="table-points text-center table-bordered m-3">
                             <tr>
                                 <th colspan="8" class="px-3">Điểm trung bình môn cả năm lớp 9</th>
                             </tr>
@@ -835,35 +834,35 @@
                             </tbody>
                             <tbody>
                                 <td>
-                                    <b class="get-data" name="avgLiteratureScore">{{submitedDetail.avgLiteratureScore}}</b>
+                                    <b class="get-data fw-normal" name="avgLiteratureScore">{{submitedDetail.avgLiteratureScore}}</b>
                                     <input value="{{submitedDetail.avgLiteratureScore}}" type="text" class="input-get-data" name="avgLiteratureScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data" name="avgMathScore">{{submitedDetail.avgMathScore}}</b>
+                                    <b class="get-data fw-normal" name="avgMathScore">{{submitedDetail.avgMathScore}}</b>
                                     <input value="{{submitedDetail.avgMathScore}}" type="text" class="input-get-data" name="avgMathScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data" name="avgEnglishScore">{{submitedDetail.avgEnglishScore}}</b>
+                                    <b class="get-data fw-normal" name="avgEnglishScore">{{submitedDetail.avgEnglishScore}}</b>
                                     <input value="{{submitedDetail.avgEnglishScore}}" type="text" class="input-get-data" name="avgEnglishScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data" name="avgPhysicsScore">{{submitedDetail.avgPhysicsScore}}</b>
+                                    <b class="get-data fw-normal" name="avgPhysicsScore">{{submitedDetail.avgPhysicsScore}}</b>
                                     <input value="{{submitedDetail.avgPhysicsScore}}" type="text" class="input-get-data" name="avgPhysicsScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data" name="avgChemistryScore">{{submitedDetail.avgChemistryScore}}</b>
+                                    <b class="get-data fw-normal" name="avgChemistryScore">{{submitedDetail.avgChemistryScore}}</b>
                                     <input value="{{submitedDetail.avgChemistryScore}}" type="text" class="input-get-data" name="avgChemistryScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data" name="avgBiologyScore">{{submitedDetail.avgBiologyScore}}</b>
+                                    <b class="get-data fw-normal" name="avgBiologyScore">{{submitedDetail.avgBiologyScore}}</b>
                                     <input value="{{submitedDetail.avgBiologyScore}}" type="text" class="input-get-data" name="avgBiologyScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data" name="avgHistoryScore">{{submitedDetail.avgHistoryScore}}</b>
+                                    <b class="get-data fw-normal" name="avgHistoryScore">{{submitedDetail.avgHistoryScore}}</b>
                                     <input value="{{submitedDetail.avgHistoryScore}}" type="text" class="input-get-data" name="avgHistoryScore" style="display:none;">
                                 </td>
                                 <td>
-                                    <b class="get-data" name="avgGeographyScore">{{submitedDetail.avgGeographyScore}}</b>
+                                    <b class="get-data fw-normal" name="avgGeographyScore">{{submitedDetail.avgGeographyScore}}</b>
                                     <input value="{{submitedDetail.avgGeographyScore}}" type="text" class="input-get-data" name="avgGeographyScore" style="display:none;">
                                 </td>
                             </tbody>
@@ -1001,9 +1000,12 @@
 <script>
     var sideBar = document.getElementById('sidebar');
     const master = document.getElementById('master');
+    var loading = document.getElementById('loading-full');
+    var bodyApp = document.getElementById('body-app');
     window.addEventListener('load', function () {
         const content = document.querySelector('.content');
-        document.getElementById('loading-full').style.display = 'none';
+        bodyApp.style.overflowY = 'auto';
+        loading.style.display = 'none';
         content.style.display = 'block';
         sideBar.style.height = master.clientHeight;
     });
@@ -1142,6 +1144,7 @@
             case 2:
                 const inputPage2HaveAttNames = document.querySelectorAll('div.box-submit-2 input[name]');
                 const selectPage2HaveAttNames = document.querySelectorAll('div.box-submit-2 select[name]');
+                const inputTypeNumbers = document.querySelectorAll("div.box-submit-2 input[type='number']");
 
                 const allTagPage2HaveAttName = [...inputPage2HaveAttNames, ...selectPage2HaveAttNames];
                 const allTagForCheck = allTagPage2HaveAttName;
@@ -1150,10 +1153,13 @@
 
                 allTagPage2HaveAttName.forEach((tag) => {
                     tag.onchange = () => {
-                        const value = tag.value;
+                        let value = tag.value;
                         const inpName = tag.name;
                         const tagBaddData = document.querySelectorAll(`div.box-submit-4 b[name='${inpName}']`);
                         const tagInputaddData = document.querySelectorAll(`div.box-submit-4 input[name='${inpName}']`);
+                        if(tag.getAttribute('type') === "number") {
+                            value = Number(value);
+                        }
                         if(tagBaddData.length > 1) {
                             Array.from(tagBaddData).forEach((b) => b.innerHTML = value);
                             Array.from(tagInputaddData).forEach((input) => input.value = value);
@@ -1161,6 +1167,12 @@
                             Array.from(tagBaddData)[0].innerHTML = value;
                             Array.from(tagInputaddData)[0].value = value;
                         }
+                    }
+                })
+
+                inputTypeNumbers.forEach((input) => {
+                    input.onblur = () => {
+                        input.value = Number(input.value);
                     }
                 })
 
@@ -1233,25 +1245,21 @@
                     function showModalChooseSchool() {
                         const modalChooseSchool = document.querySelector('#modal-choose-school');
                         var glassOverlay = document.querySelector('.glass-overlay');
-                        var body = document.getElementsByTagName('body')[0];
                         const textShowSchool = document.querySelector('div.box-submit-2 .secondary-school-choosen');
                         const selectSchool = modalChooseSchool.querySelector('.form-select-school');
                         const btnConfirm = modalChooseSchool.querySelector('.confirm');
                         const btnClose = modalChooseSchool.querySelector('.close');
 
                         glassOverlay.classList.add('active');
-                        body.style.overflowY = 'hidden';
                         modalChooseSchool.style.display = 'flex';
 
                         btnClose.onclick = () => {
-                            body.style.overflowY = 'auto';
                             modalChooseSchool.style.display = 'none';
                             glassOverlay.classList.remove('active');
                         }
 
                         btnConfirm.onclick = () => {
                             if(selectSchool.value != '') {
-                                body.style.overflowY = 'auto';
                                 const resultSecondarySchool = selectSchool.value + ', ' + selectDistrict.value;
                                 textShowSchool.textContent = tagShowSchool.textContent = resultSecondarySchool;
                                 modalChooseSchool.style.display = 'none';

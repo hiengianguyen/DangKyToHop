@@ -3,11 +3,11 @@
   <link rel="stylesheet" href="/css/home.css">
 </head>
 
-<div class="p-0">
+<div class="p-0 home-container">
   <div class="containers">
     <div class="container-start">
       <p class="text-center fw-bold">Về trang web Đăng ký tổ hợp</p>
-      <div class="d-flex introduce-box">
+      <div class="d-flex introduce-box hidden">
         <div class="content-box">
             <h2>Giúp học sinh chọn đúng tổ hợp, bước đầu cho hành trình vào lớp 10</h2>
             <p>Hệ thống trực tuyến hỗ trợ <b>học sinh lớp 9</b> lựa chọn tổ hợp môn phù hợp với năng lực và định hướng tương lai, đồng thời giúp giáo viên <b>theo dõi, tư vấn và tổng hợp nguyện vọng</b> dễ dàng.</p>
@@ -18,8 +18,8 @@
       </div>
     </div>
 
-    <div class="container-center">
-      <div class="content-1 d-flex">
+    <div class="container-center shadow">
+      <div class="content-1 hidden d-flex">
         <div class="content-box">
           <h2>Đăng ký nguyện vọng bằng giấy – bất tiện, dễ sai sót</h2>
           <p>
@@ -30,7 +30,7 @@
         </div>
         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749121954/register-3_wxevux.jpg" alt="">
       </div>
-      <div class="content-2 d-flex">
+      <div class="content-2 hidden d-flex">
         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749121953/register-2_bw7lez.avif" class="img-2" alt="">
         <div class="content-box">
           <h2>Đăng ký nguyện vọng trực tuyến – nhanh chóng, chính xác</h2>
@@ -44,10 +44,10 @@
       </div>
     </div>
 
-    <div class="container-school">
+    <div class="container-school shadow">
       <h4 class="text-center fw-bold mt-4">Về trường học</h4>
       <div class="d-flex align-items-center flex-column box-2">
-        <div class="content-box des mt-4">
+        <div class="content-box des mt-4 hidden">
           <p>
             Trải qua 15 năm phát triển, Trường THPT Duy Tân đã mở rộng quy mô đáng kể. 
             Năm học 2024–2025, trường có 32 lớp với 1.256 học sinh và đội ngũ gần 80 cán bộ, giáo viên. 
@@ -56,44 +56,106 @@
         </div>
 
         <div class="img-box d-flex align-items-center mt-4">
-          <img class="first rounded-3" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_38_sjlsqx.jpg" alt="">
-          <img class="rounded-3" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179568/BE_GIANG_DT_247_k6rm0i.jpg" alt="">
-        </div>
-      </div>
-
-      <div class="container-body d-flex">
-        <div class="content-box">
-          <h4 class="fw-bold text-center">Thành tích nổi bật – Niềm tự hào của nhà trường</h4>
-          <p>
-            Năm học vừa qua, trường chúng tôi đã bồi dưỡng và đưa nhiều học sinh tham gia các kỳ thi học sinh giỏi cấp thành phố. 
-            Kết quả đạt được vô cùng ấn tượng:
-          </p>
-          <ul>
-            <li>Nhiều giải Nhất, Nhì, Ba, kk ở các môn Toán, Văn, Anh, Lý, Hóa, Địa...(01 giải Nhất; 02 giải Nhì, 08 giải Ba và 08 giải Khuyến khích)</li>
-            <li>Học sinh không chỉ giỏi kiến thức mà còn được rèn luyện tư duy và kỹ năng làm bài chuyên sâu.</li>
-            <li>Thành tích này là minh chứng rõ ràng cho chất lượng giảng dạy và sự đầu tư đúng hướng của nhà trường trong suốt thời gian qua.</li>
-          </ul>
-        </div>
-        <div class="image-stack d-flex">
-            <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong2_hrmmg7.jpg" alt="Ảnh khen thưởng">
-            <div class="ms-2">
-              <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179322/9999_copy_cqmuuu.jpg" alt="Ảnh khen thưởng">
-              <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749117191/khenthuong1_kjqr9m.jpg" alt="Ảnh khen thưởng">
-            </div>
+          <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_38_sjlsqx.jpg" data-lightbox="school-activities" data-title="Bế giảng năm học 2024-2025">
+              <img class="first rounded-3 hidden" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_38_sjlsqx.jpg" alt="">
+          </a>
+          <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179568/BE_GIANG_DT_247_k6rm0i.jpg" data-lightbox="school-activities" data-title="Tất cả giáo viên trường THPT Duy Tân">
+              <img class="second rounded-3 hidden" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179568/BE_GIANG_DT_247_k6rm0i.jpg" alt="">
+          </a>
         </div>
       </div>
     </div>
 
-    <div class="container-end d-flex justify-content-center">
-      <div class="content-box position-relative">
+    <div class="box-content-info shadow">
+      <div class="container">
+          <div class="title">
+              <h4 class="fw-bold">Môi trường học tập năng động – Nền tảng vững chắc cho tương lai</h4>
+          </div>
+          <div class="info hidden">
+              <ul class="ds-data">
+                  <li class="data">
+                      <div class="content">
+                          <h2>+400</h2>
+                          <p>Học sinh xuất sắc, giỏi</p>
+                      </div>
+                  </li>
+                  <div class="dash-width"></div>
+                  <li class="data">
+                      <div class="content">
+                          <h2>+75</h2>
+                          <p>Cán bộ, giáo viên</p>
+                      </div>
+                  </li>
+                  <div class="dash-width"></div>
+                  <li class="data">
+                      <div class="content">
+                          <h2>+1250</h2>
+                          <p>Học sinh theo học</p>
+                      </div>
+                  </li>
+                  <div class="dash-width"></div>
+                  <li class="data">
+                      <div class="content">
+                          <h2>32</h2>
+                          <p>Lớp học</p>
+                      </div>
+                  </li>
+              </ul>
+              <i><i class="fa-solid fa-circle-info" title="Thông tin từ năm học 2024 - 2025"></i> Thông tin từ năm học 2024 - 2025</i>
+          </div>
+      </div>
+  </div>
+
+    <div class="trophi-container shadow">
+      <div class="title text-center container hidden">
+        <h4 class="fw-bold mt-4">Thành tích nổi bật – Niềm tự hào của nhà trường</h4>
+        <p>
+          Năm học vừa qua, trường chúng tôi đã bồi dưỡng và đưa nhiều học sinh tham gia các kỳ thi học sinh giỏi cấp thành phố. 
+          Kết quả đạt được vô cùng ấn tượng:
+        </p>
+        <ul class="text-start">
+          <li>Nhiều giải Nhất, Nhì, Ba, Khuyến khích ở các môn Toán, Văn, Anh, Lý, Hóa, Địa...(01 giải Nhất; 02 giải Nhì, 08 giải Ba và 08 giải Khuyến khích)</li>
+            <div class="dash-height"></div>
+            <div class="dash-width"></div>
+            <li>Học sinh không chỉ giỏi kiến thức mà còn được rèn luyện tư duy và kỹ năng làm bài chuyên sâu.</li>
+            <div class="dash-height"></div>
+            <div class="dash-width"></div>
+            <li>Thành tích này là minh chứng rõ ràng cho chất lượng giảng dạy và sự đầu tư đúng hướng của nhà trường trong suốt thời gian qua.</li>
+        </ul>
+      </div>
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          {{#each studentAchievements}}
+            <div class="swiper-slide">
+              <a href="{{this.imgUrl}}" data-lightbox="studentAchievements" data-title="{{this.description}}">
+                <img src="{{this.imgUrl}}" alt="{{this.description}}" title="{{this.description}}">
+              </a>
+            </div>
+          {{/each}}
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <div class="container-end shadow d-flex justify-content-center">
+      <div class="content-box position-relative content-end hidden">
         <h4 class="fw-bold">Ngôi trường sẵn sàng chào đón bạn</h4>
         <p>Chúng tôi tin rằng mỗi học sinh là một hạt giống tiềm năng – chỉ cần được gieo trồng đúng nơi, sẽ có cơ hội phát triển mạnh mẽ. 
           Hãy để ngôi trường này trở thành nơi bắt đầu cho hành trình trưởng thành và thành công của bạn.</p>
         <p class="support">Bấm vào nút bên dưới để bắt đầu đăng ký tổ hợp vào lớp 10 và đồng hành cùng chúng tôi trong năm học tới!</p>
-        <button type="button" id="modal-login-btn" class="btn btn-primary">Bắt đầu <i class="fa-solid fa-chevron-right"></i></button>
+        <a href="auth/signin" class="btn btn-primary" style="box-shadow: 3px 3px #9e9e9e;">Bắt đầu <i class="fa-solid fa-chevron-right"></i></a> 
       </div>
-      <div class="img-box">
-        <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_48_hbhv1o.jpg" class="shadow" alt="">
+      <div class="img-box img-end hidden">
+        <a href="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_48_hbhv1o.jpg" data-lightbox="school" data-title="Học sinh trang nghiêm chào đón">
+          <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749179562/BE_GIANG_DT_48_hbhv1o.jpg" class="shadow" alt="">
+        </a>
       </div>
     </div>
 
@@ -107,105 +169,39 @@
   </div>
 </div>
 
-<div id="glass"></div>
-
-<div class="modal" id="modal-login" style="display: {{#if signupSuccess}}flex{{else}}{{#if messageError}}flex{{else}}none{{/if}}{{/if}};">
-  <div class="modal-container container mx-auto">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Đăng ký thông tin</h5>
-        <button type="button" id="modal-login-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-bodyy rounded-bottom">
-        <div class="container p-4">
-          <div class="tabs">
-              <div class="tab {{#if signupSuccess}}active{{else}}{{/if}}" onclick="switchTab('signin')">Đăng nhập</div>
-              <div class="tab {{#if signupSuccess}}{{else}}active{{/if}}" onclick="switchTab('signup')">Đăng ký</div>
-          </div>
-          <div class="box-login">
-            <div id="signin" class="form-container {{#if signupSuccess}}active{{else}}{{/if}}">
-              <form class="form-sign-in" action="/auth/signin" method="POST">
-                  <div class="form-group">
-                      <label for="signin-phone">Số điện thoại:</label>
-                      <input type="text" id="signin-phone" name="phone" class="login__input" rules="required|number|length:10" placeholder="Số điện thoại" {{#if messageError}}style="border: 1px solid red;"{{else}}{{/if}}>
-                      <span class="form-message"></span>
-                  </div>
-                  <div class="form-group my-3 form-group-password mb-4">
-                      <label for="signin-password">Mật khẩu:</label>
-                      <input type="password" id="signin-password" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu" {{#if messageError}}style="border: 1px solid red;"{{else}}{{/if}}>
-                      <span class="form-message" {{#if messageError}}style="color: red;"{{/if}}>{{messageError}}</span>
-                  </div>
-                  <button class="btn btn-primary form" type="submit">Đăng nhập</button>
-              </form>
-          </div>
-          <div id="signup" class="form-container {{#if signupSuccess}}{{else}}active{{/if}}">
-            <form class="form-sign-up" action="/auth/signup" method="POST">
-              <div class="register-form mb-4">
-                <div class="form-group">
-                  <label for="signin-password">Họ và tên:</label>
-                  <input type="text" class="login__input" name="fullName" rules="required" placeholder="Họ và tên">
-                  <span class="form-message"></span>
-                </div>
-                <div class="form-group form-group-phone">
-                  <label for="signin-phone">Số điện thoại:</label>
-                  <input type="text" class="login__input" name="phone" rules="required|number|length:10" placeholder="Số điện thoại liên hệ">
-                  <span class="form-message">{{signupError}}</span>
-                </div>
-                <div class="form-group">
-                  <label for="signin-password">Mật khẩu:</label>
-                  <input type="text" class="login__input" name="password" rules="required|min:8" placeholder="Mật khẩu">
-                  <span class="form-message"></span>
-                </div>
-              </div>
-              <button class="btn btn-primary form" type="submit">Đăng ký</button>
-            </form>
-          </div>
-          </div>
-        </div>
-      </div>
-  </div>
-</div>
-
-<script src="/validationForm.js" onload="varidator('.form-sign-in')"></script>
-<script src="/validationForm.js" onload="varidator('.form-sign-up')"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  function switchTab(tab) {
-    document.querySelectorAll('.form-container').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('body-app').style.overflowY = 'auto';
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    })
+  })
+
+  const hiddenElements = document.querySelectorAll('.hidden');
+  hiddenElements.forEach((el) => observer.observe(el));
+
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    loop: true,
     
-    let selectedTab = document.getElementById(tab);
-    if (selectedTab) {
-      selectedTab.classList.add('active');
-    }
-    
-    let selectedTabButton = document.querySelector(`.tab[onclick="switchTab('${tab}')"]`);
-    if (selectedTabButton) {
-      selectedTabButton.classList.add('active');
-    }
-  }
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false, // không tắt autoplay khi người dùng vuốt
+    },
 
-  const modalLogin = document.getElementById('modal-login');
-  const btnShowModalLogin = document.getElementById('modal-login-btn');
-  const btnCloseModalLogin = document.getElementById('modal-login-close');
-  const glass = document.getElementById('glass');
-  const body = document.querySelector('body');
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
 
-  if(modalLogin.style.display === 'flex') {
-    glass.classList.add('active');
-    body.style.overflowY = 'hidden';
-  }
-
-  btnShowModalLogin.onclick = () => {
-    modalLogin.style.display = 'flex';
-    glass.classList.add('active');
-    body.style.overflowY = 'hidden';
-  }
-
-  btnCloseModalLogin.onclick = () => {
-    modalLogin.style.display = 'none';
-    glass.classList.remove('active');
-    body.style.overflowY = 'auto';
-  }
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 </script>
