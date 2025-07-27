@@ -23,8 +23,9 @@ label {
 
 .box-img {
   width: 100%;
-  background: #4ffffc;
-  background: linear-gradient(90deg, #4ffffc 0%, #3bcdeb 36%, #268bde 59%, #1e2b8a 100%); }
+  background-image: url(https://res.cloudinary.com/dwoymvppw/image/upload/v1753606888/rwizislo9lhfuvctsvvj.webp);
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 .form-container {
   display: block; }
