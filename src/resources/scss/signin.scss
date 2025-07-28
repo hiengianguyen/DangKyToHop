@@ -21,15 +21,11 @@ label {
   background-color: #fff;
   width: 100%;
   flex-basis: 33.3%;
-  padding: 2pc 0;
-}
-
-.box-login > .btn-home-page {
-  padding: 0 40px;
 }
 
 .box-login > .box {
-  padding: 50px 40px;
+  padding: 80px 40px;
+  padding-top: 40px;
   height: 100%;
   overflow-y: scroll;
 }
@@ -53,6 +49,7 @@ label {
 .title-box {
   text-align: center;
   margin-bottom: 35px;
+  margin-top: 3pc;
   pointer-events: none;
   user-select: none;
 }
@@ -227,8 +224,7 @@ input {
 @include respond(phone-sm) {
   .master {
     display: block !important;
-    padding: 40px 20px;
-    padding-bottom: 20px;
+    padding: 20px;
     height: max-content;
   }
 
@@ -252,7 +248,10 @@ input {
 
   .box-login > .box {
     padding: 0;
-    padding-top: 35px;
+  }
+
+  .title-box {
+    margin-top: 2pc;
   }
 
   .title-box h2 {
