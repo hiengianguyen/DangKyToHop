@@ -624,8 +624,8 @@
                                 <div class="col combination-1-rep">
                                     <div class="d-flex align-items-start flex-column">
                                         <label class="fw-bold">Nguyện vọng 1:</label>
-                                        <b class="get-data-combination fw-normal" name="combination1">{{submitedDetail.combination1}}</b>
-                                        <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
+                                        <b class="get-data-combination1 fw-normal" name="combination1">{{submitedDetail.combination1}}</b>
+                                        <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination1" name="combination1" style="display:none;">                       
                                     </div>
                                 </div>
                             </div>
@@ -646,16 +646,16 @@
                                 <div class="col combination-1">
                                     <div class="d-flex align-items-start flex-column">
                                         <label class="fw-bold">Nguyện vọng 1:</label>
-                                        <b class="get-data-combination fw-normal" name="combination1">{{submitedDetail.combination1}}</b>
-                                        <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
+                                        <b class="get-data-combination1 fw-normal" name="combination1">{{submitedDetail.combination1}}</b>
+                                        <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination1" name="combination1" style="display:none;">                       
                                     </div>
                                 </div>
 
                                 <div class="col combination-2">
                                     <div class="d-flex align-items-start flex-column">
                                         <label class="fw-bold">Nguyện vọng 2:</label>
-                                        <b class="get-data-combination fw-normal" name="combination2">{{submitedDetail.combination2}}</b>
-                                        <input value="{{submitedDetail.combination2}}" type="text" class="input-get-data-combination" name="combination2" style="display:none;">
+                                        <b class="get-data-combination2 fw-normal" name="combination2">{{submitedDetail.combination2}}</b>
+                                        <input value="{{submitedDetail.combination2}}" type="text" class="input-get-data-combination2" name="combination2" style="display:none;">
                                     </div>
                                 </div>
                             </div>
@@ -687,16 +687,16 @@
                             <div class="col combination-1">
                                 <div class="d-flex align-items-start flex-column">
                                     <label class="fw-bold">Nguyện vọng 1:</label>
-                                    <b class="get-data-combination fw-normal" name="combination1">{{submitedDetail.combination1}}</b>
-                                    <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination" name="combination1" style="display:none;">                       
+                                    <b class="get-data-combination1 fw-normal" name="combination1">{{submitedDetail.combination1}}</b>
+                                    <input value="{{submitedDetail.combination1}}" type="text" class="input-get-data-combination1" name="combination1" style="display:none;">                       
                                 </div>
                             </div>
 
                             <div class="col combination-2">
                                 <div class="d-flex align-items-start flex-column">
                                     <label class="fw-bold">Nguyện vọng 2:</label>
-                                    <b class="get-data-combination fw-normal" name="combination2">{{submitedDetail.combination2}}</b>
-                                    <input value="{{submitedDetail.combination2}}" type="text" class="input-get-data-combination" name="combination2" style="display:none;">
+                                    <b class="get-data-combination2 fw-normal" name="combination2">{{submitedDetail.combination2}}</b>
+                                    <input value="{{submitedDetail.combination2}}" type="text" class="input-get-data-combination2" name="combination2" style="display:none;">
                                 </div>
                             </div>
                         </div>
@@ -902,7 +902,7 @@
 
 <div id="cropperContainer" style="display:none; position:fixed; inset:0; background:#000a; z-index:9998; justify-content:center; align-items:center;">
     <img id="preview" style="max-height:90vh;" />
-    <button id="cropBtn" type="button" style="position:absolute; bottom:20px;">Cắt ảnh</button>
+    <button id="cropBtn" type="button" style="position:absolute; top:20pc;">Cắt ảnh</button>
 </div>
 
 <div class="glass-overlay"></div>
@@ -1433,8 +1433,11 @@
                     return ok;
                 }
 
-                const allTagSelectData = document.querySelectorAll('div.box-submit-4 .get-data-combination')
-                const allTagAddData = document.querySelectorAll('div.box-submit-4 input.input-get-data-combination')
+                const allTagSelectData1 = document.querySelectorAll('div.box-submit-4 .get-data-combination1')
+                const allTagSelectData2 = document.querySelectorAll('div.box-submit-4 .get-data-combination2')
+                const allTagAddData1 = document.querySelectorAll('div.box-submit-4 input.input-get-data-combination1')
+                const allTagAddData2 = document.querySelectorAll('div.box-submit-4 input.input-get-data-combination2')
+
                 if(selectCombination1.value !== '') {
                     const optionsSelect2 = Array.from(selectCombination2.querySelectorAll('option'));
                     optionsSelect2.shift();
@@ -1448,8 +1451,9 @@
 
                 selectCombination1.onchange = () => {
                     const valueSelect1 = selectCombination1.value;
-
-                    allTagSelectData[0].textContent = allTagAddData[0].value = valueSelect1;
+                    allTagSelectData1.forEach((select, index) => {
+                        select.textContent = allTagAddData1[index].value = valueSelect1;
+                    })
 
                     const optionsSelect1 = Array.from(selectCombination1.querySelectorAll('option'));
                     optionsSelect1.shift();
@@ -1471,7 +1475,9 @@
 
                 selectCombination2.onchange = () => {
                     const valueSelect2 = selectCombination2.value;
-                    allTagSelectData[1].textContent = allTagAddData[1].value= valueSelect2;
+                    allTagSelectData2.forEach((select, index) => {
+                        select.textContent = allTagAddData2[index].value = valueSelect2;
+                    })
                 }
 
                 const glassOverlay = document.querySelector('.glass-overlay');
