@@ -345,6 +345,21 @@ input {
 #btn-scroll-top:hover {
   background: #007bbd; }
 
+.notification-popup {
+  position: absolute;
+  top: 120%;
+  width: 250px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 100; }
+
+.btn-notification:hover .notification-popup {
+  display: block; }
+
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
   #master {
     margin-left: 80px; }

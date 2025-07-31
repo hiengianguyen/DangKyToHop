@@ -116,6 +116,24 @@
                     </li>
                   </a>
                 {{/if}}
+                  <a href="#" class="p-0 btn-notification" title="Thông báo mới">
+                    <li class="box my-1">
+                        <i class="fa-solid fa-bell position-relative">
+                          <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">New alerts</span>
+                          </span>
+                        </i>
+                        <p class="text m-0">Thông báo</p>
+                    </li>
+                    <div class="notification-popup">
+                      <p><strong>Thông báo mới:</strong></p>
+                      <ul>
+                        <li>Bạn có 3 tin nhắn chưa đọc.</li>
+                        <li>Bài kiểm tra sẽ diễn ra vào thứ 6.</li>
+                        <li>Thời hạn nộp hồ sơ: 01/08/2025.</li>
+                      </ul>
+                    </div>
+                  </a>
               </ul>
             </div>
             <div class="dash my-3"></div>
@@ -150,6 +168,7 @@
             </div>
           </div>
         </div>
+
       {{/if}}
       <div id="header">
         <div class="d-flex align-items-center" style="
