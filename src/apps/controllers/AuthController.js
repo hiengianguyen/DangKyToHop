@@ -1,5 +1,6 @@
 const { FirestoreModel, UserModel } = require("../models");
 const { CollectionNameConstant } = require("../../constants");
+const { capitalizeFirstLetter } = require("../../utils/capitalizeFirstLetter");
 
 class AuthController {
   constructor() {
@@ -87,7 +88,7 @@ class AuthController {
     if (existedPhone) {
       return res.redirect("/auth/signup?signupError=existed-phone");
     } else {
-      const userModel = new UserModel(undefined, fullName, password, phone, undefined, undefined, undefined);
+      const userModel = new UserModel(undefined, capitalizeFirstLetter(fullName), password, phone, undefined, undefined, undefined);
       await this.userDbRef.addItem(userModel);
       return res.redirect("/auth/signin?toastmessage=true");
     }

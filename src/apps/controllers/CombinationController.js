@@ -11,6 +11,7 @@ const {
 const { CollectionNameConstant } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
 const { convertVietnameseDatetimeToDate } = require("../../utils/convertVietnameseDatetimeToDate");
+const { capitalizeFirstLetter } = require("../../utils/capitalizeFirstLetter");
 
 class CombinationController {
   constructor() {
@@ -42,19 +43,19 @@ class CombinationController {
       if (data) {
         const submitedCombinationModel = new RegisteredCombinationModel(
           undefined, // id
-          data.fullName,
+          capitalizeFirstLetter(data.fullName),
           data.dateOfBirth,
           data.secondarySchool,
-          data.schoolDistrict,
+          capitalizeFirstLetter(data.schoolDistrict),
           data.gender,
-          data.placeOfBirth,
-          data.currentPlace,
+          capitalizeFirstLetter(data.placeOfBirth),
+          capitalizeFirstLetter(data.currentPlace),
           data.nation,
           data.avatarLink,
           data.combination1,
           data.combination2,
-          data.fullNameDad,
-          data.fullNameMom,
+          capitalizeFirstLetter(data.fullNameDad),
+          capitalizeFirstLetter(data.fullNameMom),
           data.jobOfDad,
           data.jobOfMom,
           data.phoneOfDad,
