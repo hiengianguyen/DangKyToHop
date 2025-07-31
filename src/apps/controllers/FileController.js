@@ -37,21 +37,35 @@ class FileController {
       "STT",
       "Họ tên học sinh",
       "Ngày tháng năm sinh",
-      "Trường cấp 2",
+      "Trường học cấp 2",
       "Nguyện vọng 1",
       "Nguyện vọng 2",
+      "Điểm Toán",
+      "Điểm Văn",
+      "Điểm Anh",
       "Ngày đăng ký",
-      "SĐT liên hệ"
+      "Họ và tên cha",
+      "SĐT cha",
+      "Họ và tên mẹ",
+      "SĐT mẹ",
+      "SĐT đăng ký"
     ];
     const rows = submitedList.map((row, index) => {
       return {
         index: index + 1,
         fullName: row.fullName,
         dateOfBirth: row.dateOfBirth,
-        secondarySchool: row.secondarySchool + ", " + (row.schoolDistrict || ""),
+        secondarySchool: row.secondarySchool + ", " + (row.schoolDistrict || "") + ", " + "TP. Đà Nẵng",
         combination1: row.combination1,
         combination2: row.combination2,
+        mathScore: row.mathScore,
+        literatureScore: row.literatureScore,
+        englishScore: row.englishScore,
         registeredAt: row.registeredAt,
+        fullNameDad: row.fullNameDad,
+        phoneOfDad: row.phoneOfDad,
+        fullNameMom: row.fullNameMom,
+        phoneOfMom: row.phoneOfMom,
         phoneNumber: row.phoneNumber
       };
     });
@@ -84,21 +98,35 @@ class FileController {
       "STT",
       "Họ tên học sinh",
       "Ngày tháng năm sinh",
-      "Trường cấp 2",
+      "Trường học cấp 2",
       "Nguyện vọng 1",
       "Nguyện vọng 2",
+      "Điểm Toán",
+      "Điểm Văn",
+      "Điểm Anh",
       "Ngày đăng ký",
-      "SĐT liên hệ"
+      "Họ và tên cha",
+      "SĐT cha",
+      "Họ và tên mẹ",
+      "SĐT mẹ",
+      "SĐT đăng ký"
     ];
     const rows = submitedList.map((row, index) => {
       return {
         index: index + 1,
         fullName: row.fullName,
         dateOfBirth: row.dateOfBirth,
-        secondarySchool: row.secondarySchool + ", " + (row.schoolDistrict || ""),
+        secondarySchool: row.secondarySchool + ", " + (row.schoolDistrict || "") + ", " + "TP. Đà Nẵng",
         combination1: row.combination1,
         combination2: row.combination2,
+        mathScore: row.mathScore,
+        literatureScore: row.literatureScore,
+        englishScore: row.englishScore,
         registeredAt: row.registeredAt,
+        fullNameDad: row.fullNameDad,
+        phoneOfDad: row.phoneOfDad,
+        fullNameMom: row.fullNameMom,
+        phoneOfMom: row.phoneOfMom,
         phoneNumber: row.phoneNumber
       };
     });
