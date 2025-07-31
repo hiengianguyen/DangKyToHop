@@ -324,11 +324,12 @@
                         </div>
                 </div>
             {{else}}
-                <div class="container" style="margin-top: -50px;">
+                <div class="container non">
                     <div class="d-flex justify-content-center align-items-center flex-column">
                         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1749548858/no-data_bitdab.avif" alt="Không có dữ liệu" style="width: 20pc;">
                         <h3>Chưa có dữ liệu...</h3>
-                        <p>Có lẽ bạn chưa đăng ký tổ hợp, hãy click <a href="/combination/submit-combination">vào đây để chuyển sang trang đăng ký</a></p>
+                        <p>Bạn chưa đăng ký tổ hợp</p>
+                        <a class="btn btn-secondary" href="/combination/submit-combination">Đăng ký tổ hợp</a>
                     </div>
                 </div>
             {{/if}}
@@ -354,7 +355,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Bạn có chắc chắn muốn xoá hồ sơ này.</p>
+        <p>Bạn có chắc chắn muốn xoá hồ sơ này?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary cancel">Huỷ</button>
@@ -378,13 +379,11 @@
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body').style.display = 'block';
         document.getElementById('body-app').style.overflowY = 'auto';
-
         if({{{showToast}}}) {
             toastMessage("Thông báo", localStorage.getItem('textMessage'), "success", 6000, "✅", 1000);
         }
-    });
 
-    const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
+        const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
     litSidebars.pop();
     litSidebars.pop();
 
@@ -416,7 +415,12 @@
         })
         }
     })
+    })
+</script>
 
+
+{{#if submitedCombinationDetail}}
+<script>
     const btnShowModalDelete = document.getElementById('btn-modal-delete');
     const glass = document.querySelector('.glass-overlay');
     const modalDeleteSubmited = document.getElementById('modal-delete-submited');
@@ -439,3 +443,4 @@
         glass.classList.remove('active');
     }
 </script>
+{{/if}}

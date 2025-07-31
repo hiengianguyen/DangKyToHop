@@ -199,6 +199,14 @@ h4 {
 }
 
 @include respond(phone-sm) {
+  .big-content {
+    height: 100% !important;
+  }
+
+  #master {
+    min-height: 100% !important;
+  }
+
   label.table,
   .box-radius {
     padding: 0;
@@ -335,5 +343,9 @@ h4 {
 
   .btn-feature a.man {
     max-width: 100% !important;
+  }
+
+  .card-body .container.non img {
+    width: 18pc !important;
   }
 }
