@@ -1,5 +1,6 @@
 const { FirestoreModel, UserModel, SecondarySchoolModel } = require("../models");
 const { CollectionNameConstant } = require("../../constants");
+const { capitalizeFirstLetter } = require("../../utils/capitalizeFirstLetter");
 
 class MeController {
   constructor() {
@@ -45,16 +46,9 @@ class MeController {
     if (req?.cookies?.isLogin === "true") {
       const { fullName, phone, avatar } = req?.body;
       let formData = {
-        fullName: fullName,
+        fullName: capitalizeFirstLetter(fullName),
         phone: phone
       };
-
-      if (req?.cookies?.role === "manager") {
-        formData = {
-          fullName: fullName,
-          phone: phone
-        };
-      }
 
       if (avatar && avatar != "") {
         formData.avatar = avatar;
