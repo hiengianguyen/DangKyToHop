@@ -179,6 +179,16 @@
   width: 20pc;
 }
 
+.infor-quantity {
+  display: flex;
+  align-items: center;
+}
+
+.infor-quantity p {
+  font-size: 19px;
+  margin: 0;
+}
+
 @include mobile-all-landscape {
   .dash-height {
     display: none;
@@ -425,5 +435,9 @@
 
   .not-data p {
     text-align: center;
+  }
+
+  .infor-quantity p {
+    font-size: 15px;
   }
 }
