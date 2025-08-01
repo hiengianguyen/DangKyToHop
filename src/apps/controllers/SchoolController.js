@@ -9,7 +9,7 @@ class SchoolController {
   }
 
   async index(req, res, next) {
-    if (req?.cookies?.isLogin === "true") {
+    if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
       let highSchool, imgStudentDancings, imgStudentCampings, imgStudentActivitys, imgStudentAchievements;
 
       await Promise.all([
@@ -55,7 +55,7 @@ class SchoolController {
   }
 
   async contact(req, res, next) {
-    if (req?.cookies?.isLogin === "true") {
+    if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
       return res.render("school/contact", {
         avatar: req?.cookies?.avatar,
         signin: req?.cookies?.isLogin,
