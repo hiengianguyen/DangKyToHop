@@ -108,7 +108,7 @@ class CombinationController {
   }
 
   async submitedList(req, res, next) {
-    if (req?.cookies?.isLogin === "true") {
+    if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
       const userId = req?.cookies?.userId;
       let data, allIdDocSaved;
 
@@ -145,7 +145,7 @@ class CombinationController {
   }
 
   async submitedDetail(req, res, next) {
-    if (req?.cookies?.isLogin === "true") {
+    if (req?.cookies?.isLogin === "true" && req?.params?.userId) {
       const userId = req?.params?.userId ?? req?.cookies?.userId;
       const data = await this.registeredCombinationsDbRef.getItemByFilter({
         userId: userId
@@ -164,7 +164,7 @@ class CombinationController {
   }
 
   async submitCombination(req, res, next) {
-    if (req?.cookies?.isLogin === "true") {
+    if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
       const step = Number(req?.query?.step) || 1;
       let docSubmited, user, secondarySchools, nations, subjects, combinations;
 
@@ -294,112 +294,120 @@ class CombinationController {
   }
 
   async chart(req, res, next) {
-    function checkCombinationAndCount(combinationNumber, arr) {
-      switch (combinationNumber) {
-        case "1":
-          arr[0] = arr[0] + 1;
-          break;
-        case "2":
-          arr[1] = arr[1] + 1;
-          break;
-        case "3":
-          arr[2] = arr[2] + 1;
-          break;
-        case "4":
-          arr[3] = arr[3] + 1;
-          break;
-        case "5":
-          arr[4] = arr[4] + 1;
-          break;
-        case "6":
-          arr[5] = arr[5] + 1;
-          break;
+    if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
+      function checkCombinationAndCount(combinationNumber, arr) {
+        switch (combinationNumber) {
+          case "1":
+            arr[0] = arr[0] + 1;
+            break;
+          case "2":
+            arr[1] = arr[1] + 1;
+            break;
+          case "3":
+            arr[2] = arr[2] + 1;
+            break;
+          case "4":
+            arr[3] = arr[3] + 1;
+            break;
+          case "5":
+            arr[4] = arr[4] + 1;
+            break;
+          case "6":
+            arr[5] = arr[5] + 1;
+            break;
+        }
       }
+
+      const countCombinaton1 = [0, 0, 0, 0, 0, 0];
+      const countCombinaton2 = [0, 0, 0, 0, 0, 0];
+      let data, combinations;
+      //sort by name (asc)
+      await Promise.all([
+        (data = await this.registeredCombinationsDbRef.getAllItems()),
+        (combinations = await this.combinationDbRef.getAllItems())
+      ]);
+      combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+      let classesCapacitys = combinations.map((combination) => combination.classesCapacity);
+      combinations = combinations.map((combination) => combination.name);
+      data = data.forEach((submit) => {
+        const combinationNubber1 = submit.combination1.split(" ")[2];
+        const combinationNubber2 = submit.combination2.split(" ")[2];
+        checkCombinationAndCount(combinationNubber1, countCombinaton1);
+        checkCombinationAndCount(combinationNubber2, countCombinaton2);
+      });
+
+      const mostChooseOfCombination1 = {};
+      const mostChooseOfCombination2 = {};
+      var max1 = 0;
+      var max2 = 0;
+
+      for (var i = 0; i < 6; i++) {
+        if (max1 < countCombinaton1[i]) {
+          max1 = countCombinaton1[i];
+          mostChooseOfCombination1.count = max1;
+          mostChooseOfCombination1.combination = `Tổ hợp ${i + 1}`;
+        }
+
+        if (max2 < countCombinaton2[i]) {
+          max2 = countCombinaton2[i];
+          mostChooseOfCombination2.count = max2;
+          mostChooseOfCombination2.combination = `Tổ hợp ${i + 1}`;
+        }
+      }
+
+      const combinationsInfo = combinations.map((combinationName, index) => {
+        return {
+          name: combinationName,
+          countCombinaton1: countCombinaton1[index],
+          countCombinaton2: countCombinaton2[index]
+        };
+      });
+
+      classesCapacitys = classesCapacitys.map((max, i) => max - countCombinaton1[i]);
+
+      return res.render("combination/submited-chart", {
+        avatar: req?.cookies?.avatar,
+        role: req?.cookies?.role,
+        userId: req?.cookies?.userId,
+        countCombinaton1: JSON.stringify(countCombinaton1),
+        countCombinaton2: JSON.stringify(countCombinaton2),
+        classesCapacitys: JSON.stringify(classesCapacitys),
+        mostChooseOfCombination1: mostChooseOfCombination1,
+        mostChooseOfCombination2: mostChooseOfCombination2,
+        combinations: JSON.stringify(combinations),
+        combinationsInfo: combinationsInfo
+      });
+    } else {
+      return res.redirect("/");
     }
-
-    const countCombinaton1 = [0, 0, 0, 0, 0, 0];
-    const countCombinaton2 = [0, 0, 0, 0, 0, 0];
-    let data, combinations;
-    //sort by name (asc)
-    await Promise.all([
-      (data = await this.registeredCombinationsDbRef.getAllItems()),
-      (combinations = await this.combinationDbRef.getAllItems())
-    ]);
-    combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
-    let classesCapacitys = combinations.map((combination) => combination.classesCapacity);
-    combinations = combinations.map((combination) => combination.name);
-    data = data.forEach((submit) => {
-      const combinationNubber1 = submit.combination1.split(" ")[2];
-      const combinationNubber2 = submit.combination2.split(" ")[2];
-      checkCombinationAndCount(combinationNubber1, countCombinaton1);
-      checkCombinationAndCount(combinationNubber2, countCombinaton2);
-    });
-
-    const mostChooseOfCombination1 = {};
-    const mostChooseOfCombination2 = {};
-    var max1 = 0;
-    var max2 = 0;
-
-    for (var i = 0; i < 6; i++) {
-      if (max1 < countCombinaton1[i]) {
-        max1 = countCombinaton1[i];
-        mostChooseOfCombination1.count = max1;
-        mostChooseOfCombination1.combination = `Tổ hợp ${i + 1}`;
-      }
-
-      if (max2 < countCombinaton2[i]) {
-        max2 = countCombinaton2[i];
-        mostChooseOfCombination2.count = max2;
-        mostChooseOfCombination2.combination = `Tổ hợp ${i + 1}`;
-      }
-    }
-
-    const combinationsInfo = combinations.map((combinationName, index) => {
-      return {
-        name: combinationName,
-        countCombinaton1: countCombinaton1[index],
-        countCombinaton2: countCombinaton2[index]
-      };
-    });
-
-    classesCapacitys = classesCapacitys.map((max, i) => max - countCombinaton1[i]);
-
-    return res.render("combination/submited-chart", {
-      avatar: req?.cookies?.avatar,
-      role: req?.cookies?.role,
-      userId: req?.cookies?.userId,
-      countCombinaton1: JSON.stringify(countCombinaton1),
-      countCombinaton2: JSON.stringify(countCombinaton2),
-      classesCapacitys: JSON.stringify(classesCapacitys),
-      mostChooseOfCombination1: mostChooseOfCombination1,
-      mostChooseOfCombination2: mostChooseOfCombination2,
-      combinations: JSON.stringify(combinations),
-      combinationsInfo: combinationsInfo
-    });
   }
 
   async table(req, res, next) {
-    let subjects, combinations;
-    await Promise.all([(subjects = await this.subjectDbRef.getAllItems()), (combinations = await this.combinationDbRef.getAllItems())]);
+    if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
+      let subjects, combinations;
+      await Promise.all([(subjects = await this.subjectDbRef.getAllItems()), (combinations = await this.combinationDbRef.getAllItems())]);
 
-    subjects.map((subject) => {
-      return subject.docs;
-    });
-    //sort by name (asc)
-    combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
+      subjects.map((subject) => {
+        return subject.docs;
+      });
+      //sort by name (asc)
+      combinations.sort((a, b) => (a.name > b.name ? 1 : -1));
 
-    combinations.forEach((combination) => {
-      const compulsorySubjects = combination.compulsorySubjects;
-      const optionalSubjects = combination.optionalSubjects;
+      combinations.forEach((combination) => {
+        const compulsorySubjects = combination.compulsorySubjects;
+        const optionalSubjects = combination.optionalSubjects;
 
-      combination.compulsorySubjects = subjects.filter((subject) => compulsorySubjects.includes(subject.name));
-      combination.optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
-    });
-    return res.render("combination/combination-table", {
-      avatar: req?.cookies?.avatar,
-      combinations: combinations,
-      showToast: req?.query?.toastmessage === "true"
-    });
+        combination.compulsorySubjects = subjects.filter((subject) => compulsorySubjects.includes(subject.name));
+        combination.optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
+      });
+      return res.render("combination/combination-table", {
+        avatar: req?.cookies?.avatar,
+        combinations: combinations,
+        showToast: req?.query?.toastmessage === "true"
+      });
+    } else {
+      return res.redirect("/");
+    }
   }
 
   async updateCombination(req, res, next) {

@@ -12,7 +12,7 @@ class MeController {
   }
 
   async index(req, res, next) {
-    if (req?.cookies?.isLogin === "true") {
+    if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
       const user = await this.userDbRef.getItemById(req?.cookies?.userId);
       return res.render("me/profile", {
         user: user,
@@ -28,7 +28,7 @@ class MeController {
   }
 
   async edit(req, res, next) {
-    if (req?.cookies?.isLogin === "true") {
+    if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
       const user = await this.userDbRef.getItemById(req?.cookies?.userId);
       return res.render("me/edit-profile", {
         role: req?.cookies?.role,
@@ -43,7 +43,7 @@ class MeController {
   }
 
   async update(req, res, next) {
-    if (req?.cookies?.isLogin === "true") {
+    if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
       const { fullName, phone, avatar } = req?.body;
       let formData = {
         fullName: capitalizeFirstLetter(fullName),
