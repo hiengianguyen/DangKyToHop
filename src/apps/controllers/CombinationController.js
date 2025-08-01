@@ -207,7 +207,7 @@ class CombinationController {
         combinations: combinations,
         nations: nations,
         user: user,
-        avatar: user.avatar,
+        avatar: user.avatar || "",
         subjects: subjects,
         districts: districts,
         secondarySchools: JSON.stringify(secondarySchools),
