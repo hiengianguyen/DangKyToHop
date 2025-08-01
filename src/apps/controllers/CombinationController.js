@@ -166,13 +166,12 @@ class CombinationController {
   async submitCombination(req, res, next) {
     if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
       const step = Number(req?.query?.step) || 1;
-      let docSubmited, user, secondarySchools, nations, subjects, combinations;
+      let docSubmited, secondarySchools, nations, subjects, combinations;
 
       await Promise.all([
         (docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
           userId: req?.cookies?.userId
         })),
-        (user = await this.userDbRef.getItemById(req?.cookies?.userId)),
         (secondarySchools = await this.secondarySchoolDbRef.getAllItems({
           fieldName: "order",
           type: "asc"
@@ -206,8 +205,7 @@ class CombinationController {
       return res.render("combination/submit-combination", {
         combinations: combinations,
         nations: nations,
-        user: user,
-        avatar: user.avatar,
+        avatar: req?.cookies?.avatar,
         subjects: subjects,
         districts: districts,
         secondarySchools: JSON.stringify(secondarySchools),
