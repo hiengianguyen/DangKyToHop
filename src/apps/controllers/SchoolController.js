@@ -46,8 +46,7 @@ class SchoolController {
         highSchool: highSchool,
         signin: req?.cookies?.isLogin,
         userId: req?.cookies?.userId,
-        role: req?.cookies?.role,
-        btnRedirectTop: true
+        role: req?.cookies?.role
       });
     } else {
       return res.redirect("/");
