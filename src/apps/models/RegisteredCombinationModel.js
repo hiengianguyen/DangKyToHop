@@ -39,6 +39,7 @@ class RegisteredCombinationModel {
     avgHistoryScore,
     avgGeographyScore,
     isDeleted,
+    isApprove,
     userId,
     registeredAt
   ) {
@@ -81,6 +82,7 @@ class RegisteredCombinationModel {
     this.avgHistoryScore = avgHistoryScore;
     this.avgGeographyScore = avgGeographyScore;
     this.isDeleted = isDeleted || false;
+    this.isApprove = isApprove || false;
     this.userId = userId;
     this.registeredAt = registeredAt || new Date();
   }
@@ -128,6 +130,7 @@ class RegisteredCombinationModel {
       data.avgHistoryScore,
       data.avgGeographyScore,
       data.isDeleted,
+      data.isApprove,
       data.userId,
       data.registeredAt
     );
@@ -173,6 +176,7 @@ class RegisteredCombinationModel {
       avgHistoryScore: this.avgHistoryScore,
       avgGeographyScore: this.avgGeographyScore,
       isDeleted: this.isDeleted,
+      isApprove: this.isApprove,
       userId: this.userId,
       registeredAt: this.registeredAt
     };

@@ -32,6 +32,8 @@ class CombinationController {
     this.savedSubmitted = this.savedSubmitted.bind(this);
     this.chart = this.chart.bind(this);
     this.table = this.table.bind(this);
+    this.submitedApprove = this.submitedApprove.bind(this);
+    this.submitedReject = this.submitedReject.bind(this);
     this.updateCombination = this.updateCombination.bind(this);
   }
 
@@ -81,6 +83,7 @@ class CombinationController {
           data.avgHistoryScore,
           data.avgGeographyScore,
           undefined, // isDeleted
+          undefined, // isApprove
           userId,
           convertToVietnameseDateTime(currentTime) // registeredAt
         );
@@ -428,6 +431,38 @@ class CombinationController {
         icon: "❌"
       });
     }
+  }
+
+  async submitedApprove(req, res, next) {
+    const userId = req.body.userId;
+    const docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
+      userId: userId
+    });
+    const submittedId = docSubmited.id;
+    await this.registeredCombinationsDbRef.updateItem(submittedId, {
+      isApprove: true
+    });
+
+    return res.json({
+      isSuccess: true,
+      message: "Phê duyệt hồ sơ thành công!"
+    });
+  }
+
+  async submitedReject(req, res, next) {
+    const userId = req.body.userId;
+    const docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
+      userId: userId
+    });
+    const submittedId = docSubmited.id;
+    await this.registeredCombinationsDbRef.updateItem(submittedId, {
+      isApprove: false
+    });
+
+    return res.json({
+      isSuccess: true,
+      message: "Huỷ phê duyệt hồ sơ thành công!"
+    });
   }
 }
 

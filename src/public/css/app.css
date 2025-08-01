@@ -295,7 +295,8 @@ input {
   height: 40px;
   border-radius: 50%;
   background-color: #caeaff;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; }
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  z-index: 10; }
 
 #nav-bar .avatar img {
   width: 25px;
