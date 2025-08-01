@@ -273,7 +273,7 @@ input {
   position: fixed;
   width: 100%;
   background-color: #ffffff;
-  z-index: 5;
+  z-index: 1000;
   transition: all 0.5s ease; }
 
 #nav-bar a {
@@ -283,6 +283,19 @@ input {
   text-decoration: none;
   color: #434343;
   border-bottom: 1px solid #ccc; }
+
+#btn-notifi {
+  position: fixed;
+  right: 10px;
+  top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #caeaff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; }
 
 #nav-bar .avatar img {
   width: 25px;
@@ -342,7 +355,7 @@ input {
   position: fixed;
   bottom: 32px;
   right: 32px;
-  z-index: 9999;
+  z-index: 998;
   background: #82b4cf;
   color: #fff;
   border: none;
@@ -365,7 +378,7 @@ input {
   height: 100%;
   background-color: #fff;
   position: fixed;
-  z-index: 1000;
+  z-index: 999;
   display: none;
   margin-left: 80px;
   opacity: 1;
@@ -417,6 +430,13 @@ input {
 
 .notifi-body .note p:not(.title) {
   font-size: 14px; }
+
+.box-notification .notifi-container {
+  width: 100%;
+  margin-left: 0; }
+
+.box-notification .notifi-container h5 {
+  font-size: 20px; }
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
   #master {
@@ -487,5 +507,5 @@ input {
   #btn-scroll-top {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
     right: 18px; }
-  .notifi-container {
+  .notifi-container.pc {
     display: none !important; } }
