@@ -143,6 +143,14 @@
 .not-data img {
   width: 20pc; }
 
+.infor-quantity {
+  display: flex;
+  align-items: center; }
+
+.infor-quantity p {
+  font-size: 19px;
+  margin: 0; }
+
 @media (max-width: 955px) and (orientation: landscape) {
   .dash-height {
     display: none; }
@@ -280,4 +288,6 @@
   .not-data h3 {
     font-size: 20px; }
   .not-data p {
-    text-align: center; } }
+    text-align: center; }
+  .infor-quantity p {
+    font-size: 15px; } }

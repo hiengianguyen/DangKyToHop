@@ -137,6 +137,7 @@ class CombinationController {
 
       return res.render("combination/submited-list", {
         avatar: req?.cookies?.avatar,
+        quantity: data.length,
         submitedList: data,
         submitedListData: JSON.stringify(data),
         role: req?.cookies?.role,
