@@ -242,23 +242,7 @@
     </div>
   </div>
 <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
-{{#if btnRedirectTop}}
 <button id="btn-scroll-top" title="Lên đầu trang" ><i class="fa fa-arrow-up"></i></button>
-<script>
-  // Scroll-to-top button logic
-  const btnScrollTop = document.getElementById('btn-scroll-top');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 200) {
-      btnScrollTop.style.display = 'flex';
-    } else {
-      btnScrollTop.style.display = 'none';
-    }
-  });
-  btnScrollTop.onclick = function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-</script>
-{{/if}}
 </body>
 </html>
 
@@ -374,4 +358,17 @@
           header.classList.remove('shadow');
       }
     });
+
+    // Scroll-to-top button logic
+  const btnScrollTop = document.getElementById('btn-scroll-top');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 200) {
+      btnScrollTop.style.display = 'flex';
+    } else {
+      btnScrollTop.style.display = 'none';
+    }
+  });
+  btnScrollTop.onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 </script>
