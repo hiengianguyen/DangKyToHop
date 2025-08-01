@@ -137,7 +137,8 @@ class CombinationController {
         submitedList: data,
         submitedListData: JSON.stringify(data),
         role: req?.cookies?.role,
-        isSavedPage: false
+        isSavedPage: false,
+        btnRedirectTop: true
       });
     } else {
       return res.redirect("/");
@@ -156,7 +157,8 @@ class CombinationController {
         submitedCombinationDetail: data,
         role: req?.cookies?.role,
         userId: req?.cookies?.userId,
-        showToast: req?.query?.toastmessage === "true"
+        showToast: req?.query?.toastmessage === "true",
+        btnRedirectTop: true
       });
     } else {
       return res.redirect("/");
@@ -214,7 +216,8 @@ class CombinationController {
         step: step,
         submitedDetail: docSubmited || false,
         isEdit: docSubmited ? true : false,
-        userId: req?.cookies?.userId
+        userId: req?.cookies?.userId,
+        btnRedirectTop: true
       });
     } else {
       return res.redirect("/");
@@ -287,7 +290,8 @@ class CombinationController {
       submitedList: allDocSubmittedSaved,
       submitedListData: JSON.stringify(allDocSubmittedSaved),
       role: req?.cookies?.role,
-      isSavedPage: true
+      isSavedPage: true,
+      btnRedirectTop: true
     });
   }
 
