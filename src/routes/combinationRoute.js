@@ -13,5 +13,7 @@ router.get("/submited-list/saved", CombinationController.savedSubmitted);
 router.get("/submit-combination", CombinationController.submitCombination);
 router.get("/delete/submited-combination/:id", CombinationController.delete);
 router.get("/submited-detail/:userId", CombinationController.submitedDetail);
+router.post("/submited-approve/:id", CombinationController.submitedApprove);
+router.post("/submited-reject/:id", CombinationController.submitedReject);
 
 module.exports = router;

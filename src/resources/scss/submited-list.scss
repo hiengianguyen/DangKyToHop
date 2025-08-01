@@ -402,9 +402,17 @@
     width: 100%;
   }
 
+  #radios-is-approve,
   #radios-combination-1,
   #radios-combination-2 {
     flex-direction: column;
+  }
+
+  #radios-is-approve {
+    -webkit-flex-direction: column !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
   }
 
   .not-data img {

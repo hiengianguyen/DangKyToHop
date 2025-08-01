@@ -312,16 +312,17 @@
                             </tbody>
                         </table>
                     </div>
-                        <div class="row btn-feature justify-content-center gap-3 mt-4 mx-auto">
-                            {{#if (eq role 'student')}}
-
-                                <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center col">Chỉnh sửa</a>
-                                <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center col">Xoá hồ sơ</button>
-                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank">Hồ sơ PDF</a>
-                            {{else}}
-                                <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col man" target="_blank" style="max-width: max-content;">Hồ sơ PDF</a>
-                            {{/if}}
-                        </div>
+                    <div class="row btn-feature justify-content-center gap-3 mt-4 mx-auto">
+                        {{#if (eq role 'student')}}
+                            <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center col">Chỉnh sửa</a>
+                            <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center col">Xoá hồ sơ</button>
+                            <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank">Hồ sơ PDF</a>
+                        {{else}}
+                            <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank">Hồ sơ PDF</a>
+                            <button id="btn-reject-document" href="/combination/submited-reject/{{submitedCombinationDetail.userId}}" class="btn btn-danger d-flex justify-content-center align-items-center col">Không phê duyệt</button>
+                            <button id="btn-approve-document" href="/combination/submited-approve/{{submitedCombinationDetail.userId}}" class="btn btn-primary d-flex justify-content-center align-items-center col">Phê duyệt</button>
+                        {{/if}}
+                    </div>
                 </div>
             {{else}}
                 <div class="container non">
@@ -418,29 +419,54 @@
     })
 </script>
 
+{{#if (eq role "manager")}}
+    <script type="module">
+        import { fetchAsync } from '/fetchAsync.js';
+        window.fetchAsync = fetchAsync;
+        const btnRejectDocument = document.getElementById("btn-reject-document");
+        const btnApproveDocument = document.getElementById("btn-approve-document");
 
-{{#if submitedCombinationDetail}}
-<script>
-    const btnShowModalDelete = document.getElementById('btn-modal-delete');
-    const glass = document.querySelector('.glass-overlay');
-    const modalDeleteSubmited = document.getElementById('modal-delete-submited');
-    const modalChild = modalDeleteSubmited.querySelector('.modal-containers');
-    const btnClose = modalDeleteSubmited.querySelector('button.close span');
-    const btnCancel = modalDeleteSubmited.querySelector('button.cancel');
-    const body = document.getElementsByTagName('body')[0];
+        btnApproveDocument.onclick = btnRejectDocument.onclick = async (e) => {
+            const btn = e.target;
+            const textOfBtn = btn.textContent;
+            btn.innerHTML = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>`;
+            btn.disabled = true;
+            const url = btn.getAttribute("href");
+            const strUrls = url.split('/');
+            const userId = strUrls[strUrls.length-1];
+            const result = await fetchAsync(url, 'POST', { userId: userId }, null, true);
+            const textMessage = result.message;
+            if(result.isSuccess) {
+                toastMessage("Thông báo", textMessage, "success", 6000, "✅", 1000);
+            } else {
+                toastMessage("Thông báo", textMessage, "error", 6000, "❌", 1000);
+            }
+            btn.textContent = textOfBtn;
+            btn.disabled = false;
+        }
+    </script>
+{{else}}
+    <script>
+        const btnShowModalDelete = document.getElementById('btn-modal-delete');
+        const glass = document.querySelector('.glass-overlay');
+        const modalDeleteSubmited = document.getElementById('modal-delete-submited');
+        const modalChild = modalDeleteSubmited.querySelector('.modal-containers');
+        const btnClose = modalDeleteSubmited.querySelector('button.close span');
+        const btnCancel = modalDeleteSubmited.querySelector('button.cancel');
+        const body = document.getElementsByTagName('body')[0];
 
-    btnShowModalDelete.onclick = () => {
-        body.style.overflowY = 'hidden';
-        modalDeleteSubmited.style.display = 'flex';
-        glass.style.display = 'block';
-        glass.classList.add('active');
-    }
+        btnShowModalDelete.onclick = () => {
+            body.style.overflowY = 'hidden';
+            modalDeleteSubmited.style.display = 'flex';
+            glass.style.display = 'block';
+            glass.classList.add('active');
+        }
 
-    btnCancel.onclick = btnClose.onclick = () => {
-        body.style.overflowY = 'auto';
-        modalDeleteSubmited.style.display = 'none';
-        glass.style.display = 'none';
-        glass.classList.remove('active');
-    }
-</script>
+        btnCancel.onclick = btnClose.onclick = () => {
+            body.style.overflowY = 'auto';
+            modalDeleteSubmited.style.display = 'none';
+            glass.style.display = 'none';
+            glass.classList.remove('active');
+        }
+    </script>
 {{/if}}
