@@ -89,6 +89,7 @@ input {
 #sidebar.active .home .tittle-sidebar {
   display: none; }
 
+#sidebar .btn-notification,
 #sidebar a {
   padding: 0;
   width: 100%;
@@ -102,10 +103,22 @@ input {
   list-style: none;
   margin-top: 10px; }
 
+#sidebar .btn-notification {
+  border: none;
+  background-color: #fff;
+  transition: all 0.4s ease; }
+
+#sidebar.active .btn-notification {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+#sidebar.active .btn-notification i,
 #sidebar.active .end-box i,
 #sidebar.active a i {
   margin: 0; }
 
+#sidebar button i,
 #sidebar a i {
   margin-right: 16px; }
 
@@ -120,10 +133,12 @@ input {
 #sidebar .menu-bar a {
   transition: all 0.4s ease; }
 
+#sidebar .btn-notification:hover,
 #sidebar .menu-bar a:not(.active):hover {
   background-color: #caeaff;
   color: #444444;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: all 0.4s ease; }
 
 #sidebar .end-box a:not(.nav-profile):hover {
   background: #ff1c60;
@@ -345,20 +360,63 @@ input {
 #btn-scroll-top:hover {
   background: #007bbd; }
 
-.notification-popup {
-  position: absolute;
-  top: 120%;
-  width: 250px;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.notifi-container {
+  width: 30pc;
+  height: 100%;
+  background-color: #fff;
+  position: fixed;
+  z-index: 1000;
   display: none;
-  z-index: 100; }
+  margin-left: 80px;
+  opacity: 1;
+  transition: all 0.5s ease; }
 
-.btn-notification:hover .notification-popup {
-  display: block; }
+.notifi-container .box-noti {
+  position: sticky;
+  top: 0;
+  height: 100vh; }
+
+.notifi-container.hidden {
+  opacity: 0;
+  transition: all 0.5s ease; }
+
+.notifi-header {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.card-footer-notifi {
+  color: #007bbd; }
+
+.notifi-body {
+  height: 100%;
+  overflow-y: scroll;
+  padding: 7px; }
+
+.notifi-body .content {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  transition: all 0.5s ease; }
+
+.notifi-body .content:hover {
+  background-color: #1618230d;
+  transition: all 0.5s ease; }
+
+.notifi-body .content img {
+  height: 55px;
+  margin-right: 15px; }
+
+.notifi-body .content > span {
+  padding: 5px !important;
+  left: 97% !important;
+  top: 14px !important; }
+
+.notifi-body .note p:not(.title) {
+  font-size: 14px; }
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
   #master {

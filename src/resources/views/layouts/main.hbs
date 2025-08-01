@@ -116,24 +116,16 @@
                     </li>
                   </a>
                 {{/if}}
-                  <a href="#" class="p-0 btn-notification" title="Thông báo mới">
+                  <button class="p-0 btn-notification" title="Thông báo mới">
                     <li class="box my-1">
-                        <i class="fa-solid fa-bell position-relative">
+                        <i id="icon-bell-noti" class="fa-solid fa-bell position-relative">
                           <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
                             <span class="visually-hidden">New alerts</span>
                           </span>
                         </i>
                         <p class="text m-0">Thông báo</p>
                     </li>
-                    <div class="notification-popup">
-                      <p><strong>Thông báo mới:</strong></p>
-                      <ul>
-                        <li>Bạn có 3 tin nhắn chưa đọc.</li>
-                        <li>Bài kiểm tra sẽ diễn ra vào thứ 6.</li>
-                        <li>Thời hạn nộp hồ sơ: 01/08/2025.</li>
-                      </ul>
-                    </div>
-                  </a>
+                  </button>
               </ul>
             </div>
             <div class="dash my-3"></div>
@@ -168,7 +160,33 @@
             </div>
           </div>
         </div>
-
+        <div class="notifi-container shadow hidden">
+          <div class="box-noti">
+            <div class="notifi-header border-bottom py-3">
+              <h5 class="m-0" style="height: 40px;display: flex;align-items: center;gap: 10px;">Thông báo <i class="fa-solid fa-bell"></i></h5>
+              <button type="button" class="btn-close" aria-label="Close"></button>
+            </div>
+            <div class="notifi-body pt-3">
+              <div class="content position-relative">
+                <div class="img-box">
+                  <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png">
+                </div>
+                <div class="note">
+                  <p class="mb-2 fw-bold title">
+                    Thông báo hồ sơ tuyển sinh!
+                  </p>
+                  <p class="mb-2">Hồ sơ của bạn đã được phê duyệt, ăn mừng thôi.</p>
+                  <div class="card-footer-notifi d-flex align-items-center">
+                    <p class="m-0"> 12:30 - 23/07/2025</p>
+                  </div>
+                </div>
+                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                  <span class="visually-hidden">New alerts</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       {{/if}}
       <div id="header">
         <div class="d-flex align-items-center" style="
@@ -252,6 +270,23 @@
     const bigContent = document.querySelector('.big-content');
     const containerSubmitted = document.getElementById('container-submitted');
     const app = document.getElementById('all-content');
+    const popupNotifi = document.querySelector(".notifi-container");
+    const btnNotificationSidebar = document.querySelector(".btn-notification");
+    const btnCloseNotifi = document.querySelector(".notifi-container .btn-close");
+    const iconBell = document.getElementById('icon-bell-noti');
+
+    btnCloseNotifi.onclick = () => {
+      popupNotifi.classList.add("hidden");
+      btnCloseNotifi.style.display = "none";
+      popupNotifi.style.display = "none";
+    }
+
+    btnNotificationSidebar.onmousemove = () => {
+      iconBell.innerHTML = '';
+      popupNotifi.classList.remove("hidden");
+      btnCloseNotifi.style.display = "block";
+      popupNotifi.style.display = "block";
+    }
     
      window.addEventListener('load', function () {
       if(mainSideBar.className === 'active') {
@@ -264,6 +299,7 @@
         }
         btnPushSidebar.title = 'Phóng to bảng điều hướng';
         iconBtnSidebar.className = 'fa-solid fa-arrow-right';
+        popupNotifi.style.marginLeft = "80px"
       } else {
         if(containerSubmitted) {
           containerSubmitted.style.maxWidth = '85%';
@@ -271,6 +307,8 @@
         if(bigContent) {
           bigContent.classList.add('active');
         }
+
+        popupNotifi.style.marginLeft = "280px"
       }
       app.classList.remove('translate');
      })
@@ -278,8 +316,10 @@
     if(mainSideBar) {
       if(localStorage.getItem('isActive') === 'true') {
         mainSideBar.classList.add('active');
+        popupNotifi.style.marginLeft = "80px"
       } else {
         mainSideBar.classList.remove('active');
+        popupNotifi.style.marginLeft = "280px"
       }
     }
 
@@ -297,6 +337,7 @@
         }
         localStorage.setItem('isActive', true);
         btnPushSidebar.setAttribute("title", "Phóng to bảng điều hướng");
+        popupNotifi.style.marginLeft = "80px"
       } else {
         if(containerSubmitted) {
           containerSubmitted.style.maxWidth = '85%';
@@ -306,6 +347,7 @@
         }
         localStorage.setItem('isActive', false)
         btnPushSidebar.setAttribute("title", "Thu nhỏ bảng điều hướng");
+        popupNotifi.style.marginLeft = "280px"
       }
     }
 
