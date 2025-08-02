@@ -15,7 +15,7 @@ function renderCardSubmitted(parentElement, data) {
           colorBadge = "#198754";
           textBadge = "Đã phê duyệt";
           break;
-        case "reject":
+        case "rejected":
           colorBadge = "#dc3545";
           textBadge = "Không phê duyệt";
           break;
@@ -25,52 +25,35 @@ function renderCardSubmitted(parentElement, data) {
           break;
       }
       return `
-            <div class="card mb-3 m-2" value="${doc.id}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
+            <div class="card mb-3 m-2 position-relative" value="${doc.id}" style="width: 22pc;font-size: 12px;">
                 <div class="row g-0" style="position: relative;">
                     <div class="img-box col-md-4 p-0 text-center d-flex flex-column">
-                        <img src="${doc.avatarLink}" class="img-fluid rounded-end border avatar border-dark-subtle" alt="${doc.fullName}" style="margin-left: 14px;">
-                        <a href="/combination/submited-detail/${doc.userId}" class="btn btn-primary mt-2" style="width: 86px;font-size: 12px;margin-left: 20px;">Xem thông tin</a>
+                        <img src="${doc.avatarLink}" class="img-fluid avatar rounded-end border border-dark-subtle" alt="${doc.fullName}" style="margin-left: 14px; max-width:90%;">
                     </div>
-                    <div class="col-md-8 ps-0">
-                        <div class="card-body pb-3 pe-0">
-                            <h6 class="card-title">${doc.fullName}</h6>
-                            <div class="d-flex justify-content-between" style="font-size: 10px;">
-                                <div class="d-flex align-items-start flex-column">
-                                    <p class="pe-1 m-0" style="width: max-content;"><b>Giới tính:</b></p>
-                                    <p class="m-0 pe-0" >${doc.gender}</p>
-                                </div>
-                                <div class="d-flex align-items-start flex-column mx-2">
-                                    <p class="m-0" style="width: max-content;"><b>Ngày sinh:</b></p>
-                                    <p class="m-0">${doc.dateOfBirth}</p>
-                                </div>
-                                <div class="align-items-start nation flex-column">
-                                    <p class="m-0" style="width: max-content;"><b>Dân tộc:</b></p>
-                                    <p class="m-0">${doc.nation}</p>
-                                </div>
+                    <div class="col-md-8 ps-0 position-relative">
+                        <div class="card-body pb-3 pe-2">
+                            <div class="name-status mb-2">
+                                <p class="m-0">Họ và tên:</p>
+                                <h6 class="card-title m-0" title="${doc.fullName}">${doc.fullName}</h6>
                             </div>
 
-                            <div class="d-flex align-items-start flex-column">
-                                <p class="pe-1 m-0"><b>Nguyện vọng 1:</b></p>
-                                <p class="m-0 pe-0" >${doc.combination1}</p>
+                            <div class="details">
+                                <span class="d-flex align-items-center main">
+                                    <p class="mb-0 me-2" title="Giới tính: ${doc.gender}">${doc.gender}</p> • 
+                                    <p class="mb-0 mx-2" title="Ngày sinh: ${doc.dateOfBirth}">${doc.dateOfBirth}</p> • 
+                                    <p class="mb-0 ms-2" title="Dân tộc: ${doc.nation}">${doc.nation}</p>
+                                </span>
+                                <span title="Nguyện vọng 1: ${doc.combination1}">NV1: ${doc.combination1}</span>
+                                <span title="Nguyện vọng 2: ${doc.combination2}">NV2: ${doc.combination2}</span>
+                                <span class="time" title="Đăng ký lúc: ${doc.registeredAt}">${doc.registeredAt}</span>
                             </div>
-
-                            <div class="d-flex align-items-start flex-column">
-                                <p class="pe-1 m-0"><b>Nguyện vọng 2:</b></p>
-                                <p class="m-0 pe-0" >${doc.combination2}</p>
-                            </div>
-                            
-                            <div class="d-flex align-items-start flex-column">
-                                <p class="card-text mb-0"><small class="text-body-secondary">Đăng ký lúc:</small></p>
-                                <p class="card-text"><small class="text-body-secondary"><b>${doc.registeredAt}</b></small></p>
-                            </div>
+                            <a href="/combination/submited-detail/${doc.userId}" class="btn btn-primary mt-2" style="width: max-content;font-size: 12px;">Xem thông tin</a>
                         </div>
+                        <span class="badge badge-${doc.status} position-absolute" title="Trạng thái" style="top: 8px; right:25px;">${textBadge}</span>
                     </div>
                 </div>
                 <div class="position-absolute" style="bottom: 10px;right: 15px;">
                     <i title="Lưu hồ sơ này" value="${doc.id}" class="fa-solid fa-bookmark save-doc-icon ${doc.favourite ? "saved" : ""}"></i>
-                </div>
-                <div class="badge-card" style="background-color: ${colorBadge};">
-                    <p class="m-0">${textBadge}</p>
                 </div>
             </div>
         `;

@@ -18,7 +18,7 @@ module.exports = {
       case "approved":
         result = "Đã phê duyệt";
         break;
-      case "reject":
+      case "rejected":
         result = "Không phê duyệt";
         break;
       default:
@@ -33,7 +33,7 @@ module.exports = {
       case "approved":
         result = "#198754";
         break;
-      case "reject":
+      case "rejected":
         result = "#dc3545";
         break;
       default:
