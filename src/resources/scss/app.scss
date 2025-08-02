@@ -106,6 +106,7 @@ input {
   margin-left: 8px;
 }
 
+.box-notification.mobile,
 #sidebar.active .home .tittle-sidebar {
   display: none;
 }
@@ -590,6 +591,7 @@ input {
     margin-left: 10px;
   }
 
+  .box-notification.mobile,
   #nav-bar.active,
   #all-content {
     display: block;

@@ -83,7 +83,7 @@ class CombinationController {
           data.avgHistoryScore,
           data.avgGeographyScore,
           undefined, // isDeleted
-          undefined, // isApprove
+          undefined, // status
           userId,
           convertToVietnameseDateTime(currentTime) // registeredAt
         );
@@ -155,12 +155,33 @@ class CombinationController {
         userId: userId
       });
 
+      const badge = {
+        status: "",
+        typeBadge: ""
+      };
+
+      switch (data.status) {
+        case "approved":
+          badge.status = "Đã phê duyệt";
+          badge.typeBadge = "success";
+          break;
+        case "reject":
+          badge.status = "Không phê duyệt";
+          badge.typeBadge = "danger";
+          break;
+        default:
+          badge.status = "Đã nộp";
+          badge.typeBadge = "secondary";
+          break;
+      }
+
       return res.render("combination/submited-detail", {
         avatar: req?.cookies?.avatar,
         submitedCombinationDetail: data,
         role: req?.cookies?.role,
         userId: req?.cookies?.userId,
-        showToast: req?.query?.toastmessage === "true"
+        showToast: req?.query?.toastmessage === "true",
+        badge: badge
       });
     } else {
       return res.redirect("/");
@@ -441,12 +462,14 @@ class CombinationController {
     });
     const submittedId = docSubmited.id;
     await this.registeredCombinationsDbRef.updateItem(submittedId, {
-      isApprove: true
+      status: "approved"
     });
 
     return res.json({
       isSuccess: true,
-      message: "Phê duyệt hồ sơ thành công!"
+      message: "Phê duyệt hồ sơ thành công!",
+      status: "Đã phê duyệt",
+      typeBadge: "success"
     });
   }
 
@@ -457,12 +480,14 @@ class CombinationController {
     });
     const submittedId = docSubmited.id;
     await this.registeredCombinationsDbRef.updateItem(submittedId, {
-      isApprove: false
+      status: "reject"
     });
 
     return res.json({
       isSuccess: true,
-      message: "Huỷ phê duyệt hồ sơ thành công!"
+      message: "Huỷ phê duyệt hồ sơ thành công!",
+      status: "Không phê duyệt",
+      typeBadge: "danger"
     });
   }
 }

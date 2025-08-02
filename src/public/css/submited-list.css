@@ -114,7 +114,8 @@
   flex-wrap: wrap;
   height: 45pc;
   overflow-y: scroll;
-  max-width: 89% !important; }
+  max-width: 89% !important;
+  padding-top: 15px !important; }
 
 #container-submitted .card .img-box,
 .radios-fil {
@@ -150,6 +151,17 @@
 .infor-quantity p {
   font-size: 19px;
   margin: 0; }
+
+#container-submitted .badge-card {
+  position: absolute;
+  left: 0;
+  top: -19px;
+  height: 20px;
+  width: max-content;
+  color: #fff;
+  background-color: #6c757d;
+  padding: 0 25px;
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%); }
 
 @media (max-width: 955px) and (orientation: landscape) {
   .dash-height {
@@ -272,6 +284,8 @@
     display: none; }
   #container-submitted .card > .card-body {
     width: 106%; }
+  #container-submitted .card {
+    margin: 1rem 0.5rem !important; }
   .radios-fil .card.border-light {
     width: 100%; }
   #radios-is-approve,
