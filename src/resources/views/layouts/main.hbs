@@ -188,13 +188,6 @@
           </div>
         </div>
         <div class="box-notification mobile">
-          <div id="btn-notifi">
-            <i id="bell-icon" class="fa-solid fa-bell position-relative">
-              <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
-                <span class="visually-hidden">New alerts</span>
-              </span>
-            </i>
-          </div>
           <div class="notifi-container shadow hidden">
             <div class="box-noti">
               <div class="notifi-header border-bottom py-3">
@@ -241,7 +234,15 @@
                   </span>
               </div>
             </div>
-            <div class="nav-bar-icon d-flex justify-content-center align-items-center">
+            <div id="btn-notifi" class="nav-bar-icon nav d-flex justify-content-center align-items-center">
+              <i id="icon-bell-noti-nav" class="fa-solid fa-bell position-relative">
+                <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">
+                  1
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </i>
+            </div>
+            <div class="nav-bar-icon main d-flex justify-content-center align-items-center">
               <i class="fa-solid fa-bars"></i>
             </div>
         </div>
@@ -375,7 +376,7 @@
       }
     }
 
-    var navBarIcon = document.querySelector('#header .nav-bar-icon');
+    var navBarIcon = document.querySelector('#header .nav-bar-icon.main');
     const subNav = document.getElementById('nav-bar');
 
     navBarIcon.onclick = () => {
@@ -412,9 +413,9 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const btnNotifi = document.getElementById('btn-notifi');
-  const iconBelli = document.getElementById('bell-icon');
-  const boxNotification = document.querySelector(".box-notification .notifi-container");
+  const btnNotifi = document.querySelector('#btn-notifi.nav');
+  const iconBelli = document.getElementById('icon-bell-noti-nav');
+  const boxNotification = document.querySelector(".box-notification.mobile .notifi-container");
   const btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
   const boxBody = document.getElementById("body-app");
   btnNotifi.onclick = () => {
