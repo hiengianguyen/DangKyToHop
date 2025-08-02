@@ -343,7 +343,7 @@ input {
   border-bottom: 1px solid #ccc;
 }
 
-#btn-notifi {
+#btn-notifi:not(.nav) {
   position: fixed;
   right: 10px;
   top: 60px;
