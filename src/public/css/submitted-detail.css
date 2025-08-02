@@ -223,4 +223,7 @@ h4 {
   .btn-feature a.man {
     max-width: 100% !important; }
   .card-body .container.non img {
-    width: 18pc !important; } }
+    width: 18pc !important; }
+  #badge-main {
+    position: unset !important;
+    margin-bottom: 10px; } }

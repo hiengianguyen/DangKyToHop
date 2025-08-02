@@ -196,7 +196,7 @@
 
                     <div class="dash-height mx-3"></div>
                     <div class="card border-light mb-3">
-                        <div class="card-header">Phê duyệt:</div>
+                        <div class="card-header">Trạng thái:</div>
                         <div class="card-body">
                             <div class="radios-is-approve">
                                 <div id="radios-is-approve" class="gap-3">
@@ -208,16 +208,23 @@
                                     </div>
 
                                     <div class="form-check form-check-inline mb-2 me-2">
-                                        <input class="form-check-input" type="radio" name="isApprove" value="true">
+                                        <input class="form-check-input" type="radio" name="isApprove" value="submitted">
+                                        <label class="form-check-label">
+                                            Đã nộp
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline mb-2 me-2">
+                                        <input class="form-check-input" type="radio" name="isApprove" value="approved">
                                         <label class="form-check-label">
                                             Đã phê duyệt
                                         </label>
                                     </div>
 
                                     <div class="form-check form-check-inline mb-2 me-0">
-                                        <input class="form-check-input" type="radio" name="isApprove" value="false">
+                                        <input class="form-check-input" type="radio" name="isApprove" value="reject">
                                         <label class="form-check-label">
-                                            Chưa phê duyệt
+                                            Không phê duyệt
                                         </label>
                                     </div>
                                 </div>
@@ -269,7 +276,7 @@
                 <div class="row" style="width: 100%;">
                     <div id="container-submitted" class="col-11 g-0" style="padding: 0;">
                         {{#each submitedList}}
-                            <div class="card mb-3 m-2" value="{{this.id}}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
+                            <div class="card mb-3 m-2 position-relative" value="{{this.id}}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
                                 <div class="row g-0" style="position: relative;">
                                     <div class="img-box col-md-4 p-0 text-center d-flex flex-column">
                                         <img src="{{this.avatarLink}}" class="img-fluid avatar rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 14px;">
@@ -312,6 +319,9 @@
                                 </div>
                                 <div class="position-absolute" style="bottom: 10px;right: 15px;">
                                     <i title="Lưu hồ sơ này" value="{{this.id}}" class="fa-solid fa-bookmark save-doc-icon {{#if this.favourite}}saved{{/if}}"></i>
+                                </div>
+                                <div class="badge-card" style="background-color: {{colorBadge this.status}};">
+                                    <p class="m-0">{{textBadge this.status}}</p>
                                 </div>
                             </div>
                             {{else}}

@@ -116,15 +116,15 @@
                     </li>
                   </a>
                 {{/if}}
-                  <button class="p-0 btn-notification" title="Thông báo mới">
+                  <button class="p-0 btn-notification position-relative" title="Thông báo">
                     <li class="box my-1">
-                        <i id="icon-bell-noti" class="fa-solid fa-bell position-relative">
-                          <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
-                            <span class="visually-hidden">New alerts</span>
-                          </span>
-                        </i>
+                        <i id="icon-bell-noti" class="fa-solid fa-bell"></i>
                         <p class="text m-0">Thông báo</p>
                     </li>
+                    <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        1
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
                   </button>
               </ul>
             </div>
@@ -168,14 +168,14 @@
             </div>
             <div class="notifi-body pt-3">
               <div class="content position-relative">
-                <div class="img-box">
+                <div class="img-logo-box">
                   <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png">
                 </div>
                 <div class="note">
                   <p class="mb-2 fw-bold title">
                     Thông báo hồ sơ tuyển sinh!
                   </p>
-                  <p class="mb-2">Hồ sơ của bạn đã được phê duyệt, ăn mừng thôi.</p>
+                  <p class="mb-2">Hồ sơ của bạn đã được phê duyệt.</p>
                   <div class="card-footer-notifi d-flex align-items-center">
                     <p class="m-0"> 12:30 - 23/07/2025</p>
                   </div>
@@ -187,7 +187,7 @@
             </div>
           </div>
         </div>
-        <div class="box-notification">
+        <div class="box-notification mobile">
           <div id="btn-notifi">
             <i id="bell-icon" class="fa-solid fa-bell position-relative">
               <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
@@ -203,14 +203,14 @@
               </div>
               <div class="notifi-body pt-3">
                 <div class="content position-relative">
-                  <div class="img-box">
+                  <div class="img-logo-box">
                     <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png">
                   </div>
                   <div class="note">
                     <p class="mb-2 fw-bold title">
                       Thông báo hồ sơ tuyển sinh!
                     </p>
-                    <p class="mb-2">Hồ sơ của bạn đã được phê duyệt, ăn mừng thôi.</p>
+                    <p class="mb-2">Hồ sơ của bạn đã được phê duyệt.</p>
                     <div class="card-footer-notifi d-flex align-items-center">
                       <p class="m-0"> 12:30 - 23/07/2025</p>
                     </div>
@@ -301,7 +301,11 @@
       popupNotifi.style.display = "none";
     }
 
-    btnNotificationSidebar.onmousemove = () => {
+    btnNotificationSidebar.onclick = () => {
+      const quantityNotifi = btnNotificationSidebar.querySelector("#quantity-notifi");
+      if(quantityNotifi) {
+        quantityNotifi.remove();
+      }
       iconBell.innerHTML = '';
       popupNotifi.classList.remove("hidden");
       btnCloseNotifi.style.display = "block";

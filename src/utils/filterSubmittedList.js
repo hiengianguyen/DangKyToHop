@@ -63,10 +63,23 @@ function filterSubmittedList(data) {
 
   //filter Approve
   if (valueRadioApprove !== "all") {
-    valueRadioApprove = valueRadioApprove === "true";
-    result = result.filter((doc) => {
-      return doc.isApprove === valueRadioApprove;
-    });
+    switch (valueRadioApprove) {
+      case "approved":
+        result = result.filter((doc) => {
+          return doc.status === valueRadioApprove;
+        });
+        break;
+      case "reject":
+        result = result.filter((doc) => {
+          return doc.status === valueRadioApprove;
+        });
+        break;
+      default:
+        result = result.filter((doc) => {
+          return doc.status === valueRadioApprove;
+        });
+        break;
+    }
   }
 
   if (result.length === 0) {

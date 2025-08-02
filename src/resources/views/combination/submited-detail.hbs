@@ -15,11 +15,12 @@
             </div>
         </div>
     </div>
-
+    
     <div class="box-radius shadow">
         <div class="card-body" style="display: none;">
             {{#if submitedCombinationDetail}}
-                <div class="container">
+                <div class="container position-relative">
+                    <span id="badge-main" class="badge text-bg-{{badge.typeBadge}} py-2 px-3 fs-6 position-absolute shadow" style="top:0;right:0;">{{badge.status}}</span>
                     <legend class="mb-4 fw-bold">HỒ SƠ ĐĂNG KÝ VÀO LỚP 10</legend>
 
                     <div class="d-flex box">
@@ -314,13 +315,13 @@
                     </div>
                     <div class="row btn-feature justify-content-center gap-3 mt-4 mx-auto">
                         {{#if (eq role 'student')}}
-                            <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center col">Chỉnh sửa</a>
-                            <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center col">Xoá hồ sơ</button>
+                            <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center col" {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}>Chỉnh sửa</a>
+                            <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center col" {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}>Xoá hồ sơ</button>
                             <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank">Hồ sơ PDF</a>
                         {{else}}
                             <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank">Hồ sơ PDF</a>
-                            <button id="btn-reject-document" href="/combination/submited-reject/{{submitedCombinationDetail.userId}}" class="btn btn-danger d-flex justify-content-center align-items-center col">Không phê duyệt</button>
-                            <button id="btn-approve-document" href="/combination/submited-approve/{{submitedCombinationDetail.userId}}" class="btn btn-primary d-flex justify-content-center align-items-center col">Phê duyệt</button>
+                            <button id="btn-reject-document" href="/combination/submited-reject/{{submitedCombinationDetail.userId}}" class="btn btn-danger d-flex justify-content-center align-items-center col" {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}>Không phê duyệt</button>
+                            <button id="btn-approve-document" href="/combination/submited-approve/{{submitedCombinationDetail.userId}}" class="btn btn-primary d-flex justify-content-center align-items-center col" {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}>Phê duyệt</button>
                         {{/if}}
                     </div>
                 </div>
@@ -425,6 +426,7 @@
         window.fetchAsync = fetchAsync;
         const btnRejectDocument = document.getElementById("btn-reject-document");
         const btnApproveDocument = document.getElementById("btn-approve-document");
+        const badge = document.querySelector("span#badge-main");
 
         btnApproveDocument.onclick = btnRejectDocument.onclick = async (e) => {
             const btn = e.target;
@@ -436,6 +438,8 @@
             const userId = strUrls[strUrls.length-1];
             const result = await fetchAsync(url, 'POST', { userId: userId }, null, true);
             const textMessage = result.message;
+            badge.classList.add("text-bg-" + result.typeBadge);
+            badge.innerHTML = result.status;
             if(result.isSuccess) {
                 toastMessage("Thông báo", textMessage, "success", 6000, "✅", 1000);
             } else {
@@ -443,6 +447,8 @@
             }
             btn.textContent = textOfBtn;
             btn.disabled = false;
+            btnApproveDocument.disabled = true;
+            btnRejectDocument.disabled = true;
         }
     </script>
 {{else}}

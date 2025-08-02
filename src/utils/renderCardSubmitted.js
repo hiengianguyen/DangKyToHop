@@ -9,6 +9,21 @@ function renderCardSubmitted(parentElement, data) {
   parentElement.innerHTML = "";
   parentElement.innerHTML = data
     .map((doc) => {
+      let colorBadge, textBadge;
+      switch (doc.status) {
+        case "approved":
+          colorBadge = "#198754";
+          textBadge = "Đã phê duyệt";
+          break;
+        case "reject":
+          colorBadge = "#dc3545";
+          textBadge = "Không phê duyệt";
+          break;
+        default:
+          colorBadge = "#6c757d";
+          textBadge = "Đã nộp";
+          break;
+      }
       return `
             <div class="card mb-3 m-2" value="${doc.id}" style="width: 17.8pc;font-size: 12px;height: 14pc;">
                 <div class="row g-0" style="position: relative;">
@@ -53,6 +68,9 @@ function renderCardSubmitted(parentElement, data) {
                 </div>
                 <div class="position-absolute" style="bottom: 10px;right: 15px;">
                     <i title="Lưu hồ sơ này" value="${doc.id}" class="fa-solid fa-bookmark save-doc-icon ${doc.favourite ? "saved" : ""}"></i>
+                </div>
+                <div class="badge-card" style="background-color: ${colorBadge};">
+                    <p class="m-0">${textBadge}</p>
                 </div>
             </div>
         `;
