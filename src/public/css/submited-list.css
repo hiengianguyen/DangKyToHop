@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .sidebar-content .home .d-flex {
   height: auto !important; }
 
@@ -121,6 +122,29 @@
 .radios-fil {
   align-items: start; }
 
+#container-submitted .badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid;
+  font-weight: 500;
+  display: inline-block; }
+
+#container-submitted .badge-rejected {
+  background-color: #fff1f0;
+  color: #f5222d;
+  border-color: #f5222d; }
+
+#container-submitted .badge-approved {
+  background-color: #f6ffed;
+  color: #3ebc00;
+  border-color: #4ed10c; }
+
+#container-submitted .badge-submitted {
+  background-color: #f5f5f5;
+  color: #595959;
+  border-color: #6b6b6b; }
+
 .container-submited-list .title {
   justify-content: space-between; }
 
@@ -162,6 +186,34 @@
   background-color: #6c757d;
   padding: 0 25px;
   clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%); }
+
+.name-status {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-weight: 600; }
+
+.name-status > h6 {
+  font-size: 18px;
+  white-space: nowrap;
+  /* Không xuống dòng */
+  overflow: hidden;
+  /* Ẩn phần tràn */
+  text-overflow: ellipsis;
+  width: 100%; }
+
+.details {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #333; }
+
+.details span {
+  font-weight: bold; }
+
+.details .time {
+  font-size: 11px;
+  color: #777; }
 
 @media (max-width: 955px) and (orientation: landscape) {
   .dash-height {
@@ -279,7 +331,7 @@
   #container-submitted .card > .row {
     width: max-content; }
   #container-submitted .card > .row > .col-md-8 {
-    width: 11pc; }
+    width: 14pc; }
   .row > .col-md-8 .nation {
     display: none; }
   #container-submitted .card > .card-body {
@@ -304,4 +356,11 @@
   .not-data p {
     text-align: center; }
   .infor-quantity p {
-    font-size: 15px; } }
+    font-size: 15px; }
+  .details span.main {
+    overflow-x: scroll;
+    padding-right: 16px; }
+  .name-status > h6 {
+    text-overflow: unset;
+    overflow-x: scroll;
+    padding-right: 12px; } }

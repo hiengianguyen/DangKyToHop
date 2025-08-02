@@ -480,7 +480,7 @@ class CombinationController {
     });
     const submittedId = docSubmited.id;
     await this.registeredCombinationsDbRef.updateItem(submittedId, {
-      status: "reject"
+      status: "rejected"
     });
 
     return res.json({
