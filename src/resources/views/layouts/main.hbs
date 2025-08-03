@@ -308,9 +308,14 @@
         quantityNotifi.remove();
       }
       iconBell.innerHTML = '';
-      popupNotifi.classList.remove("hidden");
-      btnCloseNotifi.style.display = "block";
-      popupNotifi.style.display = "block";
+      popupNotifi.classList.toggle("hidden");
+      if(popupNotifi.className.includes("hidden")) {
+        btnCloseNotifi.style.display = "none";
+        popupNotifi.style.display = "none";
+      } else {
+        btnCloseNotifi.style.display = "block";
+        popupNotifi.style.display = "block";
+      }
     }
     
      window.addEventListener('load', function () {
@@ -380,6 +385,7 @@
     const subNav = document.getElementById('nav-bar');
 
     navBarIcon.onclick = () => {
+      btnCloseNotifiBox.onclick();
       header.classList.remove('shadow');
       subNav.classList.toggle('active');
     }
@@ -419,10 +425,16 @@
   const btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
   const boxBody = document.getElementById("body-app");
   btnNotifi.onclick = () => {
+    subNav.classList.remove('active');
     if(iconBelli.innerHTML !== "") iconBelli.innerHTML = "";
-    boxNotification.style.display = "block";
-    boxNotification.classList.remove("hidden");
-    boxBody.style.position = "fixed";
+    boxNotification.classList.toggle("hidden");
+    if(boxNotification.className.includes("hidden")) {
+      boxNotification.style.display = "none";
+      boxBody.style.position = "unset";
+    } else {
+      boxNotification.style.display = "block";
+      boxBody.style.position = "fixed";
+    }
   }
 
   btnCloseNotifiBox.onclick = () => {
