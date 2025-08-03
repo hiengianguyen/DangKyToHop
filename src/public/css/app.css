@@ -3,6 +3,10 @@
   margin: 0;
   padding: 0; }
 
+*::selection {
+  color: #fff;
+  background-color: #29a9ef; }
+
 .invalid span {
   color: red; }
 
