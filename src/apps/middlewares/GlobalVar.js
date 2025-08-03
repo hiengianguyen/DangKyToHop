@@ -7,6 +7,9 @@ module.exports = async (req, res, next) => {
 
   let user, submited;
   const userId = req?.cookies?.userId;
+  if (userId === "") {
+    return next();
+  }
 
   Promise.all([
     (user = await userDbRef.getItemById(userId)),
@@ -15,13 +18,11 @@ module.exports = async (req, res, next) => {
     }))
   ]);
 
-  if (user) {
-    res.locals.user = user;
-    res.locals.fullName = user.fullName;
-    res.locals.role = user.role;
-  }
   res.locals.isLogin = req?.cookies?.isLogin === "true";
   res.locals.avatar = req?.cookies?.avatar;
+  res.locals.user = user;
+  res.locals.fullName = user.fullName;
+  res.locals.role = user.role;
   res.locals.userId = userId;
   res.locals.submited = submited;
   next();
