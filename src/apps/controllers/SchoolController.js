@@ -38,15 +38,11 @@ class SchoolController {
       });
 
       return res.render("school/school-detail", {
-        avatar: req?.cookies?.avatar,
         studentAchievements: studentAchievementsSorted,
         imgStudentDancings: imgStudentDancings,
         imgStudentCampings: imgStudentCampings,
         imgStudentActivitys: imgStudentActivitys,
-        highSchool: highSchool,
-        signin: req?.cookies?.isLogin,
-        userId: req?.cookies?.userId,
-        role: req?.cookies?.role
+        highSchool: highSchool
       });
     } else {
       return res.redirect("/");
@@ -55,12 +51,7 @@ class SchoolController {
 
   async contact(req, res, next) {
     if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
-      return res.render("school/contact", {
-        avatar: req?.cookies?.avatar,
-        signin: req?.cookies?.isLogin,
-        userId: req?.cookies?.userId,
-        role: req?.cookies?.role
-      });
+      return res.render("school/contact");
     } else {
       return res.redirect("/");
     }

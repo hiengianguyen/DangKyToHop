@@ -136,11 +136,9 @@ class CombinationController {
       });
 
       return res.render("combination/submited-list", {
-        avatar: req?.cookies?.avatar,
         quantity: data.length,
         submitedList: data,
         submitedListData: JSON.stringify(data),
-        role: req?.cookies?.role,
         isSavedPage: false
       });
     } else {
@@ -176,10 +174,7 @@ class CombinationController {
       }
 
       return res.render("combination/submited-detail", {
-        avatar: req?.cookies?.avatar,
         submitedCombinationDetail: data,
-        role: req?.cookies?.role,
-        userId: req?.cookies?.userId,
         showToast: req?.query?.toastmessage === "true",
         badge: badge
       });
@@ -230,16 +225,12 @@ class CombinationController {
       return res.render("combination/submit-combination", {
         combinations: combinations,
         nations: nations,
-        avatar: req?.cookies?.avatar,
         subjects: subjects,
         districts: districts,
         secondarySchools: JSON.stringify(secondarySchools),
-        signin: req?.cookies?.isLogin,
-        role: req?.cookies?.role,
         step: step,
         submitedDetail: docSubmited || false,
-        isEdit: docSubmited ? true : false,
-        userId: req?.cookies?.userId
+        isEdit: docSubmited ? true : false
       });
     } else {
       return res.redirect("/");
@@ -308,10 +299,8 @@ class CombinationController {
     }
 
     return res.render("combination/submited-list", {
-      avatar: req?.cookies?.avatar,
       submitedList: allDocSubmittedSaved,
       submitedListData: JSON.stringify(allDocSubmittedSaved),
-      role: req?.cookies?.role,
       isSavedPage: true
     });
   }
@@ -389,9 +378,6 @@ class CombinationController {
       classesCapacitys = classesCapacitys.map((max, i) => max - countCombinaton1[i]);
 
       return res.render("combination/submited-chart", {
-        avatar: req?.cookies?.avatar,
-        role: req?.cookies?.role,
-        userId: req?.cookies?.userId,
         countCombinaton1: JSON.stringify(countCombinaton1),
         countCombinaton2: JSON.stringify(countCombinaton2),
         classesCapacitys: JSON.stringify(classesCapacitys),
@@ -424,7 +410,6 @@ class CombinationController {
         combination.optionalSubjects = subjects.filter((subject) => optionalSubjects.includes(subject.name));
       });
       return res.render("combination/combination-table", {
-        avatar: req?.cookies?.avatar,
         combinations: combinations,
         showToast: req?.query?.toastmessage === "true"
       });
