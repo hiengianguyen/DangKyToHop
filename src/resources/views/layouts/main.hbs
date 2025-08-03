@@ -427,9 +427,14 @@
   btnNotifi.onclick = () => {
     subNav.classList.remove('active');
     if(iconBelli.innerHTML !== "") iconBelli.innerHTML = "";
-    boxNotification.style.display = "block";
-    boxNotification.classList.remove("hidden");
-    boxBody.style.position = "fixed";
+    boxNotification.classList.toggle("hidden");
+    if(boxNotification.className.includes("hidden")) {
+      boxNotification.style.display = "none";
+      boxBody.style.position = "unset";
+    } else {
+      boxNotification.style.display = "block";
+      boxBody.style.position = "fixed";
+    }
   }
 
   btnCloseNotifiBox.onclick = () => {
