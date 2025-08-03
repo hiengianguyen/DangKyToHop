@@ -18,12 +18,15 @@ module.exports = async (req, res, next) => {
     }))
   ]);
 
+  if (user) {
+    res.locals.user = user;
+    res.locals.fullName = user.fullName;
+    res.locals.role = user.role;
+    res.locals.userId = userId;
+  }
+
   res.locals.isLogin = req?.cookies?.isLogin === "true";
   res.locals.avatar = req?.cookies?.avatar;
-  res.locals.user = user;
-  res.locals.fullName = user.fullName;
-  res.locals.role = user.role;
-  res.locals.userId = userId;
   res.locals.submited = submited;
   next();
 };
