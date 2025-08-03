@@ -163,7 +163,7 @@ class CombinationController {
           badge.status = "Đã phê duyệt";
           badge.typeBadge = "success";
           break;
-        case "reject":
+        case "rejected":
           badge.status = "Không phê duyệt";
           badge.typeBadge = "danger";
           break;
