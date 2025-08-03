@@ -381,14 +381,15 @@
 </form>
 
 <script src="/renderCardSubmitted.js"></script>
-<script src="/convertVietnameseDatetimeToDate.js"></script>
 
 <script type="module">
     import { fetchAsync } from '/fetchAsync.js';
     import { filterSubmittedList } from '/filterSubmittedList.js';
+    import { convertVietnameseDatetimeToDateFe } from '/convertVietnameseDatetimeToDateFe.js';
     // Gắn fetchAsync vào window để gọi được từ HTML
     window.fetchAsync = fetchAsync;
     window.filterSubmittedList = filterSubmittedList;
+    window.convertVietnameseDatetimeToDateFe = convertVietnameseDatetimeToDateFe;
 
     const data = {{{submitedListData}}};
     const btnSearchName = document.getElementById('search-name-btn');
@@ -548,9 +549,9 @@
                     case 9:
                         result.sort((a, b) => {
                             if(valueTypeSort === 'asc') {
-                                return convertVietnameseDatetimeToDate(a.registeredAt) - convertVietnameseDatetimeToDate(b.registeredAt);
+                                return convertVietnameseDatetimeToDateFe(a.registeredAt) - convertVietnameseDatetimeToDateFe(b.registeredAt);
                             } else {
-                                return convertVietnameseDatetimeToDate(b.registeredAt) - convertVietnameseDatetimeToDate(a.registeredAt);
+                                return convertVietnameseDatetimeToDateFe(b.registeredAt) - convertVietnameseDatetimeToDateFe(a.registeredAt);
                             }
                         });
                         renderCardSubmitted(containerSubmitted, result);

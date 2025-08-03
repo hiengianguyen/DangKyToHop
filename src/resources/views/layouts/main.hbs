@@ -299,6 +299,7 @@
   <script>
     let navBarIcon = document.querySelector('#header .nav-bar-icon.main');
     let btnNotifi = document.querySelector('#btn-notifi.nav');
+    let subNav = document.getElementById('nav-bar');
     const iconBelli = document.getElementById('icon-bell-noti-nav');
     const boxNotification = document.querySelector(".box-notification.mobile .notifi-container");
     let btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
@@ -358,6 +359,38 @@
         }
       }
     }
+
+    navBarIcon.onclick = () => {
+      if(btnNotifi) {
+        btnNotifi.classList.remove('active');
+      }
+      navBarIcon.classList.toggle("active");
+      let btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
+      if(btnCloseNotifiBox) {
+        btnCloseNotifiBox.onclick();
+      }
+      header.classList.remove('shadow');
+      subNav.classList.toggle('active');
+    }
+  </script>
+  {{else}}
+    <script>
+      let subNav = document.getElementById('nav-bar');
+      let navBarIcon = document.querySelector('#header .nav-bar-icon.main');
+      let btnNotifi = document.querySelector('#btn-notifi.nav');
+
+      navBarIcon.onclick = () => {
+        if(btnNotifi) {
+          btnNotifi.classList.remove('active');
+        }
+        navBarIcon.classList.toggle("active");
+        let btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
+        if(btnCloseNotifiBox) {
+          btnCloseNotifiBox.onclick();
+        }
+        header.classList.remove('shadow');
+        subNav.classList.toggle('active');
+      }
   </script>
 {{/if}}
 
@@ -442,21 +475,6 @@
           popupNotifi.style.marginLeft = "280px"
         }
       }
-    }
-
-    const subNav = document.getElementById('nav-bar');
-
-    navBarIcon.onclick = () => {
-      if(btnNotifi) {
-        btnNotifi.classList.remove('active');
-      }
-      navBarIcon.classList.toggle("active");
-      let btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
-      if(btnCloseNotifiBox) {
-        btnCloseNotifiBox.onclick();
-      }
-      header.classList.remove('shadow');
-      subNav.classList.toggle('active');
     }
   </script>
 {{/if}}
