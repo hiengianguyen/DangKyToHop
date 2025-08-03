@@ -297,12 +297,15 @@
 
 {{#if (eq role 'student')}}
   <script>
-    const btnNotifi = document.querySelector('#btn-notifi.nav');
+    let navBarIcon = document.querySelector('#header .nav-bar-icon.main');
+    let btnNotifi = document.querySelector('#btn-notifi.nav');
     const iconBelli = document.getElementById('icon-bell-noti-nav');
     const boxNotification = document.querySelector(".box-notification.mobile .notifi-container");
     let btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
     const boxBody = document.getElementById("body-app");
     btnNotifi.onclick = () => {
+      btnNotifi.classList.toggle("active");
+      navBarIcon.classList.remove('active');
       subNav.classList.remove('active');
       if(iconBelli.innerHTML !== "") iconBelli.innerHTML = "";
       boxNotification.classList.toggle("hidden");
@@ -316,6 +319,7 @@
     }
 
     btnCloseNotifiBox.onclick = () => {
+      btnNotifi.classList.remove("active");
       boxNotification.classList.add("hidden");
       boxNotification.style.display = "none";
       boxBody.style.position = "unset";
@@ -431,10 +435,13 @@
       }
     }
 
-    var navBarIcon = document.querySelector('#header .nav-bar-icon.main');
     const subNav = document.getElementById('nav-bar');
 
     navBarIcon.onclick = () => {
+      if(btnNotifi) {
+        btnNotifi.classList.remove('active');
+      }
+      navBarIcon.classList.toggle("active");
       let btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
       if(btnCloseNotifiBox) {
         btnCloseNotifiBox.onclick();
@@ -453,6 +460,10 @@
           header.classList.add('shadow');
           if(navBar) {
             navBar.classList.remove('active'); 
+          }
+
+          if(navBarIcon) {
+            navBarIcon.classList.remove('active'); 
           }
       } else {
           header.classList.remove('shadow');

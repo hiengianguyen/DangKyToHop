@@ -265,7 +265,7 @@ input {
   height: 100%;
   width: 55px; }
 
-#header .nav-bar-icon:active {
+#header .nav-bar-icon.active {
   color: #ffffff;
   background-color: #7b7b7b; }
 
