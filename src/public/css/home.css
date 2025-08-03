@@ -282,6 +282,9 @@
 .box-content-info .ds-data h2 {
   font-size: 40px; }
 
+#btn-notifi.nav {
+  display: none !important; }
+
 @keyframes brul {
   from {
     backdrop-filter: blur(0); }
@@ -470,7 +473,8 @@
     display: flex !important;
     -webkit-flex-direction: column !important;
     flex-direction: column !important;
-    gap: 0; }
+    gap: 0;
+    font-size: 18px; }
   .trophi-container ul li {
     display: flex;
     flex-direction: column;
