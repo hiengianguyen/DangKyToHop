@@ -303,50 +303,59 @@
     const boxNotification = document.querySelector(".box-notification.mobile .notifi-container");
     let btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
     const boxBody = document.getElementById("body-app");
-    btnNotifi.onclick = () => {
-      btnNotifi.classList.toggle("active");
-      navBarIcon.classList.remove('active');
-      subNav.classList.remove('active');
-      if(iconBelli.innerHTML !== "") iconBelli.innerHTML = "";
-      boxNotification.classList.toggle("hidden");
-      if(boxNotification.className.includes("hidden")) {
-        boxNotification.style.display = "none";
-        boxBody.style.position = "unset";
-      } else {
-        boxNotification.style.display = "block";
-        boxBody.style.position = "fixed";
+    if(btnNotifi) {
+      btnNotifi.onclick = () => {
+        btnNotifi.classList.toggle("active");
+        navBarIcon.classList.remove('active');
+        subNav.classList.remove('active');
+        if(iconBelli.innerHTML !== "") iconBelli.innerHTML = "";
+        boxNotification.classList.toggle("hidden");
+        if(boxNotification.className.includes("hidden")) {
+          boxNotification.style.display = "none";
+          boxBody.style.position = "unset";
+        } else {
+          boxNotification.style.display = "block";
+          boxBody.style.position = "fixed";
+        }
       }
     }
 
-    btnCloseNotifiBox.onclick = () => {
-      btnNotifi.classList.remove("active");
-      boxNotification.classList.add("hidden");
-      boxNotification.style.display = "none";
-      boxBody.style.position = "unset";
+    if(btnCloseNotifiBox) {
+      btnCloseNotifiBox.onclick = () => {
+        btnNotifi.classList.remove("active");
+        boxNotification.classList.add("hidden");
+        boxNotification.style.display = "none";
+        boxBody.style.position = "unset";
+      }
     }
+
     const btnNotificationSidebar = document.querySelector(".btn-notification");
     const btnCloseNotifi = document.querySelector(".notifi-container .btn-close");
     const iconBell = document.getElementById('icon-bell-noti');
 
-    btnCloseNotifi.onclick = () => {
-      popupNotifi.classList.add("hidden");
-      btnCloseNotifi.style.display = "none";
-      popupNotifi.style.display = "none";
-    }
-
-    btnNotificationSidebar.onclick = () => {
-      const quantityNotifi = btnNotificationSidebar.querySelector("#quantity-notifi");
-      if(quantityNotifi) {
-        quantityNotifi.remove();
-      }
-      iconBell.innerHTML = '';
-      popupNotifi.classList.toggle("hidden");
-      if(popupNotifi.className.includes("hidden")) {
+    if(btnCloseNotifi) {
+      btnCloseNotifi.onclick = () => {
+        popupNotifi.classList.add("hidden");
         btnCloseNotifi.style.display = "none";
         popupNotifi.style.display = "none";
-      } else {
-        btnCloseNotifi.style.display = "block";
-        popupNotifi.style.display = "block";
+      }
+    }
+
+    if(btnNotificationSidebar) {
+      btnNotificationSidebar.onclick = () => {
+        const quantityNotifi = btnNotificationSidebar.querySelector("#quantity-notifi");
+        if(quantityNotifi) {
+          quantityNotifi.remove();
+        }
+        iconBell.innerHTML = '';
+        popupNotifi.classList.toggle("hidden");
+        if(popupNotifi.className.includes("hidden")) {
+          btnCloseNotifi.style.display = "none";
+          popupNotifi.style.display = "none";
+        } else {
+          btnCloseNotifi.style.display = "block";
+          popupNotifi.style.display = "block";
+        }
       }
     }
   </script>
