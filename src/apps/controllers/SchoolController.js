@@ -10,24 +10,22 @@ class SchoolController {
 
   async index(req, res, next) {
     if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
-      let highSchool, imgStudentDancings, imgStudentCampings, imgStudentActivitys, imgStudentAchievements;
-
-      await Promise.all([
-        (highSchool = await this.highSchoolDbRef.getItemByFilter({
+      let [highSchool, imgStudentDancings, imgStudentCampings, imgStudentActivitys, imgStudentAchievements] = await Promise.all([
+        this.highSchoolDbRef.getItemByFilter({
           name: "Trường THPT Duy Tân"
-        })),
-        (imgStudentDancings = await this.imageActivityDbRef.getItemsByFilter({
+        }),
+        this.imageActivityDbRef.getItemsByFilter({
           type: "dance"
-        })),
-        (imgStudentCampings = await this.imageActivityDbRef.getItemsByFilter({
+        }),
+        this.imageActivityDbRef.getItemsByFilter({
           type: "camp"
-        })),
-        (imgStudentActivitys = await this.imageActivityDbRef.getItemsByFilter({
+        }),
+        this.imageActivityDbRef.getItemsByFilter({
           type: "activity"
-        })),
-        (imgStudentAchievements = await this.imageActivityDbRef.getItemsByFilter({
+        }),
+        this.imageActivityDbRef.getItemsByFilter({
           type: "achievement"
-        }))
+        })
       ]);
 
       const studentAchievementsSorted = imgStudentAchievements.sort((a, b) => {

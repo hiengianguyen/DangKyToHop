@@ -46,8 +46,8 @@ class MeController {
 
       try {
         await Promise.all([
-          await this.userDbRef.updateItem(req?.cookies?.userId, formData),
-          await res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true })
+          this.userDbRef.updateItem(req?.cookies?.userId, formData),
+          res.cookie("fullName", fullName, { maxAge: 604800000, httpOnly: true })
         ]);
         return res.json({
           message: "Cập nhật trang cá nhân thành công",
