@@ -132,18 +132,21 @@
 
 #container-submitted .badge-rejected {
   background-color: #fff1f0;
-  color: #f5222d;
-  border-color: #f5222d; }
+  color: #c20d16;
+  border-color: #f5222d;
+  box-shadow: 0 0 3px #f5222d !important; }
 
 #container-submitted .badge-approved {
   background-color: #f6ffed;
-  color: #3ebc00;
-  border-color: #4ed10c; }
+  color: #329600;
+  border-color: #4ed10c;
+  box-shadow: 0 0 3px #3ebc00 !important; }
 
 #container-submitted .badge-submitted {
   background-color: #f5f5f5;
   color: #595959;
-  border-color: #6b6b6b; }
+  border-color: #6b6b6b;
+  box-shadow: 0 0 3px #6b6b6b !important; }
 
 .container-submited-list .title {
   justify-content: space-between; }
@@ -322,9 +325,11 @@
   .box-radius {
     margin: 0 !important; }
   #container-submitted img.avatar {
-    width: 6pc; }
+    width: 100%; }
   #container-submitted .card .img-box {
-    width: auto; }
+    width: 98px; }
+  #container-submitted .d-flex > .col-md-8 {
+    width: 231px; }
   .container-submited-list > .row {
     justify-content: center;
     width: auto !important; }

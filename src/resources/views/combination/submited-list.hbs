@@ -277,12 +277,12 @@
                     <div id="container-submitted" class="col-11 g-0" style="padding: 0;">
                         {{#each submitedList}}
                             <div class="card mb-3 m-2 position-relative" value="{{this.id}}" style="width: 22pc;font-size: 12px;">
-                                <div class="row g-0" style="position: relative;">
+                                <div class="d-flex g-0" style="position: relative;">
                                     <div class="img-box col-md-4 p-0 text-center d-flex flex-column">
-                                        <img src="{{this.avatarLink}}" class="img-fluid avatar rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="margin-left: 14px; max-width:90%;">
+                                        <img src="{{this.avatarLink}}" class="img-fluid avatar rounded-end border border-dark-subtle" alt="{{this.fullName}}" style="max-width:90%;">
                                     </div>
-                                    <div class="col-md-8 ps-0 position-relative">
-                                        <div class="card-body pt-2 pb-3 pe-2">
+                                    <div class="col-md-8 px-0 position-relative">
+                                        <div class="card-body pt-2 pb-3 px-2">
                                             <div class="name-status mb-2">
                                                 <p class="m-0">Họ và tên:</p>
                                                 <h6 class="card-title m-0" title="{{this.fullName}}">{{this.fullName}}</h6>
@@ -294,13 +294,13 @@
                                                     <p class="mb-0 mx-2" title="Ngày sinh: {{this.dateOfBirth}}">{{this.dateOfBirth}}</p> • 
                                                     <p class="mb-0 ms-2" title="Dân tộc: {{this.nation}}">{{this.nation}}</p>
                                                 </span>
-                                                <span title="Nguyện vọng 1: {{this.combination1}}">NV1: {{this.combination1}}</span>
-                                                <span title="Nguyện vọng 2: {{this.combination2}}">NV2: {{this.combination2}}</span>
+                                                <span title="Nguyện vọng 1: {{this.combination1}}">Nguyện vọng 1: {{this.combination1}}</span>
+                                                <span title="Nguyện vọng 2: {{this.combination2}}">Nguyện vọng 2: {{this.combination2}}</span>
                                                 <span class="time" title="Đăng ký lúc: {{this.registeredAt}}">{{this.registeredAt}}</span>
                                             </div>
                                             <a href="/combination/submited-detail/{{this.userId}}" class="btn btn-primary mt-2" style="width: max-content;font-size: 12px;">Xem thông tin</a>
                                         </div>
-                                        <span class="badge badge-{{this.status}} position-absolute" title="Trạng thái" style="top: 8px; right:25px;">{{textBadge this.status}}</span>
+                                        <span class="badge badge-{{this.status}} position-absolute" title="Trạng thái" style="top: 8px; right:8px;">{{textBadge this.status}}</span>
                                     </div>
                                 </div>
                                 <div class="position-absolute" style="bottom: 10px;right: 15px;">
