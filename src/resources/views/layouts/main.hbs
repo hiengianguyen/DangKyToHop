@@ -90,6 +90,16 @@
                         <p class="text m-0">Hồ sơ đã nộp</p>
                     </li>
                   </a>
+                  <button class="p-0 btn-notification position-relative" title="Thông báo">
+                    <li class="box my-1">
+                        <i id="icon-bell-noti" class="fa-solid fa-bell"></i>
+                        <p class="text m-0">Thông báo</p>
+                    </li>
+                    <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        1
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                  </button>
                 {{else}}
                   <a href="/combination/submited-list" title="Danh sách đăng ký" class="p-0">
                     <li class="box my-1" value="Danh sách đăng ký">
@@ -116,16 +126,6 @@
                     </li>
                   </a>
                 {{/if}}
-                  <button class="p-0 btn-notification position-relative" title="Thông báo">
-                    <li class="box my-1">
-                        <i id="icon-bell-noti" class="fa-solid fa-bell"></i>
-                        <p class="text m-0">Thông báo</p>
-                    </li>
-                    <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        1
-                        <span class="visually-hidden">unread messages</span>
-                      </span>
-                  </button>
               </ul>
             </div>
             <div class="dash my-3"></div>
@@ -160,62 +160,72 @@
             </div>
           </div>
         </div>
-        <div class="notifi-container pc shadow hidden">
-          <div class="box-noti">
-            <div class="notifi-header border-bottom py-3">
-              <h5 class="m-0" style="height: 40px;display: flex;align-items: center;gap: 10px;">Thông báo <i class="fa-solid fa-bell"></i></h5>
-              <button type="button" class="btn-close" aria-label="Close"></button>
-            </div>
-            <div class="notifi-body pt-3">
-              <div class="content position-relative">
-                <div class="img-logo-box">
-                  <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png">
-                </div>
-                <div class="note">
-                  <p class="mb-2 fw-bold title">
-                    Thông báo hồ sơ tuyển sinh!
-                  </p>
-                  <p class="mb-2">Hồ sơ của bạn đã được phê duyệt.</p>
-                  <div class="card-footer-notifi d-flex align-items-center">
-                    <p class="m-0"> 12:30 - 23/07/2025</p>
-                  </div>
-                </div>
-                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
-                  <span class="visually-hidden">New alerts</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="box-notification mobile">
-          <div class="notifi-container shadow hidden">
+        {{#if (eq role "student")}}
+          <div class="notifi-container pc shadow hidden">
             <div class="box-noti">
               <div class="notifi-header border-bottom py-3">
-                <h5 class="m-0" style="height: auto;display: flex;align-items: center;gap: 10px;font-size:15px;">Thông báo <i class="fa-solid fa-bell"></i></h5>
+                <h5 class="m-0" style="height: 40px;display: flex;align-items: center;gap: 10px;">Thông báo <i class="fa-solid fa-bell"></i></h5>
                 <button type="button" class="btn-close" aria-label="Close"></button>
               </div>
               <div class="notifi-body pt-3">
-                <div class="content position-relative">
-                  <div class="img-logo-box">
-                    <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png">
-                  </div>
-                  <div class="note">
-                    <p class="mb-2 fw-bold title">
-                      Thông báo hồ sơ tuyển sinh!
-                    </p>
-                    <p class="mb-2">Hồ sơ của bạn đã được phê duyệt.</p>
-                    <div class="card-footer-notifi d-flex align-items-center">
-                      <p class="m-0"> 12:30 - 23/07/2025</p>
+                {{#if (eq submited.status "approved")}}
+                  <a href="/combination/submited-detail/{{userId}}">
+                    <div class="content position-relative">
+                      <div class="img-logo-box">
+                        <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png">
+                      </div>
+                      <div class="note">
+                        <p class="mb-2 fw-bold title">
+                          Thông báo hồ sơ tuyển sinh!
+                        </p>
+                        <p class="mb-2">Hồ sơ của bạn đã được phê duyệt.</p>
+                        <div class="card-footer-notifi d-flex align-items-center">
+                          <p class="m-0"> 12:30 - 23/07/2025</p>
+                        </div>
+                      </div>
+                      <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                      </span>
                     </div>
-                  </div>
-                  <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
-                    <span class="visually-hidden">New alerts</span>
-                  </span>
+                  </a>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+          <div class="box-notification mobile">
+            <div class="notifi-container shadow hidden">
+              <div class="box-noti">
+                <div class="notifi-header border-bottom py-3">
+                  <h5 class="m-0" style="height: auto;display: flex;align-items: center;gap: 10px;font-size:15px;">Thông báo <i class="fa-solid fa-bell"></i></h5>
+                  <button type="button" class="btn-close" aria-label="Close"></button>
+                </div>
+                <div class="notifi-body pt-3">
+                {{#if (eq submited.status "approved")}}
+                  <a href="/combination/submited-detail/{{userId}}">
+                    <div class="content position-relative">
+                      <div class="img-logo-box">
+                        <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png">
+                      </div>
+                      <div class="note">
+                        <p class="mb-2 fw-bold title">
+                          Thông báo hồ sơ tuyển sinh!
+                        </p>
+                        <p class="mb-2">Hồ sơ của bạn đã được phê duyệt.</p>
+                        <div class="card-footer-notifi d-flex align-items-center">
+                          <p class="m-0"> 12:30 - 23/07/2025</p>
+                        </div>
+                      </div>
+                      <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                      </span>
+                    </div>
+                  </a>
+                {{/if}}
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        {{/if}}
       {{/if}}
       <div id="header">
         <div class="d-flex align-items-center" style="
@@ -234,14 +244,16 @@
                   </span>
               </div>
             </div>
-            <div id="btn-notifi" class="nav-bar-icon nav d-flex justify-content-center align-items-center">
-              <i id="icon-bell-noti-nav" class="fa-solid fa-bell position-relative">
-                <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">
-                  1
-                  <span class="visually-hidden">unread messages</span>
-                </span>
-              </i>
-            </div>
+            {{#if (eq role 'student')}}
+              <div id="btn-notifi" class="nav-bar-icon nav d-flex justify-content-center align-items-center">
+                <i id="icon-bell-noti-nav" class="fa-solid fa-bell position-relative">
+                  <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">
+                    1
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                </i>
+              </div>
+            {{/if}}
             <div class="nav-bar-icon main d-flex justify-content-center align-items-center">
               <i class="fa-solid fa-bars"></i>
             </div>
@@ -283,15 +295,31 @@
 </body>
 </html>
 
-{{#if (showSideBar isNotHomePage isNotSideBar)}}
+{{#if (eq role 'student')}}
   <script>
-    const mainSideBar = document.getElementById('sidebar');
-    const btnPushSidebar = document.getElementById('btn-push-sidebar');
-    const iconBtnSidebar = btnPushSidebar.getElementsByTagName('i')[0];
-    const bigContent = document.querySelector('.big-content');
-    const containerSubmitted = document.getElementById('container-submitted');
-    const app = document.getElementById('all-content');
-    const popupNotifi = document.querySelector(".notifi-container");
+    const btnNotifi = document.querySelector('#btn-notifi.nav');
+    const iconBelli = document.getElementById('icon-bell-noti-nav');
+    const boxNotification = document.querySelector(".box-notification.mobile .notifi-container");
+    let btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
+    const boxBody = document.getElementById("body-app");
+    btnNotifi.onclick = () => {
+      subNav.classList.remove('active');
+      if(iconBelli.innerHTML !== "") iconBelli.innerHTML = "";
+      boxNotification.classList.toggle("hidden");
+      if(boxNotification.className.includes("hidden")) {
+        boxNotification.style.display = "none";
+        boxBody.style.position = "unset";
+      } else {
+        boxNotification.style.display = "block";
+        boxBody.style.position = "fixed";
+      }
+    }
+
+    btnCloseNotifiBox.onclick = () => {
+      boxNotification.classList.add("hidden");
+      boxNotification.style.display = "none";
+      boxBody.style.position = "unset";
+    }
     const btnNotificationSidebar = document.querySelector(".btn-notification");
     const btnCloseNotifi = document.querySelector(".notifi-container .btn-close");
     const iconBell = document.getElementById('icon-bell-noti');
@@ -317,19 +345,32 @@
         popupNotifi.style.display = "block";
       }
     }
+  </script>
+{{/if}}
+
+{{#if (showSideBar isNotHomePage isNotSideBar)}}
+  <script>
+    const mainSideBar = document.getElementById('sidebar');
+    const btnPushSidebar = document.getElementById('btn-push-sidebar');
+    const iconBtnSidebar = btnPushSidebar.getElementsByTagName('i')[0];
+    const bigContent = document.querySelector('.big-content');
+    const containerSubmitted = document.getElementById('container-submitted');
+    const app = document.getElementById('all-content');
+    const popupNotifi = document.querySelector(".notifi-container");
     
      window.addEventListener('load', function () {
       if(mainSideBar.className === 'active') {
         if(containerSubmitted) {
           containerSubmitted.style.maxWidth = '88%';
         }
-
         if(bigContent) {
           bigContent.classList.remove('active');
         }
+        if(popupNotifi) {
+          popupNotifi.style.marginLeft = "80px";
+        }
         btnPushSidebar.title = 'Phóng to bảng điều hướng';
         iconBtnSidebar.className = 'fa-solid fa-arrow-right';
-        popupNotifi.style.marginLeft = "80px"
       } else {
         if(containerSubmitted) {
           containerSubmitted.style.maxWidth = '85%';
@@ -337,8 +378,9 @@
         if(bigContent) {
           bigContent.classList.add('active');
         }
-
-        popupNotifi.style.marginLeft = "280px"
+        if(popupNotifi) {
+          popupNotifi.style.marginLeft = "280px";
+        }
       }
       app.classList.remove('translate');
      })
@@ -346,10 +388,14 @@
     if(mainSideBar) {
       if(localStorage.getItem('isActive') === 'true') {
         mainSideBar.classList.add('active');
-        popupNotifi.style.marginLeft = "80px"
+        if(popupNotifi) {
+          popupNotifi.style.marginLeft = "80px";
+        }
       } else {
         mainSideBar.classList.remove('active');
-        popupNotifi.style.marginLeft = "280px"
+        if(popupNotifi) {
+          popupNotifi.style.marginLeft = "280px";
+        }
       }
     }
 
@@ -367,7 +413,9 @@
         }
         localStorage.setItem('isActive', true);
         btnPushSidebar.setAttribute("title", "Phóng to bảng điều hướng");
-        popupNotifi.style.marginLeft = "80px"
+        if(popupNotifi) {
+          popupNotifi.style.marginLeft = "80px"
+        }
       } else {
         if(containerSubmitted) {
           containerSubmitted.style.maxWidth = '85%';
@@ -377,7 +425,9 @@
         }
         localStorage.setItem('isActive', false)
         btnPushSidebar.setAttribute("title", "Thu nhỏ bảng điều hướng");
-        popupNotifi.style.marginLeft = "280px"
+        if(popupNotifi) {
+          popupNotifi.style.marginLeft = "280px"
+        }
       }
     }
 
@@ -385,7 +435,10 @@
     const subNav = document.getElementById('nav-bar');
 
     navBarIcon.onclick = () => {
-      btnCloseNotifiBox.onclick();
+      let btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
+      if(btnCloseNotifiBox) {
+        btnCloseNotifiBox.onclick();
+      }
       header.classList.remove('shadow');
       subNav.classList.toggle('active');
     }
@@ -418,28 +471,4 @@
   btnScrollTop.onclick = function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const btnNotifi = document.querySelector('#btn-notifi.nav');
-  const iconBelli = document.getElementById('icon-bell-noti-nav');
-  const boxNotification = document.querySelector(".box-notification.mobile .notifi-container");
-  const btnCloseNotifiBox = document.querySelector(".box-notification .btn-close");
-  const boxBody = document.getElementById("body-app");
-  btnNotifi.onclick = () => {
-    subNav.classList.remove('active');
-    if(iconBelli.innerHTML !== "") iconBelli.innerHTML = "";
-    boxNotification.classList.toggle("hidden");
-    if(boxNotification.className.includes("hidden")) {
-      boxNotification.style.display = "none";
-      boxBody.style.position = "unset";
-    } else {
-      boxNotification.style.display = "block";
-      boxBody.style.position = "fixed";
-    }
-  }
-
-  btnCloseNotifiBox.onclick = () => {
-    boxNotification.classList.add("hidden");
-    boxNotification.style.display = "none";
-    boxBody.style.position = "unset";
-  }
 </script>

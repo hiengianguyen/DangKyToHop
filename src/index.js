@@ -4,6 +4,7 @@ const express = require("express");
 const handlebars = require("express-handlebars");
 const cookieParser = require("cookie-parser");
 const app = express();
+const globalVars = require("./apps/middlewares/GlobalVar");
 
 require("dotenv").config();
 const port = process.env.PORT || 3000;
@@ -21,12 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "utils")));
 
-app.use((req, res, next) => {
-  res.locals.isLogin = req?.cookies?.isLogin === "true";
-  res.locals.fullName = req?.cookies?.fullName;
-  res.locals.avatar = req?.cookies?.avatar;
-  next();
-});
+app.use(globalVars);
 
 // Template engine
 app.engine(

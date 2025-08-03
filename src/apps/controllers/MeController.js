@@ -15,11 +15,6 @@ class MeController {
     if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
       const user = await this.userDbRef.getItemById(req?.cookies?.userId);
       return res.render("me/profile", {
-        user: user,
-        avatar: user.avatar,
-        signin: req?.cookies?.isLogin,
-        role: req?.cookies?.role,
-        userId: req?.cookies?.userId,
         showToast: req?.query?.toastmessage === "true"
       });
     } else {
@@ -30,13 +25,7 @@ class MeController {
   async edit(req, res, next) {
     if (req?.cookies?.isLogin === "true" && req?.cookies?.userId) {
       const user = await this.userDbRef.getItemById(req?.cookies?.userId);
-      return res.render("me/edit-profile", {
-        role: req?.cookies?.role,
-        user: user,
-        avatar: user.avatar,
-        signin: req?.cookies?.isLogin,
-        userId: req?.cookies?.userId
-      });
+      return res.render("me/edit-profile");
     } else {
       return res.redirect("/");
     }
