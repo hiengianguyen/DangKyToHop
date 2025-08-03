@@ -5,17 +5,16 @@ module.exports = async (req, res, next) => {
   const userDbRef = new FirestoreModel(CollectionNameConstant.Users, UserModel);
   const registeredCombinationsDbRef = new FirestoreModel(CollectionNameConstant.RegisteredCombinations, RegisteredCombinationModel);
 
-  let user, submited;
   const userId = req?.cookies?.userId;
   if (userId === undefined) {
     return next();
   }
 
-  Promise.all([
-    (user = await userDbRef.getItemById(userId)),
-    (submited = await registeredCombinationsDbRef.getItemByFilter({
+  let [user, submited] = await Promise.all([
+    userDbRef.getItemById(userId),
+    registeredCombinationsDbRef.getItemByFilter({
       userId: userId
-    }))
+    })
   ]);
 
   if (user) {
