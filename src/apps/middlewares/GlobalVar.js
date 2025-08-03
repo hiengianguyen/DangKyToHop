@@ -7,6 +7,10 @@ module.exports = async (req, res, next) => {
 
   let user, submited;
   const userId = req?.cookies?.userId;
+  if (userId === "") {
+    return next();
+  }
+
   Promise.all([
     (user = await userDbRef.getItemById(userId)),
     (submited = await registeredCombinationsDbRef.getItemByFilter({
