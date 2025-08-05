@@ -530,6 +530,46 @@ input {
   font-size: 20px;
 }
 
+.tab-container {
+  width: 600px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 18px;
+  border-bottom-right-radius: 10px;
+}
+
+.tabs {
+  display: flex;
+  padding: 0;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  background: #ffffff;
+  border: none;
+  color: #00aef1;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tab:last-child {
+  border-right: none;
+}
+
+.tab:hover {
+  background: #6ed8ff;
+  color: #fff;
+}
+
+.tab.active {
+  color: white;
+  background: #00aef1;
+  border-bottom: none;
+}
+
 @include laptop {
   #master {
     margin-left: 80px;

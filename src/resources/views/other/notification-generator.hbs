@@ -1,0 +1,127 @@
+<head>
+    <title>Đăng Ký Tổ Hợp | Tạo Thông Báo</title>
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/noti-generator.css">
+</head>
+
+<div id="master">
+    <div class="school-info">
+        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752812401/school_banner_second_new_un0i6r.png">
+        <div class="banner-container">
+            <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+            <div class="school-info-detail fs-5">
+                <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="box-radius px-0 pt-0 shadow">
+        <div class="tab-container mb-3">
+            <div class="tabs">
+                <button class="tab active" value="box-submit-1">Tạo thông báo nhanh</button>
+                <button class="tab" value="box-submit-2">Liên kết đường dẫn file</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="content" style="display: none;">
+                <h4 class="mb-3">Tạo thông báo</h4>
+                <div class="container-create-noti">
+                    <div class="box-submit-1">
+                        <form action="/notification/create-noti" class="create-noti-form" method="POST">
+                            <div class="form-group">
+                                <label for="signin-phone">Tiêu đề thông báo (*):</label>
+                                <input type="text" id="signin-phone" name="title" class="noti__input" rules="required|min:10|max:100" placeholder="Tiêu đề thông báo">
+                                <span class="form-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signin-password">Nội dung thông báo (*):</label>
+                                <textarea name="message" id="noti-message" rules="required|min:100" class="noti__input p-3" placeholder="Nội dung thông báo"></textarea>
+                                <span class="form-message"></span>
+                            </div>
+
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary form" type="submit">Xác nhận</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="box-submit-2" style="display: none;">
+                        <form action="/notification/create-noti" class="create-noti-form d-flex flex-column" method="POST">
+                            <div class="form-group">
+                                <label for="signin-phone">Đường dẫn file thông báo (*):</label>
+                                <div class="input-file-url d-flex align-items-center border border-black p-2">
+                                    <p class="mb-0 me-2">https://docs.google.com/document/d/e/</p>
+                                    <input type="text" id="signin-phone" name="fileUrl" class="noti__input" rules="required" placeholder="Đường dẫn file thông báo">
+                                </div>
+                                <span class="form-message"></span>
+                            </div>
+
+                            <a href="/notification/info" class="mb-2">Cách lấy đường dẫn của file trong google docs</a>
+
+                            <label for="">Xem trước:</label>
+                            <div class="file-import-review py-4 mb-4">
+                                <h5>File thông báo</h5>
+                                <iframe src=""></iframe>
+                            </div>
+
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary form" type="submit">Xác nhận</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="d-flex justify-content-center text-center">
+            <p class="footer-text mb-0">
+                © 2025 Trường THPT Duy Tân, Phường Quảng Phú, TP. Đà Nẵng.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="loading-full" class="position-fixed" style="display: flex;">
+    <div class="d-flex align-items-center flex-column">
+        <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang tải dữ liệu...</h2>
+        <div class="spinner-border mt-4" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<script src="/validationForm.js" onload="varidator('.create-noti-form')"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        document.getElementById('body-app').style.overflowY = 'auto';
+        document.getElementById('loading-full').style.display = 'none';
+        document.querySelector('.card-body .content').style.display = 'block';
+    });
+
+    const tabs = document.querySelectorAll(".tab-container .tab");
+    tabs.forEach((tab, index) => {
+        tab.onclick = () => {
+            const tabValue = tab.getAttribute("value");
+            if(tab.className.includes("active")) {
+                return
+            }
+            if(index) {
+                tabs[index-1].classList.remove("active");
+                document.querySelector(`.container-create-noti .box-submit-${index}`).style.display = "none"
+            } else {
+                document.querySelector(`.container-create-noti .box-submit-${index+2}`).style.display = "none"
+                tabs[index+1].classList.remove("active");
+            }
+            tab.classList.add("active");
+            document.querySelector(`.container-create-noti .${tabValue}`).style.display = "block"
+        }
+    })
+
+    const fileUrlInp = document.querySelector(".box-submit-2 input[name='fileUrl']");
+    const fileOutput = document.querySelector(".file-import-review iframe");
+    fileUrlInp.onchange = (e) => {
+        fileOutput.src = "https://docs.google.com/document/d/e/" + e.target.value + "?embedded=true";
+    }
+</script>

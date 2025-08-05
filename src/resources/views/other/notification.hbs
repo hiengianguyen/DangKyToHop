@@ -1,0 +1,49 @@
+<head>
+    <title>Đăng Ký Tổ Hợp | Liên Hệ</title>
+    <link rel="stylesheet" href="/css/school.css">
+    <link rel="stylesheet" href="/css/contact.css">
+</head>
+
+<div id="master">
+    <div class="school-info">
+        <img class="school-banner" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752812401/school_banner_second_new_un0i6r.png">
+        <div class="banner-container">
+            <img class="school-banner-second" src="https://res.cloudinary.com/dwoymvppw/image/upload/v1743963404/school_banner_first_ezzd1f.png">
+            <div class="school-info-detail fs-5">
+                <img src="https://i.postimg.cc/fyNszfCN/bannertrencung.gif" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="box-radius shadow">
+        <div class="card-body p-0">
+            <div class="content" style="display: none;">
+                <h4 class="mb-2 text-center">Thông báo</h4>
+                
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="d-flex justify-content-center text-center">
+            <p class="footer-text mb-0">
+                © 2025 Trường THPT Duy Tân, Phường Quảng Phú, TP. Đà Nẵng.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="loading-full" class="position-fixed" style="display: flex;">
+    <div class="d-flex align-items-center flex-column">
+        <h2 style="font-family: 'Lexend', sans-serif;color:#29a9ef;">Đang tải dữ liệu...</h2>
+        <div class="spinner-border mt-4" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('load', function () {
+        document.getElementById('body-app').style.overflowY = 'auto';
+        document.getElementById('loading-full').style.display = 'none';
+        document.querySelector('.card-body .content').style.display = 'block';
+    });
+</script>

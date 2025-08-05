@@ -6,11 +6,13 @@ const combinationRouter = require("./combinationRoute");
 const fileRouter = require("./fileRoute");
 const notfoundRouter = require("./notfoundRoute");
 const maintenanceRouter = require("./maintenanceRoute");
+const notiRouter = require("./notiRoute");
 
 function routes(app) {
   app.use(maintenanceRouter);
   app.use("/", homeRouter);
   app.use("/me", meRouter);
+  app.use("/notification", notiRouter);
   app.use("/auth", authRouter);
   app.use("/combination", combinationRouter);
   app.use("/school", schoolRouter);
