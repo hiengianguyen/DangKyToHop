@@ -40,13 +40,19 @@
                             </div>
 
                             <div class="d-flex justify-content-end">
-                                <button class="btn btn-primary form" type="submit">Xác nhận</button>
+                                <button class="btn btn-primary form" type="button">Xác nhận</button>
                             </div>
                         </form>
                     </div>
 
                     <div class="box-submit-2" style="display: none;">
-                        <form action="/notification/create-noti" class="create-noti-form d-flex flex-column" method="POST">
+                        <form action="/notification/create-noti" class="create-noti-form t d-flex flex-column" method="POST">
+                            <div class="form-group">
+                                <label for="title-noti">Tiêu đề thông báo (*):</label>
+                                <input type="text" id="title-noti" name="title" class="noti__input" rules="required|min:10|max:100" placeholder="Tiêu đề thông báo">
+                                <span class="form-message"></span>
+                            </div>
+
                             <div class="form-group">
                                 <label for="signin-phone">Đường dẫn file thông báo (*):</label>
                                 <div class="input-file-url d-flex align-items-center border border-black p-2">
@@ -65,7 +71,7 @@
                             </div>
 
                             <div class="d-flex justify-content-end">
-                                <button class="btn btn-primary form" type="submit">Xác nhận</button>
+                                <button class="btn btn-primary form" type="button">Xác nhận</button>
                             </div>
                         </form>
                     </div>
@@ -92,8 +98,12 @@
 </div>
 
 <script src="/validationForm.js" onload="varidator('.create-noti-form')"></script>
+<script src="/validationForm.js" onload="varidator('.create-noti-form.t')"></script>
 
-<script>
+<script type="module">
+    import { fetchAsync } from '/fetchAsync.js';
+    window.fetchAsync = fetchAsync;
+
     window.addEventListener('load', function () {
         document.getElementById('body-app').style.overflowY = 'auto';
         document.getElementById('loading-full').style.display = 'none';
@@ -124,4 +134,46 @@
     fileUrlInp.onchange = (e) => {
         fileOutput.src = "https://docs.google.com/document/d/e/" + e.target.value + "?embedded=true";
     }
+
+    const getForm = (element, selector) => {
+        while (element.parentElement) {
+        if (element.parentElement.matches(selector)) {
+            return element.parentElement;
+        }
+        element = element.parentElement;
+        }
+    }
+
+    const checkInput = (inputs) => {
+        let ok = true;
+        inputs.forEach(inp => {
+            console.log(inp.value)
+            if(inp.value === "") {
+                ok = false;
+                inp.parentElement.classList.add("invalid");
+            }
+        })
+
+        return ok;
+    }
+
+    const btnSubmits = document.querySelectorAll("form button.form");
+    btnSubmits.forEach(btn => {
+        btn.onclick = async () => {
+            const form = getForm(btn, ".create-noti-form");
+            const allInput = form.querySelectorAll(".noti__input")
+            if(!checkInput(allInput)) {
+                toastMessage("Thông báo", "Vui lòng nhập giá trị", "error", 6000, "❌", 1000);
+                return;
+            }
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            const result = await fetchAsync('/notification/create-noti', 'POST', data, null, true);
+            if(result.isSuccess) {
+                toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
+            } else {
+                toastMessage("Thông báo", result.message, "error", 6000, "❌", 1000);
+            }
+        }
+    })
 </script>
