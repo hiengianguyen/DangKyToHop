@@ -1,7 +1,7 @@
 <head>
-    <title>Đăng Ký Tổ Hợp | Liên Hệ</title>
+    <title>Đăng Ký Tổ Hợp | Danh Sách Thông Báo</title>
     <link rel="stylesheet" href="/css/school.css">
-    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/noti-generator.css">
 </head>
 
 <div id="master">
@@ -17,8 +17,28 @@
     <div class="box-radius shadow">
         <div class="card-body p-0">
             <div class="content" style="display: none;">
-                <h4 class="mb-2 text-center">Thông báo</h4>
-                
+                <h4 class="mb-2 text-center">Danh sách thông báo</h4>
+                <div class="container">
+                    {{#each notifications}}
+                        <div class="noti-box rounded-4">
+                            <h5 class="title pe-4">
+                                <a href="/notification/detail/{{this.id}}">{{this.title}}</a>
+                            </h5>
+
+                            <p class="timer mb-0">
+                                Tạo lúc: {{this.publishAt}}
+                            </p>
+
+                            <div class="list-icon">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" class="svg-inline--fa fa-ellipsis " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"></path></svg>
+                                <ul class="opt-noti shadow hidden">
+                                    <li>Chỉnh sửa</li>
+                                    <li>Xoá</li>
+                                </ul>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
             </div>
         </div>
     </div>
@@ -46,4 +66,13 @@
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body .content').style.display = 'block';
     });
+
+    const iconOthers = document.querySelectorAll(".list-icon svg");
+    const listOption = document.querySelectorAll(".list-icon .opt-noti");
+
+    iconOthers.forEach((icon, index) => {
+        icon.onclick = () => {
+            listOption[index].classList.toggle("hidden");
+        }
+    })
 </script>

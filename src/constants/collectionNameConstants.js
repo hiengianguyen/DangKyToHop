@@ -9,7 +9,8 @@ const CollectionNameConstant = {
   Nations: "nations",
   RegisteredCombinations: "registeredCombinations",
   FavouriteSubmitted: "favouriteSubmitted",
-  ImageActivity: "imageActivity"
+  ImageActivity: "imageActivity",
+  Notification: "notification"
 };
 
 module.exports = CollectionNameConstant;

@@ -37,3 +37,77 @@
 .content-info .box-content {
   margin-bottom: 20px;
 }
+
+.invalid .noti__input {
+  border-color: red;
+}
+
+.noti-box {
+  position: relative;
+  padding: 20px;
+  border: 2px solid #e8e8e8;
+  margin: 20px 0;
+}
+
+.noti-box .title a {
+  color: #000;
+  display: block;
+  width: 100%;
+}
+
+.noti-box .title:hover a {
+  text-decoration: none;
+}
+
+.list-icon {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.list-icon svg {
+  height: 20px;
+}
+
+.list-icon svg:hover,
+.list-icon i:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.opt-noti {
+  padding: 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-radius: 10px;
+  min-width: 200px;
+  z-index: 9999;
+  position: absolute;
+  inset: auto 0px -12px auto;
+  transform: translate(-25px, 42px);
+  margin: 0px;
+}
+
+.opt-noti.hidden {
+  display: none;
+}
+
+.opt-noti li {
+  padding: 10px 15px;
+  font-size: 12px;
+}
+
+.opt-noti li:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.opt-noti li:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.opt-noti li:hover {
+  cursor: pointer;
+  background-color: #ededed;
+}
