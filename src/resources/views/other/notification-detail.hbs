@@ -1,7 +1,7 @@
 <head>
     <title>Đăng Ký Tổ Hợp | Liên Hệ</title>
     <link rel="stylesheet" href="/css/school.css">
-    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/noti-generator.css">
 </head>
 
 <div id="master">
@@ -18,7 +18,19 @@
         <div class="card-body p-0">
             <div class="content" style="display: none;">
                 <h4 class="mb-2 text-center">Thông báo</h4>
-                
+                <div class="container mt-4">
+                    <h3 class="text-center">{{notification.title}}</h3>
+                    {{#if (eq notification.type "text")}}
+                        <p style="text-align: justify;">{{notification.message}}</p>
+                        <div class="timer d-flex justify-content-end">
+                            <p>Thông báo lúc: {{notification.publishAt}}</p>
+                        </div>
+                    {{else}}
+                        <div class="file-container mt-3 d-flex justify-content-center shadow p-4">
+                            <iframe src="https://docs.google.com/document/d/e/{{notification.fileUrl}}?embedded=true"></iframe>
+                        </div>
+                    {{/if}}
+                </div>
             </div>
         </div>
     </div>

@@ -36,7 +36,12 @@ class NotificationController {
 
   async notiDetail(req, res, next) {
     if (req?.cookies?.isLogin === "true") {
-      return res.render("other/notification-detail");
+      const notiId = req?.params?.id;
+      const notification = await this.notiDBRef.getItemById(notiId);
+
+      return res.render("other/notification-detail", {
+        notification: notification
+      });
     } else {
       return res.redirect("/");
     }

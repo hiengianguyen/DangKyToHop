@@ -15,6 +15,11 @@
   height: 89%;
 }
 
+#master,
+#all-content {
+  min-height: 100vh;
+}
+
 #master {
   background-color: #29a9ef;
   padding: 10px;
