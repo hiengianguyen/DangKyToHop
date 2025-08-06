@@ -46,6 +46,9 @@
 .noti-box .title:hover a {
   text-decoration: none; }
 
+.noti-box .timer {
+  color: #126291; }
+
 .list-icon {
   position: absolute;
   right: 20px;
@@ -97,3 +100,10 @@
   background-color: #ffffff;
   width: 52pc;
   min-height: 80vh; }
+
+.img-box-not-noti img {
+  height: 16pc; }
+
+.container-noti {
+  max-height: 30pc;
+  overflow-y: scroll; }
