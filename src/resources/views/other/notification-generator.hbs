@@ -29,7 +29,7 @@
                         <form action="/notification/create-noti" class="create-noti-form" method="POST">
                             <div class="form-group">
                                 <label for="signin-phone">Tiêu đề thông báo (*):</label>
-                                <input type="text" id="signin-phone" name="title" class="noti__input" rules="required|min:10|max:100" placeholder="Tiêu đề thông báo">
+                                <input type="text" id="signin-phone" name="title" class="noti__input" rules="required|min:10|max:130" placeholder="Tiêu đề thông báo">
                                 <span class="form-message"></span>
                             </div>
 
@@ -49,7 +49,7 @@
                         <form action="/notification/create-noti" class="create-noti-form t d-flex flex-column" method="POST">
                             <div class="form-group">
                                 <label for="title-noti">Tiêu đề thông báo (*):</label>
-                                <input type="text" id="title-noti" name="title" class="noti__input" rules="required|min:10|max:100" placeholder="Tiêu đề thông báo">
+                                <input type="text" id="title-noti" name="title" class="noti__input" rules="required|min:10|max:130" placeholder="Tiêu đề thông báo">
                                 <span class="form-message"></span>
                             </div>
 
@@ -147,7 +147,6 @@
     const checkInput = (inputs) => {
         let ok = true;
         inputs.forEach(inp => {
-            console.log(inp.value)
             if(inp.value === "") {
                 ok = false;
                 inp.parentElement.classList.add("invalid");
@@ -174,6 +173,11 @@
             } else {
                 toastMessage("Thông báo", result.message, "error", 6000, "❌", 1000);
             }
+
+            setTimeout(() => {
+                const currUrl = window.location.origin;
+                window.location.href = currUrl + "/notification";
+            }, 3000)
         }
     })
 </script>

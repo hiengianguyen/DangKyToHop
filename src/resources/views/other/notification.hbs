@@ -2,6 +2,20 @@
     <title>Đăng Ký Tổ Hợp | Danh Sách Thông Báo</title>
     <link rel="stylesheet" href="/css/school.css">
     <link rel="stylesheet" href="/css/noti-generator.css">
+    <script>
+        const deleteNoti = async (id) => {
+            const notiId = id;
+            const result = await fetchAsync(`/notification/delete/m/${notiId}`, 'GET');
+            if(result.isSuccess) {
+                toastMessage("Thông báo", result.message, "success", 6000, "✅", 1000);
+            } else {
+                toastMessage("Thông báo", result.message, "error", 6000, "❌", 1000);
+            }
+            setTimeout(() => {
+                location.reload();
+            }, 3000)
+        }
+    </script>
 </head>
 
 <div id="master">
@@ -40,8 +54,8 @@
                             <div class="list-icon">
                                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" class="svg-inline--fa fa-ellipsis " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"></path></svg>
                                 <ul class="opt-noti shadow hidden">
-                                    <li>Chỉnh sửa</li>
-                                    <li>Xoá</li>
+                                    <a href="/notification/edit/{{this.id}}"><li>Chỉnh sửa</li></a>
+                                    <li onclick="deleteNoti('{{this.id}}')">Xoá</li>
                                 </ul>
                             </div>
                         </div>
@@ -75,12 +89,35 @@
     </div>
 </div>
 
-<script>
+<script type="module">
+    import { fetchAsync } from '/fetchAsync.js';
+    window.fetchAsync = fetchAsync;
+
     window.addEventListener('load', function () {
         document.getElementById('body-app').style.overflowY = 'auto';
         document.getElementById('loading-full').style.display = 'none';
         document.querySelector('.card-body .content').style.display = 'block';
     });
+
+    const litSidebars = Array.from(document.querySelectorAll('#sidebar .box'));
+    litSidebars.pop();
+
+    litSidebars.forEach((li) => {
+        if(li.getAttribute('value') === 'Danh sách thông báo') {
+            li.parentElement.classList.add('active');
+        } 
+        else {
+            li.parentElement.classList.remove('active');
+        }
+        li.parentElement.onclick = () => {
+            li.parentElement.classList.add('active');
+            litSidebars.forEach((liCheckClassActive) => {
+                if(liCheckClassActive !== li) {
+                    liCheckClassActive.parentElement.classList.remove('active');
+                }
+            })
+        }
+    })
 
     const iconOthers = document.querySelectorAll(".list-icon svg");
     const listOption = document.querySelectorAll(".list-icon .opt-noti");
