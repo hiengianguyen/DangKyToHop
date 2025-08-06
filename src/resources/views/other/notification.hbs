@@ -17,8 +17,16 @@
     <div class="box-radius shadow">
         <div class="card-body p-0">
             <div class="content" style="display: none;">
-                <h4 class="mb-2 text-center">Danh sách thông báo</h4>
-                <div class="container">
+                <div class="text-center">
+                    <h4 class="mb-2 text-center">Danh sách thông báo</h4>
+                    <p style="font-size: 14px; color: #666;">
+                        Đây là những thông báo được gửi đến tất cả học sinh để cập nhật thông tin quan trọng về tuyển sinh và các hoạt động học tập.
+                    </p>
+                </div>
+                <div class="d-flex justify-content-end container mb-2">
+                    <a href="/notification/generator"><i class="fa-solid fa-plus me-1"></i>Tạo thông báo mới</a>
+                </div>
+                <div class="container container-noti">
                     {{#each notifications}}
                         <div class="noti-box rounded-4">
                             <h5 class="title pe-4">
@@ -35,6 +43,13 @@
                                     <li>Chỉnh sửa</li>
                                     <li>Xoá</li>
                                 </ul>
+                            </div>
+                        </div>
+                    {{else}}
+                        <div class="img-box-not-noti mt-4 d-flex align-items-center flex-column">
+                            <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752162309/error_xpgplu.png" alt="not data">
+                            <div class="text-center">
+                                <h6>Chưa có thông báo</h6>
                             </div>
                         </div>
                     {{/each}}
