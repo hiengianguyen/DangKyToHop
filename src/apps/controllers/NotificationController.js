@@ -54,6 +54,7 @@ class NotificationController {
       const userId = req?.params?.id;
       const userNotiId = req?.query?.notiId;
       await this.userNotificationDbRef.hardDeleteItem(userNotiId);
+      res.locals.quantityNoti = res.locals.quantityNoti - 1;
       return res.redirect(`/combination/submited-detail/${userId}`);
     } else {
       return res.redirect("/");
