@@ -6,7 +6,8 @@ const {
   RegisteredCombinationModel,
   UserModel,
   SecondarySchoolModel,
-  FavouriteSubmittedModel
+  FavouriteSubmittedModel,
+  UserNotificationModel
 } = require("../models");
 const { CollectionNameConstant } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
@@ -22,6 +23,7 @@ class CombinationController {
     this.registeredCombinationsDbRef = new FirestoreModel(CollectionNameConstant.RegisteredCombinations, RegisteredCombinationModel);
     this.combinationDbRef = new FirestoreModel(CollectionNameConstant.Combinations, CombinationModel);
     this.favouriteSubmittedDbRef = new FirestoreModel(CollectionNameConstant.FavouriteSubmitted, FavouriteSubmittedModel);
+    this.userNotificationDbRef = new FirestoreModel(CollectionNameConstant.UserNotification, UserNotificationModel);
     this.submited = this.submited.bind(this);
     this.submitedList = this.submitedList.bind(this);
     this.submitedDetail = this.submitedDetail.bind(this);
@@ -435,10 +437,20 @@ class CombinationController {
     const docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
       userId: userId
     });
+    const userNotificationModel = new UserNotificationModel(
+      null, //id
+      userId,
+      "omtURp0ycFYGKXDx5Mgm",
+      null //isDeleted
+    );
     const submittedId = docSubmited.id;
-    await this.registeredCombinationsDbRef.updateItem(submittedId, {
-      status: "approved"
-    });
+
+    await Promise.all([
+      this.registeredCombinationsDbRef.updateItem(submittedId, {
+        status: "approved"
+      }),
+      this.userNotificationDbRef.addItem(userNotificationModel)
+    ]);
 
     return res.json({
       isSuccess: true,
@@ -453,10 +465,19 @@ class CombinationController {
     const docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
       userId: userId
     });
+    const userNotificationModel = new UserNotificationModel(
+      null, //id
+      userId,
+      "6iVi02UXYo1Ad5uIYftv",
+      null //isDeleted
+    );
     const submittedId = docSubmited.id;
-    await this.registeredCombinationsDbRef.updateItem(submittedId, {
-      status: "rejected"
-    });
+    await Promise.all([
+      this.registeredCombinationsDbRef.updateItem(submittedId, {
+        status: "rejected"
+      }),
+      this.userNotificationDbRef.addItem(userNotificationModel)
+    ]);
 
     return res.json({
       isSuccess: true,

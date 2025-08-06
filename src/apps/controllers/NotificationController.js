@@ -1,13 +1,15 @@
-const { FirestoreModel, NotificationModel } = require("../models");
+const { FirestoreModel, NotificationModel, UserNotificationModel } = require("../models");
 const { CollectionNameConstant } = require("../../constants");
 const { convertToVietnameseDateTime } = require("../../utils/convertToVietnameseDateTime");
 
 class NotificationController {
   constructor() {
     this.notiDBRef = new FirestoreModel(CollectionNameConstant.Notification, NotificationModel);
+    this.userNotificationDbRef = new FirestoreModel(CollectionNameConstant.UserNotification, UserNotificationModel);
     this.index = this.index.bind(this);
     this.notiGenerator = this.notiGenerator.bind(this);
     this.notiDetail = this.notiDetail.bind(this);
+    this.notiDelete = this.notiDelete.bind(this);
     this.createNoti = this.createNoti.bind(this);
   }
 
@@ -42,6 +44,17 @@ class NotificationController {
       return res.render("other/notification-detail", {
         notification: notification
       });
+    } else {
+      return res.redirect("/");
+    }
+  }
+
+  async notiDelete(req, res, next) {
+    if (req?.cookies?.isLogin === "true") {
+      const userId = req?.params?.id;
+      const userNotiId = req?.query?.notiId;
+      await this.userNotificationDbRef.hardDeleteItem(userNotiId);
+      return res.redirect(`/combination/submited-detail/${userId}`);
     } else {
       return res.redirect("/");
     }

@@ -7,5 +7,6 @@ router.get("/generator", NotificationController.notiGenerator);
 router.get("/info", NotificationController.info);
 router.post("/create-noti", NotificationController.createNoti);
 router.get("/detail/:id", NotificationController.notiDetail);
+router.get("/delete/:id", NotificationController.notiDelete);
 
 module.exports = router;

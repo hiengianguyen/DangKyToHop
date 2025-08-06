@@ -9,6 +9,7 @@ const RegisteredCombinationModel = require("../models/RegisteredCombinationModel
 const FavouriteSubmittedModel = require("../models/FavouriteSubmittedModel");
 const ImageActivityModel = require("./ImageActivityModel");
 const NotificationModel = require("./NotificationModel");
+const UserNotificationModel = require("./UserNotificationModel");
 
 module.exports = {
   FirestoreModel,
@@ -21,5 +22,6 @@ module.exports = {
   RegisteredCombinationModel,
   FavouriteSubmittedModel,
   ImageActivityModel,
-  NotificationModel
+  NotificationModel,
+  UserNotificationModel
 };
