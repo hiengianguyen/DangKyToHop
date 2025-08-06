@@ -95,10 +95,12 @@
                         <i id="icon-bell-noti" class="fa-solid fa-bell"></i>
                         <p class="text m-0">Thông báo</p>
                     </li>
-                    <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {{#if notificationIsApprove}}
+                      <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         1
                         <span class="visually-hidden">unread messages</span>
                       </span>
+                    {{/if}}
                   </button>
                 {{else}}
                   <a href="/combination/submited-list" title="Danh sách đăng ký" class="p-0">
@@ -174,8 +176,8 @@
                 <button type="button" class="btn-close" aria-label="Close"></button>
               </div>
               <div class="notifi-body pt-3">
-                {{#if (eq submited.status "approved")}}
-                  <a href="/combination/submited-detail/{{userId}}">
+                {{#if notificationIsApprove}}
+                  <a href="/notification/delete/{{userId}}?notiId={{userNotiId}}">
                     <div class="content position-relative">
                       <div class="img-logo-box">
                         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png">
@@ -184,9 +186,9 @@
                         <p class="mb-2 fw-bold title">
                           Thông báo hồ sơ tuyển sinh!
                         </p>
-                        <p class="mb-2">Hồ sơ của bạn đã được phê duyệt.</p>
+                        <p class="mb-2">{{notificationIsApprove.title}}</p>
                         <div class="card-footer-notifi d-flex align-items-center">
-                          <p class="m-0"> 12:30 - 23/07/2025</p>
+                          <p class="m-0">{{notificationIsApprove.publishAt}}</p>
                         </div>
                       </div>
                       <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
@@ -206,8 +208,8 @@
                   <button type="button" class="btn-close" aria-label="Close"></button>
                 </div>
                 <div class="notifi-body pt-3">
-                {{#if (eq submited.status "approved")}}
-                  <a href="/combination/submited-detail/{{userId}}">
+                {{#if notificationIsApprove}}
+                  <a href="/notification/delete/{{userId}}?notiId={{userNotiId}}">
                     <div class="content position-relative">
                       <div class="img-logo-box">
                         <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png">
@@ -216,9 +218,9 @@
                         <p class="mb-2 fw-bold title">
                           Thông báo hồ sơ tuyển sinh!
                         </p>
-                        <p class="mb-2">Hồ sơ của bạn đã được phê duyệt.</p>
+                        <p class="mb-2">{{notificationIsApprove.title}}</p>
                         <div class="card-footer-notifi d-flex align-items-center">
-                          <p class="m-0"> 12:30 - 23/07/2025</p>
+                          <p class="m-0">{{notificationIsApprove.publishAt}}</p>
                         </div>
                       </div>
                       <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
@@ -253,10 +255,12 @@
             {{#if (eq role 'student')}}
               <div id="btn-notifi" class="nav-bar-icon nav d-flex justify-content-center align-items-center">
                 <i id="icon-bell-noti-nav" class="fa-solid fa-bell position-relative">
-                  <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">
-                    1
-                    <span class="visually-hidden">unread messages</span>
-                  </span>
+                  {{#if notificationIsApprove}}
+                    <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">
+                      1
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                  {{/if}}
                 </i>
               </div>
             {{/if}}
@@ -350,20 +354,15 @@
     }
 
     if(btnNotificationSidebar) {
-      btnNotificationSidebar.onclick = () => {
+      btnNotificationSidebar.onmousemove = () => {
         const quantityNotifi = btnNotificationSidebar.querySelector("#quantity-notifi");
         if(quantityNotifi) {
           quantityNotifi.remove();
         }
         iconBell.innerHTML = '';
-        popupNotifi.classList.toggle("hidden");
-        if(popupNotifi.className.includes("hidden")) {
-          btnCloseNotifi.style.display = "none";
-          popupNotifi.style.display = "none";
-        } else {
-          btnCloseNotifi.style.display = "block";
-          popupNotifi.style.display = "block";
-        }
+        popupNotifi.classList.remove("hidden");
+        btnCloseNotifi.style.display = "block";
+        popupNotifi.style.display = "block";
       }
     }
 

@@ -10,7 +10,8 @@ const CollectionNameConstant = {
   RegisteredCombinations: "registeredCombinations",
   FavouriteSubmitted: "favouriteSubmitted",
   ImageActivity: "imageActivity",
-  Notification: "notification"
+  Notification: "notification",
+  UserNotification: "userNotification"
 };
 
 module.exports = CollectionNameConstant;
