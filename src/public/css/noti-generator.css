@@ -81,13 +81,18 @@
   padding: 10px 15px;
   font-size: 12px; }
 
-.opt-noti li:first-child {
+.opt-noti > a > li {
+  color: #000;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px; }
 
-.opt-noti li:last-child {
+.opt-noti > li {
+  color: #000;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px; }
+
+.opt-noti > a:hover {
+  text-decoration: none; }
 
 .opt-noti li:hover {
   cursor: pointer;
