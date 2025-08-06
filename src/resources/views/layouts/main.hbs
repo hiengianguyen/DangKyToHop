@@ -95,9 +95,9 @@
                         <i id="icon-bell-noti" class="fa-solid fa-bell"></i>
                         <p class="text m-0">Thông báo</p>
                     </li>
-                    {{#if notificationIsApprove}}
+                    {{#if quantityNoti}}
                       <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        1
+                        {{quantityNoti}}
                         <span class="visually-hidden">unread messages</span>
                       </span>
                     {{/if}}
@@ -188,7 +188,7 @@
                         </p>
                         <p class="mb-2">{{notificationIsApprove.title}}</p>
                         <div class="card-footer-notifi d-flex align-items-center">
-                          <p class="m-0">{{notificationIsApprove.publishAt}}</p>
+                          <p class="m-0">{{notiTime}}</p>
                         </div>
                       </div>
                       <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
@@ -197,6 +197,28 @@
                     </div>
                   </a>
                 {{/if}}
+
+                {{#each otherNotifications}}
+                  <a href="/notification/detail/{{this.id}}">
+                    <div class="content position-relative">
+                      <div class="img-logo-box">
+                        <img src="https://res.cloudinary.com/dwoymvppw/image/upload/v1752651864/cropped_circle_image_kfiyjk.png">
+                      </div>
+                      <div class="note">
+                        <p class="mb-2 fw-bold title">
+                          Thông báo từ nhà trường!
+                        </p>
+                        <p class="mb-2">{{this.title}}</p>
+                        <div class="card-footer-notifi d-flex align-items-center">
+                          <p class="m-0">{{this.publishAt}}</p>
+                        </div>
+                      </div>
+                      <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                      </span>
+                    </div>
+                  </a>
+                {{/each}}
               </div>
             </div>
           </div>
@@ -220,7 +242,7 @@
                         </p>
                         <p class="mb-2">{{notificationIsApprove.title}}</p>
                         <div class="card-footer-notifi d-flex align-items-center">
-                          <p class="m-0">{{notificationIsApprove.publishAt}}</p>
+                          <p class="m-0">{{notiTime}}</p>
                         </div>
                       </div>
                       <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
@@ -255,9 +277,9 @@
             {{#if (eq role 'student')}}
               <div id="btn-notifi" class="nav-bar-icon nav d-flex justify-content-center align-items-center">
                 <i id="icon-bell-noti-nav" class="fa-solid fa-bell position-relative">
-                  {{#if notificationIsApprove}}
+                  {{#if quantityNoti}}
                     <span id="quantity-notifi" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">
-                      1
+                      {{quantityNoti}}
                       <span class="visually-hidden">unread messages</span>
                     </span>
                   {{/if}}

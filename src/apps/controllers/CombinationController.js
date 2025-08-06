@@ -434,6 +434,7 @@ class CombinationController {
 
   async submitedApprove(req, res, next) {
     const userId = req.body.userId;
+    const currTime = new Date();
     const docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
       userId: userId
     });
@@ -441,6 +442,7 @@ class CombinationController {
       null, //id
       userId,
       "omtURp0ycFYGKXDx5Mgm",
+      convertToVietnameseDateTime(currTime),
       null //isDeleted
     );
     const submittedId = docSubmited.id;
@@ -462,6 +464,7 @@ class CombinationController {
 
   async submitedReject(req, res, next) {
     const userId = req.body.userId;
+    const currTime = new Date();
     const docSubmited = await this.registeredCombinationsDbRef.getItemByFilter({
       userId: userId
     });
@@ -469,6 +472,7 @@ class CombinationController {
       null, //id
       userId,
       "6iVi02UXYo1Ad5uIYftv",
+      convertToVietnameseDateTime(currTime),
       null //isDeleted
     );
     const submittedId = docSubmited.id;
