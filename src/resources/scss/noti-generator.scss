@@ -140,3 +140,90 @@
   max-height: 30pc;
   overflow-y: scroll;
 }
+
+@include respond(phone-sm) {
+  .box-radius {
+    margin: 0;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  .content > .container,
+  .container-noti {
+    padding: 0;
+  }
+
+  .content > .text-center > p {
+    text-align: justify;
+  }
+
+  .content h3 {
+    font-size: 20px;
+  }
+
+  .doc-content {
+    background-color: #ffffff;
+    width: 31pc;
+    padding: 2pc 3pc;
+  }
+
+  .tab-container {
+    width: 100%;
+    font-size: 13px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 0;
+  }
+
+  .tab-container button {
+    font-size: 12px;
+  }
+
+  .input-file-url {
+    flex-direction: column;
+    gap: 13px;
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .file-import-review iframe {
+    width: 100%;
+  }
+
+  .content-info .box-content > .d-flex {
+    width: 100%;
+  }
+
+  .content-info .box-content .main-text {
+    text-align: justify;
+  }
+
+  .content-info img {
+    width: 100%;
+    height: auto;
+  }
+
+  .content-info .bc-1 img {
+    width: 9pc;
+    height: auto;
+  }
+
+  .content-info .bc-3 img {
+    height: 9pc !important;
+  }
+
+  .content-info .bc-4 .id-docs {
+    font-size: 12px;
+  }
+
+  .content-info .bc-4 img {
+    height: 9pc !important;
+  }
+
+  .content-info .bc-5 img {
+    height: 5pc !important;
+  }
+}
