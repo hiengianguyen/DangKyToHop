@@ -26,6 +26,7 @@
                             <p>Thông báo lúc: {{notification.publishAt}}</p>
                         </div>
                     {{else}}
+                        <a href="https://docs.google.com/document/d/e/{{notification.fileUrl}}?embedded=true" target="_blank">Đường dẫn file chi tiết</a>
                         <div class="file-container mt-3 d-flex justify-content-center shadow p-4">
                             <iframe src="https://docs.google.com/document/d/e/{{notification.fileUrl}}?embedded=true"></iframe>
                         </div>
