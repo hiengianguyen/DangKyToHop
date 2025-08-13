@@ -234,7 +234,9 @@
                 </div>
 
                 <div class="infor-quantity mb-3">
-                    <p>Hiện tại đang có {{quantity}} học sinh đã đăng ký</p>
+                    {{#if (not isSavedPage)}}
+                        <p>Hiện tại đang có {{quantity}} học sinh đã đăng ký</p>
+                    {{/if}}
                 </div>
                 
                 <div class="sort-box sort-box-rep" style="display:none;">
