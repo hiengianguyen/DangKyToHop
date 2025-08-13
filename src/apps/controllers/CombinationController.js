@@ -199,6 +199,10 @@ class CombinationController {
         this.combinationDbRef.getAllItems()
       ]);
 
+      if (step !== 1 && docSubmited.status === "approved") {
+        return res.redirect("back");
+      }
+
       //sort by name (asc)
       nations.sort((a, b) => (a.name > b.name ? 1 : -1));
       combinations.sort((a, b) => (a.name > b.name ? 1 : -1));

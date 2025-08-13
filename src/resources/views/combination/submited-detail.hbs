@@ -315,13 +315,13 @@
                     </div>
                     <div class="row btn-feature justify-content-center gap-3 mt-4 mx-auto">
                         {{#if (eq role 'student')}}
-                            <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center col" {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}>Chỉnh sửa</a>
-                            <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center col" {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}>Xoá hồ sơ</button>
+                            <a href="/combination/submit-combination?step=2" class="btn btn-secondary d-flex justify-content-center align-items-center col {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}">Chỉnh sửa</a>
+                            <button type="button" id="btn-modal-delete" class="btn btn-danger d-flex justify-content-center align-items-center col {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}">Xoá hồ sơ</button>
                             <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank">Hồ sơ PDF</a>
                         {{else}}
                             <a href="/file/pdf/submited/{{submitedCombinationDetail.userId}}" class="btn btn-info d-flex justify-content-center align-items-center col" target="_blank">Hồ sơ PDF</a>
-                            <button id="btn-reject-document" href="/combination/submited-reject/{{submitedCombinationDetail.userId}}" class="btn btn-danger d-flex justify-content-center align-items-center col" {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}>Không phê duyệt</button>
-                            <button id="btn-approve-document" href="/combination/submited-approve/{{submitedCombinationDetail.userId}}" class="btn btn-primary d-flex justify-content-center align-items-center col" {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}>Phê duyệt</button>
+                            <button id="btn-reject-document" href="/combination/submited-reject/{{submitedCombinationDetail.userId}}" class="btn btn-danger d-flex justify-content-center align-items-center col {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}">Không phê duyệt</button>
+                            <button id="btn-approve-document" href="/combination/submited-approve/{{submitedCombinationDetail.userId}}" class="btn btn-primary d-flex justify-content-center align-items-center col {{#if (eq submitedCombinationDetail.status "approved")}}disabled{{/if}}">Phê duyệt</button>
                         {{/if}}
                     </div>
                 </div>
@@ -450,6 +450,10 @@
             btnApproveDocument.disabled = true;
             btnRejectDocument.disabled = true;
         }
+
+        if(btnApproveDocument.className.includes('disabled') || btnRejectDocument.className.includes('disabled')) {
+            btnApproveDocument.onclick = btnRejectDocument.onclick = () => {}
+        }
     </script>
 {{else}}
     <script>
@@ -466,6 +470,10 @@
             modalDeleteSubmited.style.display = 'flex';
             glass.style.display = 'block';
             glass.classList.add('active');
+        }
+
+        if(btnShowModalDelete.className.includes('disabled')) {
+            btnShowModalDelete.onclick = () => {};
         }
 
         btnCancel.onclick = btnClose.onclick = () => {
